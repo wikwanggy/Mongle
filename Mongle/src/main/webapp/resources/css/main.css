@@ -1,0 +1,66 @@
+@charset "UTF-8";
+* {
+	margin: 0; /* 마진값 초기화 */
+	padding: 0; /* 패딩값 초기화*/
+	box-sizing: border-box; /* 박스 영역은 테투리까지 지정*/
+}
+#container{
+	width:1200px;
+	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
+	background-color: black;
+}
+header {
+	width: 100%; /* 너비 */
+	height: 130px; /* 높이 */
+	background-color: red;
+}
+main{
+	
+}
+ul {
+	list-style: none;
+}
+#topmenu {
+	height: 60px;
+}
+#topmenu>li {
+	float: right; /* 메뉴 항목을 왼쪽으로 플로팅 */
+	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+}
+#topmenu>li>a {
+	color: #fff; /* 폰트 색상 */
+	font-weight: 300; /* 폰트 굵기 */
+	text-shadow: 0 1px #87c; /* 그림자 추가 */
+	padding: 20px 20px; /* 패딩 지정 */
+}
+nav{
+	background-color: gray;
+	position:relative;
+	top:30px;
+	
+}
+#menu{
+	height:40px;
+	padding: 0px 0px 10px 0px;
+}
+#menu>li {
+	float: left; /* 메뉴 항목을 왼쪽으로 플로팅 */
+	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+}
+#menu>li>a {
+	color: #fff; /* 폰트 색상 */
+	font-weight: 300; /* 폰트 굵기 */
+	text-shadow: 0 1px #87c; /* 그림자 추가 */
+	padding: 0px 0px 0px 20px; /* 패딩 지정 */
+	font-size: 25px;
+}
+main{
+	height: 800px;
+	width: 100%; 
+	background-color: blue;
+}
+footer{
+	width: 100%; /* 너비 */
+	height: 130px; /* 높이 */
+	background-color: yellow;
+}

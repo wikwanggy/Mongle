@@ -22,7 +22,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="org.Mongle.controller" />
-	<context:component-scan base-package="org.wi.MongleController" />
+
 	
 	
 	
