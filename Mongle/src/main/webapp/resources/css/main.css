@@ -7,21 +7,17 @@
 #container{
 	width:1200px;
 	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
-	background-color: black;
 }
 header {
 	width: 100%; /* 너비 */
 	height: 130px; /* 높이 */
 	background-color: red;
 }
-main{
-	
-}
 ul {
 	list-style: none;
 }
 #topmenu {
-	height: 60px;
+	height: 50px;
 }
 #topmenu>li {
 	float: right; /* 메뉴 항목을 왼쪽으로 플로팅 */
@@ -36,7 +32,7 @@ ul {
 nav{
 	background-color: gray;
 	position:relative;
-	top:30px;
+	top:19px;
 	
 }
 #menu{
@@ -55,9 +51,26 @@ nav{
 	font-size: 25px;
 }
 main{
-	height: 800px;
+	height: 700px;
 	width: 100%; 
-	background-color: blue;
+	display: flex;
+}
+#ls{
+	width: 150px;
+	height: 700px;
+	float: left;
+	background-color: orange;
+}
+#cn{
+	width: 900px;
+	height: 700px;
+	background-color: black;
+}
+#rs{
+	width: 150px;
+	height: 700px;
+	float: right;
+	background-color: pink;
 }
 footer{
 	width: 100%; /* 너비 */

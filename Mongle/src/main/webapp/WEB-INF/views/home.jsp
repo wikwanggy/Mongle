@@ -12,7 +12,7 @@
 	<div id="container">
 		<div id="hd">
 			<header>
-				<div id="logo"></div>
+				<div id="logo">로고 자리입니다.</div>
 				<div id="tm">
 					<ul id="topmenu">
 						<li><a href="#">회원가입</a></li>
@@ -20,7 +20,6 @@
 						<li><a href="#">MyPage</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul> 
-					
 				</div>
 				<div>
 					<nav>
@@ -37,9 +36,9 @@
 		</div>
 		<div>
 			<main>
-				<div id="leftside"></div>
-				<div id="main"></div>
-				<div id="rightside"></div>
+				<div id="ls"></div>
+				<div id="cn">123</div>
+				<div id="rs">123</div>
 			</main>
 		</div>	
 		<div >
