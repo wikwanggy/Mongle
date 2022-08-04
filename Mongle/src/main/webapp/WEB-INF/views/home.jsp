@@ -14,7 +14,7 @@
 		<div id="hd">
 			<header>
 				<div id="tm">
-					<div id="logo">로고 자리입니다.</div>
+					<div id="logo"><a href="#"><img alt="logo" src="resources/css/mainimg/logo.png" id="logoimg"></a></div>
 					<ul id="topmenu">
 						<li><a href="#">회원가입</a></li>
 						<li><a href="#">로그인</a></li>
@@ -37,13 +37,19 @@
 		</div>
 		<div>
 			<main>
-			<div id="ls"></div>
+			<div id="ls">
+				<ul id="eventbn">
+					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/EVT1.PNG" class="event"  id="ev1"></a></li>
+					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/EVN2.PNG" class="event"  id="ev2"></a></li>
+					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/EVEN3.PNG" class="event"  id="ev3"></a></li>
+				</ul>
+			</div>
 			<div id="cn">
 				<div id="slideShow">
 					<div id="slides">
-						<img src="resources/css/mainimg/slides3.png" alt="슬라이더 1"> 
+						<img src="resources/css/mainimg/slides4.PNG" alt="슬라이더 2"> 
 						<img src="resources/css/mainimg/slides2.png" alt="슬라이더 2"> 
-						<img src="resources/css/mainimg/slides1.png" alt="슬라이더 2">
+						<img src="resources/css/mainimg/slides3.png" alt="슬라이더 2">
 						<button id="prev">&lang;</button>
 						<button id="next">&rang;</button>
 					</div>

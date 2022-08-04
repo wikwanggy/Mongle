@@ -18,6 +18,7 @@
 header {
 	width: 100%; /* 너비 */
 	height: 130px; /* 높이 */
+	background-color: rgba(255, 235, 98);
 }
 #tm{
 	display: flex;
@@ -25,6 +26,10 @@ header {
 }
 #logo{
 	width:960px;
+	text-align: center;
+}
+#logoimg{
+	height: 80px;
 }
 ul {
 	list-style: none;
@@ -51,9 +56,9 @@ nav{
 #menu{
 	height:40px;
 	padding: 4px 0px 10px 0px;
-	border-top: 2px solid rgba(128, 128, 128, 0.5); 
-	border-bottom: 2px solid rgba(128, 128, 128, 0.5);
-	box-shadow: 0 4px 4px -4px black;
+	border-top: 2px solid rgba(38, 38, 38, 0.5); 
+	border-bottom: 2px solid rgba(38, 38, 38, 0.5);
+	box-shadow: 0 4px 4px -4px gray;
 }
 #menu>li {
 	float: left; /* 메뉴 항목을 왼쪽으로 플로팅 */
@@ -76,20 +81,39 @@ main{
 	width: 150px;
 	height: 700px;
 }
+#eventbn{
+	
+}
+.event{
+	width: 150px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+#ev1{
+	height: 290px; /* 높이*/
+}
+#ev2{
+	height: 180px;
+}
+#ev3{
+	height: 180px;
+}
 #cn{
 	width: 900px;
 	height: 700px;	
 }
 #slideShow {
 	clear: both; /* 플로팅 해제 */
-	width: 900px; /* 너비 */
-	height: 300px; /* 높이*/
+	width: 880px; /* 너비 */
+	height: 290px; /* 높이*/
 	overflow: hidden; /* 영역이 넘치면 감춤 */
 	position: relative;
+	margin: 10px 10px 0px 10px;
+
 }
 #slides {
 	position: absolute;
-	width: 900px;
+	width: 880px; /* 너비 */
 }
 #slides>img {
 	width: 900px; /* 너비 */
@@ -126,8 +150,9 @@ button:focus {
 #SB{
 	text-align: center;
 	height: 200px;
-	border: 1px solid black;
 	line-height: 60px;
+	width: 880px; /* 너비 */
+	margin: 0px 10px 0px 10px;
 }
 #SB ul li {
 	display: inline; /* 이미지 가로로 베치 */  
@@ -140,8 +165,9 @@ button:focus {
 #HB{
 	text-align: center;
 	height: 200px;
-	border: 1px solid black;
 	line-height: 60px;
+	width: 880px; /* 너비 */
+	margin: 0px 10px 0px 10px;
 }
 #HB ul li {
 	display: inline;

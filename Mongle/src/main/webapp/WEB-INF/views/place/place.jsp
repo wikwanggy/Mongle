@@ -96,7 +96,7 @@
 								DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/mysql");
 								conn = ds.getConnection();
 
-								pstmt = conn.prepareStatement("select * from place1");
+								pstmt = conn.prepareStatement("select * from board");
 
 								rs = pstmt.executeQuery();
 
