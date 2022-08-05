@@ -37,7 +37,7 @@ public class BoardController {
 	public void writePost(String title,String content) {
 		System.out.println(title);
 		System.out.println(content);
-		return content;
+		return content;//
 	}*/
 	@RequestMapping(value="/community/write", method=RequestMethod.POST)
 	public String writePost(BoardVo bvo) {
