@@ -17,9 +17,21 @@ div{
 		text-align: center;
 		margin: 0 auto; /*auto으로 화면 중앙에 배치*/
 }
+table, tr{
+	border: 1px solid black;
+}
  table {
-    width: 800px;
-    height: 200px;
     margin-left: auto;
     margin-right: auto;
-  }
+}
+tr{
+	
+}
+td{
+	width: 1200px;
+}
+input{
+	width:100%;
+	
+}
+  
