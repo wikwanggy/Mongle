@@ -1,0 +1,217 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap')
+	;
+/* 전체 */
+* {
+	margin: 0; /* 마진값 초기화 */
+	padding: 0; /* 패딩값 초기화*/
+	box-sizing: border-box; /* 박스 영역은 테투리까지 지정*/
+	font-family: 'Edu VIC WA NT Beginner', cursive;
+	font-family: 'Hi Melody', cursive;
+}
+
+#container {
+	width: 1200px;
+	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+p {
+	font-size: 14px;
+	color: #aaa;
+}
+/* header */
+header {
+	width: 100%; /* 너비 */
+	height: 130px; /* 높이 */
+	background-color: rgba(255, 235, 98);
+}
+
+#tm {
+	display: flex;
+	height: 90px;
+}
+
+#logo {
+	width: 960px;
+	text-align: center;
+}
+
+#logoimg {
+	height: 80px;
+}
+
+#topmenu {
+	height: 50px;
+	float: right;
+}
+
+#topmenu>li {
+	float: left; /* 메뉴 항목을 오른쪽으로 플로팅 */
+	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+}
+
+#topmenu>li>a {
+	color: black; /* 폰트 색상 */
+	padding-right: 10px; /* 패딩 지정 */
+	padding-bottom: 10px;
+	text-decoration: none;
+	font-size: 15px;
+}
+
+#menu {
+	height: 40px;
+	padding: 4px 0px 10px 0px;
+	border-top: 2px solid rgba(128, 128, 128, 0.5);
+	border-bottom: 2px solid rgba(128, 128, 128, 0.5);
+	box-shadow: 0 4px 4px -4px black;
+}
+
+#menu>li {
+	float: left; /* 메뉴 항목을 왼쪽으로 플로팅 */
+	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+}
+
+#menu>li>a {
+	color: black; /* 폰트 색상 */
+	font-weight: 300; /* 폰트 굵기 */
+	padding: 0px 20px 0px 20px; /* 패딩 지정 */
+	font-size: 25px;
+	text-decoration: none;
+}
+
+/* main */
+#main {
+	height: 700px;
+	width: 100%;
+	display: flex;
+}
+/* main left */
+#ls {
+	width: 150px;
+	height: 700px;
+	float: left;
+	text-align: center;
+	line-height: 50px;
+}
+
+#ls menu>li {
+	border: 1px solid gray;
+	list-style-type:
+}
+
+/* main center */
+#cn {
+	width: 900px;
+	height: 700px;
+	background-color: white;
+}
+
+#cn>h2 {
+	padding: 15px;
+}
+
+#cnm li {
+	padding: 15px;
+	float: left;
+	list-style-type: none;
+}
+
+.Goods li {
+	padding: 0px 15px;
+	float: left;
+	margin-left: 35px;
+	margin-bottom: 100px;
+}
+
+.img {
+	width: 120px;
+	height: 160px;
+}
+
+/* main right */
+#ls {
+	width: 150px;
+	height: 700px;
+}
+
+#eventbn {
+	
+}
+
+.event {
+	width: 150px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+#ev1 {
+	height: 290px; /* 높이*/
+}
+
+#ev2 {
+	height: 180px;
+}
+
+#ev3 {
+	height: 180px;
+}
+
+/* bottom */
+footer {
+	width: 100%; /* 너비 */
+	height: 100px; /* 높아 */
+	border-top: 1px solid #222; /* 위쪽에 가로선 추가 */
+}
+
+#bottomMenu {
+	width: 100%;
+	height: 20px;
+	position: relative;
+}
+
+#bottomMenu ul {
+	margin-top: 15px;
+}
+
+#bottomMenu ul li {
+	float: left;
+	padding: 5px 20px;
+	border-right: 1px solid #ddd;
+}
+
+#bottomMenu ul li a, #bottomMenu ul li a:visited {
+	font-size: 15px;
+	color: #666
+}
+
+.img2 {
+	width: 25px;
+	height: 25px;
+	border-radius: 25px;
+}
+
+#sns {
+	position: absolute;
+	right: 0; /* 오른쪽 끝에 배치 */
+}
+
+#sns ul li {
+	border: none;
+	padding: 5px;
+}
+
+#company {
+	clear: left;
+	margin-top: 25px;
+	margin-left: 20px
+}
