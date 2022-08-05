@@ -11,6 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>place</title>
+<script src="${path}http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="${path}/resources/css/place/place.css">
 <script type="text/javascript" src="${path}/resources/js/place/place.js"></script>
 </head>
@@ -18,8 +19,11 @@
 	<div id="container">
 		<div id="hd">
 			<header>
-				<div id="logo">로고 자리입니다.</div>
 				<div id="tm">
+					<div id="logo">
+						<a href="#"><img alt="logo"
+							src="../resources/css/mainimg/logo.png" id="logoimg"></a>
+					</div>
 					<ul id="topmenu">
 						<li><a href="#">회원가입</a></li>
 						<li><a href="#">로그인</a></li>
@@ -32,7 +36,7 @@
 						<ul id="menu">
 							<li><a href="#">HOME</a></li>
 							<li><a href="#">SHOP</a></li>
-							<li><a href="http://localhost:8080/controller/place/place">PLACE</a></li>
+							<li><a href="http://localhost:8080/controller/place">PLACE</a></li>
 							<li><a href="#">EVENT</a></li>
 							<li><a href="#">커뮤니티</a></li>
 						</ul>
@@ -42,96 +46,57 @@
 		</div>
 		<div>
 			<main>
-			<div id="ls">
-				<button class="button" onclick="#">미용</button>
-				<br>
-				<button class="button" onclick="#">동물병원</button>
-				<br>
-				<button class="button" onclick="#">미용</button>
-				<br>
-				<button class="button" onclick="#">호텔</button>
-				<br>
-				<button class="button" onclick="#">학교/유치원</button>
-				<br>
-				<button class="button" onclick="#">식당/카페</button>
-				<br>
-			</div>
+			<div id="ls"></div>
 			<div id="cn">
-				<div id=place1>미용</div>
-				<form action="placeServer.jsp">
-					<table border="1">
-						<tr>
-							<th width="50px"><select name="loc">
-									<option>지역</option>
-									<option value="서울">서울</option>
-									<option value="인천">인천</option>
-									<option value="경기">경기</option>
-									<option value="부산">부산</option>
-									<option value="대구">대구</option>
-									<option value="울산">울산</option>
-									<option value="광주">광주</option>
-									<option value="대전">대전</option>
-									<option value="강원">강원</option>
-									<option value="충북">충북</option>
-									<option value="충남">충남</option>
-									<option value="전북">전북</option>
-									<option value="전남">전남</option>
-									<option value="경북">경북</option>
-									<option value="경남">경남</option>
-									<option value="제주">제주</option>
-							</select></th>
-							<th width="550px">제목</th>
-							<th width="100px">작성자</th>
-							<th width="100px">날짜</th>
-							<th width="40px">조회</th>
-							<th width="40px">추천</th>
-						</tr>
-						<%
-							Connection conn = null;
-							PreparedStatement pstmt = null;
-							ResultSet rs = null;
-
-							try {
-								Context init = new InitialContext();
-								DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/mysql");
-								conn = ds.getConnection();
-
-								pstmt = conn.prepareStatement("select * from board");
-
-								rs = pstmt.executeQuery();
-
-								while (rs.next()) {
-						%>
-						<tr>
-							<td><%=rs.getString("loc")%></td>
-							<td><%=rs.getString("title")%></td>
-							<td><%=rs.getString("name")%></td>
-							<td><%=rs.getString("date")%></td>
-							<td><%=rs.getString("cnt")%></td>
-							<td><%=rs.getString("rec")%></td>
-						</tr>
-						<%
-							}
-							} catch (Exception e) {
-								e.printStackTrace();
-							} finally {
-								conn.close();
-								rs.close();
-								pstmt.close();
-							}
-						%>
-					</table>
-					<input type="submit" value="글쓰기" class="button">
-				</form>
-
+				<table id="placelogo">
+					<tr>
+						<td><a href="http://localhost:8080/controller/place/clinic">
+								<img class="placelogo" src="../resources/image/place/clinic.JPG">
+						</a></td>
+						<td><a href="http://localhost:8080/controller/place/grooming">
+								<img class="placelogo"
+								src="../resources/image/place/grooming.JPG">
+						</a></td>
+						<td><a href="http://localhost:8080/controller/place/hotel">
+								<img class="placelogo" src="../resources/image/place/hotel.JPG">
+						</a></td>
+						<td><a href="http://localhost:8080/controller/place/school">
+								<img class="placelogo" src="../resources/image/place/school.JPG">
+						</a></td>
+						<td><a href="http://localhost:8080/controller/place/cafe">
+								<img class="placelogo" src="../resources/image/place/cafe.JPG">
+						</a></td>
+					</tr>
+				</table>
 			</div>
-			<div id="rs">123</div>
+			<div id="rs"></div>
 			</main>
 		</div>
 		<div>
-			<footer> </footer>
+			<footer>
+				<div id="bottomMenu">
+					<ul>
+						<li><a href="#">회사 소개</a></li>
+						<li><a href="#">개인정보처리방침</a></li>
+						<li><a href="#">이용안내</a></li>
+						<li><a href="#">고객센터</a></li>
+					</ul>
+					<div id="sns">
+						<ul>
+							<li><a href="#"><img
+									src="../resources/css/mainimg/facebook.PNG" class="img2"></a></li>
+							<li><a href="#"><img
+									src="../resources/css/mainimg/insta.PNG" class="img2"></a></li>
+							<li><a href="#"><img
+									src="../resources/css/mainimg/twitter.PNG" class="img2"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div id="company">
+					<p>제 3조 팀 프로젝트 참여자 : 현우 연희 민서 석현 광규</p>
+				</div>
+			</footer>
 		</div>
 	</div>
-
 </body>
 </html>

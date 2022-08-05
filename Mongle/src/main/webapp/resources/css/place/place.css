@@ -1,0 +1,267 @@
+/* m a in css  */
+@charset "UTF-8";
+@import
+	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap')
+	;
+* {
+	margin: 0; /* 마진값 초기화 */
+	padding: 0; /* 패딩값 초기화*/
+	box-sizing: border-box; /* 박스 영역은 테투리까지 지정*/
+	font-family: 'Edu VIC WA NT Beginner', cursive;
+	font-family: 'Hi Melody', cursive;
+}
+#container{
+	width:1200px;
+	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
+}
+header {
+	width: 100%; /* 너비 */
+	height: 130px; /* 높이 */
+	background-color: rgba(255, 235, 98);
+}
+#tm{
+	display: flex;
+	height: 90px;
+}
+#logo{
+	width:960px;
+	text-align: center;
+}
+#logoimg{
+	height: 80px;
+}
+ul {
+	list-style: none;
+}
+#topmenu {
+	height: 50px;
+	float: right;
+}
+#topmenu>li {
+	float: left; /* 메뉴 항목을 오른쪽으로 플로팅 */
+	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+}
+#topmenu>li>a {
+	color: black; /* 폰트 색상 */
+	padding-right: 10px; /* 패딩 지정 */
+	padding-bottom: 10px;
+	text-decoration: none;
+	font-size: 15px;
+	
+}
+nav{
+	
+}
+#menu{
+	height:40px;
+	padding: 4px 0px 10px 0px;
+	border-top: 2px solid rgba(38, 38, 38, 0.5); 
+	border-bottom: 2px solid rgba(38, 38, 38, 0.5);
+	box-shadow: 0 4px 4px -4px gray;
+}
+#menu>li {
+	float: left; /* 메뉴 항목을 왼쪽으로 플로팅 */
+	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+}
+#menu>li>a {
+	color: black; /* 폰트 색상 */
+	font-weight: 300; /* 폰트 굵기 */
+	padding: 0px 20px 0px 20px; /* 패딩 지정 */
+	font-size: 25px;
+	text-decoration: none;
+}
+main{
+	height: 700px;
+	width: 100%; 
+	display: flex;
+}
+#ls{
+	width: 150px;
+	height: 700px;
+	padding:20px 5px 5px 5px;
+}
+#eventbn{
+	
+}
+.event{
+	width: 150px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+#ev1{
+	height: 290px; /* 높이*/
+}
+#ev2{
+	height: 180px;
+}
+#ev3{
+	height: 180px;
+}
+#cn{
+	width: 900px;
+	height: 700px;	
+}
+#slideShow {
+	clear: both; /* 플로팅 해제 */
+	width: 880px; /* 너비 */
+	height: 290px; /* 높이*/
+	overflow: hidden; /* 영역이 넘치면 감춤 */
+	position: relative;
+	margin: 10px 10px 0px 10px;
+
+}
+#slides {
+	position: absolute;
+	width: 880px; /* 너비 */
+}
+#slides>img {
+	width: 900px; /* 너비 */
+	float: left;
+	height: 300px;
+}
+button {
+	position: absolute;
+	height: 100%; /* 이미지 높이에 맞추기 */
+	top: 0;
+	border: none; /* 테두리 없이 */
+	padding: 20px;
+	background-color: transparent; /* 투명한 배경 지정 */
+	color: #fff; /* 화살표를 검은색으로 지정 */
+	font-weight: 800; /* 화살표를 굵게 지정 */
+	font-size: 24px; /* 화살펴 크기 지정 */
+	opacity: 0.5; /* 화살표를 반투명하게 지정 */
+}
+#prev {
+	left: 0; /* 왼쪽으로 붙이기 */
+}
+#next {
+	right: 0; /* 오른쪽으로 붙이기 */
+}
+button:hover { /* 마우스 포인트를 올리면 */
+	background-color: #222; /* 배경색은 즡은 회색으로 변경 */
+	color: #fff; /* 흰색 화살표 */
+	opacity: 0.6; /* 불투명도를 높임 */
+	cursor: pointer; /* 포인터 모양으로 바꿈 */
+}
+button:focus {
+	outline: 0; /* 아웃라인 없앰 */
+}
+#SB{
+	text-align: center;
+	height: 200px;
+	line-height: 60px;
+	width: 880px; /* 너비 */
+	margin: 0px 10px 0px 10px;
+}
+#SB ul li {
+	display: inline; /* 이미지 가로로 베치 */  
+	margin: 0px 10px 0px 10px;
+}
+.sbimg {
+	width: 190px;
+	height: 100px;
+}
+#HB{
+	text-align: center;
+	height: 200px;
+	line-height: 60px;
+	width: 880px; /* 너비 */
+	margin: 0px 10px 0px 10px;
+}
+#HB ul li {
+	display: inline;
+	margin: 0px 10px 0px 10px;
+}
+.htimg{
+	width: 190px;
+	height: 100px;
+}
+#rs{
+	width: 150px;
+	height: 700px;
+}
+footer {
+	width: 100%; /* 너비 */
+	height: 100px; /* 높아 */
+	border-top: 1px solid #222; /* 위쪽에 가로선 추가 */
+}
+#bottomMenu {
+	width: 100%;
+	height: 20px;
+	position: relative;
+}
+#bottomMenu ul {
+	margin-top: 15px;
+}
+#bottomMenu ul li {
+	float: left;
+	padding: 5px 20px;
+	border-right: 1px solid #ddd;
+}
+#bottomMenu ul li a, #bottomMenu ul li a:visited {
+	font-size: 15px;
+	color: #666
+}
+.img2 {
+	width: 25px;
+	height: 25px;
+	border-radius: 25px;
+}
+#sns {
+	position: absolute;
+	right: 0; /* 오른쪽 끝에 배치 */
+}
+#sns ul li {
+	border: none;
+	padding: 5px;
+}
+#company {
+	clear: left;
+	margin-top: 25px;
+	margin-left: 20px
+}
+p {
+	font-size: 14px;
+	color: #aaa;
+}
+
+#list,tr,td{
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin-top: 25px;
+	font-size:20px;
+	text-align: center;
+}
+th{
+	font-size: 20px;
+}
+#place-list>li>a{
+	text-decoration: none;
+	font-size: 25px;
+	font-weight: bold;
+}
+#place-list>li{
+	text-align: center;
+	padding:5px;
+}
+#loc-select{
+	font-size: 20px;
+	font-weight: bold;
+}
+.button{
+	width:80px;
+	height: 30px;
+	border-radius: 7px;
+	font-size:15px;
+	font-weight: bold;
+	border:0px;
+	float: right;
+}
+.placelogo{
+	width:200px;
+	height:250px;
+	padding:10px;
+}
+#placelogo,tr,td{
+	border:0px;
+}
