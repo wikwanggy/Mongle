@@ -9,7 +9,7 @@
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
-<!--  -->
+<!-- / -->
 <div class="board_l">
 <form>
 	<table border="1" id="board_list">

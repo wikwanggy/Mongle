@@ -22,7 +22,7 @@
 		Context init = new InitialContext();
 		DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/mysql");
 		conn = ds.getConnection();
-//
+///
 		pstmt=conn.prepareStatement("select bno, title, name, content from Mongle_board b"
 				+" join Mongle_member m"
 				+" on m.id=b.id"

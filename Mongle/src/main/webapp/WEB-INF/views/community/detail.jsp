@@ -32,7 +32,7 @@
 	
 	rs=pstmt.executeQuery();
 		if(rs.next()){
-%>	<!--  -->
+%>	<!-- / -->
 <form>
 	<table border="1" id="board_detail">
 		<tr>
