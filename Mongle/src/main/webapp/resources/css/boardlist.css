@@ -1,0 +1,74 @@
+@charset "UTF-8";
+h1{
+	text-align:center;
+}
+.board_l{
+	padding:20px;	
+}
+#board_list{
+	border-collapse : collapse;
+	width:650px;
+	text-align:center;
+	margin:auto;
+}
+.btn_board{
+	padding:5px;
+	width:70px;
+	float:right;
+	margin:3px;
+}
+#board_list input{
+	border:none;
+}
+textarea{
+    resize: none;
+    border:none;
+}
+.board_write{
+	margin:auto;
+	border-collapse : collapse;
+	border-spacing: 10px;
+	width:650px;
+}
+.board_write_title{
+	width:645px;
+	height:25px;
+}
+.board_write input{
+	border:none;
+}
+.board_write tr td{
+	padding:10px;
+}
+#board_detail{
+	margin:auto;
+	width:650px;
+	border-collapse : collapse;
+}
+#board_detail tr td{
+	padding:10px;
+}
+#board_detail input{
+	border:none;
+}
+#review_board{
+	margin:auto;
+	border-collapse:collapse;
+}
+#review_board tr td{
+	padding:10px;
+}
+#review_search{
+	text-align: center;
+}
+#review_search input{
+	width:200px;
+	height:30px;
+}
+#review_search a{
+	margin:5px;
+	padding:5px;
+	color:white;
+	background-color:orange;
+	text-decoration:none;
+}
