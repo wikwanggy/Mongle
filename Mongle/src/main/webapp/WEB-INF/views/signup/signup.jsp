@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>  
-	<div> 
+	<div> <!--  -->
 		<div id="signup">
 			<header>
 				<img alt="로그인 마크" src="../resources/css/signup/signupimg/logo.png">
