@@ -16,6 +16,7 @@
 <script type="text/javascript" src="${path}/resources/js/place/place.js"></script>
 </head>
 <body>
+
 	<div id="container">
 		<div id="hd">
 			<header>
