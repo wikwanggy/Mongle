@@ -1,37 +1,74 @@
 @charset "UTF-8";
-
 @import
 	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap')
 	;
 * {
-	margin: 0; /* 마진값 초기화 */
+	margin: 0 auto; /* 마진값 초기화 */
 	padding: 0; /* 패딩값 초기화*/
 	box-sizing: border-box; /* 박스 영역은 테투리까지 지정*/
 	font-family: 'Edu VIC WA NT Beginner', cursive;
 	font-family: 'Hi Melody', cursive;
-}
-header{
+}/**/
+body{
+	margin: 0 auto;
+	width: 1024px;
+	height: 960px;
 	text-align: center;
+	position: relative;
+	background-color: rgba(255, 235, 98);
+}
+#signup{
+	width:800px;
+	height: 800px;
+	position: absolute;	
+	background-color: white;
+	border-radius:100px; 
+	box-shadow: 10px 10px 10px gray; 
+	margin-top: 50px;
 }
 div{
-		text-align: center;
-		margin: 0 auto; /*auto으로 화면 중앙에 배치*/
+	width: 800px;
+	height: 40px;
+	margin-top: 15px;
 }
-table, tr{
-	border: 1px solid black;
+img{
+	width: 100px;
+	height : 80px;
+	border-radius: 25px;
+	margin-top: 25px;
+	box-shadow: 10px 10px 10px gray; 
 }
- table {
-    margin-left: auto;
-    margin-right: auto;
-}
-tr{
-	
-}
-td{
-	width: 1200px;
-}
+
 input{
-	width:100%;
+	width: 400px;
+	height: 40px;
+	border-radius: 25px;
+	font-size: 25px;
+	text-align: center;
+	box-shadow: 2px 2px 2px gray; 
 	
 }
-  
+input:focus{
+	border: 5px solid rgba(255, 235, 98);
+	outline: none;
+}
+input:focus::placeholder{
+	color :  rgba(255, 235, 98);
+}
+
+
+#btn{
+	margin-top: 30px;
+	width: 300px;
+	height : 60px;
+	border-radius: 25px;
+	font-size: 45px;
+	background-color: rgba(255, 235, 98);
+	border: 1px solid rgba(255, 235, 98);
+	box-shadow: 10px 10px 10px gray; 
+}
+#btn:hover{
+	background: rgba(195,195,195,0.5);
+	border:1px solid rgba(195,195,195,0.5);
+	outline:none;
+}

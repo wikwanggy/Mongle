@@ -8,7 +8,7 @@
 	box-sizing: border-box; /* 박스 영역은 테투리까지 지정*/
 	font-family: 'Edu VIC WA NT Beginner', cursive;
 	font-family: 'Hi Melody', cursive;
-}
+}/**/
 body{
 	margin: 0 auto;
 	width: 1024px;
@@ -56,14 +56,19 @@ input{
 	margin-top:30px; 
 }
 
-#btn{
+.btn{
 	margin-top: 30px;
 	width: 300px;
-	height : 100px;
+	height : 60px;
 	border-radius: 25px;
-	font-size: 50px;
+	font-size: 45px;
 	background-color: rgba(255, 235, 98);
 	border: 1px solid rgba(255, 235, 98);
+}
+.btn:hover{
+	background: rgba(195,195,195,0.5);
+	border:1px solid rgba(195,195,195,0.5);
+	outline:none;
 }
 p{
 	margin-top: 30px;
