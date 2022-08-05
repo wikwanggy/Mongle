@@ -265,3 +265,10 @@ th{
 #placelogo,tr,td{
 	border:0px;
 }
+#writetitle{
+	width:800px;
+	height: 30px;
+}
+#writecontent{
+	width:800px;
+}
