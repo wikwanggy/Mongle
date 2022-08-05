@@ -5,17 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="..\resources\css\eventmain.css">
+<link rel="stylesheet" href="..\resources\css\event\eventmain.css">
 </head>
 <body>
 	<div id="container">
 		<div id="hd">
 			<header>
 				<div id="tm">
-					<div id="logo"><a href="#"><img alt="logo" src="../resources/css/mainimg/logo.png" id="logoimg"></a></div>
+					<div id="logo"><a href="/"><img alt="logo" src="/resources/css/mainimg/logo.png" id="logoimg"></a></div>
 					<ul id="topmenu">
-						<li><a href="#">회원가입</a></li>
-						<li><a href="#">로그인</a></li>
+						<li><a href="/signup/signup">회원가입</a></li>
+						<li><a href="/signin/signin">로그인</a></li>
 						<li><a href="#">MyPage</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
@@ -23,10 +23,10 @@
 				<div>
 					<nav>
 						<ul id="menu">
-							<li><a href="http://localhost:8080/controller/#">HOME</a></li>
-							<li><a href="#">SHOP</a></li>
+							<li><a href="/">HOME</a></li>
+							<li><a href="/shop">SHOP</a></li>
 							<li><a href="#">PLACE</a></li>
-							<li><a href="http://localhost:8080/controller/event/eventmain">EVENT</a></li>
+							<li><a href="http://localhost:8080/event/eventmain">EVENT</a></li>
 							<li><a href="#">커뮤니티</a></li>
 						</ul>
 					</nav>
@@ -34,7 +34,20 @@
 			</header>
 		</div>
 <%-- 이벤트 본문  시작점 --%>
-	<div id="eventbon">
+<div id="eventbon">
+	<div id="event-bon-line">
+	
+		<ul class="event-kategorie">
+			<li><a href="#" class="event-katebox">진행 이벤트</a></li>
+			<li><a href="#" class="event-katebox">종료 이벤트</a></li>
+		</ul>
+		
+		<div class="event-count-box">
+		총
+		<span class="event-count">7</span>
+		건
+		</div>
+		
 		<ul id="eventone">
 			<li>
 				<a href="event1" class="event_sub_page">
@@ -86,6 +99,7 @@
 			</li>
 		</ul>
 	</div>
+</div>
 <%-- 이벤트 본문  끝부분 --%>
 
 		<div>
