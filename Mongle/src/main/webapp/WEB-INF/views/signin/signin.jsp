@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../resources/css/signin/signin.css">
 <title>Insert title here</title>
-</head>1
+</head><!--  -->
 <body>
 	<div class="signin">
 		<form action="/Mongle/signin/signin" method="post" >

@@ -1,4 +1,4 @@
-package org.Mongle.controller;
+package org.Mongle.controller;/**/
 
 import org.Mongle.model.MogleMemberVo;
 import org.springframework.stereotype.Controller;

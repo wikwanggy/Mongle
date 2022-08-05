@@ -1,4 +1,4 @@
-package org.Mongle.model;
+package org.Mongle.model;/**/
 
 public class MogleMemberVo {
 	// 아이디(id)

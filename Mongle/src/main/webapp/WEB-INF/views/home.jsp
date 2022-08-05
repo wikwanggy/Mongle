@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="resources/css/main.css">
 <title>main</title>
 </head>
-<body>
+<body><!--  -->
 	<div id="container">
 		<div id="hd">
 			<header>

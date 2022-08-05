@@ -8,7 +8,7 @@
 	box-sizing: border-box; /* 박스 영역은 테투리까지 지정*/
 	font-family: 'Edu VIC WA NT Beginner', cursive;
 	font-family: 'Hi Melody', cursive;
-}
+}/**/
 body{
 	margin: 0 auto;
 	width: 1024px;
