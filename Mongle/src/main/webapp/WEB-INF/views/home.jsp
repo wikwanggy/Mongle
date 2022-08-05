@@ -14,10 +14,10 @@
 		<div id="hd">
 			<header>
 				<div id="tm">
-					<div id="logo"><a href="#"><img alt="logo" src="resources/css/mainimg/logo.png" id="logoimg"></a></div>
+					<div id="logo"><a href="http://localhost:8080/Mongle/"><img alt="logo" src="resources/css/mainimg/logo.png" id="logoimg"></a></div>
 					<ul id="topmenu">
-						<li><a href="#">회원가입</a></li>
-						<li><a href="#">로그인</a></li>
+						<li><a href="http://localhost:8080/Mongle/signup/signup">회원가입</a></li>
+						<li><a href="http://localhost:8080/Mongle/signin/signin">로그인</a></li>
 						<li><a href="#">MyPage</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
