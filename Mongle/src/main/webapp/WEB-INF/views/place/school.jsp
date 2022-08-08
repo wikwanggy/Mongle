@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta charset="UTF-8">
 <title>place</title>
 <script src="${path}http://code.jquery.com/jquery-latest.min.js"></script>

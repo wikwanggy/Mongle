@@ -8,7 +8,6 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
 <title>place</title>
