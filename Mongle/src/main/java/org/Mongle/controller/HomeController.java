@@ -30,6 +30,10 @@ public class HomeController {
 
 		return "home";
 	}
-
+	@RequestMapping(value = "/company/company", method = RequestMethod.GET)
+	// 회원가입.
+	public String company() {
+		return "company/company";
+}
 
 }
