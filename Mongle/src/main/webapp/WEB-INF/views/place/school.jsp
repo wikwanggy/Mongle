@@ -52,7 +52,7 @@
 					<li><a href="http://localhost:8080/controller/place/clinic">동물병원</a></li>
 					<li><a href="http://localhost:8080/controller/place/grooming">미용</a></li>
 					<li><a href="http://localhost:8080/controller/place/hotel">호텔</a></li>
-					<li><a href="http://localhost:8080/controller/place/school">학교/유치원</a></li>
+					<li id="slt"><a href="http://localhost:8080/controller/place/school">학교/유치원</a></li>
 					<li><a href="http://localhost:8080/controller/place/cafe">식당/카페</a></li>
 				</ul>
 			</div>
@@ -103,11 +103,11 @@
 					<tr><td>제주</td><td></td><td></td><td></td><td></td><td></td></tr>
 				</table>
 				<br>
-				<input type="button" value="글쓰기" class="button" src="http://localhost:8080/controller/place/write">
+				<a href="http://localhost:8080/controller/place/write"><button class="button">글쓰기</button></a>
 			</div>
 			<div id="rs"></div>
 			</main>
-		</div>
+		
 		<div>
 			<footer>
 				<div id="bottomMenu">

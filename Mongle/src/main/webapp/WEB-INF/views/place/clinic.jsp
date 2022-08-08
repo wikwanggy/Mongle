@@ -49,7 +49,7 @@
 			<main>
 			<div id="ls">
 				<ul id="place-list">
-					<li><a href="http://localhost:8080/controller/place/clinic">동물병원</a></li>
+					<li id="slt"><a href="http://localhost:8080/controller/place/clinic">동물병원</a></li>
 					<li><a href="http://localhost:8080/controller/place/grooming">미용</a></li>
 					<li><a href="http://localhost:8080/controller/place/hotel">호텔</a></li>
 					<li><a href="http://localhost:8080/controller/place/school">학교/유치원</a></li>
@@ -103,7 +103,7 @@
 					<tr><td>제주</td><td></td><td></td><td></td><td></td><td></td></tr>
 				</table>
 				<br>
-				<a href="http://localhost:8080/controller/place/write"><button>글쓰기</button></a>
+				<a href="http://localhost:8080/controller/place/write"><button class="button">글쓰기</button></a>
 			</div>
 			<div id="rs"></div>
 			</main>
