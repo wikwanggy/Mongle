@@ -11,6 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>place</title>
+
 <script src="${path}http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="${path}/resources/css/place/place.css">
 <script type="text/javascript" src="${path}/resources/js/place/place.js"></script>
