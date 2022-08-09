@@ -49,6 +49,7 @@
 								<ul>
 									<li><a href="#">진행 이벤트</a></li>
 									<li><a href="#">종료 이벤트</a></li>
+									<li><a href="#">이벤트 당첨</a></li>
 								</ul>
 							</li>
 							<li><a href="#">커뮤니티</a>

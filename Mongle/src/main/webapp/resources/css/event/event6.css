@@ -1,4 +1,3 @@
-/*이벤트 페이지 메인*/
 @charset "UTF-8";
 @import
 	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap')
@@ -10,79 +9,6 @@
 	box-sizing: border-box;
 	font-family: 'Edu VIC WA NT Beginner', cursive;
 	font-family: 'Hi Melody', cursive;
-}
-
-#eventbon{
-	width:100%;
-	overflow: hidden;
-}
-
-#event-bon-line{
-	width:900px;
-	overflow: hidden;
-	padding-left: 30px;
-}
-
-/*본문 카테고리 시작*/
-
-.event-kategorie{
-	overflow: hidden;
-	margin:30px 0 20px 0;
-}
-
-
-.event-kategorie>li{
-		position:relative;
-		float:left;
-		width:250px;
-}
-
-.event-katebox{
-	text-decoration: none;
-	display:block;
-	border: 1px solid;
-	font-size: 35px;
-	text-align: center;
-	color: black;
-}
-
-#event-katebox1:hover{
-	color: #AFFA70;
-}
-
-#event-katebox2:hover{
-	color: #FBAAAA;
-}
-
-#event-katebox3:hover{
-	color: #E9F8C8;
-}
-
-/*본문 카테고리 끝*/
-
-/*본문 내용*/
-#ls{
-	width: 150px;
-	height: 700px;
-	position: relative;
-	float: left;
-}
-#eventbn{
-	
-}
-.event{
-	width: 150px;
-	margin-top: 10px;
-	margin-right: 10px;
-}
-#ev1{
-	height: 290px; /* 높이*/
-}
-#ev2{
-	height: 180px;
-}
-#ev3{
-	height: 180px;
 }
 
 .event-count-box{
@@ -230,7 +156,6 @@ nav{
 	color: black;
 	line-height: 50px;
 }
-
 footer {
 	width: 100%; /* 너비 */
 	height: 100px; /* 높아 */
