@@ -16,9 +16,13 @@ h1{
 	width:70px;
 	float:right;
 	margin:3px;
-}
-#board_list input{
 	border:none;
+}
+#board_list_search{
+	margin:auto;
+}
+#td{
+	margin:10px;
 }
 textarea{
     resize: none;
@@ -51,9 +55,15 @@ textarea{
 #board_detail input{
 	border:none;
 }
+#reviews{
+	margin:10px;
+}
 #review_board{
 	margin:auto;
 	border-collapse:collapse;
+}
+#shop_review{
+	margin:50px;
 }
 #review_board tr td{
 	padding:10px;
@@ -61,9 +71,10 @@ textarea{
 #review_search{
 	text-align: center;
 }
-#review_search input{
+#rv_search2{
 	width:200px;
 	height:30px;
+	margin-top:5px;
 }
 #review_search a{
 	margin:5px;
@@ -71,4 +82,70 @@ textarea{
 	color:white;
 	background-color:orange;
 	text-decoration:none;
+}
+#btn_list_search{
+	margin:5px;
+	padding:5px;
+	color:white;
+	background-color:orange;
+	text-decoration:none;
+}
+#review_gallary ul li{
+	float:left;
+	margin-left:30px;
+}
+.gallary_all{
+	width:300px;
+}
+.gallary_photo{
+	width:280px;
+}
+#review_all{
+	margin:auto;
+	width:800px;
+}
+#review{
+	width:1100px;
+	height:1100px;
+	margin:auto;
+}
+#rv_sel{
+	width:50px;
+	height:30px;
+}
+.star_review{
+	width:300px;
+	height:100px;
+	background-color:#D3D3D3;
+	padding:10px;
+	margin:auto;
+}
+.review_box{
+	width:350px;
+	height:450px;
+	float:left;
+	margin:5px;
+	
+}
+.rv_img{
+	width:250px;
+	height:250px;
+	display:block;
+	margin-left:40px;
+}
+.rv_txt{
+	padding:10px;
+}
+.brand{
+	text-align:center;
+}
+a{
+	color:black;
+	text-decoration:none;
+}
+.rv_top{
+	margin:15px;
+}
+h5{
+	float:right;
 }

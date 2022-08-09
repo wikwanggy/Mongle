@@ -9,10 +9,14 @@
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
-<!-- / -->
 <div class="board_l">
 <form>
 	<table border="1" id="board_list">
+		<tr>
+			<td colspan="4" id="board_list_search">
+			<div id="td"><input type="text"><a href="#" id="btn_list_search">검색</a>			
+			<input type="submit" value="글쓰기" class="btn_board"></div></td>
+		</tr>
 		<tr height="40px">
 			<td width="50px">글번호</td>
 			<td width="400px">제목</td>
@@ -24,10 +28,6 @@
 			<td>title</td>
 			<td>regdate</td>
 			<td>writer</td>
-		</tr>
-		<tr>
-			<td colspan="4" style="padding:10px;">
-			<input type="submit" value="글쓰기" class="btn_board"></td>
 		</tr>
 	</table>
 </form>
