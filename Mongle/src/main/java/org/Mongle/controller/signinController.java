@@ -11,13 +11,13 @@ public class signinController {
 	@RequestMapping(value = "/signin/signin", method = RequestMethod.GET)
 	// 로그인
 	public String signin() {
-		return "signin/signin";
+		return "/signin/signin";
 		
 	}
 	@RequestMapping(value = "/signup/signup", method = RequestMethod.GET)
 		// 회원가입.
 		public String signup() {
-			return "signup/signup";
+			return "/signup/signup";
 	}
 	
 	@RequestMapping(value="/signin/signin", method=RequestMethod.POST)

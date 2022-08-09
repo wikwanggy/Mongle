@@ -14,7 +14,7 @@
 				<img alt="로그인 마크" src="../resources/css/signup/signupimg/logo.png">
 				<h1>Sign Up</h1>
 			</header>
-			<form action="/Mongle/signin/signin" method="post">
+			<form action="/signin/signin" method="post">
 				<div>
 					<input type="text" name="name" placeholder="N A M E">
 				</div>

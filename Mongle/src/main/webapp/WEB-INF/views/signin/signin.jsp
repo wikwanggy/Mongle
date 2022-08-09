@@ -9,7 +9,7 @@
 </head><!--  -->
 <body>
 	<div class="signin">
-		<form action="/Mongle/signin/signin" method="post" >
+		<form action="/signin/signin" method="post" >
 			<img src="../resources/css/signin/signinimg/logo.png">
 			<h1>Please sign in</h1>
 			<div class="idpw">
@@ -25,7 +25,7 @@
 			<input class="btn" type="submit" value="Sign IN" id="btn_login"><br>
 		</form>
 		<form>
-			<input class="btn" type="submit" value="Sign UP" formaction="/Mongle/signup/signup">
+			<input class="btn" type="submit" value="Sign UP" formaction="/signup/signup">
 			<p>제작자 3조</p>
 		</form>
 	</div>

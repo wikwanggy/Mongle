@@ -14,18 +14,18 @@
 		<div id="hd"><!-- header 전체를 hd로 지정 -->
 			<header>
 				<div id="tm">
-					<div id="logo"><a href="http://localhost:8080/controller/"><img alt="logo" src="resources/css/mainimg/logo.png" id="logoimg"></a></div>
+					<div id="logo"><a href="/"><img alt="logo" src="resources/css/mainimg/logo.png" id="logoimg"></a></div>
 					<ul id="topmenu">
-						<li><a href="http://localhost:8080/controller/signup/signup">회원가입</a></li>
-						<li><a href="http://localhost:8080/controller/signin/signin">로그인</a></li>
-						<li><a href="#">MyPage</a></li>
+						<li><a href="/signup/signup">회원가입</a></li>
+						<li><a href="/signin/signin">로그인</a></li>
+						<li><a href="/mypage/mypage">MyPage</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
 				</div>
 				<div>
 					<nav>
 						<ul id="menu">
-							<li><a href="http://localhost:8080/controller/">HOME</a></li>
+							<li><a href="/">HOME</a></li>
 							<li><a href="#">SHOP</a>
 								<ul>
 									<li><a href="#">간식</a></li>
@@ -36,13 +36,13 @@
 									<li><a href="#">기타</a></li>
 								</ul>
 							</li>
-							<li><a href="http://localhost:8080/controller/place/">PLACE</a>
+							<li><a href="/place/">PLACE</a>
 								<ul>
-									<li><a href="http://localhost:8080/controller/place/grooming">미용</a></li>
-									<li><a href="http://localhost:8080/controller/place/clinic">동물병원</a></li>
-									<li><a href="http://localhost:8080/controller/place/hotel">호텔</a></li>
-									<li><a href="http://localhost:8080/controller/place/school">학교/유치원</a></li>
-									<li><a href="http://localhost:8080/controller/place/cafe">식당/카페</a></li>
+									<li><a href="/place/grooming">미용</a></li>
+									<li><a href="/place/clinic">동물병원</a></li>
+									<li><a href="/place/hotel">호텔</a></li>
+									<li><a href="/place/school">학교/유치원</a></li>
+									<li><a href="/place/cafe">식당/카페</a></li>
 								</ul>
 							</li>
 							<li><a href="#">EVENT</a>
@@ -115,10 +115,10 @@
 			<footer>
 				<div id="bottomMenu">
 					<ul>
-						<li><a href="http://localhost:8080/controller/company/company">회사 소개</a></li>
-						<li><a href="hhttp://localhost:8080/controller/company/company">개인정보처리방침</a></li>
-						<li><a href="http://localhost:8080/controller/company/company">이용안내</a></li>
-						<li><a href="http://localhost:8080/controller/company/company">고객센터</a></li>
+						<li><a href="/company/company">회사 소개</a></li>
+						<li><a href="/company/company">개인정보처리방침</a></li>
+						<li><a href="/company/company">이용안내</a></li>
+						<li><a href="/company/company">고객센터</a></li>
 					</ul>
 					<div id="sns">
 						<ul>

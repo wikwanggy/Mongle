@@ -33,7 +33,11 @@ public class HomeController {
 	@RequestMapping(value = "/company/company", method = RequestMethod.GET)
 	// 고객센터,개인정보처리약관,회사소개, 이용안내
 	public String company() {
-		return "company/company";
+		return "/company/company";
 }
-
+	@RequestMapping(value = "/mypage/mypage", method = RequestMethod.GET)
+	// mypage
+	public String mypage() {
+		return "/mypage/mypage";
+	}
 }
