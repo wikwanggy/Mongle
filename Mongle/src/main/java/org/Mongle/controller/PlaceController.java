@@ -48,6 +48,11 @@ public class PlaceController {
 	public String write() {
 		return "place/write";
 	}
+	// place-content
+	@RequestMapping(value = "/place/content", method = RequestMethod.GET)
+	public String content() {
+		return "place/content";
+	}
 	@RequestMapping(value="/place/write", method=RequestMethod.POST)
 	public void writePost(PlaceVo bvo) {
 		System.out.println(bvo);

@@ -26,20 +26,20 @@
 							src="../resources/css/mainimg/logo.png" id="logoimg"></a>
 					</div>
 					<ul id="topmenu">
-						<li><a href="#">회원가입</a></li>
-						<li><a href="#">로그인</a></li>
-						<li><a href="#">MyPage</a></li>
-						<li><a href="#">고객센터</a></li>
+						<li><a href="/signup/signup">회원가입</a></li>
+						<li><a href="/signin/signin">로그인</a></li>
+						<li><a href="/">MyPage</a></li>
+						<li><a href="/">고객센터</a></li>
 					</ul>
 				</div>
 				<div>
 					<nav>
 						<ul id="menu">
-							<li><a href="#">HOME</a></li>
-							<li><a href="#">SHOP</a></li>
-							<li><a href="http://localhost:8080/controller/place">PLACE</a></li>
-							<li><a href="#">EVENT</a></li>
-							<li><a href="#">커뮤니티</a></li>
+							<li><a href="/">HOME</a></li>
+							<li><a href="/">SHOP</a></li>
+							<li><a href="/place">PLACE</a></li>
+							<li><a href="/">EVENT</a></li>
+							<li><a href="/">커뮤니티</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -51,20 +51,20 @@
 			<div id="cn">
 				<table id="placelogo">
 					<tr>
-						<td><a href="http://localhost:8080/controller/place/clinic">
+						<td><a href="/place/clinic">
 								<img class="placelogo" src="../resources/image/place/clinic.JPG">
 						</a></td>
-						<td><a href="http://localhost:8080/controller/place/grooming">
+						<td><a href="/place/grooming">
 								<img class="placelogo"
 								src="../resources/image/place/grooming.JPG">
 						</a></td>
-						<td><a href="http://localhost:8080/controller/place/hotel">
+						<td><a href="/place/hotel">
 								<img class="placelogo" src="../resources/image/place/hotel.JPG">
 						</a></td>
-						<td><a href="http://localhost:8080/controller/place/school">
+						<td><a href="/place/school">
 								<img class="placelogo" src="../resources/image/place/school.JPG">
 						</a></td>
-						<td><a href="http://localhost:8080/controller/place/cafe">
+						<td><a href="/place/cafe">
 								<img class="placelogo" src="../resources/image/place/cafe.JPG">
 						</a></td>
 					</tr>
