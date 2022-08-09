@@ -36,13 +36,13 @@
 									<li><a href="#">기타</a></li>
 								</ul>
 							</li>
-							<li><a href="http://localhost:8080/controller/place/place">PLACE</a>
+							<li><a href="http://localhost:8080/controller/place/">PLACE</a>
 								<ul>
-									<li><a href="#">미용</a></li>
-									<li><a href="#">동물병원</a></li>
-									<li><a href="#">호텔</a></li>
-									<li><a href="#">학교/유치원</a></li>
-									<li><a href="#">식당/카페</a></li>
+									<li><a href="http://localhost:8080/controller/place/grooming">미용</a></li>
+									<li><a href="http://localhost:8080/controller/place/clinic">동물병원</a></li>
+									<li><a href="http://localhost:8080/controller/place/hotel">호텔</a></li>
+									<li><a href="http://localhost:8080/controller/place/school">학교/유치원</a></li>
+									<li><a href="http://localhost:8080/controller/place/cafe">식당/카페</a></li>
 								</ul>
 							</li>
 							<li><a href="#">EVENT</a>
@@ -66,9 +66,9 @@
 			<main>
 			<div id="ls">
 				<ul id="eventbn">
-					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/EVT1.PNG" class="event"  id="ev1"></a></li>
-					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/EVN2.PNG" class="event"  id="ev2"></a></li>
-					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/EVEN3.PNG" class="event"  id="ev3"></a></li>
+					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/event/evbn1.png" class="event"  id="ev1"></a></li>
+					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/event/evbn2.png" class="event"  id="ev2"></a></li>
+					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/event/evbn3.png" class="event"  id="ev3"></a></li>
 				</ul>
 			</div>
 			<div id="cn">
