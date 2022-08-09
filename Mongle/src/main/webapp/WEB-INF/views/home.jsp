@@ -7,17 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/main.css">
-<title>main</title>
+<title>Mongle-몽글</title>
 </head>
 <body>
 	<div id="container"><!-- 바디 전체를 container로 지정 -->
 		<div id="hd"><!-- header 전체를 hd로 지정 -->
 			<header>
 				<div id="tm">
-					<div id="logo"><a href="http://localhost:8080/Mongle/"><img alt="logo" src="resources/css/mainimg/logo.png" id="logoimg"></a></div>
+					<div id="logo"><a href="http://localhost:8080/controller/"><img alt="logo" src="resources/css/mainimg/logo.png" id="logoimg"></a></div>
 					<ul id="topmenu">
-						<li><a href="http://localhost:8080/Mongle/signup/signup">회원가입</a></li>
-						<li><a href="http://localhost:8080/Mongle/signin/signin">로그인</a></li>
+						<li><a href="http://localhost:8080/controller/signup/signup">회원가입</a></li>
+						<li><a href="http://localhost:8080/controller/signin/signin">로그인</a></li>
 						<li><a href="#">MyPage</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
@@ -25,7 +25,7 @@
 				<div>
 					<nav>
 						<ul id="menu">
-							<li><a href="http://localhost:8080/Mongle/">HOME</a></li>
+							<li><a href="http://localhost:8080/controller/">HOME</a></li>
 							<li><a href="#">SHOP</a>
 								<ul>
 									<li><a href="#">간식</a></li>
@@ -36,7 +36,7 @@
 									<li><a href="#">기타</a></li>
 								</ul>
 							</li>
-							<li><a href="#">PLACE</a>
+							<li><a href="http://localhost:8080/controller/place/place">PLACE</a>
 								<ul>
 									<li><a href="#">미용</a></li>
 									<li><a href="#">동물병원</a></li>
@@ -115,10 +115,10 @@
 			<footer>
 				<div id="bottomMenu">
 					<ul>
-						<li><a href="http://localhost:8080/Mongle/company/company">회사 소개</a></li>
-						<li><a href="http://localhost:8080/Mongle/company/company">개인정보처리방침</a></li>
-						<li><a href="http://localhost:8080/Mongle/company/company">이용안내</a></li>
-						<li><a href="http://localhost:8080/Mongle/company/company">고객센터</a></li>
+						<li><a href="http://localhost:8080/controller/company/company">회사 소개</a></li>
+						<li><a href="hhttp://localhost:8080/controller/company/company">개인정보처리방침</a></li>
+						<li><a href="http://localhost:8080/controller/company/company">이용안내</a></li>
+						<li><a href="http://localhost:8080/controller/company/company">고객센터</a></li>
 					</ul>
 					<div id="sns">
 						<ul>
