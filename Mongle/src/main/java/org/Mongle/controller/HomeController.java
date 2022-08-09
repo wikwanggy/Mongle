@@ -31,7 +31,7 @@ public class HomeController {
 		return "home";
 	}
 	@RequestMapping(value = "/company/company", method = RequestMethod.GET)
-	// 회원가입.
+	// 고객센터,개인정보처리약관,회사소개, 이용안내
 	public String company() {
 		return "company/company";
 }

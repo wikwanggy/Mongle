@@ -66,12 +66,12 @@
 				<div id="cn">
 					<div id="slideShow">
 						<div id="slides">
-							<img src="../resources/css/company/companyimg/img3.jpg"
+							<img src="../resources/css/company/companyimg/1.jpg"
 								alt="슬라이더 1"> <img
-								src="../resources/css/company/companyimg/img1.jpg" alt="슬라이더 2">
-							<img src="../resources/css/company/companyimg/img2.jpg"
+								src="../resources/css/company/companyimg/2.jpg" alt="슬라이더 2">
+							<img src="../resources/css/company/companyimg/3.jpg"
 								alt="슬라이더 3"> <img
-								src="../resources/css/company/companyimg/img.PNG" alt="슬라이더 4">
+								src="../resources/css/company/companyimg/4.PNG" alt="슬라이더 4">
 							<button id="prev">&lang;</button>
 							<button id="next">&rang;</button>
 						</div>

@@ -1,6 +1,7 @@
 /**
  * 
  */
+/* 회사소개, 고객센터, 이용안내, 개인정보처리약관 */
 var slides = document.querySelectorAll("#slides > img");
 var prev = document.getElementById("prev");
 var next = document.getElementById("next");
