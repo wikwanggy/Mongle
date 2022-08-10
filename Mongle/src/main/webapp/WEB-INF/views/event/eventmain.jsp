@@ -21,25 +21,61 @@
 					</ul>
 				</div>
 				<div>
-					<nav>
-						<ul id="menu">
-							<li><a href="/">HOME</a></li>
-							<li><a href="/shop">SHOP</a></li>
-							<li><a href="#">PLACE</a></li>
-							<li><a href="http://localhost:8080/event/eventmain">EVENT</a></li>
-							<li><a href="#">커뮤니티</a></li>
+					<ul id="menu">
+							<li><a href="http://localhost:8080/controller/">HOME</a></li>
+							<li><a href="#">SHOP</a>
+								<ul>
+									<li><a href="#">간식</a></li>
+									<li><a href="#">미용용품</a></li>
+									<li><a href="#">장난감</a></li>
+									<li><a href="#">하우스</a></li>
+									<li><a href="#">패션</a></li>
+									<li><a href="#">기타</a></li>
+								</ul>
+							</li>
+							<li><a href="http://localhost:8080/controller/place/">PLACE</a>
+								<ul>
+									<li><a href="http://localhost:8080/controller/place/grooming">미용</a></li>
+									<li><a href="http://localhost:8080/controller/place/clinic">동물병원</a></li>
+									<li><a href="http://localhost:8080/controller/place/hotel">호텔</a></li>
+									<li><a href="http://localhost:8080/controller/place/school">학교/유치원</a></li>
+									<li><a href="http://localhost:8080/controller/place/cafe">식당/카페</a></li>
+								</ul>
+							</li>
+							<li><a href="#">EVENT</a>
+								<ul>
+									<li><a href="#">진행 이벤트</a></li>
+									<li><a href="#">종료 이벤트</a></li>
+									<li><a href="#">이벤트 당첨</a></li>
+								</ul>
+							</li>
+							<li><a href="#">커뮤니티</a>
+								<ul>
+									<li><a href="#">게시판</a></li>
+									<li><a href="#">리뷰</a></li>
+								</ul>
+							</li>
 						</ul>
-					</nav>
 				</div>
 			</header>
 		</div>
 <%-- 이벤트 본문  시작점 --%>
 <div id="eventbon">
+	
+					<div id="ls">
+				<ul id="eventbn">
+					<li><a href="#"><img alt="이벤트 배너 1" src="../resources/css/mainimg/event/evbn1.png" class="event"  id="ev1"></a></li>
+					<li><a href="#"><img alt="이벤트 배너 1" src="../resources/css/mainimg/event/evbn2.png" class="event"  id="ev2"></a></li>
+					<li><a href="#"><img alt="이벤트 배너 1" src="../resources/css/mainimg/event/evbn3.png" class="event"  id="ev3"></a></li>
+				</ul>
+			</div>
+	
 	<div id="event-bon-line">
 	
 		<ul class="event-kategorie">
-			<li><a href="#" class="event-katebox">진행 이벤트</a></li>
-			<li><a href="#" class="event-katebox">종료 이벤트</a></li>
+			<li><a href="http://localhost:8080/event/eventmain" class="event-katebox" id="event-katebox1">진행 이벤트</a></li>
+			<li><a href="#" class="event-katebox" id="event-katebox2">종료 이벤트</a></li>
+			<li><a href="#" class="event-katebox" id="event-katebox3">이벤트 당첨</a></li>
 		</ul>
 		
 		<div class="event-count-box">

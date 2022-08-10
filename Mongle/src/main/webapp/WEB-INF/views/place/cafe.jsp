@@ -26,8 +26,8 @@
 							src="../resources/css/mainimg/logo.png" id="logoimg"></a>
 					</div>
 					<ul id="topmenu">
-						<li><a href="#">회원가입</a></li>
-						<li><a href="#">로그인</a></li>
+						<li><a href="/signup/signup">회원가입</a></li>
+						<li><a href="/signin/signin">로그인</a></li>
 						<li><a href="#">MyPage</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
@@ -35,11 +35,11 @@
 				<div>
 					<nav>
 						<ul id="menu">
-							<li><a href="#">HOME</a></li>
-							<li><a href="#">SHOP</a></li>
-							<li><a href="http://localhost:8080/controller/place">PLACE</a></li>
-							<li><a href="#">EVENT</a></li>
-							<li><a href="#">커뮤니티</a></li>
+							<li><a href="/">HOME</a></li>
+							<li><a href="/">SHOP</a></li>
+							<li><a href="/place">PLACE</a></li>
+							<li><a href="/">EVENT</a></li>
+							<li><a href="/">커뮤니티</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -49,11 +49,11 @@
 			<main>
 			<div id="ls">
 				<ul id="place-list">
-					<li><a href="http://localhost:8080/controller/place/clinic">동물병원</a></li>
-					<li><a href="http://localhost:8080/controller/place/grooming">미용</a></li>
-					<li><a href="http://localhost:8080/controller/place/hotel">호텔</a></li>
-					<li><a href="http://localhost:8080/controller/place/school">학교/유치원</a></li>
-					<li id="slt"><a href="http://localhost:8080/controller/place/cafe">식당/카페</a></li>
+					<li><a href="/place/clinic">동물병원</a></li>
+					<li><a href="/place/grooming">미용</a></li>
+					<li><a href="/place/hotel">호텔</a></li>
+					<li><a href="/place/school">학교/유치원</a></li>
+					<li id="slt"><a href="/place/cafe">식당/카페</a></li>
 				</ul>
 			</div>
 			<div id="cn">
@@ -103,7 +103,7 @@
 					<tr><td>제주</td><td></td><td></td><td></td><td></td><td></td></tr>
 				</table>
 				<br>
-				<a href="http://localhost:8080/controller/place/write"><button class="button">글쓰기</button></a>
+				<a href="/place/write"><button class="button">글쓰기</button></a>
 			</div>
 			<div id="rs"></div>
 			</main>

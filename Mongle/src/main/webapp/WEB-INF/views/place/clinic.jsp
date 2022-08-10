@@ -26,20 +26,20 @@
 							src="../resources/css/mainimg/logo.png" id="logoimg"></a>
 					</div>
 					<ul id="topmenu">
-						<li><a href="#">회원가입</a></li>
-						<li><a href="#">로그인</a></li>
-						<li><a href="#">MyPage</a></li>
-						<li><a href="#">고객센터</a></li>
+						<li><a href="/signup/signup">회원가입</a></li>
+						<li><a href="/signin/signin">로그인</a></li>
+						<li><a href="/">MyPage</a></li>
+						<li><a href="/">고객센터</a></li>
 					</ul>
 				</div>
 				<div>
 					<nav>
 						<ul id="menu">
-							<li><a href="#">HOME</a></li>
-							<li><a href="#">SHOP</a></li>
-							<li><a href="http://localhost:8080/controller/place">PLACE</a></li>
-							<li><a href="#">EVENT</a></li>
-							<li><a href="#">커뮤니티</a></li>
+							<li><a href="/">HOME</a></li>
+							<li><a href="/">SHOP</a></li>
+							<li><a href="/place">PLACE</a></li>
+							<li><a href="/">EVENT</a></li>
+							<li><a href="/">커뮤니티</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -50,10 +50,10 @@
 			<div id="ls">
 				<ul id="place-list">
 					<li id="slt"><a href="http://localhost:8080/controller/place/clinic">동물병원</a></li>
-					<li><a href="http://localhost:8080/controller/place/grooming">미용</a></li>
-					<li><a href="http://localhost:8080/controller/place/hotel">호텔</a></li>
-					<li><a href="http://localhost:8080/controller/place/school">학교/유치원</a></li>
-					<li><a href="http://localhost:8080/controller/place/cafe">식당/카페</a></li>
+					<li><a href="/place/grooming">미용</a></li>
+					<li><a href="/place/hotel">호텔</a></li>
+					<li><a href="/place/school">학교/유치원</a></li>
+					<li><a href="/place/cafe">식당/카페</a></li>
 				</ul>
 			</div>
 			<div id="cn">
@@ -85,7 +85,7 @@
 						<th width="40px">조회</th>
 						<th width="40px">추천</th>
 					</tr>
-					<tr><td>서울</td><td></td><td></td><td></td><td></td><td></td></tr>
+					<tr><td>서울</td><td><a href="/place/content">content(클릭)</a></td><td>박연희</td><td>2022.08.09</td><td>0</td><td>0</td></tr>
 					<tr><td>인천</td><td></td><td></td><td></td><td></td><td></td></tr>
 					<tr><td>경기</td><td></td><td></td><td></td><td></td><td></td></tr>
 					<tr><td>부산</td><td></td><td></td><td></td><td></td><td></td></tr>
@@ -103,9 +103,9 @@
 					<tr><td>제주</td><td></td><td></td><td></td><td></td><td></td></tr>
 				</table>
 				<br>
-				<a href="http://localhost:8080/controller/place/write"><button class="button">글쓰기</button></a>
+				<a href="/place/write"><button class="button">글쓰기</button></a>
 			</div>
-			<div id="rs"></div>
+			<div id="rs"><img id="bnimg" src="../resources/image/place/배너1.png"></div>
 			</main>
 		</div>
 		<div>

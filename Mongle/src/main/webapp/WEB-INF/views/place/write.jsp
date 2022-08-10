@@ -26,20 +26,20 @@
 							src="../resources/css/mainimg/logo.png" id="logoimg"></a>
 					</div>
 					<ul id="topmenu">
-						<li><a href="#">회원가입</a></li>
-						<li><a href="#">로그인</a></li>
-						<li><a href="#">MyPage</a></li>
-						<li><a href="#">고객센터</a></li>
+						<li><a href="/signup/signup">회원가입</a></li>
+						<li><a href="/signin/signin">로그인</a></li>
+						<li><a href="/">MyPage</a></li>
+						<li><a href="/">고객센터</a></li>
 					</ul>
 				</div>
 				<div>
 					<nav>
 						<ul id="menu">
-							<li><a href="#">HOME</a></li>
-							<li><a href="#">SHOP</a></li>
-							<li><a href="http://localhost:8080/controller/place">PLACE</a></li>
-							<li><a href="#">EVENT</a></li>
-							<li><a href="#">커뮤니티</a></li>
+							<li><a href="/">HOME</a></li>
+							<li><a href="/">SHOP</a></li>
+							<li><a href="/place">PLACE</a></li>
+							<li><a href="/">EVENT</a></li>
+							<li><a href="/">커뮤니티</a></li>
 						</ul>
 					</nav>
 				</div>

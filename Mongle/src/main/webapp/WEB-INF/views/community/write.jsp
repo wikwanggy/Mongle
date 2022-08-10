@@ -18,6 +18,9 @@
 		<tr>
 			<td><textarea cols="115" rows="30" placeholder="내용" name="content"></textarea></td>
 		</tr>
+		<tr>
+			<td><input type="file"><input type="submit" value="파일 첨부" class="btn_board">
+		</tr>
 		<!-- 로그인 하지 않은 상태에서 올리기를 클릭하면 권한이 없습니다 알림 나오게 -->
 		<tr>
 			<td><input type="submit" value="올리기" class="btn_board"></td>
