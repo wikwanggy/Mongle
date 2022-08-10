@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/css/main.css">
-<title>Mongle-몽글</title>
+<title>Mongle몽글</title>
 </head>
 <body>
 	<div id="container"><!-- 바디 전체를 container로 지정 -->

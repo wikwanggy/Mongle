@@ -19,7 +19,7 @@ public class signinController {
 		public String signup() {
 			return "/signup/signup";
 	}
-	
+	     
 	@RequestMapping(value="/signin/signin", method=RequestMethod.POST)
 	public void signinPost(MogleMemberVo mvo) {
 		
@@ -32,6 +32,7 @@ public class signinController {
 		System.out.println(mvo);
 		
 	}
+	
 	
 	
 }

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../resources/css/mypage/mypage.css">
 </head>
 <body>
 	<div id="container">
@@ -14,20 +15,20 @@
 				<header>
 					<div id="tm">
 						<div id="logo">
-							<a href="http://localhost:8080/Mongle/"><img alt="logo"
+							<a href="/"><img alt="logo"
 								src="../resources/css/mainimg/logo.png" id="logoimg"></a>
 						</div>
 						<ul id="topmenu">
-							<li><a href="http://localhost:8080/Mongle/signup/signup">회원가입</a></li>
-							<li><a href="http://localhost:8080/Mongle/signin/signin">로그인</a></li>
-							<li><a href="#">MyPage</a></li>
+							<li><a href="/signup/signup">회원가입</a></li>
+							<li><a href="/signin/signin">로그인</a></li>
+							<li><a href="#ddd">MyPage</a></li>
 							<li><a href="#">고객센터</a></li>
 						</ul>
 					</div>
 					<div>
 						<nav>
 							<ul id="menu">
-								<li><a href="http://localhost:8080/Mongle/">HOME</a></li>
+								<li><a href="/">HOME</a></li>
 								<li><a href="#">SHOP</a>
 									<ul>
 										<li><a href="#">간식</a></li>
@@ -62,9 +63,45 @@
 			</div>
 			<div>
 				<main>
+				<div id="ls"></div>
 				<div id="cn">
-				<div data-slider-id="lyande"></div>
+					<h1>My page</h1>
+					<table>
+						<tr>
+							<td>이름</td>
+							<td><input type="text"></td>
+						</tr>
+						<tr>
+							<td>닉네임</td>
+							<td><input type="text"></td>
+						</tr>
+						<tr>
+							<td>아이디</td>
+							<td><input type="text"></td>
+						</tr>
+						<tr>
+							<td>비밀번호</td>
+							<td><input type="text"></td>
+						</tr>
+						<tr>
+							<td>생년월일</td>
+							<td><input type="text"></td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td><input type="text"></td>
+						</tr>
+						<tr>
+							<td>전화번호</td>
+							<td><input type="text"></td>
+						</tr>
+						<tr>
+							<td>주소</td>
+							<td><input type="text"></td>
+						</tr>	
+					</table>
 				</div>
+				<div id="rs"></div>
 				</main>
 			</div>
 			<div>
@@ -94,6 +131,6 @@
 			</div>
 		</div>
 	</div>
-	<script src="../resources/js/company.js"></script>
+	
 </body>
 </html>
