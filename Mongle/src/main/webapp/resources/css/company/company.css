@@ -10,7 +10,7 @@
 	box-sizing: border-box; /* 박스 영역은 테투리까지 지정*/
 	font-family: 'Edu VIC WA NT Beginner', cursive;
 	font-family: 'Hi Melody', cursive;
-}
+}/**/
 #container{
 	width:1200px; /* 너비 1200px로 지정 */
 	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
