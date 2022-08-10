@@ -17,7 +17,7 @@ public class shopController {
 	private static final Logger logger = LoggerFactory.getLogger(shopController.class);
 
 	// 상품 페이지
-	@RequestMapping(value = "/shop", method = RequestMethod.GET)
+	@RequestMapping(value = "/shoppage/shop", method = RequestMethod.GET)
 	public String shop(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 
@@ -28,7 +28,7 @@ public class shopController {
 
 		model.addAttribute("serverTime", formattedDate);
 
-		return "shop";
+		return "/shoppage/shop";
 	}
 
 	// 상품 목록

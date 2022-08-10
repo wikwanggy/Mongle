@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>shop</title>
-<link rel="stylesheet" href="/resources/css/shop.css">
+<link rel="stylesheet" href="/resources/css/shop/shop.css">
 </head>
 <body>
 	<div id="container">
@@ -29,7 +29,7 @@
 					<nav>
 						<ul id="menu">
 							<li><a href="/">HOME</a></li>
-							<li><a href="/shop">SHOP</a></li>
+							<li><a href="/shoppage/shop">SHOP</a></li>
 							<li><a href="#">PLACE</a></li>
 							<li><a href="#">EVENT</a></li>
 							<li><a href="#">커뮤니티</a></li>
@@ -58,7 +58,7 @@
 			<!-- center 시작 -->
 			<div id="cn">
 				<h2>
-					<a href="/shop">전체상품</a>
+					<a href="/shoppage/shop">전체상품</a>
 				</h2>
 				<ul id="cnm">
 					<li><a href="#">인기도순</a></li>

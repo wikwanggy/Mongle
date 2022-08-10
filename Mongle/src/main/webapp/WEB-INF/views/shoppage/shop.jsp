@@ -70,10 +70,58 @@
 				<br> <br> <br>
 				<div class="Goods">
 					<ul class="Goodss">
+						<li>
+							<div class="img_box">
+								<a href="/shoppage/Detail"><img class="img"
+									src="/resources/image/beauty.jpg"></a>
+							</div>
+							<div>상품명</div>
+							<div>가격</div> <span>리뷰</span> <span>평점</span>
+						</li>
+						<li class="Goodss">
+							<div class="img_box">
+								<a href="/shoppage/Detail"><img class="img"
+									src="/resources/image/fashion.jpg"></a>
+							</div>
+							<div>상품명</div>
+							<div>가격</div> <span>리뷰</span> <span>평점</span>
+						</li>
+						<li class="Goodss">
+							<div class="img_box">
+								<a href="/shoppage/Detail"><img class="img"
+									src="/resources/image/feed.jpg"></a>
+							</div>
+							<div>상품명</div>
+							<div>가격</div> <span>리뷰</span> <span>평점</span>
+						</li>
 						<li class="Goodss">
 							<div class="img_box">
 								<a href="/shoppage/Detail"><img class="img"
 									src="/resources/image/House.jpg"></a>
+							</div>
+							<div>상품명</div>
+							<div>가격</div> <span>리뷰</span> <span>평점</span>
+						</li>
+						<li class="Goodss">
+							<div class="img_box">
+								<a href="/shoppage/Detail"><img class="img"
+									src="/resources/image/House1.jpg"></a>
+							</div>
+							<div>상품명</div>
+							<div>가격</div> <span>리뷰</span> <span>평점</span>
+						</li>
+						<li class="Goodss">
+							<div class="img_box">
+								<a href="/shoppage/Detail"><img class="img"
+									src="/resources/image/Snack.jpg"></a>
+							</div>
+							<div>상품명</div>
+							<div>가격</div> <span>리뷰</span> <span>평점</span>
+						</li>
+						<li class="Goodss">
+							<div class="img_box">
+								<a href="/shoppage/Detail"><img class="img"
+									src="/resources/image/toy.jpg"></a>
 							</div>
 							<div>상품명</div>
 							<div>가격</div> <span>리뷰</span> <span>평점</span>

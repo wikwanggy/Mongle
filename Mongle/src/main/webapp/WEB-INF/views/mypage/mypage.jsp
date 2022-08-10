@@ -21,7 +21,7 @@
 						<ul id="topmenu">
 							<li><a href="/signup/signup">회원가입</a></li>
 							<li><a href="/signin/signin">로그인</a></li>
-							<li><a href="#ddd">MyPage</a></li>
+							<li><a href="#">MyPage</a></li>
 							<li><a href="#">고객센터</a></li>
 						</ul>
 					</div>

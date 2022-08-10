@@ -71,7 +71,7 @@
 									<td><h1>이용안내</h1></td>
 								</tr>
 								<tr>
-									<td><img alt="이용안내" src="../resources/css/company/companyimg/img.PNG" id="img1"></td>
+									<td><img alt="이용안내" src="../resources/css/company/companyimg/img1.PNG" id="img1"></td>
 								</tr>
 							</table>
 						</div>
@@ -100,7 +100,7 @@
 						</div>
 					</div>
 					<div id="company">
-						<p>제 3조 팀 프로젝드 참여자 :현우 연희 민서 석현 광규</p>
+						<p>제 3조 팀 프로젝드 참여자 : 현우 연희 민서 석현 광규</p>
 					</div>
 				</footer>
 			</div>
