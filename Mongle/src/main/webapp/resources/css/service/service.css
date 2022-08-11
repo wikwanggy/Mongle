@@ -14,10 +14,13 @@
 /*service  시작 css*/
 /*큰틀*/
 #service_main{
+	overflos:hidden;
+	margin-bottom: 30px;
+}
+#service_main_center{
 	overflow: hidden;
-	width:1040px;
-	margin: 0 auto;
-	padding: 20px 0 20px 0;
+	width:900px;
+	padding: 20px 0 20px 20px;
 }
 
 /*왼쪽 사이드 파트 시작*/
@@ -25,7 +28,6 @@
 	position: relative;	
 	float: left;
 	width:150px;
-	margin-right: 20px;
 }
 
 aside>ul{
@@ -49,12 +51,37 @@ aside>ul>li>a:active{
 
 #service_main_page{
 	position: relative;
+	width:100%;
 	float: left;
 }
 
 #service_main_title{
 	font-size: 56px;
 	font-weight:700;
+	color:black;
+}
+
+#service_main_subtitle{
+	font-size: 30px;
+	font-weight:500;
+	color:black;
+}
+
+#service_main_content{
+	overflow: hidden;
+}
+
+.service_main_ul{
+}
+
+.service_main_li{
+	float: left;
+	font-size: 28px;
+	width:25%;
+}
+
+.service_main_li>a{
+	text-decoration: none;
 	color:black;
 }
 

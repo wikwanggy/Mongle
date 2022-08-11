@@ -34,7 +34,7 @@
 			</header>
 		</div>
 		<%--본문 넣을 자리 --%>
-		<div id="service_main"> <%-- 본문  div --%>
+		<div id="service_main">
 			<aside id="service_aside"><%--왼쪽 사이드바 --%>
 			<ul>
 				<li><a href="#"><strong>고객센터</strong></a></li>
@@ -47,12 +47,83 @@
 				<li><a href="#">킾2</a></li>
 			</ul>
 			</aside>
+			<%-- 왼쪽 사이드바 끝 --%>
+			<%-- 본문  div --%>
+			<div id="service_main_center">
 			<div id="service_main_page">
 			<span id="service_main_title">QnA</span>
-			<div>테스트용 제목에따른 내용</div>
-			</div><%--본문 --%>
+			<p id="service_main_subtitle">자주 물어본 질문 10</p>
+			<div id="service_main_content">
+				<ul class="service_main_ul">
+					<li class="service_main_li service_main_no">번호</li>
+					<li class="service_main_li service_main_tit" >제목</a></li>
+					<li class="service_main_li service_main_reg">작성일</li>
+					<li class="service_main_li service_main_cnt">조회수</li>
+				</ul>
+				<ul class="service_main_ul">
+					<li class="service_main_li service_main_no">1</li>
+					<li class="service_main_li service_main_tit"><a href="#">aasdfssdaf</a></li>
+					<li class="service_main_li service_main_reg">08-09</li>
+					<li class="service_main_li service_main_cnt">0</li>
+				</ul>
+				<ul class="service_main_ul">
+					<li class="service_main_li service_main_no">2</li>
+					<li class="service_main_li service_main_tit" ><a href="#">sdaf</a></li>
+					<li class="service_main_li service_main_reg">08-09</li>
+					<li class="service_main_li service_main_cnt">0</li>
+				</ul>
+				<ul class="service_main_ul">
+					<li class="service_main_li service_main_no">3</li>
+					<li class="service_main_li service_main_tit" ><a href="#">aㅁㅁㅁ</a></li>
+					<li class="service_main_li service_main_reg">08-09</li>
+					<li class="service_main_li service_main_cnt">0</li>
+				</ul>
+				<ul class="service_main_ul">
+					<li class="service_main_li service_main_no">4</li>
+					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
+					<li class="service_main_li service_main_reg">08-09</li>
+					<li class="service_main_li service_main_cnt">0</li>
+				</ul>
+								<ul class="service_main_ul">
+					<li class="service_main_li service_main_no">5</li>
+					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
+					<li class="service_main_li service_main_reg">08-09</li>
+					<li class="service_main_li service_main_cnt">0</li>
+				</ul>
+				<ul class="service_main_ul">
+					<li class="service_main_li service_main_no">6</li>
+					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
+					<li class="service_main_li service_main_reg">08-09</li>
+					<li class="service_main_li service_main_cnt">0</li>
+				</ul>
+				<ul class="service_main_ul">
+					<li class="service_main_li service_main_no">7</li>
+					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
+					<li class="service_main_li service_main_reg">08-09</li>
+					<li class="service_main_li service_main_cnt">0</li>
+				</ul>
+				<ul class="service_main_ul">
+					<li class="service_main_li service_main_no">8</li>
+					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
+					<li class="service_main_li service_main_reg">08-09</li>
+					<li class="service_main_li service_main_cnt">0</li>
+				</ul>
+				<ul class="service_main_ul">
+					<li class="service_main_li service_main_no">9</li>
+					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
+					<li class="service_main_li service_main_reg">08-09</li>
+					<li class="service_main_li service_main_cnt">0</li>
+				</ul>
+				<ul class="service_main_ul">
+					<li class="service_main_li service_main_no">10</li>
+					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
+					<li class="service_main_li service_main_reg">08-09</li>
+					<li class="service_main_li service_main_cnt">0</li>
+				</ul>
+			</div>
+			</div><%--본문div끝 --%>
 		</div>
-		
+	</div>
 		<%--본문 넣을 자리 --%>
 		<div>
 			<footer>
