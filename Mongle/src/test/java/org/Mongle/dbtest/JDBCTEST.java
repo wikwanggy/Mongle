@@ -11,7 +11,7 @@ public class JDBCTEST {
 	// Driver 로드 정보
 	String driver = "com.mysql.jdbc.Driver";
 	// url 정보
-	String url = "jdbc:mysql://localhost:3306/exam?serverTimezone=Asia/Seoul";
+	String url = "jdbc:mysql://localhost:3306/mongle?serverTimezone=Asia/Seoul";
 	// userID 정보
 	String user = "root";
 	// password 정보

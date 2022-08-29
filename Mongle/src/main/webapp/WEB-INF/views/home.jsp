@@ -17,7 +17,7 @@
 					<div id="logo"><a href="/"><img alt="logo" src="resources/css/mainimg/logo.png" id="logoimg"></a></div>
 					<ul id="topmenu">
 						<li><a href="/signup/signup">회원가입</a></li>
-						<li><a href="/signin/signin">로그인</a></li>
+						<li><a href="/Login/login">로그인</a></li>
 						<li><a href="/mypage/mypage">MyPage</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
