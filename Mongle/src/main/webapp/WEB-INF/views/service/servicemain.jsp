@@ -17,41 +17,64 @@
 						<li><a href="/signup/signup">회원가입</a></li>
 						<li><a href="/signin/signin">로그인</a></li>
 						<li><a href="#">MyPage</a></li>
-						<li><a href="/service/servicemain">고객센터</a></li>
+						<li><a href="#">고객센터</a></li>
 					</ul>
 				</div>
 				<div>
-					<nav>
-						<ul id="menu">
-							<li><a href="/">HOME</a></li>
-							<li><a href="/shop">SHOP</a></li>
-							<li><a href="#">PLACE</a></li>
-							<li><a href="/eventmain">EVENT</a></li>
-							<li><a href="#">커뮤니티</a></li>
+					<ul id="menu">
+							<li><a href="http://localhost:8080/controller/">HOME</a></li>
+							<li><a href="#">SHOP</a>
+								<ul>
+									<li><a href="#">간식</a></li>
+									<li><a href="#">미용용품</a></li>
+									<li><a href="#">장난감</a></li>
+									<li><a href="#">하우스</a></li>
+									<li><a href="#">패션</a></li>
+									<li><a href="#">기타</a></li>
+								</ul>
+							</li>
+							<li><a href="http://localhost:8080/controller/place/">PLACE</a>
+								<ul>
+									<li><a href="http://localhost:8080/controller/place/grooming">미용</a></li>
+									<li><a href="http://localhost:8080/controller/place/clinic">동물병원</a></li>
+									<li><a href="http://localhost:8080/controller/place/hotel">호텔</a></li>
+									<li><a href="http://localhost:8080/controller/place/school">학교/유치원</a></li>
+									<li><a href="http://localhost:8080/controller/place/cafe">식당/카페</a></li>
+								</ul>
+							</li>
+							<li><a href="#">EVENT</a>
+								<ul>
+									<li><a href="#">진행 이벤트</a></li>
+									<li><a href="#">종료 이벤트</a></li>
+									<li><a href="#">이벤트 당첨</a></li>
+								</ul>
+							</li>
+							<li><a href="#">커뮤니티</a>
+								<ul>
+									<li><a href="#">게시판</a></li>
+									<li><a href="#">리뷰</a></li>
+								</ul>
+							</li>
 						</ul>
-					</nav>
 				</div>
 			</header>
 		</div>
 		<%--본문 넣을 자리 --%>
 		<div id="service_main">
 			<aside id="service_aside"><%--왼쪽 사이드바 --%>
+			<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
 			<ul>
-				<li><a href="#"><strong>고객센터</strong></a></li>
-				<li><a href="#">QnA</a></li>
-				<li><a href="#">1:1질문</a></li>
-				<li><a href="#">주문</a></li>
-				<li><a href="#">배송</a></li>
-				<li><a href="#">환불</a></li>
-				<li><a href="#">회원 정보 수정</a></li>
-				<li><a href="#">킾2</a></li>
+				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
+				<li><a href="questions">1:1질문(Q&A)</a></li>
+				<li><a href="order">주문</a></li>
+				<li><a href="shipping">배송/환불</a></li>
 			</ul>
 			</aside>
 			<%-- 왼쪽 사이드바 끝 --%>
 			<%-- 본문  div --%>
 			<div id="service_main_center">
 			<div id="service_main_page">
-			<span id="service_main_title">QnA</span>
+			<span id="service_main_title">고객센터(main)</span>
 			<p id="service_main_subtitle">자주 물어본 질문 10</p>
 			<div id="service_main_content">
 				<ul class="service_main_ul">

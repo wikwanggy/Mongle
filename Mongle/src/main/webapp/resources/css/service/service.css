@@ -20,32 +20,53 @@
 #service_main_center{
 	overflow: hidden;
 	width:900px;
-	padding: 20px 0 20px 20px;
+	padding: 20px 0 20px 30px;
 }
 
 /*왼쪽 사이드 파트 시작*/
 #service_aside{
 	position: relative;	
 	float: left;
-	width:150px;
+	width:175px;
+	margin:20px 0px 0px 25px;
 }
 
-aside>ul{
+#service_aside_header{
+	text-align:center;
+	padding: 12px 0px 12px 0px;
 	background-color: #ECEAEA;
 }
 
+#service_aside_header>a{
+	text-decoration: none;
+	color: black;
+}
+
+aside>ul{
+	background-color: #FFFFFF;
+	border: 1px solid #ECEAEA;
+}
+
 aside>ul>li{
-	font-size: 24px;
+	font-size: 20px;
+	border-top: 1px solid #ECEAEA;
+	display: block;
 }
 
 aside>ul>li>a{
 	text-decoration: none;
 	display: block;
 	color:#555454;
+	font-size: 18px;
+	font-weight: 700;
+	padding: 10px 0px 15px 10px;
+}
+aside>ul>li:hover{
+	background-color: 	#fff4ab;
 }
 
 aside>ul>li>a:active{
-	color:#000000;
+	color:red;
 }
 /*왼쪽 사이드 파트 끝*/
 
@@ -134,13 +155,17 @@ nav{
 #menu{
 	height:40px;
 	padding: 4px 0px 10px 0px;
-	border-top: 2px solid rgba(128, 128, 128, 0.5); 
-	border-bottom: 2px solid rgba(128, 128, 128, 0.5);
-	box-shadow: 0 4px 4px -4px black;
+	border-top: 2px solid rgba(38, 38, 38, 0.5); 
+	border-bottom: 2px solid rgba(38, 38, 38, 0.5);
+	box-shadow: 0 4px 4px -4px gray;
+	text-align: center;
+	margin:  0 auto;
 }
 #menu>li {
 	float: left; /* 메뉴 항목을 왼쪽으로 플로팅 */
 	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+	width: 140px;
+	
 }
 #menu>li>a {
 	color: black; /* 폰트 색상 */
@@ -149,6 +174,33 @@ nav{
 	font-size: 25px;
 	text-decoration: none;
 }
+#menu>li>ul{
+	width: 130px;
+	display: none;
+	position: absolute;
+	font-size: 20px;
+	background-color: rgba(255, 235, 98);
+	z-index:1;
+	border: 0.5px solid black;
+}
+#menu>li:hover>ul{
+	display: block;
+}
+#menu>li>ul>li:hover{
+	background-color: orange;
+	transition:ease 1s;
+}
+#menu>li>ul>li{
+	list-style: none;
+	border: 0.5px solid black;
+}
+
+#menu>li>ul>li>a{
+	text-decoration: none;
+	color: black;
+	line-height: 50px;
+}
+
 footer {
 	width: 100%; /* 너비 */
 	height: 100px; /* 높아 */

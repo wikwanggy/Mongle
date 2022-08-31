@@ -1,0 +1,228 @@
+@charset "UTF-8";
+@import
+	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap')
+	;
+	
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Edu VIC WA NT Beginner', cursive;
+	font-family: 'Hi Melody', cursive;
+}
+
+/*questions  시작 css*/
+/*큰틀*/
+#service_main{
+	overflos:hidden;
+	margin-bottom: 30px;
+}
+#service_main_center{
+	overflow: hidden;
+	width:900px;
+	padding: 20px 0 20px 30px;
+}
+
+/*왼쪽 사이드 파트 시작*/
+#service_aside{
+	position: relative;	
+	float: left;
+	width:175px;
+	margin:20px 0px 0px 25px;
+}
+
+#service_aside_header{
+	text-align:center;
+	padding: 12px 0px 12px 0px;
+	background-color: #ECEAEA;
+}
+
+#service_aside_header>a{
+	text-decoration: none;
+	color: black;
+}
+
+aside>ul{
+	background-color: #FFFFFF;
+	border: 1px solid #ECEAEA;
+}
+
+aside>ul>li{
+	font-size: 20px;
+	border-top: 1px solid #ECEAEA;
+	display: block;
+}
+
+aside>ul>li>a{
+	text-decoration: none;
+	display: block;
+	color:#555454;
+	font-size: 18px;
+	font-weight: 700;
+	padding: 10px 0px 15px 10px;
+}
+aside>ul>li:hover{
+	background-color: 	#fff4ab;
+}
+
+aside>ul>li>a:active{
+	color:red;
+}
+/*왼쪽 사이드 파트 끝*/
+/*메인 시작*/
+#service_main_title{
+	font-size: 56px;
+	font-weight:700;
+	color:black;
+}
+/*메인 끝*/
+/*questions  끝 css*/
+
+#container{
+	width:1200px;
+	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
+}
+
+header {
+	width: 100%; /* 너비 */
+	height: 130px; /* 높이 */
+	background-color: rgba(255, 235, 98);
+}
+#tm{
+	display: flex;
+	height: 90px;
+}
+#logo{
+	width:960px;
+		text-align: center;
+}
+
+#logoimg{
+	height: 80px;
+}
+
+ul {
+	list-style: none;
+}
+#topmenu {
+	height: 50px;
+	float: right;
+}
+#topmenu>li {
+	float: left; /* 메뉴 항목을 오른쪽으로 플로팅 */
+	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+}
+#topmenu>li>a {
+	color: black; /* 폰트 색상 */
+	padding-right: 10px; /* 패딩 지정 */
+	padding-bottom: 10px;
+	text-decoration: none;
+	font-size: 15px;
+	
+}
+nav{
+	
+}
+#menu{
+	height:40px;
+	padding: 4px 0px 10px 0px;
+	border-top: 2px solid rgba(38, 38, 38, 0.5); 
+	border-bottom: 2px solid rgba(38, 38, 38, 0.5);
+	box-shadow: 0 4px 4px -4px gray;
+	text-align: center;
+	margin:  0 auto;
+}
+#menu>li {
+	float: left; /* 메뉴 항목을 왼쪽으로 플로팅 */
+	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+	width: 140px;
+	
+}
+#menu>li>a {
+	color: black; /* 폰트 색상 */
+	font-weight: 300; /* 폰트 굵기 */
+	padding: 0px 20px 0px 20px; /* 패딩 지정 */
+	font-size: 25px;
+	text-decoration: none;
+}
+#menu>li>ul{
+	width: 130px;
+	display: none;
+	position: absolute;
+	font-size: 20px;
+	background-color: rgba(255, 235, 98);
+	z-index:1;
+	border: 0.5px solid black;
+}
+#menu>li:hover>ul{
+	display: block;
+}
+#menu>li>ul>li:hover{
+	background-color: orange;
+	transition:ease 1s;
+}
+#menu>li>ul>li{
+	list-style: none;
+	border: 0.5px solid black;
+}
+
+#menu>li>ul>li>a{
+	text-decoration: none;
+	color: black;
+	line-height: 50px;
+}
+
+footer {
+	width: 100%; /* 너비 */
+	height: 100px; /* 높아 */
+	border-top: 1px solid #222; /* 위쪽에 가로선 추가 */
+}
+
+#bottomMenu {
+	width: 100%;
+	height: 20px;
+	position: relative;
+}
+
+#bottomMenu ul {
+	margin-top: 15px;
+}
+
+#bottomMenu ul li {
+	float: left;
+	padding: 5px 20px;
+	border-right: 1px solid #ddd;
+}
+
+#bottomMenu ul li a, #bottomMenu ul li a:visited {
+	font-size: 15px;
+	color: #666
+}
+
+.img2 {
+	width: 25px;
+	height: 25px;
+	border-radius: 25px;
+}
+
+#sns {
+	position: absolute;
+	right: 0; /* 오른쪽 끝에 배치 */
+}
+
+#sns ul li {
+	border: none;
+	padding: 5px;
+
+}
+
+#company {
+	clear: left;
+	margin-top: 25px;
+	margin-left: 20px
+}
+
+p {
+	font-size: 14px;
+	color: #aaa;
+}
