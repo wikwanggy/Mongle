@@ -1,4 +1,3 @@
-<!-- main jsp -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -21,7 +20,7 @@
 							<div id="toplist">
 								<c:choose>
 									<c:when test="${sessionScope.login==null}">
-										<a href="/signup/signup" >회원가입</a>
+										<a href="Signup/Signup" >회원가입</a>
 										<a href="/Login/login">로그인</a>
 									</c:when>
 									<c:otherwise>

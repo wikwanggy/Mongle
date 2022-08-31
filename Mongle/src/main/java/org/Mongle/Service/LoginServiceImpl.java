@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.Mongle.Mapper.LoginDAO;
 import org.Mongle.model.LoginDTO;
+import org.Mongle.model.SignupDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +26,14 @@ public class LoginServiceImpl implements LoginService {
 			}
 			return result;
 		}
-
+		// 로그인 
 		public int logincheck(LoginDTO mdto) {
 			
 			return 0;
+		}
+		// 회원가입
+		public void signup(SignupDTO sd) {
+			 ldao.signup(sd);
+			
 		}
 }

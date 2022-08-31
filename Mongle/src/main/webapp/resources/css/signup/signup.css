@@ -10,26 +10,28 @@
 	font-family: 'Hi Melody', cursive;
 }/**/
 body{
+	display:flex;
 	margin: 0 auto;
-	width: 1024px;
+	width: 100% auto;
 	height: 960px;
 	text-align: center;
 	position: relative;
 	background-color: rgba(255, 235, 98);
+	justify-content:center; 
+  	align-items : center;
 }
 #signup{
 	width:800px;
-	height: 800px;
+	height: 860px;
 	position: absolute;	
 	background-color: white;
 	border-radius:100px; 
 	box-shadow: 10px 10px 10px gray; 
-	margin-top: 50px;
+	text-align: center;
 }
 div{
-	width: 800px;
-	height: 40px;
-	margin-top: 15px;
+	height: 80px;
+	margin-top: 10px;
 }
 img{
 	width: 100px;
@@ -39,20 +41,28 @@ img{
 	box-shadow: 10px 10px 10px gray; 
 }
 
-input{
-	width: 400px;
+.input{
+	width: 360px;
 	height: 40px;
 	border-radius: 25px;
 	font-size: 25px;
 	text-align: center;
 	box-shadow: 2px 2px 2px gray; 
 	
+}/**/
+.bth{
+	width: 120px;
+	height: 40px;
+	border-radius: 25px;
+	font-size: 25px;
+	text-align: center;
+	box-shadow: 2px 2px 2px gray; 
 }
-input:focus{
+.input:focus{
 	border: 5px solid rgba(255, 235, 98);
 	outline: none;
 }
-input:focus::placeholder{
+.input:focus::placeholder{
 	color :  rgba(255, 235, 98);
 }
 

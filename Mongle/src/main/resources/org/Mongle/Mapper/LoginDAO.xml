@@ -9,4 +9,11 @@
   		where id=#{id} 
 		and password=#{password}
   	</select>
+  	<select id="logincheck" resultType="int">
+  		select count(*) from member where id=#{id} and password=#{password}
+  	</select>
+  	<insert id="signup">
+  		insert into member(id, password, name, bth, email,gender) 
+	values(#{id},#{password},#{name},#{bth},#{email},#{gender});
+  	</insert>
   </mapper>

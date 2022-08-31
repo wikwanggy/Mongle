@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,7 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/login/login.js"></script>
+
 <link rel="stylesheet" href="/resources/css/login/login.css">
 </head>
 <body>
@@ -36,9 +38,10 @@
 			</c:choose>
 			</div>
 		</form>
+		
 		<form>
 			<input class="btn" type="submit" value="Sign UP"
-				formaction="/signup/signup">
+				formaction="/Signup/Signup">
 			<p>제작자 3조</p>
 		</form>
 	</div>
