@@ -17,7 +17,7 @@ body{
 	position: relative;
 	background-color: rgba(255, 235, 98);
 }
-.signin{
+.Loginform{
 	width:800px;
 	height: 800px;
 	position: absolute;
@@ -37,8 +37,7 @@ img{
 	height : 100px;
 	border-radius: 25px;
 	font-size: 25px;
-	
-	
+	text-align: center;
 }
 .input:focus{
 	border: 5px solid rgba(255, 235, 98);

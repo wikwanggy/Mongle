@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -10,14 +9,26 @@
 <title>Mongle-몽글</title>
 </head>
 <body>
-	<div id="container"><!-- 바디 전체를 container로 지정 -->
-		<div id="hd"><!-- header 전체를 hd로 지정 -->
+	<div id="container">
+		<!-- 바디 전체를 container로 지정 -->
+		<div id="hd">
+			<!-- header 전체를 hd로 지정 -->
 			<header>
 				<div id="tm">
-					<div id="logo"><a href="/"><img alt="logo" src="resources/css/mainimg/logo.png" id="logoimg"></a></div>
+					<a href="/"><img alt="logo"src="resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
-						<li><a href="/signup/signup">회원가입</a></li>
-						<li><a href="/Login/login">로그인</a></li>
+						<li>
+							<div id="toplist">
+								<c:choose>
+									<c:when test="${sessionScope.login==null}">
+										<a href="/signup/signup" >회원가입</a>
+										<a href="/Login/login">로그인</a>
+									</c:when>
+									<c:otherwise>
+										<a href="/Login/logout">로그아웃</a>
+									</c:otherwise>
+								</c:choose>
+							</div></li>
 						<li><a href="/mypage/mypage">MyPage</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
@@ -34,8 +45,7 @@
 									<li><a href="#">하우스</a></li>
 									<li><a href="#">패션</a></li>
 									<li><a href="#">기타</a></li>
-								</ul>
-							</li>
+								</ul></li>
 							<li><a href="/place/">PLACE</a>
 								<ul>
 									<li><a href="/place/grooming">미용</a></li>
@@ -43,21 +53,18 @@
 									<li><a href="/place/hotel">호텔</a></li>
 									<li><a href="/place/school">학교/유치원</a></li>
 									<li><a href="/place/cafe">식당/카페</a></li>
-								</ul>
-							</li>
+								</ul></li>
 							<li><a href="#">EVENT</a>
 								<ul>
 									<li><a href="#">진행 이벤트</a></li>
 									<li><a href="#">종료 이벤트</a></li>
 									<li><a href="#">이벤트 당첨</a></li>
-								</ul>
-							</li>
+								</ul></li>
 							<li><a href="#">커뮤니티</a>
 								<ul>
 									<li><a href="#">게시판</a></li>
 									<li><a href="#">리뷰</a></li>
-								</ul>
-							</li>
+								</ul></li>
 						</ul>
 					</nav>
 				</div>
@@ -67,17 +74,23 @@
 			<main>
 			<div id="ls">
 				<ul id="eventbn">
-					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/event/evbn1.png" class="event"  id="ev1"></a></li>
-					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/event/evbn2.png" class="event"  id="ev2"></a></li>
-					<li><a href="#"><img alt="이벤트 배너 1" src="resources/css/mainimg/event/evbn3.png" class="event"  id="ev3"></a></li>
+					<li><a href="#"><img alt="이벤트 배너 1"
+							src="resources/css/mainimg/event/evbn1.png" class="event"
+							id="ev1"></a></li>
+					<li><a href="#"><img alt="이벤트 배너 1"
+							src="resources/css/mainimg/event/evbn2.png" class="event"
+							id="ev2"></a></li>
+					<li><a href="#"><img alt="이벤트 배너 1"
+							src="resources/css/mainimg/event/evbn3.png" class="event"
+							id="ev3"></a></li>
 				</ul>
 			</div>
 			<div id="cn">
 				<div id="slideShow">
 					<div id="slides">
-						<img src="resources/css/mainimg/slides4.PNG" alt="슬라이더 2"> 
-						<img src="resources/css/mainimg/slides2.png" alt="슬라이더 2"> 
-						<img src="resources/css/mainimg/slides3.png" alt="슬라이더 2">
+						<img src="resources/css/mainimg/slides4.PNG" alt="슬라이더 2"> <img
+							src="resources/css/mainimg/slides2.png" alt="슬라이더 2"> <img
+							src="resources/css/mainimg/slides3.png" alt="슬라이더 2">
 						<button id="prev">&lang;</button>
 						<button id="next">&rang;</button>
 					</div>
