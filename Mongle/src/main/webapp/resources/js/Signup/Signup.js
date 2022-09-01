@@ -9,7 +9,7 @@ $(document).ready(function() {
 	var password2result = "";
 	var nameresult = "";
 	var emailresult = "";
-	
+
 	// 아이디 길이 체크
 	$("#id").on("blur",function() {
 
@@ -65,13 +65,14 @@ $(document).ready(function() {
 			str = "<span id='password2alert'>비밀번호가 일치하지 않습니다. </span>"
 			$("#passwordbox2").append(str);
 			$("#password2alert").css("color", "red").css("margin-left", "10px");
-			password2result = true;
+			password2result=false;
 		} else {
 			$("#password2alert").remove();
 			str = "<span id='password2alert'>  비밀번호가 일치합니다.</span>"
 				$("#passwordbox2").append(str);
 				$("#password2alert").css("color", "green").css("margin-left", "10px");
-				password2result=false;
+				
+				password2result = true;
 		}
 	})
 	
@@ -141,4 +142,6 @@ $(document).ready(function() {
 		}
 	
 	})
+	
 })
+
