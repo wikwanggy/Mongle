@@ -64,5 +64,5 @@ public class LoginController {
 		ls.signup(sd);
 		return "redirect:/Login/login";
 	}
-	
+	// 
 }

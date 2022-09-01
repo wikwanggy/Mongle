@@ -1,7 +1,7 @@
 /**
  * 
  */
-
+//
 $(document).ready(function(){
 	$("#login").submit(function() {
 		//event.preventDefault();

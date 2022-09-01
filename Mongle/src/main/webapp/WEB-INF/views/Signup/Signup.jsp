@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="/resources/css/signup/signup.css">
 </head>
 <body>
-
 <div id="signup">
 	<img src="/resources/css/signup/signupimg/logo.png" alt="로고"><a href="/"></a>
 	<form action="/Signup/Signup" method="post" id="form">

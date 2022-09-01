@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class LoginServiceImpl implements LoginService {
 	@Autowired
 	LoginDAO ldao;
-	
+	// 서비스부브
 	// 로그인 select
 		public boolean login(LoginDTO ldto, HttpSession session) {
 			LoginDTO login=ldao.login(ldto);

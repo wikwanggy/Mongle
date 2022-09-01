@@ -131,7 +131,7 @@ $(document).ready(function() {
 	})
 
 	
-	// 필요한 데이터가 전부 입력되었다면 submit을 진행한다
+	// 필요한 데이터가 전부 입력되었다면 submit을 진행한다//
 	$("form").on("submit", function() {
 
 		if(idresult == true && passwordresult == true && password2result == true && nameresult == true && emailresult == true){

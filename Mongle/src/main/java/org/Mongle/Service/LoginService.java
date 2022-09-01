@@ -6,6 +6,7 @@ import org.Mongle.model.LoginDTO;
 import org.Mongle.model.SignupDTO;
 
 public interface LoginService {
+	// 서비스부분
 	// 로그인
 	public boolean login(LoginDTO mdto, HttpSession session);
 	// 로그인체크

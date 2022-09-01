@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="container">
-		<!-- 바디 전체를 container로 지정 -->
+
 		<div id="hd">
 			<!-- header 전체를 hd로 지정 -->
 			<header>

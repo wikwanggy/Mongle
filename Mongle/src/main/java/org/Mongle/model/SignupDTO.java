@@ -7,7 +7,7 @@ public class SignupDTO {
 	private String bth;
 	private String gender;
 	private String email;
-
+//셋팅
 	public String getId() {
 		return id;
 	}
