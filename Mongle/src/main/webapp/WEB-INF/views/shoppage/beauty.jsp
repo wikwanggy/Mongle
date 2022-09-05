@@ -14,10 +14,8 @@
 		<div id="hd">
 			<header>
 				<div id="tm">
-					<div id="logo">
-						<a href="/"><img alt="logo" src="/resources/css/mainimg/logo.png"
-							id="logoimg"></a>
-					</div>
+					<a href="/"><img alt="logo"
+						src="/resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
 						<li><a href="/signup/signup">회원가입</a></li>
 						<li><a href="/signin/signin">로그인</a></li>

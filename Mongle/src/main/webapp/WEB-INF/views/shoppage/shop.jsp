@@ -14,10 +14,8 @@
 		<div id="hd">
 			<header>
 				<div id="tm">
-					<div id="logo">
-						<a href="/"><img alt="logo" src="/resources/css/mainimg/logo.png"
-							id="logoimg"></a>
-					</div>
+					<a href="/"><img alt="logo"
+						src="/resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
 						<li><a href="/signup/signup">회원가입</a></li>
 						<li><a href="/signin/signin">로그인</a></li>
@@ -33,9 +31,11 @@
 							<li><a href="#">PLACE</a></li>
 							<li><a href="#">EVENT</a></li>
 							<li><a href="#">커뮤니티</a></li>
+							<li><a href="/shoppage/shop_board" id="shop_board">상품 등록</a></li>
 						</ul>
 					</nav>
 				</div>
+
 			</header>
 		</div>
 		<!-- header 끝 -->
@@ -67,6 +67,10 @@
 					<li><a href="#">리뷰순</a></li>
 					<li><a href="#">평점높은순</a></li>
 				</ul>
+				<div id="bth">
+					<a href="/shoppage/shop_board"><input type="button"
+						value="상품등록"></a>
+				</div>
 				<br> <br> <br>
 				<div class="Goods">
 					<ul class="Goodss">

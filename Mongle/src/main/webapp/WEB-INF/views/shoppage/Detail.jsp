@@ -7,6 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta charset="UTF-8" />
 <title>shop</title>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/resources/js/Detail.js"></script>
 <link rel="stylesheet" href="/resources/css/shop/Detail.css">
 </head>
 <body>
@@ -16,10 +19,8 @@
 			<div id="hd">
 				<header id="header">
 					<div id="tm">
-						<div id="logo">
-							<a href="/"><img alt="logo"
-								src="/resources/css/mainimg/logo.png" id="logoimg"></a>
-						</div>
+						<a href="/"><img alt="logo"
+							src="/resources/css/mainimg/logo.png" id="logoimg"></a>
 						<ul id="topmenu">
 							<li><a href="/signup/signup">회원가입</a></li>
 							<li><a href="/signin/signin">로그인</a></li>
@@ -45,7 +46,6 @@
 			<!-- main 전체 -->
 			<div id="test">
 				<div id="main">
-					<!-- center 시작 -->
 					<div id="cnt">
 						<div id="br"></div>
 						<div id="cnt_header">
@@ -127,94 +127,37 @@
 								</div>
 							</div>
 						</div>
-						<div id="main_bottom">
-							<div id="detail">
-								<ul>
-									<li><a href="/shoppage/Detail" class="detail">상세정보</a></li>
-									<li><a href="#" class="detail">구매평</a></li>
-									<li><a href="#" class="detail">Q&A</a></li>
-									<li><a href="#" class="detail">반품/교환</a></li>
+
+						<!-- 상품 설명,리뷰,문의,배송 전체 -->
+						<div id="btfTab">
+							<!-- 상품 상세 메뉴 -->
+							<div id="slidemenu">
+								<ul id="tab-titles">
+									<li name="detail" class="active"><a href=".product-detail">상세정보</a></li>
+									<li name="review" class="active"><a href="#product-review">구매평</a></li>
+									<li name="qna" class="active"><a
+										href="http://localhost:8080/shoppage/Detail#product-etc">상품문의
+											<span class="product-tab-review-count">(0)</span>
+									</a></li>
+									<li name="etc" class="active"><a href="#product-etc">배송/반품/교환
+											안내</a></li>
 								</ul>
 							</div>
-							<div id="product_Introduce">
-								<div>
-									<img src="/resources/image/beauty.jpg" id="product_img">
-									<p>반려동물 위생를 위한 용품</p>
-								</div>
-								<strong>상품정보 제공고시</strong>
-								<table id="Notice">
-									<tr>
-										<td class="Notice_title"><b>품명/모델명</b></td>
-										<td>반려동물 손 브러쉬</td>
-									</tr>
-									<tr>
-										<td class="Notice_title"><b>법에 의한 인증,허가</b></td>
-										<td>해당사항 없음</td>
-									</tr>
-									<tr>
-										<td class="Notice_title"><b>제조사(사)</b></td>
-										<td>위광규(주)</td>
-									</tr>
-									<tr>
-										<td class="Notice_title"><b>제조국</b></td>
-										<td>한국산(위광규)</td>
-									</tr>
-									<tr>
-										<td class="Notice_title"><b>소비자상담 관련 전화번호</b></td>
-										<td>xx-xxxx-xxxx</td>
-									</tr>
-								</table>
-							</div>
-						</div>
-						<div>
-							<div>
-								<div>
-									<div id="" style="display: block">
-										<div>
-											<div>
-												별점 <a class="star"></a> <a class="star"></a> <a class="star"></a>
-												<a class="star"></a> <a class="star"></a>
-											</div>
-											<div>점수</div>
-											<div>구매평</div>
-										</div>
-										<div>
-											<div>리뷰수</div>
-											<div>그림</div>
-											<div>구매평</div>
-										</div>
-										<div>
-											<div>
-												<span>5점</span>
-												<div></div>
-											</div>
-											<div>
-												<span>4점</span>
-												<div></div>
-											</div>
-											<div>
-												<span>3점</span>
-												<div></div>
-											</div>
-											<div>
-												<span>2점</span>
-												<div></div>
-											</div>
-											<div>
-												<span>1점</span>
-												<div></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<!-- 상품 설명,리뷰,문의,배송 전체 배치 -->
+							<ul class="tab-contents">
+								<!-- 상품 설명 -->
+								<li class="product-detail"><input type="hidden" name="bno"
+									value="${detail.product_id}"></li>
+								<li class="product-review"></li>
+								<li class="product-qna"></li>
+								<li class="product-etc"></li>
+							</ul>
 						</div>
 					</div>
 				</div>
+				<!-- center 시작 -->
 				<!-- center 끝 -->
-			</div>
-			<!-- right 시작 -->
-			<div id="rs">
+				<!-- right 시작 -->
 				<ul id="eventbn">
 					<li><a href="#"><img alt="이벤트 배너 1"
 							src="/resources/css/mainimg/EVT1.PNG" class="event" id="ev1"></a></li>
@@ -223,8 +166,8 @@
 					<li><a href="#"><img alt="이벤트 배너 1"
 							src="/resources/css/mainimg/EVEN3.PNG" class="event" id="ev3"></a></li>
 				</ul>
+				<!-- right 끝-->
 			</div>
-			<!-- right 끝-->
 			<!-- main 끝 -->
 			<!-- bottom 시작 -->
 			<div>
@@ -248,7 +191,7 @@
 						</div>
 					</div>
 					<div id="company">
-						<p>제 3조 팀 프로젝드 참여자 : 현우 연희 민서 석현 광규</p>
+						<p id="p">제 3조 팀 프로젝드 참여자 : 현우 연희 민서 석현 광규</p>
 					</div>
 				</footer>
 			</div>

@@ -11,6 +11,11 @@
 	font-family: 'Edu VIC WA NT Beginner', cursive;
 	font-family: 'Hi Melody', cursive;
 }
+/* 테스트 */
+#bth{
+	text-align: right;
+	padding-right: 40px;
+}
 
 #container {
 	width: 1200px;
@@ -37,13 +42,7 @@ header {
 }
 
 #tm {
-	display: flex;
 	height: 90px;
-}
-
-#logo {
-	width: 960px;
-	text-align: center;
 }
 
 #logoimg {
@@ -87,6 +86,10 @@ header {
 	padding: 0px 20px 0px 20px; /* 패딩 지정 */
 	font-size: 25px;
 	text-decoration: none;
+}
+
+#shop_board {
+	float: right;
 }
 
 /* main */
