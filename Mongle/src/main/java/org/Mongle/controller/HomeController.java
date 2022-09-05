@@ -35,9 +35,5 @@ public class HomeController {
 	public String company() {
 		return "/company/company";
 }
-	@RequestMapping(value = "/mypage/mypage", method = RequestMethod.GET)
-	// mypage
-	public String mypage() {
-		return "/mypage/mypage";
-	}
+
 }

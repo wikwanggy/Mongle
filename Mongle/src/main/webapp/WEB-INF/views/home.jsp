@@ -23,12 +23,12 @@
 										<a href="Signup/Signup" >회원가입</a>
 										<a href="/Login/login">로그인</a>
 									</c:when>
-									<c:otherwise>
+									<c:otherwise >
 										<a href="/Login/logout">로그아웃</a>
+										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
 									</c:otherwise>
 								</c:choose>
 							</div></li>
-						<li><a href="/mypage/mypage">MyPage</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
 				</div>

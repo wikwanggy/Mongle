@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -64,5 +65,35 @@ public class LoginController {
 		ls.signup(sd);
 		return "redirect:/Login/login";
 	}
-	// 
+	// 회원 페이지 이동
+	@GetMapping("/mypage/mypage")
+	public void mypagemove(SignupDTO sdto,Model model) {
+		model.addAttribute("mypage",ls.detail(sdto));
+	}
+	@GetMapping("/mypage/list")
+	public void getlist(Model model) {
+		model.addAttribute("mlist", ls.list());
+	}
+	// 회원정보 상세
+	@PostMapping("/mypage/mypage")
+	public String detail(SignupDTO sdto,Model model) {
+		
+		model.addAttribute("mdetail", ls.detail(sdto));
+		
+		return "/mypage/mypage";
+		
+	}
+	// 회원정보 수정
+	@PostMapping("/mypage/modify")
+	public String modify(SignupDTO sdto) {
+		ls.modify(sdto);
+		return "redirect:/account/member?id="+sdto.getId();
+	}
+	
+	// 회원 탈퇴
+	@GetMapping("/mypage/leave")
+	public String leave(SignupDTO adto) {
+		ls.leave(adto);
+		return "redirect:/account/logout";
+	}
 }

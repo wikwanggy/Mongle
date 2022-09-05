@@ -1,8 +1,7 @@
 /* m a in css  */
 @charset "UTF-8";
 @import
-	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap')
-	;
+	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap');
 * {
 	margin: 0; /* 마진값 초기화 */
 	padding: 0; /* 패딩값 초기화*/
@@ -20,13 +19,9 @@ header {
 	background-color: rgba(255, 235, 98); /* 백그라운드 컬러 지정 */
 }
 #tm{
-	display: flex; /* 정렬을 flex로 지정 */
 	height: 90px; /* 높이 90px로 지정*/
 }
-#logo{
-	width:960px; /* 로고의 너비를 960px로 지정 */
-	text-align: center; /* 로고의 위치를 센터로 지정 */
-}
+
 #logoimg{
 	height: 80px; /* 로고 이미지를 80px로 지정 */
 }
@@ -42,6 +37,14 @@ ul {
 	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
 }
 #topmenu>li>a {
+	color: black; /* 폰트 색상 */
+	padding-right: 10px; /* 패딩 지정 */
+	padding-bottom: 10px; 
+	text-decoration: none;
+	font-size: 15px;
+	
+}
+#toplist>a{
 	color: black; /* 폰트 색상 */
 	padding-right: 10px; /* 패딩 지정 */
 	padding-bottom: 10px; 

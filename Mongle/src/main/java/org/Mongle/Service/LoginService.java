@@ -1,5 +1,7 @@
 package org.Mongle.Service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.Mongle.model.LoginDTO;
@@ -13,6 +15,13 @@ public interface LoginService {
 	public int logincheck(LoginDTO mdto);
 	// 회원가입
 	public void signup(SignupDTO sd);
-	
+	// 멤버 리스트
+	public ArrayList<SignupDTO> list();
+	// 회원정보 상세 
+	public SignupDTO detail(SignupDTO sdto);
+	// 회원정보 상세 
+	public void modify(SignupDTO sdto);
+	// 회원정보 상세 
+	public void leave(SignupDTO sdto);
 
 }

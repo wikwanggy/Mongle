@@ -16,4 +16,18 @@
   		insert into member(id, password, name, bth, email,gender) 
 	values(#{id},#{password},#{name},#{bth},#{email},#{gender});
   	</insert>
+  	<select id="list" resultType="org.Mongle.model.SignupDTO">
+  		select * from member;
+  	</select>
+  	<select id="detail" resultType="org.Mongle.model.SignupDTO">
+  		select * from member where id=#{id};
+  	</select>
+  	<delete id="leave">
+  		delete from member where id=#{id};
+  	</delete>
+  	<update id="modify">
+  		update member set password=#{password}, email=#{email}
+  		where id=#{id};
+  	</update>
+  	
   </mapper><!--  -->

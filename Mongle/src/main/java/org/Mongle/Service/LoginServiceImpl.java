@@ -1,5 +1,7 @@
 package org.Mongle.Service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.Mongle.Mapper.LoginDAO;
@@ -35,5 +37,23 @@ public class LoginServiceImpl implements LoginService {
 		public void signup(SignupDTO sd) {
 			 ldao.signup(sd);
 			
+		}
+		// 회원 리스트
+		public ArrayList<SignupDTO> list() {
+		
+			return ldao.list();
+		}
+		// 회원 정보 상세
+		public SignupDTO detail(SignupDTO sdto) {
+		
+			return ldao.detail(sdto);
+		}
+		// 회원정보 수정
+		public void modify(SignupDTO sdto) {
+			ldao.modify(sdto);
+		}
+		// 회원 탈퇴
+		public void leave(SignupDTO sdto) {
+			ldao.leave(sdto);
 		}
 }

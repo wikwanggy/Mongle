@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,17 +11,24 @@
 <body>
 	<div id="container">
 		<div id="hd">
-			<div id="hd">
 				<!-- header 전체를 hd로 지정 -->
 				<header>
 					<div id="tm">
-						<div id="logo">
 							<a href="/"><img alt="logo"
 								src="../resources/css/mainimg/logo.png" id="logoimg"></a>
-						</div>
 						<ul id="topmenu">
-							<li><a href="/signup/signup">회원가입</a></li>
-							<li><a href="/signin/signin">로그인</a></li>
+							<li>
+							<div id="toplist">
+								<c:choose>
+									<c:when test="${sessionScope.login==null}">
+										<a href="Signup/Signup" >회원가입</a>
+										<a href="/Login/login">로그인</a>
+									</c:when>
+									<c:otherwise>
+										<a href="/Login/logout">로그아웃</a>
+									</c:otherwise>
+								</c:choose>
+							</div></li>
 							<li><a href="#">MyPage</a></li>
 							<li><a href="#">고객센터</a></li>
 						</ul>
@@ -64,43 +72,37 @@
 			<div>
 				<main>
 				<div id="ls"></div>
-				<div id="cn">
-					<h1>My page</h1>
-					<table>
-						<tr>
-							<td>이름</td>
-							<td><input type="text"></td>
-						</tr>
-						<tr>
-							<td>닉네임</td>
-							<td><input type="text"></td>
-						</tr>
-						<tr>
-							<td>아이디</td>
-							<td><input type="text"></td>
-						</tr>
-						<tr>
-							<td>비밀번호</td>
-							<td><input type="text"></td>
-						</tr>
-						<tr>
-							<td>생년월일</td>
-							<td><input type="text"></td>
-						</tr>
-						<tr>
-							<td>Email</td>
-							<td><input type="text"></td>
-						</tr>
-						<tr>
-							<td>전화번호</td>
-							<td><input type="text"></td>
-						</tr>
-						<tr>
-							<td>주소</td>
-							<td><input type="text"></td>
-						</tr>	
-					</table>
-				</div>
+					<div id="cn">
+						<form>
+							<h2>My Page</h2>
+									<table>
+								<tr>
+									<th>아이디</th>
+									<td>${session.login.id}<input type="hidden" value="${mdetail.id}" name="id"></td>
+								</tr>
+								<tr>
+									<th>이름</th>
+									<td>${mdetail.name}</td>
+								</tr>
+								<tr>
+									<th>생년월일</th>
+									<td>${mdetail.bth}</td>
+								</tr>
+								<tr>
+									<th>성별</th>
+									<td>${mdetail.gender}</td>
+								</tr>
+								<tr>
+									<th>이메일</th>
+									<td>${mdetail.email}</td>
+								</tr>
+							</table>
+							<div>
+							<a href="/mypage/detail?id=${id}"><button>회원정보수정</button></a>
+							<a href="/mypage/detail?id=${id}"><button>회원탈퇴</button></a>
+							</div>
+						</form>
+					</div>
 				<div id="rs"></div>
 				</main>
 			</div>
@@ -130,7 +132,7 @@
 				</footer>
 			</div>
 		</div>
-	</div>
+
 	
 </body>
 </html>
