@@ -82,7 +82,7 @@ public class LoginController {
 		
 		return "/mypage/mypage";
 		
-	}
+	}//
 	// 회원정보 수정
 	@PostMapping("/mypage/modify")
 	public String modify(SignupDTO sdto) {

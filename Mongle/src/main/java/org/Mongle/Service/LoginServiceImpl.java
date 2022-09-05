@@ -55,5 +55,5 @@ public class LoginServiceImpl implements LoginService {
 		// 회원 탈퇴
 		public void leave(SignupDTO sdto) {
 			ldao.leave(sdto);
-		}
+		}//
 }

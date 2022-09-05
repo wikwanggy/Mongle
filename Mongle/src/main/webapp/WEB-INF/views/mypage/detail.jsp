@@ -11,7 +11,6 @@
 <body>
 	<div id="container">
 		<div id="hd">
-				<!-- header 전체를 hd로 지정 -->
 				<header>
 					<div id="tm">
 							<a href="/"><img alt="logo"

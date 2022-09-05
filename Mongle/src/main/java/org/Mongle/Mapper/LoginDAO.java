@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.Mongle.model.LoginDTO;
 import org.Mongle.model.SignupDTO;
-
+//
 public interface LoginDAO {
 	// 로그인 select
 	public LoginDTO login(LoginDTO ldto);

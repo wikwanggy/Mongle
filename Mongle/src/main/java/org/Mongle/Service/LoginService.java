@@ -23,5 +23,5 @@ public interface LoginService {
 	public void modify(SignupDTO sdto);
 	// 회원정보 상세 
 	public void leave(SignupDTO sdto);
-
+	//
 }

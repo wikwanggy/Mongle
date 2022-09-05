@@ -12,7 +12,7 @@
 #container{
 	width:1200px; /* 너비 1200px로 지정 */
 	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
-}
+}/**/
 header {
 	width: 100%; /* 너비 */
 	height: 130px; /* 높이 */
