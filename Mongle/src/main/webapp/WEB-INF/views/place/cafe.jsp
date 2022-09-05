@@ -1,20 +1,15 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*"%>
-<%@ page import="javax.sql.*"%>
-<%@ page import="javax.naming.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-<c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>place</title>
 
-<script src="${path}http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="${path}/resources/css/place/place.css">
-<script type="text/javascript" src="${path}/resources/js/place/place.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" href="/resources/css/place/place.css">
+<script type="text/javascript" src="/resources/js/placeList.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -46,7 +41,7 @@
 			</header>
 		</div>
 		<div>
-			<main>
+			<div class=main>
 			<div id="ls">
 				<ul id="place-list">
 					<li><a href="/place/clinic">동물병원</a></li>
@@ -57,10 +52,21 @@
 				</ul>
 			</div>
 			<div id="cn">
+			
+			<form action="/place/cafe" method="get" id="searchForm">
+	   		   <select name="type">
+		         <option value="T">제목</option>
+		         <option value="C">작성자</option>
+		         <option value="TC">제목+게시글</option>
+		      </select> 
+	      <input type="text" name="pageNum" value="${paging.cri.pageNum}">
+	      <input type="text" name="amount" value="${paging.cri.amount}">
+	      <input type="text" name="keyword">
+	      <input type="button" value="검색" name="search">
+      </form>
 				<table id="list" border="1">
 					<tr>
-						<th width="50px">
-						<select name="loc" id="loc-select">
+						<th width="50px"><select name="loc" id="loc-select">
 								<option>지역</option>
 								<option value="서울">서울</option>
 								<option value="인천">인천</option>
@@ -85,28 +91,40 @@
 						<th width="40px">조회</th>
 						<th width="40px">추천</th>
 					</tr>
-					<tr><td>서울</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>인천</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>경기</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>부산</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>대구</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>울산</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>광주</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>대전</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>강원</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>충북</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>충남</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>전북</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>전남</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>경북</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>경남</td><td></td><td></td><td></td><td></td><td></td></tr>
-					<tr><td>제주</td><td></td><td></td><td></td><td></td><td></td></tr>
+					<c:forEach items="${list}" var="list">
+						<tr>
+							<td>${list.loc}</td>
+							<td><a href="/place/detail?bno=${list.bno}">${list.title}</a></td>
+							<td>${list.id}</td>
+							<td>${list.date}</td>
+							<td>${list.cnt}</td>
+							<td>${list.rec}</td>
+						</tr>
+					</c:forEach>
 				</table>
-				<br>
-				<a href="/place/write"><button class="button">글쓰기</button></a>
+	<!-- prev=true면 이전버튼 활성화 -->
+	<c:if test="${paging.prev}">
+	<a href="/place/cafe?type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.startPage-1}&amount=${paging.cri.amount}">이전</a>
+	</c:if>
+	
+	<!-- begin이 end될동안 반복 10 -->
+	<c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="num">
+ 	<a href="/place/cafe?type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${num}&amount=${paging.cri.amount}">${num}</a>
+	</c:forEach>
+	
+	<!-- next=true면 다음버튼 활성화 -->
+	<c:if test="${paging.next}">
+	<a href="/place/cafe?type=${paging.cri.type}&keyword=${paging.cri.keyword}&pageNum=${paging.endPage+1}&amount=${paging.cri.amount}">다음</a>
+	</c:if>
+	<br>
+	<a href="/place/write"><button>글쓰기</button></a>
+
+
+
+
 			</div>
 			<div id="rs"></div>
-			</main>
+			</div>
 		</div>
 		<div>
 			<footer>
