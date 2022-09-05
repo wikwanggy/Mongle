@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.Mongle.Mapper.PlaceMapper">
+
+	<insert id="write">
+		<!-- order:"대문자만사용" -->
+	    <selectKey keyProperty="bno" order="BEFORE" resultType="int">
+	    <!-- select 값을 keyProperty="bno"에 추가 --><!-- BEFORE로 먼저  -->
+	         select max(bno)+1 bno
+	         from place
+	    </selectKey>
+		insert into place(loc, title, content, ctgr)
+		value(#{loc},#{title},#{content},#{ctgr});
+	</insert>
+
+	<select id="list" resultType="org.Mongle.model.PlaceVO">
+		select *
+		from (
+		select @rownum:=@rownum+1 rownum,p.*
+		from place p,(select @rownum:=0) as tmp
+		<if test="keyword != null">
+			<choose>
+				<when test="type == 'T'.toString()">
+					where title like concat('%',#{keyword},'%')
+				</when>
+				<when test="type == 'C'.toString()">
+					where id like concat('%',#{keyword},'%')
+				</when>
+				<otherwise>
+					where title like concat('%',#{keyword},'%')
+					or content like concat('%',#{keyword},'%')
+				</otherwise>
+			</choose>
+		</if>
+		order by bno desc
+		) as placelist
+		<![CDATA[
+		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount};
+		]]>
+	</select>
+
+	<select id="detail" resultType="org.Mongle.model.PlaceVO">
+		select * from place where bno=#{bno};
+	</select>
+	<update id="cntup">
+		update place
+		set cnt=cnt+1
+		where bno=#{bno};
+	</update>
+
+	<update id="modify">
+		update place
+		set title=#{title},
+		content=#{content}
+		where bno=#{bno};
+	</update>
+
+	<delete id="remove">
+		delete from place where bno=#{bno};
+	</delete>
+
+	<select id="total" resultType="int">
+		select count(*) from place
+		<if test="keyword != null">
+			where title like concat('%',#{keyword},'%')
+			<choose>  
+				<when test="type == 'T'.toString()">
+					AND title like concat('%',#{keyword},'%')
+				</when>
+				<when test="type == 'C'.toString()">
+					AND id like concat('%',#{keyword},'%')
+				</when>
+				<otherwise>
+					AND title like concat('%',#{keyword},'%')
+					or content like concat('%',#{keyword},'%')
+				</otherwise>
+			</choose>
+		</if>
+	</select>
+
+</mapper>

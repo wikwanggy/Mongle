@@ -122,6 +122,11 @@ main {
 	width: 100%;
 	display: flex;
 }
+.main {
+	height: 700px;
+	width: 100%;
+	display: flex;
+}
 
 #ls {
 	width: 150px;
