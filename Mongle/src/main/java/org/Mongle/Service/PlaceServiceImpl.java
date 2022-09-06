@@ -6,7 +6,7 @@ import org.Mongle.Mapper.PlaceAttachMapper;
 import org.Mongle.Mapper.PlaceMapper;
 import org.Mongle.model.PlaceAttachFileVO;
 import org.Mongle.model.PlaceCriteriaVO;
-import org.Mongle.model.PlaceVO;
+import org.Mongle.model.PlaceVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,26 +20,26 @@ public class PlaceServiceImpl implements PlaceService {
 	PlaceAttachMapper pam;
 
 
-	public void write(PlaceVO pvo) {
+	public void write(PlaceVo pvo) {
 		pm.write(pvo);
 	}
 
-	public ArrayList<PlaceVO> list(PlaceCriteriaVO pcri) {
+	public ArrayList<PlaceVo> list(PlaceCriteriaVO pcri) {
 		return pm.list(pcri);
 	}
 
 	@Transactional
-	public PlaceVO detail(PlaceVO pvo) {
+	public PlaceVo detail(PlaceVo pvo) {
 		// 상세페이지 조회할때 (조회수+1) update
 		pm.cntup(pvo);
 		return pm.detail(pvo);
 	}
 
-	public void modify(PlaceVO pvo) {
+	public void modify(PlaceVo pvo) {
 		pm.modify(pvo);
 	}
 
-	public void remove(PlaceVO pvo) {
+	public void remove(PlaceVo pvo) {
 		pm.remove(pvo);
 	}
 

@@ -15,7 +15,7 @@
 		value(#{loc},#{title},#{content},#{ctgr});
 	</insert>
 
-	<select id="list" resultType="org.Mongle.model.PlaceVO">
+	<select id="list" resultType="org.Mongle.model.PlaceVo">
 		select *
 		from (
 		select @rownum:=@rownum+1 rownum,p.*
@@ -41,7 +41,7 @@
 		]]>
 	</select>
 
-	<select id="detail" resultType="org.Mongle.model.PlaceVO">
+	<select id="detail" resultType="org.Mongle.model.PlaceVo">
 		select * from place where bno=#{bno};
 	</select>
 	<update id="cntup">

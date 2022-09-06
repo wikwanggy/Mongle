@@ -6,7 +6,7 @@ import org.Mongle.Service.PlaceService;
 import org.Mongle.model.PlaceAttachFileVO;
 import org.Mongle.model.PlaceCriteriaVO;
 import org.Mongle.model.PlacePageVO;
-import org.Mongle.model.PlaceVO;
+import org.Mongle.model.PlaceVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -81,7 +81,7 @@ public class PlaceController {
 	}
 
 	@RequestMapping(value = "/place/write", method = RequestMethod.POST)
-	public String writepost(PlaceVO pvo) {
+	public String writepost(PlaceVo pvo) {
 		ps.write(pvo);
 		return "redirect:/place/cafe";
 	}
@@ -95,13 +95,13 @@ public class PlaceController {
 
 	// place-content
 	@RequestMapping(value = "/place/detail", method = RequestMethod.GET)
-	public String content(PlaceVO pvo, Model model) {
+	public String content(PlaceVo pvo, Model model) {
 		model.addAttribute("detail", ps.detail(pvo));
 		return "place/detail";
 	}
 
 	@RequestMapping(value = "/place/modify", method = RequestMethod.GET)
-	public String modify(PlaceVO pvo, RedirectAttributes rttr) {
+	public String modify(PlaceVo pvo, RedirectAttributes rttr) {
 		// 글 수정
 		ps.modify(pvo);
 		rttr.addAttribute("bno", pvo.getBno());
@@ -109,7 +109,7 @@ public class PlaceController {
 	}
 
 	@RequestMapping(value = "/place/remove", method = RequestMethod.GET)
-	public String remove(PlaceVO pvo) {
+	public String remove(PlaceVo pvo) {
 		// 글 삭제
 		ps.remove(pvo);
 		return "redirect:/place/list";
