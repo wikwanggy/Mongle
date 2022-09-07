@@ -6,7 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../resources/css/mypage/mypage.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/resources/js/mypage/detail.js"></script>
+<link rel="stylesheet" href="../resources/css/mypage/detail.css">
+
 </head>
 <body>
 	<div id="container">
@@ -23,12 +26,12 @@
 										<a href="Signup/Signup" >회원가입</a>
 										<a href="/Login/login">로그인</a>
 									</c:when>
-									<c:otherwise>
+									<c:otherwise >
+										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
 										<a href="/Login/logout">로그아웃</a>
 									</c:otherwise>
 								</c:choose>
 							</div></li>
-							<li><a href="#">MyPage</a></li>
 							<li><a href="#">고객센터</a></li>
 						</ul>
 					</div>
@@ -68,41 +71,45 @@
 					</div>
 				</header>
 			</div>
-			<div>
-				<main>
+			<div id="main">
 				<div id="ls"></div>
 					<div id="cn">
 						<form action="/mypage/modify" method="post">
-							<h2>회정 정보 관리</h2>
+							<h2>회원정보수정</h2>
 							<table>
 								<tr>
 									<th>이름</th>
-									<td><input type="text" value="${mdetail.name}" name="name">${mdetail.name}</td>
+									<td><input type="text" value="${mdetail.name}" name="name"></td>
 								</tr>
 								<tr>
 									<th>아이디</th>
-									<td><input type="text" value="${session.login.id}" name="id">${session.login.id}</td>
+									<td><input type="text" value="${mdetail.id}" name="id" reaonly></td>
+								</tr>
+								<tr>
+									<th>비밀번호</th>
+									<td><input type="password" value="${mdetail.password}" name="password" class="btn" id="pw1">
+									<input type="button" value="비밀번호확인" id="showPassword" class="btn" >
+									</td>
 								</tr>
 								<tr>
 									<th>생년월일</th>
-									<td><input type="text" value="${mdetail.bth}" name="bth">${mdetail.bth}</td>
+									<td><input type="text" value="${mdetail.bth}" name="bth" reaonly></td>
 								</tr>
 								<tr>
 									<th>성별</th>
-									<td><input type="text" value="${mdetail.gender}" name="gender">${mdetail.gender}</td>
+									<td><input type="text" value="${mdetail.gender}" name="gender" reaonly></td>
 								</tr>
 								<tr>
 									<th>이메일</th>
-									<td><input type="text" value="${mdetail.email}" name="email">${mdetail.email}</td>
+									<td><input type="text" value="${mdetail.email}" name="email"></td>
 								</tr>
-							</table>
+							</table><br>
 							<div>
-							<input type="submit" value="회원정보 수정">
+							<input type="submit" value="회원정보 수정" id="modi">
 							</div>
 						</form>
 					</div>
 				<div id="rs"></div>
-				</main>
 			</div>
 			<div>
 				<footer>

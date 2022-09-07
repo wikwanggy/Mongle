@@ -74,26 +74,35 @@ public class LoginController {
 	public void getlist(Model model) {
 		model.addAttribute("mlist", ls.list());
 	}
-	// 회원정보 상세
-	@PostMapping("/mypage/mypage")
-	public String detail(SignupDTO sdto,Model model) {
+	// 회원정보 수정페이지로 이동
+	@GetMapping("/mypage/detail")
+	public void detail(SignupDTO sdto,Model model) {
 		
 		model.addAttribute("mdetail", ls.detail(sdto));
+
+	}
+	// 회원정보 상세
+	@PostMapping("/mypage/detail")
+	public String detailpost(SignupDTO sdto,Model model) {
 		
-		return "/mypage/mypage";
 		
-	}//
+		return "/mypage/detail";
+		
+	}
 	// 회원정보 수정
 	@PostMapping("/mypage/modify")
-	public String modify(SignupDTO sdto) {
+	public String modify(SignupDTO sdto, RedirectAttributes rttr ,HttpSession session ) {
+		System.out.println(sdto);
 		ls.modify(sdto);
-		return "redirect:/account/member?id="+sdto.getId();
+		rttr.addAttribute("id",sdto.getId());
+		return "redirect:/mypage/mypage";
 	}
 	
 	// 회원 탈퇴
 	@GetMapping("/mypage/leave")
-	public String leave(SignupDTO adto) {
+	public String leave(SignupDTO adto,HttpSession session) {
 		ls.leave(adto);
-		return "redirect:/account/logout";
+		session.invalidate();
+		return "redirect:/";
 	}
 }
