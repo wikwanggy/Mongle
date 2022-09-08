@@ -18,6 +18,6 @@ public interface LoginDAO {
 	public void modify(SignupDTO sdto);
 	// 회원탈퇴
 	public void leave(SignupDTO sdto);
-
+	
 
 }

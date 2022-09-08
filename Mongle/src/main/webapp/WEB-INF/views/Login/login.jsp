@@ -23,10 +23,6 @@
 			<div>
 				<input type="password" name="password" placeholder="비밀번호" id="password"  class="input">
 			</div>
-			<div id="chcerkbox">
-				<span>아이디 저장<input type="checkbox" id="cb_saveId" /></span>
-			</div>
-			
 			<div>
 			<c:choose>
 				<c:when test="${sessionScope.login==null}">

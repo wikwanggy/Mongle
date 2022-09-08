@@ -23,12 +23,12 @@
 										<a href="Signup/Signup" >회원가입</a>
 										<a href="/Login/login">로그인</a>
 									</c:when>
-									<c:otherwise>
+									<c:otherwise >
+										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
 										<a href="/Login/logout">로그아웃</a>
 									</c:otherwise>
 								</c:choose>
 							</div></li>
-							<li><a href="#">MyPage</a></li>
 							<li><a href="#">고객센터</a></li>
 						</ul>
 					</div>
@@ -68,42 +68,42 @@
 					</div>
 				</header>
 			</div>
-			<div>
-				<main>
+			<div id="main">
+				
 				<div id="ls"></div>
 					<div id="cn">
 						<form>
 							<h2>My Page</h2>
-									<table>
-								<tr>
-									<th>아이디</th>
-									<td>${session.login.id}<input type="hidden" value="${mdetail.id}" name="id"></td>
-								</tr>
+								<table>
 								<tr>
 									<th>이름</th>
-									<td>${mdetail.name}</td>
+									<td><input type="text" value="${mypage.name}" name="name" readonly ></td>
+								</tr>
+								<tr>
+									<th>아이디</th>
+									<td><input type="text" value="${mypage.id}" name="id" readonly></td>
 								</tr>
 								<tr>
 									<th>생년월일</th>
-									<td>${mdetail.bth}</td>
+									<td><input type="text" value="${mypage.bth}" name="bth" readonly></td>
 								</tr>
 								<tr>
 									<th>성별</th>
-									<td>${mdetail.gender}</td>
+									<td><input type="text" value="${mypage.gender}" name="gender" readonly></td>
 								</tr>
 								<tr>
 									<th>이메일</th>
-									<td>${mdetail.email}</td>
+									<td><input type="text" value="${mypage.email}" name="email" readonly></td>
 								</tr>
-							</table>
+							</table><br><br>
 							<div>
-							<a href="/mypage/detail?id=${id}"><button>회원정보수정</button></a>
-							<a href="/mypage/detail?id=${id}"><button>회원탈퇴</button></a>
+								<a href="/mypage/leave?id=${sessionScope.login.id}"><input type="button" value="회원탈퇴" class="btn"></a>
+								<a href="/mypage/detail?id=${sessionScope.login.id}"><input type="button" value="회원정보수정" class="btn"></a>
 							</div>
 						</form>
 					</div>
 				<div id="rs"></div>
-				</main>
+			
 			</div>
 			<div>
 				<footer>

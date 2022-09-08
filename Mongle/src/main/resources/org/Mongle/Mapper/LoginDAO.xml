@@ -26,8 +26,12 @@
   		delete from member where id=#{id};
   	</delete>
   	<update id="modify">
-  		update member set password=#{password}, email=#{email}
+  		update member 
+  		set password=#{password}, 
+  		email=#{email},
+  		name=#{name}
   		where id=#{id};
   	</update>
+  	
   	
   </mapper>

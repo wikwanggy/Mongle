@@ -29,7 +29,7 @@ public class LoginServiceImpl implements LoginService {
 			return result;
 		}
 		// 로그인 
-		public int logincheck(LoginDTO mdto) {
+		public int logincheck(LoginDTO ldto) {
 			
 			return 0;
 		}
@@ -56,4 +56,5 @@ public class LoginServiceImpl implements LoginService {
 		public void leave(SignupDTO sdto) {
 			ldao.leave(sdto);
 		}//
+
 }

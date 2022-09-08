@@ -24,8 +24,8 @@
 										<a href="/Login/login">로그인</a>
 									</c:when>
 									<c:otherwise >
-										<a href="/Login/logout">로그아웃</a>
 										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
+										<a href="/Login/logout">로그아웃</a>
 									</c:otherwise>
 								</c:choose>
 							</div></li>

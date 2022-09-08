@@ -1,47 +1,27 @@
 package org.Mongle.model;
 
-public class PlaceVO {
+
+
+public class CommBoardVo {
 	// 게시판 번호(bno)
 	private int bno;
-	// 지역
-	private String loc;
 	// 제목(title)
 	private String title;
 	// 내용(content)
 	private String content;
 	// 작성일자(regdate)
-	private String date;
+	private String regdate;
 	// 조회수(cnt)
 	private int cnt;
 	// 아이디 (id)
 	private String id;
-	// 이름
-	private String name;
-	// 추천수
-	private int rec;
-	//카테고리
-	private String ctgr;
-	
-	
-	
-	public String getCtgr() {
-		return ctgr;
-	}
-	public void setCtgr(String ctgr) {
-		this.ctgr = ctgr;
-	}
+	// 작성자
+	private String writer;
 	public int getBno() {
 		return bno;
 	}
 	public void setBno(int bno) {
 		this.bno = bno;
-	}
-	
-	public String getLoc() {
-		return loc;
-	}
-	public void setLoc(String loc) {
-		this.loc = loc;
 	}
 	public String getTitle() {
 		return title;
@@ -55,11 +35,11 @@ public class PlaceVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getDate() {
-		return date;
+	public String getRegdate() {
+		return regdate;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
 	}
 	public int getCnt() {
 		return cnt;
@@ -73,21 +53,17 @@ public class PlaceVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getWriter() {
+		return writer;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getRec() {
-		return rec;
-	}
-	public void setRec(int rec) {
-		this.rec = rec;
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	@Override
 	public String toString() {
-		return "BoardVo [bno=" + bno + ", title=" + title + ", content=" + content + ", date=" + date + ", cnt="
-				+ cnt + ", id=" + id + "]";
+		return "CommBoardVo [bno=" + bno + ", title=" + title + ", content=" + content + ", regdate=" + regdate
+				+ ", cnt=" + cnt + ", id=" + id + ", writer=" + writer + "]";
 	}
+	
+
 }

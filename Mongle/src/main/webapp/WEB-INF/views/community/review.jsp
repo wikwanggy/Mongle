@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +10,21 @@
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
+<div class="commu_top">
+	<ul>
+		<li><a href="http://localhost:8080/community/list">커뮤니티</a></li>
+		<li><a href="http://localhost:8080/community/review"><b>사용후기</b></a></li>
+		<li><a href="http://localhost:8080/community/notice">공지사항</a></li>
+	</ul>
+</div>
+
+
+
 <!-- <div id="review_all">
 <div id="review_gallary"> -->
 <div id="review">
 	<div class="rv_top">
-		<h2>펫 용품/식품 후기</h2>
-		<h5><a href="#">＋ 전체 후기 보기</a></h5>
+		<h2>펫 용품/식품 BEST 후기</h2>
 	</div>
 		<ul>
 			<li>
@@ -67,8 +77,7 @@
 			</li>
 		</ul>
 	<div class="rv_top">
-		<h2>펫 호텔 이용 후기</h2>
-		<h5><a href="#">＋ 전체 후기 보기</a></h5>
+		<h2>펫 이용 장소 BEST 후기</h2>
 	</div>
 	<ul>
 		<li>
@@ -124,7 +133,7 @@
 		<select id="rv_sel">
 			<option>전체</option>
 			<option>상품</option>
-			<option>호텔</option>
+			<option>장소</option>
 		</select>
 		<input type="search" placeholder="상품명 검색" id="rv_search2"><a href="#">검색</a>
 	</div>
@@ -133,21 +142,22 @@
 			<tr height="40px">
 				<td width="75px">글번호</td>
 				<td width="350px">상품명</td>
-				<td width="450px">상품후기</td>
+				<td width="450px">후기</td>
 				<td width="100px">작성자</td>
 				<td width="125px">날짜</td>
 			</tr>
+			<c:forEach items="${rvlist}" var="reviewlist">
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>${reviewlist.bno}</td>
+				<td>${reviewlist.tradename}</td>
+				<td>${reviewlist.user_review}</td>
+				<td>${reviewlist.writer}</td>
+				<td>${reviewlist.regdate}</td>
 			</tr>
+			</c:forEach>
 		</table>
 	</div>
 </div>
-<script src="../resources/js/community.js"></script>
 </body>
 <jsp:include page="../footer.jsp"/>
 </html>
