@@ -27,12 +27,4 @@
 	<mybatis-spring:scan base-package="org.Mongle.Mapper"/>
 	<context:component-scan base-package="org.Mongle.Service" />
 	
-	
-	
-
-	
-	
-	
-	
-	
 </beans>

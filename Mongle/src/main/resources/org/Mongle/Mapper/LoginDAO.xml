@@ -32,6 +32,7 @@
   		name=#{name}
   		where id=#{id};
   	</update>
-  	
-  	
+  	<select id="idcheck" resultType="org.Mongle.model.LoginDTO">
+  			select * from member where id=#{id}
+  	</select>
   </mapper>

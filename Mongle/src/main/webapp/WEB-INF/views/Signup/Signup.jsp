@@ -16,7 +16,8 @@
 	<form action="/Signup/Signup" method="post" id="form">
 		<div id="idbox">
 			<h3>아이디</h3>
-			<input type="text" name="id" id="id" placeholder="아이디"  class="input"><font id="checkId" size="2"></font><br>
+			<input type="text" name="id" id="id" placeholder="아이디"  class="input">
+			<br>
 		</div>
 		<div id="passwordbox">
 			<h3>비밀번호</h3>

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.Mongle.Mapper.LoginDAO;
 import org.Mongle.model.LoginDTO;
 import org.Mongle.model.SignupDTO;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -55,6 +56,12 @@ public class LoginServiceImpl implements LoginService {
 		// 회원 탈퇴
 		public void leave(SignupDTO sdto) {
 			ldao.leave(sdto);
-		}//
+		}// 중복체크
+		
+		public LoginDTO idcheck(String id) {
+
+			return ldao.idcheck(id);
+		}
+		
 
 }

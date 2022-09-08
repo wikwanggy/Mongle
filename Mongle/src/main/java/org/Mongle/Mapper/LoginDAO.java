@@ -19,5 +19,7 @@ public interface LoginDAO {
 	// 회원탈퇴
 	public void leave(SignupDTO sdto);
 	
+	public LoginDTO idcheck(String id);
+	
 
 }

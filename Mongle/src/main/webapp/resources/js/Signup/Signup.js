@@ -11,12 +11,30 @@ $(document).ready(function() {
 	var emailresult = "";
 
 	// 아이디 길이 체크
+
 	$("#id").on("blur",function() {
+		
+		
+		
 
 		var idRegex = /^[a-z]+[a-z0-9-_]{5,20}$/g;
-		
-		if (idRegex.test($("#id").val())) {
+		var id=$("#id").val();
+		// 아이디를 서버로전송 > DB 유효성검사 >결과반환
+		// 아이디 중복 체크
+		$.getJSON("/Signup/Signup/idcheck/"+id+".json",function(data){
+			// select된 결과가 있으면 success로 인식
+			console.log(data)
+			$("#idalert").remove();
 			
+			str = "<span id='idalert'> 사용중입니다 </span>"
+			
+			$("#idbox").append(str);
+			
+			$("#idalert").css("color", "red").css("margin-left", "10px");
+
+		}).fail(function(data){
+			// select된 결과가 없으면 fail로 인식
+			if(idRegex.test($("#id").val())) {
 			$("#idalert").remove();
 			
 			str = "<span id='idalert'> 사용가능합니다  </span>"
@@ -26,14 +44,16 @@ $(document).ready(function() {
 			$("#idalert").css("color", "green").css("margin-left", "10px");
 			idresult = true;
 		} else {
+			
 			$("#idalert").remove();
 			str = "<span id='idalert'>아이디는 5자 이상, 20자 이하로 써주세요.</span>"
 			$("#idbox").append(str);
 			$("#idalert").css("color", "red").css("margin-left", "10px");
 			idresult=false;
 		}
+		})
 	})
-	
+
 	
 	// 비밀번호 길이 체크
 	$("#password").blur(function() {
@@ -143,6 +163,4 @@ $(document).ready(function() {
 	
 	})
 
-	
-})
-
+});

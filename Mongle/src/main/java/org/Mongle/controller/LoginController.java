@@ -1,5 +1,7 @@
 package org.Mongle.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.Mongle.Service.LoginService;
@@ -11,10 +13,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -47,8 +50,8 @@ public class LoginController {
 	}
 	// 로그인 체크
 	@PostMapping("/Login/logincheck")
-	public ResponseEntity<String> logincheck(@RequestBody LoginDTO mdto) {
-		int result = ls.logincheck(mdto);
+	public ResponseEntity<String> logincheck(@RequestBody LoginDTO ldto) {
+		int result = ls.logincheck(ldto);
 		System.out.println("result 결과" + result);
 		
 		return result==1?new ResponseEntity<>("success", HttpStatus.OK)
@@ -64,6 +67,15 @@ public class LoginController {
 	public String signup(SignupDTO sd) {
 		ls.signup(sd);
 		return "redirect:/Login/login";
+	}	
+	// 아이디 중복 체크
+		
+	@GetMapping("/Signup/Signup/idcheck/{id}")
+	//                  @PathVariable
+	public ResponseEntity<LoginDTO> idcheck(@PathVariable("id") String id) {
+		System.out.println(id);
+		return new ResponseEntity<>(ls.idcheck(id), HttpStatus.OK);
+
 	}
 	// 회원 페이지 이동
 	@GetMapping("/mypage/mypage")
@@ -71,7 +83,7 @@ public class LoginController {
 		model.addAttribute("mypage",ls.detail(sdto));
 	}
 	@GetMapping("/mypage/list")
-	public void getlist(Model model) {
+	public void list(Model model) {
 		model.addAttribute("mlist", ls.list());
 	}
 	// 회원정보 수정페이지로 이동
