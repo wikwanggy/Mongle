@@ -1,28 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="..\resources\css\event\event1.css">
+<link rel="stylesheet" href="..\resources\css\event\eventmain.css">
 </head>
 <body>
 	<div id="container">
+		<!-- 바디 전체를 container로 지정 -->
 		<div id="hd">
+			<!-- header 전체를 hd로 지정 -->
 			<header>
 				<div id="tm">
-					<div id="logo"><a href="/"><img alt="logo" src="/resources/css/mainimg/logo.png" id="logoimg"></a></div>
+					<a href="/"><img alt="logo"src="../resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
-						<li><a href="/signup/signup">회원가입</a></li>
-						<li><a href="/signin/signin">로그인</a></li>
-						<li><a href="#">MyPage</a></li>
+						<li>
+							<div id="toplist">
+								<c:choose>
+									<c:when test="${sessionScope.login==null}">
+										<a href="/signup/signup" >회원가입</a>
+										<a href="/Login/login">로그인</a>
+									</c:when>
+									<c:otherwise>
+										<a href="/Login/logout">로그아웃</a>
+									</c:otherwise>
+								</c:choose>
+							</div></li>
+						<li><a href="/mypage/mypage">MyPage</a></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
 				</div>
 				<div>
-					<ul id="menu">
-							<li><a href="http://localhost:8080/controller/">HOME</a></li>
+					<nav>
+						<ul id="menu">
+							<li><a href="/">HOME</a></li>
 							<li><a href="#">SHOP</a>
 								<ul>
 									<li><a href="#">간식</a></li>
@@ -31,35 +45,43 @@
 									<li><a href="#">하우스</a></li>
 									<li><a href="#">패션</a></li>
 									<li><a href="#">기타</a></li>
-								</ul>
-							</li>
-							<li><a href="http://localhost:8080/controller/place/">PLACE</a>
+								</ul></li>
+							<li><a href="/place/">PLACE</a>
 								<ul>
-									<li><a href="http://localhost:8080/controller/place/grooming">미용</a></li>
-									<li><a href="http://localhost:8080/controller/place/clinic">동물병원</a></li>
-									<li><a href="http://localhost:8080/controller/place/hotel">호텔</a></li>
-									<li><a href="http://localhost:8080/controller/place/school">학교/유치원</a></li>
-									<li><a href="http://localhost:8080/controller/place/cafe">식당/카페</a></li>
-								</ul>
-							</li>
+									<li><a href="/place/grooming">미용</a></li>
+									<li><a href="/place/clinic">동물병원</a></li>
+									<li><a href="/place/hotel">호텔</a></li>
+									<li><a href="/place/school">학교/유치원</a></li>
+									<li><a href="/place/cafe">식당/카페</a></li>
+								</ul></li>
 							<li><a href="#">EVENT</a>
 								<ul>
 									<li><a href="#">진행 이벤트</a></li>
 									<li><a href="#">종료 이벤트</a></li>
 									<li><a href="#">이벤트 당첨</a></li>
-								</ul>
-							</li>
+								</ul></li>
 							<li><a href="#">커뮤니티</a>
 								<ul>
 									<li><a href="#">게시판</a></li>
 									<li><a href="#">리뷰</a></li>
-								</ul>
-							</li>
+								</ul></li>
 						</ul>
+					</nav>
 				</div>
 			</header>
 		</div>
 이벤트 게시판1
+	<div><label>댓글</label></div>
+		<div>
+			<textarea rows="5" cols="50" id="reply"></textarea>
+		</div>
+		<div>
+			<input type="button" value="댓글쓰기" id="add">
+		</div>
+		<div id="chat">
+			<ul id="replyUL">
+			</ul>
+		</div>
 		<div>
 			<footer>
 				<div id="bottomMenu">

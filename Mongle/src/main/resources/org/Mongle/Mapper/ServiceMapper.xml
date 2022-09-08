@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.Mongle.Mapper.ServiceMapper">
+	<insert id="write">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
+			select max(bno)+1 bno
+			from service_list
+		</selectKey>
+		
+	  insert into service_list(bno,title, content)
+      values(#{bno},#{title},#{content})
+	</insert>
+	
+	
+	<select id="list" resultType="org.Mongle.model.ServiceVO">
+		select*
+		from(
+			select @rownum:=@rownum+1 num,b.*
+			from service_list b,(select @rownum:=0) as tmp
+			<if test="keyword !=null">
+				<choose>
+					<when test="type == 'T'.toString()">
+						where title like concat('%',#{keyword},'%')
+					</when>
+					<when test="type == 'W'.toString()">
+						where content like concat('%',#{keyword},'%')
+					</when>
+					<otherwise>
+						where title like concat('%',#{keyword},'%')
+						OR content like concat('%',#{keyword},'%')
+					</otherwise>
+				</choose>
+			</if>
+			order by bno desc
+			)as questions
+			<![CDATA[
+				where num> (#{pageNum}-1)*#{amount} and num<=#{pageNum}*#{amount}
+			]]>
+			;
+	</select>
+	
+		   <select id="detail" resultType="org.Mongle.model.ServiceVO">
+		      select*from service_list where bno=#{bno}
+		   </select>
+		   
+		   <update id="cntup">
+		   		update service_list
+		   		set cnt=cnt+1
+		   		where bno = ${bno}
+		   </update>
+		   
+		   <update id="modify">
+		   update service_list
+			   set title=#{title},
+				   content=#{content}
+		   where bno=#{bno}
+		   </update>
+			
+			   <delete id="remove">
+				   	delete from service_list
+				   	where bno=#{bno}
+			   </delete>
+			
+	   <select id="total" resultType="int">
+   		select count(*) from service_list
+   		<if test="keyword !=null">
+			 <choose>
+				    <when test="type == 'T'.toString()">
+				      where title like concat('%',#{keyword},'%')
+				    </when>
+				    <when test="type == 'W'.toString()">
+				      where content like concat('%',#{keyword},'%')
+				    </when>
+				    <otherwise>
+				      where title like concat('%',#{keyword},'%')
+				      OR content like concat('%',#{keyword},'%')
+				    </otherwise>
+				    
+			 </choose>
+		</if>
+		
+   </select>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.Mongle.Mapper.ServiceFileMapper">
+
+		<!-- 파일경로,파일명,uuid,image여부를  Service_file 테이블 에 insert-->
+		<insert id="insert">
+				insert into Service_file(uuid,uploadPath,filename,image,bno)
+				value(#{uuid},#{uploadPath},#{fileName},#{image},#{bno})
+		</insert>
+		
+		<select id="filelist" resultType="org.Mongle.model.ServiceFileListVO">
+			select * from Service_file where bno=#{bno};
+		</select>
+</mapper>

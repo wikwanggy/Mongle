@@ -53,10 +53,6 @@ aside>ul>li{
 	display: block;
 }
 
-.on{
-	background-color: #fff4ab;
-}
-
 aside>ul>li>a{
 	text-decoration: none;
 	display: block;
@@ -66,9 +62,8 @@ aside>ul>li>a{
 	padding: 10px 0px 15px 10px;
 }
 aside>ul>li:hover{
-	background-color: 	#fff9d4;
+	background-color: 	#fff4ab;
 }
-
 
 aside>ul>li>a:active{
 	color:red;
@@ -79,6 +74,24 @@ aside>ul>li>a:active{
 	font-size: 56px;
 	font-weight:700;
 	color:black;
+}
+
+.service_sub_font{
+	font-size:24px;
+	font-weight:500;
+}
+
+.questions_detail_button{
+	padding:7px;
+	background-color: #FFFFFF;
+	border: #f8e6e0 2px solid;
+	border-radius:5px;
+	float:right;
+	margin-left:5px; 
+}
+
+.questions_detail_button:hover{
+	background-color: #f8e6e0;
 }
 /*메인 끝*/
 /*questions  끝 css*/

@@ -14,7 +14,7 @@
 /*questions  시작 css*/
 /*큰틀*/
 #service_main{
-	overflos:hidden;
+	overflow:hidden;
 	margin-bottom: 30px;
 }
 #service_main_center{
@@ -53,6 +53,10 @@ aside>ul>li{
 	display: block;
 }
 
+.on{
+	background-color: #fff4ab;
+}
+
 aside>ul>li>a{
 	text-decoration: none;
 	display: block;
@@ -62,7 +66,7 @@ aside>ul>li>a{
 	padding: 10px 0px 15px 10px;
 }
 aside>ul>li:hover{
-	background-color: 	#fff4ab;
+	background-color: 	#fff9d4;
 }
 
 aside>ul>li>a:active{
@@ -79,47 +83,49 @@ aside>ul>li>a:active{
 /*questions  끝 css*/
 
 #container{
-	width:1200px;
-	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
+   width:1200px; /* 너비 1200px로 지정 */
+   margin: 0 auto; /*auto으로 화면 중앙에 배치*/
 }
-
 header {
-	width: 100%; /* 너비 */
-	height: 130px; /* 높이 */
-	background-color: rgba(255, 235, 98);
+   width: 100%; /* 너비 */
+   height: 130px; /* 높이 */
+   background-color: rgba(255, 235, 98); /* 백그라운드 컬러 지정 */
 }
 #tm{
-	display: flex;
-	height: 90px;
-}
-#logo{
-	width:960px;
-		text-align: center;
+   height: 90px; /* 높이 90px로 지정*/
 }
 
 #logoimg{
-	height: 80px;
+   height: 80px; /* 로고 이미지를 80px로 지정 */
 }
-
 ul {
-	list-style: none;
+   list-style: none; /* ul의 리스트 스타일을 없음으로 지정 */
 }
 #topmenu {
-	height: 50px;
-	float: right;
+   height: 50px; /* 높이 50px로 지정 */
+   float: right; /* 오른쪽 정렬 */
 }
 #topmenu>li {
-	float: left; /* 메뉴 항목을 오른쪽으로 플로팅 */
-	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+   float: left; /* 메뉴 항목을 오른쪽으로 플로팅 */
+   position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
 }
 #topmenu>li>a {
-	color: black; /* 폰트 색상 */
-	padding-right: 10px; /* 패딩 지정 */
-	padding-bottom: 10px;
-	text-decoration: none;
-	font-size: 15px;
-	
+   color: black; /* 폰트 색상 */
+   padding-right: 10px; /* 패딩 지정 */
+   padding-bottom: 10px; 
+   text-decoration: none;
+   font-size: 15px;
+   
 }
+#toplist>a{
+   color: black; /* 폰트 색상 */
+   padding-right: 10px; /* 패딩 지정 */
+   padding-bottom: 10px; 
+   text-decoration: none;
+   font-size: 15px;
+   
+}
+
 nav{
 	
 }

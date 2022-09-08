@@ -6,7 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="..\resources\css\service\order.css">
+<link rel="stylesheet" href="..\..\resources\css\service\servicedetail.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/resources/js/service/serviceAttach.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -15,7 +17,7 @@
 			<!-- header 전체를 hd로 지정 -->
 			<header>
 				<div id="tm">
-					<a href="/"><img alt="logo"src="../resources/css/mainimg/logo.png" id="logoimg"></a>
+					<a href="/"><img alt="logo"src="../../resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
 						<li>
 							<div id="toplist">
@@ -70,27 +72,64 @@
 				</div>
 			</header>
 		</div>
-		<%-- 본문시작 --%>
+		<%--본문 넣을 자리 --%>
 		<div id="service_main">
 			<aside id="service_aside"><%--왼쪽 사이드바 --%>
-			<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
+			<h2 id="service_aside_header"><a href="../servicemain">고객센터</a></h2>
 			<ul>
-				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
-				<li><a href="questions">1:1질문(Q&A)</a></li>
-				<li class="on"><a href="order">주문</a></li>
-				<li><a href="shipping">배송/환불</a></li>
+				<li><a href="../faq">자주묻는 질문(FAQ)</a></li>
+				<li><a href="../questions">1:1질문(Q&A)</a></li>
+				<li><a href="../order">주문</a></li>
+				<li><a href="../shipping">배송/환불</a></li>
 			</ul>
 			</aside>
 			<%-- 왼쪽 사이드바 끝 --%>
 			<%-- 본문  div --%>
 			<div id="service_main_center">
 			<div id="service_main_page">
-			<span id="service_main_title">주문</span>
-			sdfsadfsdafsadfsdaf
-			</div><%--본문div끝 --%>
-		</div>
-	</div>
+			<span id="service_main_title">1:1질문(Q&A)</span>
+					<form method="POST">
+					<table>
+						<tr>
+							<td>
+								<input class="questions_detail_button" type="submit" value="삭제 하기" style="cursor: pointer"  formaction="/service/remove">
+								<input class="questions_detail_button" type="submit" value="수정 하러 하기" style="cursor: pointer" formaction="/service/modify">
+								
+							</td>
+						</tr>
+						<tr>
+							<td class="service_sub_font">제목</td>
+						</tr>
+							
+						<tr>
+							<td><input class="service_sub_font" type="text" name="title" value="${detail.title }" ></td>
+							<td><input type="text" name="bno" value="${detail.bno}" hidden=""></td>
+						</tr>
+						
+						<tr>
+							<td class="service_sub_font">내용</td>
+						</tr>
+						
+						<tr>
+							<td><textarea class="service_sub_font" name="content" cols="50" rows="10"  >${detail.content }</textarea></td>
+						</tr>
+						<tr>
+							<td>첨부파일				
+								<div id="filelistimage">
+									<ul>
+				
+									</ul>
+								</div>
+							</td>
+						</tr>
+						
+					</table>
+					</form>
+				</div>
+			</div>
+		</div>	
 		<%--본문 넣을 자리 --%>
+		
 		
 		<div>
 			<footer>
@@ -104,11 +143,11 @@
 					<div id="sns">
 						<ul>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/facebook.PNG" class="img2"></a></li>
+									src="../../resources/css/mainimg/facebook.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/insta.PNG" class="img2"></a></li>
+									src="../../resources/css/mainimg/insta.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/twitter.PNG" class="img2"></a></li>
+									src="../../resources/css/mainimg/twitter.PNG" class="img2"></a></li>
 						</ul>
 					</div>
 				</div>

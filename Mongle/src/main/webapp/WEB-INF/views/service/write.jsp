@@ -6,7 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="..\resources\css\service\order.css">
+<link rel="stylesheet" href="..\resources\css\service\write.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/resources/js/service/serviceUploadAjax.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -70,28 +72,45 @@
 				</div>
 			</header>
 		</div>
-		<%-- 본문시작 --%>
-		<div id="service_main">
-			<aside id="service_aside"><%--왼쪽 사이드바 --%>
-			<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
-			<ul>
-				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
-				<li><a href="questions">1:1질문(Q&A)</a></li>
-				<li class="on"><a href="order">주문</a></li>
-				<li><a href="shipping">배송/환불</a></li>
-			</ul>
-			</aside>
-			<%-- 왼쪽 사이드바 끝 --%>
-			<%-- 본문  div --%>
+		<%--본문 넣을 자리 --%>
+			<div id="service_main">
+				<%--왼쪽 사이드바 --%>
+					<aside id="service_aside">
+					<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
+					<ul>
+						<li><a href="faq">자주묻는 질문(FAQ)</a></li>
+						<li><a href="questions">1:1질문(Q&A)</a></li>
+						<li><a href="order">주문</a></li>
+						<li><a href="shipping">배송/환불</a></li>
+					</ul>
+					</aside>
+				<%-- 왼쪽 사이드바 끝 --%>
+				
 			<div id="service_main_center">
 			<div id="service_main_page">
-			<span id="service_main_title">주문</span>
-			sdfsadfsdafsadfsdaf
-			</div><%--본문div끝 --%>
+			<span id="service_main_title">1:1질문</span>
+			
+			<form id="form" action="/service/write" method="post" enctype="multipart/form-data">
+			<table>
+				<tr><td class="service_sub_font">제목</td></tr>
+				<tr><td><input type="text" name="title" class="service_sub_font"></td></tr>
+				
+				<tr><td class="service_sub_font">내용</td></tr>
+				<tr><td><textarea name="content" cols="50" rows="10" class="service_sub_font"></textarea></td></tr>
+				
+				<tr><td><input type="file" name="uploadFile" multiple></td></tr>
+				<tr><td><input type="button" id="uploadBtn" style="cursor: pointer" value="글쓰기"></td></tr>
+			</table>
+			</form>
+			<div id="uploadResult">
+					<ul>
+				
+					</ul>
+			</div>
 		</div>
 	</div>
+</div>
 		<%--본문 넣을 자리 --%>
-		
 		<div>
 			<footer>
 				<div id="bottomMenu">
