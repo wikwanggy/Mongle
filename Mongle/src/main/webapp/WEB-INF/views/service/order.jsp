@@ -87,6 +87,7 @@
 			<div id="service_main_page">
 			<span id="service_main_title">주문</span>
 			sdfsadfsdafsadfsdaf
+			테스트용
 			</div><%--본문div끝 --%>
 		</div>
 	</div>
