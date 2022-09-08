@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.Mongle.Mapper.BoardMapper">
+   <select id="list" resultType="org.Mongle.model.CommBoardVo">
+  		select *
+  		from(
+			select @rownum:=@rownum+1 num, b.*
+			from board b,(select @rownum:=0) as tmp
+			<if test="keyword !=null">
+				<choose>
+					<when test="type=='T'.toString()">
+					where title like concat('%',#{keyword},'%')
+					</when>
+					<when test="type=='C'.toString()">
+					where content like concat('%',#{keyword},'%')
+					</when>
+					<otherwise>
+					where title like concat('%', #{keyword},'%')
+					OR content like concat('%', #{keyword}, '%')
+					</otherwise>
+				</choose>
+			</if>
+			order by bno desc
+		)as boardlist
+		<![CDATA[
+		where num > (#{pageNum}-1)*#{amount} and num<=#{pageNum}*#{amount}
+		]]>
+  	</select>
+  	<update id="cntup">
+   		update board
+   		set cnt=cnt+1
+   		where bno = ${bno}
+   </update>
+   <select id="total" resultType="int">
+   		select count(*) from board
+   		<if test="keyword !=null">
+   			<choose>
+				<when test="type=='T'.toString()">
+				where title like concat('%',#{keyword},'%')
+				</when>
+				<when test="type=='C'.toString()">
+				where content like concat('%',#{keyword},'%')
+				</when>
+				<otherwise>
+				where title like concat('%', #{keyword},'%')
+				OR content like concat('%', #{keyword}, '%')
+				</otherwise>
+			</choose>
+		</if>
+   </select>
+	<insert id="write">
+		insert into board(bno, title, content)
+		values(#{bno}, #{title}, #{content})
+	</insert>
+	<select id="detail" resultType="org.Mongle.model.CommBoardVo">
+		select * from board where bno=#{bno}
+	</select>
+	<update id="update">
+		update board
+		set title=#{title},
+		content=#{content}
+		where bno=#{bno}
+	</update>
+	<delete id="delete">
+		delete from board where bno=#{bno}
+	</delete>
+	
+	<select id="detailmd" resultType="org.Mongle.model.CommBoardVo">
+		select * from board where bno=#{bno}
+	</select>
+	
+	<select id="rvlist" resultType="org.Mongle.model.ReviewVo">
+		select * from review
+	</select>
+	<select id="notice" resultType="org.Mongle.model.NoticeVo">
+		select *
+		from notice
+	</select>
+	<insert id="noticewrt">
+		insert into notice(bno, title, content)
+		values(#{bno}, #{title}, #{content})
+	</insert>
+	<select id="totaln" resultType="int">
+   		select count(*) from notice
+   		<!-- <if test="keyword !=null">
+   			<choose>
+				<when test="type=='T'.toString()">
+				where title like concat('%',#{keyword},'%')
+				</when>
+				<when test="type=='C'.toString()">
+				where content like concat('%',#{keyword},'%')
+				</when>
+				<otherwise>
+				where title like concat('%', #{keyword},'%')
+				OR content like concat('%', #{keyword}, '%')
+				</otherwise>
+			</choose>
+		</if> -->
+   </select>
+   <select id="ntdetail" resultType="org.Mongle.model.NoticeVo">
+		select * from notice where bno=#{bno}
+	</select>
+</mapper>

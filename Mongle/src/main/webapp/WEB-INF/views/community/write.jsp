@@ -9,7 +9,10 @@
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
-<div class="board_l"><!-- / -->
+<div class="board_l">
+	<div style="margin-left:40px;">
+		<h2>커뮤니티</h2>
+	</div>
 <form method="post">
 	<table border="1" class="board_write">
 		<tr>
@@ -19,16 +22,20 @@
 			<td><textarea cols="115" rows="30" placeholder="내용" name="content"></textarea></td>
 		</tr>
 		<tr>
-			<td><input type="file"><input type="submit" value="파일 첨부" class="btn_board">
+			<td><input type="file" name="uploadFile" multiple>
+				<div id="uploadResult">
+					<ul>
+						
+					</ul>
+				</div>
+			</td>
 		</tr>
-		<!-- 로그인 하지 않은 상태에서 올리기를 클릭하면 권한이 없습니다 알림 나오게 -->
 		<tr>
-			<td><input type="submit" value="올리기" class="btn_board"></td>
+			<td><input type="submit" value="올리기" id="uploadbtn" class="btn_board"></td>
 		</tr>
 	</table>
 </form>
 </div>
-<script src="../resources/js/community.js"></script>
 </body>
 <jsp:include page="../footer.jsp"/>
 </html>

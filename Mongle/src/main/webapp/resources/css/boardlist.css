@@ -3,11 +3,13 @@ h1{
 	text-align:center;
 }
 .board_l{
-	padding:20px;	
+	margin:auto;
+	padding:20px;
+	width:1000px;
 }
 #board_list{
 	border-collapse : collapse;
-	width:650px;
+	width:700px;
 	text-align:center;
 	margin:auto;
 }
@@ -20,6 +22,10 @@ h1{
 }
 #board_list_search{
 	margin:auto;
+}
+#board_paging{
+	text-align:center;
+	margin-bottom:20px;
 }
 #td{
 	margin:10px;
@@ -49,11 +55,43 @@ textarea{
 	width:650px;
 	border-collapse : collapse;
 }
+#notice_detail{
+	width:1000px;
+	border-collapse:collapse;
+	margin:20px;
+}
+#notice_detail tr td{
+	padding:20px;
+}
 #board_detail tr td{
 	padding:10px;
 }
 #board_detail input{
 	border:none;
+}
+#detail_all{
+	width:1200px;
+	margin:auto;
+}
+.tolist a{
+	width:90px;
+	height:35px;
+	border:1px solid #444444;
+	padding:8px 12px;
+}
+#detail_reply{
+	margin:auto;
+	width:650px;
+	padding:20px;
+}
+#reply_wrt{
+	text-align:right;
+}
+.detail_input{
+	margin:20px;
+}
+#chat li{
+	margin-bottom:10px;
 }
 #reviews{
 	margin:10px;
@@ -77,13 +115,6 @@ textarea{
 	margin-top:5px;
 }
 #review_search a{
-	margin:5px;
-	padding:5px;
-	color:white;
-	background-color:orange;
-	text-decoration:none;
-}
-#btn_list_search{
 	margin:5px;
 	padding:5px;
 	color:white;
@@ -125,7 +156,18 @@ textarea{
 	height:450px;
 	float:left;
 	margin:5px;
-	
+}
+.commu_top{
+	width:500px;
+	height:50px;
+	margin:auto;
+	padding:20px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.commu_top ul li{
+	float:left;
+	margin-right:20px;
 }
 .rv_img{
 	width:250px;
@@ -148,4 +190,35 @@ a{
 }
 h5{
 	float:right;
+}
+#ntcon{
+	width:1000px;
+	margin:auto;
+	padding:10px;
+}
+#ntcon table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+#ntcon tr td {
+    border-bottom: 1px solid #444444;
+    padding: 5px;
+  }
+#notice_detail table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+}
+#notice_detail th, td {
+    border-bottom: 1px solid #444444;
+    border-left: 1px solid #444444;
+    /* padding: 10px; */
+}
+#notice_detail th:first-child, td:first-child {
+    border-left: none;
+}
+#ntable{
+	margin-top:40px;
+	margin-bottom:40px;
 }
