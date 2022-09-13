@@ -83,7 +83,7 @@
 								</tr>
 								<tr>
 									<th>아이디</th>
-									<td><input type="text" value="${mdetail.id}" name="id" reaonly></td>
+									<td><input type="text" value="${mdetail.id}" name="id" readonly></td>
 								</tr>
 								<tr>
 									<th>비밀번호</th>
@@ -93,11 +93,11 @@
 								</tr>
 								<tr>
 									<th>생년월일</th>
-									<td><input type="text" value="${mdetail.bth}" name="bth" reaonly></td>
+									<td><input type="text" value="${mdetail.bth}" name="bth" readonly></td>
 								</tr>
 								<tr>
 									<th>성별</th>
-									<td><input type="text" value="${mdetail.gender}" name="gender" reaonly></td>
+									<td><input type="text" value="${mdetail.gender}" name="gender" readonly></td>
 								</tr>
 								<tr>
 									<th>이메일</th>

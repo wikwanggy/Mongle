@@ -24,6 +24,10 @@
 				<input type="password" name="password" placeholder="비밀번호" id="password"  class="input">
 			</div>
 			<div>
+				<img src="/resources/css/login/login/kakao_login_small.png" alt="카카오톡">
+				<img src="/resources/css/login/login/btnG_축약형.png" alt="네이버" id="naver_icon">
+			</div>
+			<div>
 			<c:choose>
 				<c:when test="${sessionScope.login==null}">
 					<input type="submit" value="로그인" class="btn">

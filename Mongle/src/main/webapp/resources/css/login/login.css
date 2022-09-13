@@ -47,6 +47,10 @@ img{
 }
 input{
 }
+#naver_icon{
+	width: 60px;
+	height: 30px;
+}
 #pw{
 	margin-top: 15px;
 }
