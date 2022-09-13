@@ -23,6 +23,10 @@
 										<a href="Signup/Signup" >회원가입</a>
 										<a href="/Login/login">로그인</a>
 									</c:when>
+									<c:when test="${sessionScope.login.id=='admin'}">
+										<a href="/Admin/Memberlist" >관리자메뉴</a>
+										<a href="/Login/logout">로그아웃</a>
+									</c:when>
 									<c:otherwise >
 										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
 										<a href="/Login/logout">로그아웃</a>

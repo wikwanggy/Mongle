@@ -159,6 +159,7 @@ $(document).ready(function() {
 			alert("회원가입을 축하합니다.");
 		}else{
 			alert("다시 확인해주세요.");
+			return false;
 		}
 	
 	})

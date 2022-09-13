@@ -16,9 +16,48 @@
   		insert into member(id, password, name, bth, email,gender) 
 	values(#{id},#{password},#{name},#{bth},#{email},#{gender});
   	</insert>
-  	<select id="list" resultType="org.Mongle.model.SignupDTO">
-  		select * from member;
-  	</select>
+	<select id="list" resultType="org.Mongle.model.SignupDTO">
+		select *
+		from(
+		select @rownum:=@rownum+1 rownum,b.* 
+		from member b,(select @rownum:=0)as tmp
+		<if test="keyword!=null">
+				<choose>
+					<when test="type =='T'.toString()">
+						where id like concat('%',#{keyword},'%')
+					</when>
+					<when test="type =='C'.toString()">
+						where name like concat('%',#{keyword},'%')
+					</when>
+					<otherwise>
+						where id like concat('%',#{keyword},'%')
+						OR name like concat('%',#{keyword},'%')
+					</otherwise>
+				</choose>
+		</if>
+		order by id DESC
+		) as memberlist
+		<![CDATA[
+		where rownum > (#{pageNum}-1)*#{amount} and rownum<= #{pageNum}*#{amount} 
+		]]>
+	</select>
+		<select id="total" resultType="int">
+		select count(*) from member
+				<if test="keyword!=null">
+				<choose>
+					<when test="type =='T'.toString()">
+						where id like concat('%',#{keyword},'%')
+					</when>
+					<when test="type =='C'.toString()">
+						where name like concat('%',#{keyword},'%')
+					</when>
+					<otherwise>
+						where id like concat('%',#{keyword},'%')
+						OR name like concat('%',#{keyword},'%')
+					</otherwise>
+				</choose>
+		</if>
+	</select>
   	<select id="detail" resultType="org.Mongle.model.SignupDTO">
   		select * from member where id=#{id};
   	</select>

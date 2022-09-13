@@ -1,12 +1,12 @@
 package org.Mongle.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.Mongle.Service.LoginService;
 import org.Mongle.model.LoginDTO;
 import org.Mongle.model.SignupDTO;
+import org.Mongle.model.adminCriteriaDTO;
+import org.Mongle.model.adminPageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -51,6 +49,7 @@ public class LoginController {
 	// 로그인 체크
 	@PostMapping("/Login/logincheck")
 	public ResponseEntity<String> logincheck(@RequestBody LoginDTO ldto) {
+		System.out.println(ldto);
 		int result = ls.logincheck(ldto);
 		System.out.println("result 결과" + result);
 		
@@ -82,10 +81,6 @@ public class LoginController {
 	public void mypagemove(SignupDTO sdto,Model model) {
 		model.addAttribute("mypage",ls.detail(sdto));
 	}
-	@GetMapping("/mypage/list")
-	public void list(Model model) {
-		model.addAttribute("mlist", ls.list());
-	}
 	// 회원정보 수정페이지로 이동
 	@GetMapping("/mypage/detail")
 	public void detail(SignupDTO sdto,Model model) {
@@ -112,9 +107,18 @@ public class LoginController {
 	
 	// 회원 탈퇴
 	@GetMapping("/mypage/leave")
-	public String leave(SignupDTO adto,HttpSession session) {
-		ls.leave(adto);
+	public String leave(SignupDTO sdto,HttpSession session) {
+		ls.leave(sdto);
 		session.invalidate();
 		return "redirect:/";
+	}
+	// 회원리스트
+	@GetMapping("/Admin/Memberlist")
+	public String list(Model model, adminCriteriaDTO cri) {
+		model.addAttribute("list",ls.list(cri));
+		int total = ls.total(cri);
+		//model.addAttribute("paging",new PageVo(cri,190));
+		model.addAttribute("paging",new adminPageDTO(cri,total));
+		return "/Admin/Memberlist";
 	}
 }

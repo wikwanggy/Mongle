@@ -6,17 +6,17 @@ import javax.servlet.http.HttpSession;
 
 import org.Mongle.model.LoginDTO;
 import org.Mongle.model.SignupDTO;
+import org.Mongle.model.adminCriteriaDTO;
 
 public interface LoginService {
 	// 서비스부분
 	// 로그인
 	public boolean login(LoginDTO mdto, HttpSession session);
-	// 로그인체크
-	public int logincheck(LoginDTO mdto);
+
 	// 회원가입
 	public void signup(SignupDTO sd);
 	// 멤버 리스트
-	public ArrayList<SignupDTO> list();
+	public ArrayList<SignupDTO> list(adminCriteriaDTO cri);
 	// 회원정보 상세 
 	public SignupDTO detail(SignupDTO sdto);
 	// 회원정보 상세 
@@ -25,5 +25,8 @@ public interface LoginService {
 	public void leave(SignupDTO sdto);
 	// 로그인체크
 	public LoginDTO idcheck(String id);
-	
+	// memberlist테이블 전체건수 설계
+	public int total(adminCriteriaDTO cri);
+	// 
+	public int logincheck(LoginDTO ldto);
 }

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.Mongle.Mapper.LoginDAO;
 import org.Mongle.model.LoginDTO;
 import org.Mongle.model.SignupDTO;
-import org.mybatis.spring.SqlSessionTemplate;
+import org.Mongle.model.adminCriteriaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,21 +29,17 @@ public class LoginServiceImpl implements LoginService {
 			}
 			return result;
 		}
-		// 로그인 
-		public int logincheck(LoginDTO ldto) {
-			
-			return 0;
-		}
 		// 회원가입
 		public void signup(SignupDTO sd) {
 			 ldao.signup(sd);
 			
 		}
 		// 회원 리스트
-		public ArrayList<SignupDTO> list() {
-		
-			return ldao.list();
+		public ArrayList<SignupDTO> list(adminCriteriaDTO cri) {
+
+			return ldao.list(cri);
 		}
+		
 		// 회원 정보 상세
 		public SignupDTO detail(SignupDTO sdto) {
 		
@@ -59,9 +55,17 @@ public class LoginServiceImpl implements LoginService {
 		}// 중복체크
 		
 		public LoginDTO idcheck(String id) {
-
+			
 			return ldao.idcheck(id);
 		}
-		
+		@Override
+		public int total(adminCriteriaDTO cri) {
+			return ldao.total(cri);
+		}
+		@Override
+		public int logincheck(LoginDTO ldto) {
+			System.out.println(ldto);
+			return ldao.logincheck(ldto);
+		}
 
 }

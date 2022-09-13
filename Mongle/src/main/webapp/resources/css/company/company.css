@@ -10,24 +10,20 @@
 	box-sizing: border-box; /* 박스 영역은 테투리까지 지정*/
 	font-family: 'Edu VIC WA NT Beginner', cursive;
 	font-family: 'Hi Melody', cursive;
-}/**/
+}
 #container{
 	width:1200px; /* 너비 1200px로 지정 */
 	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
-}
+}/**/
 header {
 	width: 100%; /* 너비 */
 	height: 130px; /* 높이 */
 	background-color: rgba(255, 235, 98); /* 백그라운드 컬러 지정 */
 }
 #tm{
-	display: flex; /* 정렬을 flex로 지정 */
 	height: 90px; /* 높이 90px로 지정*/
 }
-#logo{
-	width:960px; /* 로고의 너비를 960px로 지정 */
-	text-align: center; /* 로고의 위치를 센터로 지정 */
-}
+
 #logoimg{
 	height: 80px; /* 로고 이미지를 80px로 지정 */
 }
@@ -43,6 +39,14 @@ ul {
 	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
 }
 #topmenu>li>a {
+	color: black; /* 폰트 색상 */
+	padding-right: 10px; /* 패딩 지정 */
+	padding-bottom: 10px; 
+	text-decoration: none;
+	font-size: 15px;
+	
+}
+#toplist>a{
 	color: black; /* 폰트 색상 */
 	padding-right: 10px; /* 패딩 지정 */
 	padding-bottom: 10px; 

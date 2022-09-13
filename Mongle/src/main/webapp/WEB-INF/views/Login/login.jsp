@@ -34,7 +34,6 @@
 			</c:choose>
 			</div>
 		</form>
-		
 		<form>
 			<input class="btn" type="submit" value="Sign UP"
 				formaction="/Signup/Signup">

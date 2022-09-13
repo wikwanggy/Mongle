@@ -6,7 +6,6 @@ $(document).ready(function(){
 	$("#login").submit(function() {
 		//event.preventDefault();
 		
-		
 		var id = $("#id").val();
 		var password = $("#password").val();
 		var check = false;
@@ -36,7 +35,7 @@ $(document).ready(function(){
 						alert("로그인되셨습니다.")
 						check = true;
 					}
-				}
+				},
 				error:function() {
 					alert("아이디 혹은 비밀번호가 존재하지 않거나 잘못되었습니다.")
 					check = false;

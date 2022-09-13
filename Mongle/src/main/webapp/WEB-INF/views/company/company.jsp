@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +14,25 @@
 			<div id="hd"><!-- header 전체를 hd로 지정 -->
 			<header>
 				<div id="tm">
-					<div id="logo"><a href="/"><img alt="logo" src="../resources/css/mainimg/logo.png" id="logoimg"></a></div>
+					<a href="/"><img alt="logo" src="../resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
-						<li><a href="/signup/signup">회원가입</a></li>
-						<li><a href="/signin/signin">로그인</a></li>
-						<li><a href="#">MyPage</a></li>
+						<li>
+							<div id="toplist">
+								<c:choose>
+									<c:when test="${sessionScope.login==null}">
+										<a href="Signup/Signup" >회원가입</a>
+										<a href="/Login/login">로그인</a>
+									</c:when>
+									<c:when test="${sessionScope.login.id=='admin'}">
+										<a href="/Admin/Memberlist" >관리자메뉴</a>
+										<a href="/Login/logout">로그아웃</a>
+									</c:when>
+									<c:otherwise >
+										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
+										<a href="/Login/logout">로그아웃</a>
+									</c:otherwise>
+								</c:choose>
+							</div></li>
 						<li><a href="#">고객센터</a></li>
 					</ul>
 				</div>
