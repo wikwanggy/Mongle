@@ -91,9 +91,9 @@
 			<div id="cn">
 				<div id="slideShow">
 					<div id="slides">
-						<img src="resources/css/mainimg/slides4.PNG" alt="슬라이더 2"> <img
-							src="resources/css/mainimg/slides2.png" alt="슬라이더 2"> <img
-							src="resources/css/mainimg/slides3.png" alt="슬라이더 2">
+						<img src="resources/css/mainimg/SLIDE.png" alt="슬라이더 2"> <img
+							src="resources/css/mainimg/SLIDE1.png" alt="슬라이더 2"> <img
+							src="resources/css/mainimg/SLIDE2.png" alt="슬라이더 2">
 						<button id="prev">&lang;</button>
 						<button id="next">&rang;</button>
 					</div>
@@ -140,11 +140,11 @@
 					<div id="sns">
 						<ul>
 							<li><a href="#"><img
-									src="resources/css/mainimg/facebook.PNG" class="img2"></a></li>
+									src="/resources/css/mainimg/FACENBOOK.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="resources/css/mainimg/insta.PNG" class="img2"></a></li>
+									src="/resources/css/mainimg/INSTA.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="resources/css/mainimg/twitter.PNG" class="img2"></a></li>
+									src="/resources/css/mainimg/TWITTER.PNG" class="img2"></a></li>
 						</ul>
 					</div>
 				</div>

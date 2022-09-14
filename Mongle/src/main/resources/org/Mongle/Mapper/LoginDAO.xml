@@ -4,18 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
   <mapper namespace="org.Mongle.Mapper.LoginDAO">
+  	<!-- 로그인 -->
   	<select id="login" resultType="org.Mongle.model.LoginDTO">
   		select * from member
   		where id=#{id} 
 		and password=#{password}
   	</select>
+  	<!--로그인 체크  -->
   	<select id="logincheck" resultType="int">
   		select count(*) from member where id=#{id} and password=#{password}
   	</select>
+  	<!-- 회원가입 -->
   	<insert id="signup">
   		insert into member(id, password, name, bth, email,gender) 
 	values(#{id},#{password},#{name},#{bth},#{email},#{gender});
   	</insert>
+  	<!--회원리스트 -->
 	<select id="list" resultType="org.Mongle.model.SignupDTO">
 		select *
 		from(

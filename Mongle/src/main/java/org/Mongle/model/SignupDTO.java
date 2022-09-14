@@ -56,4 +56,10 @@ public class SignupDTO {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return "SignupDTO [id=" + id + ", password=" + password + ", name=" + name + ", bth=" + bth + ", gender="
+				+ gender + ", email=" + email + "]";
+	}
+
 }
