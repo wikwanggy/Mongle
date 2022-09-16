@@ -10,10 +10,11 @@
 	font-family: 'Hi Melody', cursive;
 }
 #container{
-	width:1200px; /* 너비 1200px로 지정 */
+	/* 너비 1200px로 지정 */
 	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
 }/**/
 header {
+
 	width: 100%; /* 너비 */
 	height: 130px; /* 높이 */
 	background-color: rgba(255, 235, 98); /* 백그라운드 컬러 지정 */
@@ -103,119 +104,91 @@ nav{
 	color: black;
 	line-height: 50px;
 }
-main{
-	height: 700px;
-	width: 100%; 
+main{ 
 	display: flex;
 }
-#ls{
-	width: 150px;
-	height: 700px;
+section{
+	height: 800px;
+	position: relative;
 }
-#eventbn{
+#st_1{
+	background: url("/resources/css/mainimg/st_1.png") fixed ;
+	background-color: black;
+	background-size: cover;
+	margin-top: 25px;
+}
+#st1_label{
+	color: yellow;
+}
+#st_2{
+	background: url("/resources/css/mainimg/st_2.png") fixed ;
+	background-color: black;
+	background-size: cover;
+	margin-top: 25px;
+}
+
+#st_3{
+	background: url("/resources/css/mainimg/st_3.png") fixed ;
+	background-color: black;
+	background-size: cover;
+	margin-top: 25px;
+}
+#st_4{
+	background: url("/resources/css/mainimg/st_4.jpg") fixed ;
+	background-color: black;
+	background-size: cover;
+	margin-top: 25px;
+}
+.main_div{
+
+	height: 200px;
+}
+.main_div>div{
+	text-align:center;
+	margin-top: 50px;
+	background-color: yellow;
 	
 }
-.event{
-	width: 150px;
-	margin-top: 10px;
-	margin-right: 10px;
-}
-#ev1{
-	height: 290px; /* 높이*/
-}
-#ev2{
-	height: 180px;
-}
-#ev3{
-	height: 180px;
-}
-#cn{
-	width: 900px;
-	height: 700px;	
-}
-#slideShow {
-	clear: both; /* 플로팅 해제 */
-	width: 880px; /* 너비 */
-	height: 290px; /* 높이*/
-	overflow: hidden; /* 영역이 넘치면 감춤 */
-	position: relative;
-	margin: 10px 10px 0px 10px;
-}
-#slides {
+h1{
+	font-size: 6em;
+	width: 600px;
 	position: absolute;
-	width: 880px; /* 너비 */
-}
-#slides>img {
-	width: 900px; /* 너비 */
-	float: left;
-	height: 300px;
-}
-button {
-	position: absolute;
-	height: 100%; /* 이미지 높이에 맞추기 */
-	top: 0;
-	border: none; /* 테두리 없이 */
-	padding: 20px;
-	background-color: transparent; /* 투명한 배경 지정 */
-	color: #fff; /* 화살표를 검은색으로 지정 */
-	font-weight: 800; /* 화살표를 굵게 지정 */
-	font-size: 24px; /* 화살펴 크기 지정 */
-	opacity: 0.5; /* 화살표를 반투명하게 지정 */
-	z-index: 1;
-}
-#prev {
-	left: 0; /* 왼쪽으로 붙이기 */
-}
-#next {
-	right: 0; /* 오른쪽으로 붙이기 */
-}
-button:hover { /* 마우스 포인트를 올리면 */
-	background-color: #222; /* 배경색은 즡은 회색으로 변경 */
-	color: #fff; /* 흰색 화살표 */
-	opacity: 0.6; /* 불투명도를 높임 */
-	cursor: pointer; /* 포인터 모양으로 바꿈 */
-}
-button:focus {
-	outline: 0; /* 아웃라인 없앰 */
-}
-#SB{
+	top: 200px;
+	right: 300px;
+	animation:slidein 2s ease-out;
 	text-align: center;
-	height: 200px;
-	line-height: 60px;
-	width: 880px; /* 너비 */
-	margin: 0px 10px 0px 10px;
+	/*animation-name:slidein;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;*/
 }
-#SB ul li {
-	display: inline; /* 이미지 가로로 베치 */  
-	margin: 0px 10px 0px 10px;
+
+@keyframes slidein{
+	from{
+		margin-right: -800px;
+		opacity: 0;
+	}
+	to{
+		margin-right: 0px;
+		opacity: 1;
+	}
 }
-.sbimg {
-	width: 190px;
-	height: 100px;
+
+@keyframes disappear{
+	from{
+		margin-right: 0px;
+		opacity: 1;
+	}
+	to{
+		margin-right: -800px;
+		opacity: 0;
+	}
 }
-#HB{
-	text-align: center;
-	height: 200px;
-	line-height: 60px;
-	width: 880px; /* 너비 */
-	margin: 0px 10px 0px 10px;
-}
-#HB ul li {
-	display: inline;
-	margin: 0px 10px 0px 10px;
-}
-.htimg{
-	width: 190px;
-	height: 100px;
-}
-#rs{
-	width: 150px;
-	height: 700px;
-}
+
 footer {
 	width: 100%; /* 너비 */
 	height: 100px; /* 높아 */
 	border-top: 1px solid #222; /* 위쪽에 가로선 추가 */
+	margin-top: 25px;
 }
 #bottomMenu {
 	width: 100%;
