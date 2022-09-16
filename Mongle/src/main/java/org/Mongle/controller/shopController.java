@@ -32,7 +32,7 @@ public class shopController {
 	// 상품 등록
 	@RequestMapping(value = "/shoppage/shop_board", method = RequestMethod.POST)
 	public String writepost(shopVO shop) {
-		System.out.println("shop1="+shop);
+		System.out.println("shop1=" + shop);
 		// 비즈니스 영역 연결한 후 Service에 있는 write메소드를 호출
 		ss.write(shop);
 
@@ -49,16 +49,16 @@ public class shopController {
 	// 상품 리스트
 	@RequestMapping(value = "/shoppage/shop", method = RequestMethod.GET)
 	public String shop(Model model, SCriteriaVO scri) {
-		model.addAttribute("shop",ss.shop(scri));
+		model.addAttribute("shop", ss.shop(scri));
 		int total = ss.total(scri);
-		model.addAttribute("paging",new SPageVO(scri, total));
+		model.addAttribute("paging", new SPageVO(scri, total));
 		return "/shoppage/shop";
 	}
 
 	// 상품 상세설명
 	@RequestMapping(value = "/shoppage/Detail", method = RequestMethod.GET)
 	public String detail(shopVO shop, Model model) {
-		System.out.println("shop2="+shop);
+		System.out.println("shop2=" + shop);
 		model.addAttribute("detail", ss.detail(shop));
 		return "/shoppage/Detail";
 	}

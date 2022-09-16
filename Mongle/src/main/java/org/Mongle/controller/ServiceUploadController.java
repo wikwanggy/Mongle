@@ -63,7 +63,7 @@ public class ServiceUploadController {
 	public ResponseEntity<ArrayList<ServiceFileListVO>> uploadAjaxPost(MultipartFile[] uploadFile) {
 		
 		//ServiceFileListVO클래스 포함
-		ArrayList<ServiceFileListVO> list = new ArrayList();
+		ArrayList<ServiceFileListVO> list = new ArrayList<>();
 		
 		//폴더경로
 		String uploadFolder="D:\\01-STUDY\\upload";
