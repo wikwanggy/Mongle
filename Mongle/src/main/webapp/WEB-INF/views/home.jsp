@@ -39,15 +39,16 @@
 				<div>
 					<nav>
 						<ul id="menu">
+						<li><a href="/shoppage/shop_board" id="shop_board">상품 등록</a></li>
 							<li><a href="/">HOME</a></li>
-							<li><a href="#">SHOP</a>
+							<li><a href="/shoppage/shop">SHOP</a>
 								<ul>
-									<li><a href="#">간식</a></li>
-									<li><a href="#">미용용품</a></li>
-									<li><a href="#">장난감</a></li>
-									<li><a href="#">하우스</a></li>
-									<li><a href="#">패션</a></li>
-									<li><a href="#">기타</a></li>
+									<li><a href="/shoppage/Snack">간식</a></li>
+									<li><a href="/shoppage/beauty">미용용품</a></li>
+									<li><a href="/shoppage/toy">장난감</a></li>
+									<li><a href="/shoppage/House">하우스</a></li>
+									<li><a href="/shoppage/fashion">패션</a></li>
+									<li><a href="/shoppage/etc">기타</a></li>
 								</ul></li>
 							<li><a href="/place/">PLACE</a>
 								<ul>

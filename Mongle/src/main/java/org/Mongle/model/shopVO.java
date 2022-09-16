@@ -4,81 +4,94 @@ import java.util.ArrayList;
 
 public class shopVO {
 	// 상품 번호
-	private int product_id;
+	private int bno;
+	// 상품 이름
+	private String w_name;
 	// 상품 가격
-	private int product_price;
+	private int w_price;
+	// 상품 작성일자
+	private String w_regdata;
 	// 상품 색상
-	private String product_color;
-	// 상품 크기
-	private String product_size;
+	private String w_color;
 	// 상품 종류
-	private String product_type;
-	// 9. 상품 수량
-	private int product_Quantity;
-	// 13. goodsVo(파일업로드 관련 model)
-	private ArrayList<goodsVO> attach;
-
-	public int getProduct_id() {
-		return product_id;
+	private String w_type;
+	// 상품 수량
+	private int w_Quantity;
+	// AttachFileVo(파일업로드 관련 model)
+	private ArrayList<SAttachFileVO> attach;
+	public int getBno() {
+		return bno;
 	}
 
-	public void setProduct_id(int product_id) {
-		this.product_id = product_id;
+	public void setBno(int bno) {
+		this.bno = bno;
 	}
 
-	public int getProduct_price() {
-		return product_price;
+	public String getW_name() {
+		return w_name;
 	}
 
-	public void setProduct_price(int product_price) {
-		this.product_price = product_price;
+	public void setW_name(String w_name) {
+		this.w_name = w_name;
 	}
 
-	public String getProduct_color() {
-		return product_color;
+	public int getW_price() {
+		return w_price;
 	}
 
-	public void setProduct_color(String product_color) {
-		this.product_color = product_color;
+	public void setW_price(int w_price) {
+		this.w_price = w_price;
 	}
 
-	public String getProduct_size() {
-		return product_size;
+	public String getW_regdata() {
+		return w_regdata;
 	}
 
-	public void setProduct_size(String product_size) {
-		this.product_size = product_size;
+	public void setW_regdata(String w_regdata) {
+		this.w_regdata = w_regdata;
 	}
 
-	public String getProduct_type() {
-		return product_type;
+	public String getW_color() {
+		return w_color;
 	}
 
-	public void setProduct_type(String product_type) {
-		this.product_type = product_type;
+	public void setW_color(String w_color) {
+		this.w_color = w_color;
 	}
 
-	public int getProduct_Quantity() {
-		return product_Quantity;
+	public String getW_type() {
+		return w_type;
 	}
 
-	public void setProduct_Quantity(int product_Quantity) {
-		this.product_Quantity = product_Quantity;
+	public void setW_type(String w_type) {
+		this.w_type = w_type;
 	}
 
-	public ArrayList<goodsVO> getAttach() {
+	public int getW_Quantity() {
+		return w_Quantity;
+	}
+
+	public void setW_Quantity(int w_Quantity) {
+		this.w_Quantity = w_Quantity;
+	}
+	
+
+	public ArrayList<SAttachFileVO> getAttach() {
 		return attach;
 	}
 
-	public void setAttach(ArrayList<goodsVO> attach) {
+	public void setAttach(ArrayList<SAttachFileVO> attach) {
 		this.attach = attach;
 	}
 
 	@Override
 	public String toString() {
-		return "shopVO [product_id=" + product_id + ", product_price=" + product_price + ", product_color="
-				+ product_color + ", product_size=" + product_size + ", product_type=" + product_type
-				+ ", product_Quantity=" + product_Quantity + ", attach=" + attach + "]";
+		return "shopVO [bno=" + bno + ", w_name=" + w_name + ", w_price=" + w_price + ", w_regdata=" + w_regdata
+				+ ", w_color=" + w_color + ", w_type=" + w_type + ", w_Quantity=" + w_Quantity + ", attach=" + attach
+				+ "]";
 	}
 
+	
+
+	
 }
