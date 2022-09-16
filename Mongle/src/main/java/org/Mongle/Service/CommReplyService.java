@@ -6,7 +6,7 @@ import org.Mongle.model.CommReplyupVo;
 
 public interface CommReplyService {
 	//public ArrayList<CommReplyupVo> list(int bno);
-	public int rewrite(CommReplyupVo reply);
+	public int rewrite(CommReplyupVo rep);
 	public ArrayList<CommReplyupVo> list(int bno);
 	public int remove(int rno);
 }

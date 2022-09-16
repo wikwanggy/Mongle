@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,27 +22,34 @@
 		<tr>
 			<td style="width:75px; text-align:center;">${detail.bno}</td>
 			<td style="height:25px;">
-				<input type="hidden" name="bno" value="${detail.bno}">
-				${detail.title}<%-- <input type="text" name="title" class="board_write_title" value="${detail.title}"> --%>
+				<input type="hidden" name="bno" value="${detail.bno}"><input type="hidden" name="id" value="${detail.id}">
+				${detail.title}
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" style="text-align:right"><span>작성자　</span>　${detail.id}　<span>　|　작성일　</span>　${detail.regdate} <span>　조회수　</span> ${detail.cnt}</td>
+			<td colspan="2" style="text-align:right"><span>작성자　</span>　${detail.id}　<span>　|　작성일　</span>　${detail.regdate}</td>
 		</tr>
 		<tr>
-			<td colspan="2"><pre>${detail.content}</pre><%-- <textarea cols="115" rows="30" name="content">${detail.content}</textarea> --%>
-			<div id="uploadResult">
-				<ul>
+			<td colspan="2"><pre>${detail.content}</pre>
+				<div id="uploadResult">
+					<ul>
 					
-				</ul>
-			</div></td>
+					</ul>
+				</div>
+			</td>
 		</tr>
+		<c:choose>
+				<c:when test="${sessionScope.login.id==detail.id}">
 		<tr>
 			<td colspan="2" id="btn_board_detail">
-			<input type="submit" value="삭제" class="btn_board" formaction="delete">
-			<input type="submit" value="수정" class="btn_board" formaction="detailmd?bno=${detail.bno }">
+			
+					<input type="submit" value="삭제" class="btn_board" formaction="boarddelete">
+					<input type="submit" value="수정" class="btn_board" formaction="detailmd?bno=${detail.bno}">
+				
 			</td>
 		</tr>
+		</c:when>
+			</c:choose>
 	</table>
 	<div class="tolist"><a href="http://localhost:8080/community/list">목록</a></div>
 	</div>
@@ -57,11 +65,18 @@
 <table id="detail_reply">
 	<tr>
 		<td>
-			<div class="detail_input">
-				<div><label>댓글</label></div>
-				<div><textarea cols="115" rows="7" placeholder="댓글 입력" id="reply"></textarea></div>
-				<div id="reply_wrt"><input type="button" class="btn_board" id="replywrt" value="작성"></div>
-			</div>
+			<c:choose>
+				<c:when test="${sessionScope.login!=null}">
+					<div class="detail_input">
+						<div><label>댓글</label></div>
+						<div><textarea cols="115" rows="7" placeholder="댓글 입력" id="comm_reply"></textarea></div>
+						<div id="reply_wrt"><input type="button" class="btn_board" id="replywrt" value="작성"></div>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<span>댓글은 로그인 후 작성할 수 있습니다.</span>
+				</c:otherwise>
+			</c:choose>
 		</td>
 	<tr>
 	<tr>

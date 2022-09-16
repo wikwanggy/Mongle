@@ -39,6 +39,7 @@
 				<div>
 					<nav>
 						<ul id="menu">
+						<li><a href="/shoppage/shop_board" id="shop_board">상품 등록</a></li>
 							<li><a href="/">HOME</a></li>
 							<li><a href="/shoppage/shop">SHOP</a>
 								<ul>

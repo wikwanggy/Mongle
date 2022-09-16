@@ -1,11 +1,11 @@
 package org.Mongle.controller;
 
+import org.Mongle.Service.BoardService;
 import org.Mongle.model.CommBoardVo;
 import org.Mongle.model.CommCriterionVo;
 import org.Mongle.model.CommPageVo;
 import org.Mongle.model.NoticeVo;
 import org.Mongle.model.ReviewVo;
-import org.Mongle.Service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,9 +47,9 @@ public class BoardController {
 		rttr.addAttribute("bno", bvo.getBno());
 		return "redirect:/community/detail";
 	}
-	@RequestMapping(value = "/community/delete", method = RequestMethod.POST)
-	public String delete(CommBoardVo bvo) {
-		bs.delete(bvo);
+	@RequestMapping(value = "/community/boarddelete", method = RequestMethod.POST)
+	public String boarddelete(CommBoardVo bvo) {
+		bs.boarddelete(bvo);
 		return "redirect:/community/list";
 	}
 	
@@ -96,5 +96,22 @@ public class BoardController {
 		System.out.println(nv);
 		model.addAttribute("ntdetail", bs.ntdetail(nv));
 		return "/community/ntdetail";
+	}
+	@RequestMapping(value="/community/ntdetailmd", method=RequestMethod.POST)
+	public String ntdetailmd(NoticeVo nv, Model model) {
+		System.out.println(nv);
+		model.addAttribute("ntdetailmd",bs.ntdetailmd(nv));
+		return "/community/ntdetailmd";
+	}
+	@RequestMapping(value = "/community/ntupdate", method = RequestMethod.POST)
+	public String ntupdate(NoticeVo nv,RedirectAttributes rttr) {
+		bs.ntupdate(nv);
+		rttr.addAttribute("nv", nv.getBno());
+		return "redirect:/community/notice";
+	}
+	@RequestMapping(value = "/community/ntdelete", method = RequestMethod.POST)
+	public String ntdelete(NoticeVo nv) {
+		bs.ntdelete(nv);
+		return "redirect:/community/notice";
 	}
 }

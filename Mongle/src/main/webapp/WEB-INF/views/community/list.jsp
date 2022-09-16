@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +27,17 @@
 		<h2>커뮤니티</h2>
 	</div>
 	<table border="1" id="board_list">
+		
 		<tr>
-			<td colspan="5" id="board_list_search">
-			<div id="td">
-			<input type="button" value="글쓰기" class="btn_board" onclick="location.href='http://localhost:8080/community/write'"></div>
+			<td colspan="5" id="board_list_search"><div style="padding:10px;">
+				<c:choose>
+					<c:when test="${sessionScope.login!=null}">
+						<div id="td"><input type="button" value="글쓰기" class="btn_board" onclick="location.href='http://localhost:8080/community/write'"></div>
+					</c:when>
+					<c:otherwise>
+						<span>글쓰기는 로그인 이후 가능합니다.</span>
+					</c:otherwise>
+				</c:choose>
 			<form action="/community/list" id="searchForm" method="get">
 				<select name="type">
 					<option value="T">제목</option>
@@ -40,7 +48,7 @@
 				<input type="hidden" name="amount" value="${paging.cri.amount}">
 				<input type="text" name="keyword">
 				<input type="button" id="searching" value="검색">
-			</form></td>
+			</form></div></td>
 		</tr>
 		<tr height="40px">
 			<td width="50px">글번호</td>
@@ -55,7 +63,7 @@
 				<td><a href="detail?bno=${boardlist.bno}">${boardlist.title}</a></td>
 				<td>${boardlist.regdate}</td>
 				<td>${boardlist.cnt}</td>
-				<td>${boardlist.writer}</td>
+				<td>${boardlist.id}</td>
 			</tr>
 		</c:forEach>
 	</table>

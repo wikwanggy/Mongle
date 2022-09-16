@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,9 @@
 <form method="post">
 	<table border="1" class="board_write">
 		<tr>
-			<td><input type="text" placeholder="제목" class="board_write_title" name="title"></td>
+			<td>
+			<input type="hidden" name="id" value="${sessionScope.login.id}">
+			<input type="text" placeholder="제목" class="board_write_title" name="title"></td>
 		</tr>
 		<tr>
 			<td><textarea cols="115" rows="30" placeholder="내용" name="content"></textarea></td>
@@ -30,9 +33,13 @@
 				</div>
 			</td>
 		</tr>
-		<tr>
-			<td><input type="submit" value="올리기" id="uploadbtn" class="btn_board"></td>
-		</tr>
+		<c:choose>
+			<c:when test="${sessionScope.login.id=='admin'}">
+				<tr>
+					<td><input type="submit" value="올리기" id="uploadbtn" class="btn_board"></td>
+				</tr>
+			</c:when>
+		</c:choose>
 	</table>
 </form>
 </div>

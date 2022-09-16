@@ -6,9 +6,7 @@ public class CommPageVo {
 	private boolean prev;
 	private boolean next;
 	private CommCriterionVo cri;
-	private CommCriterionVo cv;
 	private int total;
-	private int totaln;
 	
 	public CommPageVo(CommCriterionVo cri,int total) {
 		this.cri=cri;
@@ -71,23 +69,10 @@ public class CommPageVo {
 	public void setTotal(int total) {
 		this.total = total;
 	}
-	
-	public CommCriterionVo getCv() {
-		return cv;
-	}
-	public void setCv(CommCriterionVo cv) {
-		this.cv = cv;
-	}
-	public int getTotaln() {
-		return totaln;
-	}
-	public void setTotaln(int totaln) {
-		this.totaln = totaln;
-	}
 	@Override
 	public String toString() {
 		return "CommPageVo [startPage=" + startPage + ", endPage=" + endPage + ", prev=" + prev + ", next=" + next
-				+ ", cri=" + cri + ", cv=" + cv + ", total=" + total + ", totaln=" + totaln + "]";
+				+ ", cri=" + cri + ", total=" + total + "]";
 	}
 	
 }

@@ -27,6 +27,7 @@
 		<![CDATA[
 		where num > (#{pageNum}-1)*#{amount} and num<=#{pageNum}*#{amount}
 		]]>
+		
   	</select>
   	<update id="cntup">
    		update board
@@ -51,8 +52,8 @@
 		</if>
    </select>
 	<insert id="write">
-		insert into board(bno, title, content)
-		values(#{bno}, #{title}, #{content})
+		insert into board(bno, title, content, id)
+		values(#{bno}, #{title}, #{content}, #{id})
 	</insert>
 	<select id="detail" resultType="org.Mongle.model.CommBoardVo">
 		select * from board where bno=#{bno}
@@ -63,8 +64,9 @@
 		content=#{content}
 		where bno=#{bno}
 	</update>
-	<delete id="delete">
-		delete from board where bno=#{bno}
+	<delete id="boarddelete">
+		delete from board
+		where bno=#{bno}
 	</delete>
 	
 	<select id="detailmd" resultType="org.Mongle.model.CommBoardVo">
@@ -79,27 +81,22 @@
 		from notice
 	</select>
 	<insert id="noticewrt">
-		insert into notice(bno, title, content)
-		values(#{bno}, #{title}, #{content})
+		insert into notice(bno, title, content, id)
+		values(#{bno}, #{title}, #{content}, #{id})
 	</insert>
-	<select id="totaln" resultType="int">
-   		select count(*) from notice
-   		<!-- <if test="keyword !=null">
-   			<choose>
-				<when test="type=='T'.toString()">
-				where title like concat('%',#{keyword},'%')
-				</when>
-				<when test="type=='C'.toString()">
-				where content like concat('%',#{keyword},'%')
-				</when>
-				<otherwise>
-				where title like concat('%', #{keyword},'%')
-				OR content like concat('%', #{keyword}, '%')
-				</otherwise>
-			</choose>
-		</if> -->
-   </select>
    <select id="ntdetail" resultType="org.Mongle.model.NoticeVo">
 		select * from notice where bno=#{bno}
 	</select>
+	<select id="ntdetailmd" resultType="org.Mongle.model.NoticeVo">
+		select * from notice where bno=#{bno}
+	</select>
+	<update id="ntupdate">
+		update notice
+		set title=#{title},
+		content=#{content}
+		where bno=#{bno}
+	</update>
+	<delete id="ntdelete">
+		delete from notice where bno=#{bno}
+	</delete>
 </mapper>

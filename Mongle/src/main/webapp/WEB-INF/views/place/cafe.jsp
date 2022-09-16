@@ -16,7 +16,7 @@
 		<div id="hd">
 			<header>
 				<div id="tm">
-					<a href="/"><img alt="logo"src="../resources/css/mainimg/logo.png" id="logoimg"></a>
+					<a href="/"><img alt="logo"src="resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
 						<li>
 							<div id="toplist">
@@ -40,12 +40,12 @@
 				</div>
 				<div>
 					<nav>
-					<nav>
 						<ul id="menu">
+						<li><a href="/shoppage/shop_board" id="shop_board">상품 등록</a></li>
 							<li><a href="/">HOME</a></li>
 							<li><a href="/shoppage/shop">SHOP</a>
 								<ul>
-									<li><a href="/shoppage/snack">간식</a></li>
+									<li><a href="/shoppage/Snack">간식</a></li>
 									<li><a href="/shoppage/beauty">미용용품</a></li>
 									<li><a href="/shoppage/toy">장난감</a></li>
 									<li><a href="/shoppage/House">하우스</a></li>
@@ -66,7 +66,7 @@
 									<li><a href="#">종료 이벤트</a></li>
 									<li><a href="#">이벤트 당첨</a></li>
 								</ul></li>
-							<li><a href="#">커뮤니티</a>
+							<li><a href="/event/eventmain">EVENT</a>
 								<ul>
 									<li><a href="/community/list">게시판</a></li>
 									<li><a href="/community/review">리뷰</a></li>
