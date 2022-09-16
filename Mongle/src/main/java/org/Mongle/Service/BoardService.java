@@ -12,7 +12,7 @@ public interface BoardService {
 	public void write(CommBoardVo bvo);
 	public CommBoardVo detail(CommBoardVo bvo);
 	public void update(CommBoardVo bvo);
-	public void delete(CommBoardVo bvo);
+	public void boarddelete(CommBoardVo bvo);
 	public int total(CommCriterionVo cri);
 	
 	public CommBoardVo detailmd(CommBoardVo bvo);
@@ -23,5 +23,8 @@ public interface BoardService {
 	public ArrayList<NoticeVo> notice(NoticeVo nv);
 	public void noticewrt(NoticeVo nv);
 	public NoticeVo ntdetail(NoticeVo nv);
+	public NoticeVo ntdetailmd(NoticeVo nv);
+	public void ntupdate(NoticeVo nv);
+	public void ntdelete(NoticeVo nv);
 	
 }

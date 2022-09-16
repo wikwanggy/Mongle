@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +15,12 @@
 	<div style="margin-left:40px;">
 		<h2>공지사항/펫티켓</h2>
 	</div>
-<form>
-	<table id="notice_detail">
+<form method="post">
+	<table border="1" id="notice_detail">
 		<tr>
 			<td style="width:75px; text-align:center;">${ntdetail.bno}</td>
 			<td style="height:25px;">
-				<input type="hidden" name="bno" value="${ntdetail.bno}">
+				<input type="hidden" name="bno" value="${ntdetail.bno}"><input type="hidden" name="id" value="${ntdetail.id}">
 				${ntdetail.title}<%-- <input type="text" name="title" class="board_write_title" value="${detail.title}"> --%>
 			</td>
 		</tr>
@@ -31,12 +32,16 @@
 				</ul>
 			</div></td>
 		</tr>
-		<tr>
-			<td colspan="2" id="btn_board_detail">
-			<input type="submit" value="삭제" class="btn_board" formaction="delete">
-			<input type="submit" value="수정" class="btn_board" formaction="detailmd?bno=${detail.bno }">
-			</td>
-		</tr>
+		<c:choose>
+			<c:when test="${sessionScope.login.id=='admin'}">
+				<tr>
+					<td colspan="2" id="btn_board_detail">
+					<input type="submit" value="삭제" class="btn_board" formaction="ntdelete">
+					<input type="submit" value="수정" class="btn_board" formaction="ntdetailmd?bno=${ntdetail.bno}">
+					</td>
+				</tr>
+			</c:when>
+		</c:choose>
 	</table>
 </form>
 <div class="tolist"><a href="http://localhost:8080/community/notice">목록</a></div>

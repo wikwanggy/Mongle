@@ -31,8 +31,8 @@ public class BoardServiceImpl implements BoardService{
 	public void update(CommBoardVo bvo) {
 		bm.update(bvo);
 	}
-	public void delete(CommBoardVo bvo) {
-		bm.delete(bvo);
+	public void boarddelete(CommBoardVo bvo) {
+		bm.boarddelete(bvo);
 	}
 	public int total(CommCriterionVo cri) {
 		return bm.total(cri);
@@ -54,5 +54,15 @@ public class BoardServiceImpl implements BoardService{
 	}
 	public NoticeVo ntdetail(NoticeVo nv) {
 		return bm.ntdetail(nv);
+	}
+	@Transactional
+	public NoticeVo ntdetailmd(NoticeVo nv) {
+		return bm.ntdetailmd(nv);
+	}
+	public void ntupdate(NoticeVo nv) {
+		bm.ntupdate(nv);
+	}
+	public void ntdelete(NoticeVo nv) {
+		bm.ntdelete(nv);
 	}
 }
