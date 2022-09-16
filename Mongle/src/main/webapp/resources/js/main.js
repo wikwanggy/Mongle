@@ -1,7 +1,7 @@
 /**
  * 
- */
-/*main javascript*/
+ *//*
+main javascript
 var slides = document.querySelectorAll("#slides > img");
 var prev = document.getElementById("prev");
 var next = document.getElementById("next");
@@ -31,4 +31,18 @@ function nextSlide() {
 	else
 		current = 0; // 그렇지 않다면(마지막 이미지이므로) 첫 번째 위치로 이동
 	showSlides(current);
-}
+}*/
+
+
+let mainText = document.querySelector("h1")
+	window.addEventListener("scroll",function(){
+		
+		let value = window.scrollY;
+		console.log("scrollY",value);
+		
+		if(value > 600){
+			mainText.style.animation ="disappear 2s ease-out forwards";
+		}else{
+			mainText.style.animation = "slidein 2s ease-out";
+		}
+	})

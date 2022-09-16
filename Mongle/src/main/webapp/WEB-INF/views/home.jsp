@@ -73,60 +73,34 @@
 				</div>
 			</header>
 		</div>
-		<div>
-			<main>
-			<div id="ls">
-				<ul id="eventbn">
-					<li><a href="#"><img alt="이벤트 배너 1"
-							src="resources/css/mainimg/event/evbn1.png" class="event"
-							id="ev1"></a></li>
-					<li><a href="#"><img alt="이벤트 배너 1"
-							src="resources/css/mainimg/event/evbn2.png" class="event"
-							id="ev2"></a></li>
-					<li><a href="#"><img alt="이벤트 배너 1"
-							src="resources/css/mainimg/event/evbn3.png" class="event"
-							id="ev3"></a></li>
-				</ul>
-			</div>
-			<div id="cn">
-				<div id="slideShow">
-					<div id="slides">
-						<img src="resources/css/mainimg/SLIDE.png" alt="슬라이더 2"> <img
-							src="resources/css/mainimg/SLIDE1.png" alt="슬라이더 2"> <img
-							src="resources/css/mainimg/SLIDE2.png" alt="슬라이더 2">
-						<button id="prev">&lang;</button>
-						<button id="next">&rang;</button>
-					</div>
-				</div>
-				<div id="SB">
-					<h2>SHOP BEST</h2>
-					<ul>
-						<li><a href="#"><img alt="SHOP BEST1"
-								src="resources/css/mainimg/dog1.PNG" class="sbimg"></a></li>
-						<li><a href="#"><img alt="SHOP BEST2"
-								src="resources/css/mainimg/dog2.PNG" class="sbimg"></a></li>
-						<li><a href="#"><img alt="SHOP BEST3"
-								src="resources/css/mainimg/dog3.PNG" class="sbimg"></a></li>
-						<li><a href="#"><img alt="SHOP BEST4"
-								src="resources/css/mainimg/dog4.PNG" class="sbimg"></a></li>
-					</ul>
-				</div>
-				<div id="HB">
-					<h2>HOTEL BEST</h2>
-					<ul>
-						<li><a href="#"><img alt="HOTEL BEST1"
-								src="resources/css/mainimg/dog5.PNG" class="htimg"></a></li>
-						<li><a href="#"><img alt="HOTEL BEST2"
-								src="resources/css/mainimg/dog6.PNG" class="htimg"></a></li>
-						<li><a href="#"><img alt="HOTEL BEST3"
-								src="resources/css/mainimg/dogicon2.PNG" class="htimg"></a></li>
-						<li><a href="#"><img alt="HOTEL BEST4"
-								src="resources/css/mainimg/dogicon3.PNG" class="htimg"></a></li>
-					</ul>
+		<div id="main">
+			<div class="main_div">
+				<div>
+					<span> 오늘도 Mongle을 찾아주셔서 감사합니다.</span>
 				</div>
 			</div>
-			<div id="rs"></div>
-			</main>
+			<section id="st_1"><h1>반려동물과 함께하는 세상 <label id="st1_label">"Mongle"</label> 입니다. </h1></section>
+			<div class="main_div">
+				<div>
+					<span> 오늘도 Mongle을 찾아주셔서 감사합니다.</span>
+				</div>
+			</div>
+			<section id="st_2">귀여운 애기냥이 보고 다들 기분 좋아지세요!</section>
+			<div class="main_div">
+				<div>
+					<span> 오늘도 Mongle을 찾아주셔서 감사합니다.</span>
+				</div>
+			</div>
+			<section id="st_3">
+				집사가 데려나가길 바라고 있는 우리 냥이
+				그런 냥이랑 놀고 싶은 우리 강아지들을 챙겨주세요.
+			</section>
+			<div class="main_div">
+				<div>
+					<span> 오늘도 Mongle을 찾아주셔서 감사합니다.</span>
+				</div>
+			</div>
+			<section id="st_4">section 4번</section>
 		</div>
 		<div>
 			<footer>
