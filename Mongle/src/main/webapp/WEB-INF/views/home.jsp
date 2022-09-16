@@ -39,11 +39,10 @@
 				<div>
 					<nav>
 						<ul id="menu">
-						<li><a href="/shoppage/shop_board" id="shop_board">상품 등록</a></li>
 							<li><a href="/">HOME</a></li>
 							<li><a href="/shoppage/shop">SHOP</a>
 								<ul>
-									<li><a href="/shoppage/snack">간식</a></li>
+									<li><a href="/shoppage/Snack">간식</a></li>
 									<li><a href="/shoppage/beauty">미용용품</a></li>
 									<li><a href="/shoppage/toy">장난감</a></li>
 									<li><a href="/shoppage/House">하우스</a></li>
@@ -58,7 +57,7 @@
 									<li><a href="/place/school">학교/유치원</a></li>
 									<li><a href="/place/cafe">식당/카페</a></li>
 								</ul></li>
-							<li><a href="/event">EVENT</a>
+							<li><a href="/event/eventmain">EVENT</a>
 								<ul>
 									<li><a href="#">진행 이벤트</a></li>
 									<li><a href="#">종료 이벤트</a></li>
