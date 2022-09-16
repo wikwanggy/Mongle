@@ -74,7 +74,6 @@ public class shopVO {
 	public void setW_Quantity(int w_Quantity) {
 		this.w_Quantity = w_Quantity;
 	}
-	
 
 	public ArrayList<SAttachFileVO> getAttach() {
 		return attach;
