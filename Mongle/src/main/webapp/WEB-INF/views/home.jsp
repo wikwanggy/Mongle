@@ -14,25 +14,27 @@
 			<!-- header 전체를 hd로 지정 -->
 			<header>
 				<div id="tm">
-					<a href="/"><img alt="logo"src="resources/css/mainimg/logo.png" id="logoimg"></a>
+					<a href="/"><img alt="logo"
+						src="resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
 						<li>
 							<div id="toplist">
 								<c:choose>
 									<c:when test="${sessionScope.login==null}">
-										<a href="/Signup/Signup" >회원가입</a>
+										<a href="/Signup/Signup">회원가입</a>
 										<a href="/Login/login">로그인</a>
 									</c:when>
 									<c:when test="${sessionScope.login.id=='admin'}">
-										<a href="/Admin/Memberlist" >관리자메뉴</a>
+										<a href="/Admin/Memberlist">관리자메뉴</a>
 										<a href="/Login/logout">로그아웃</a>
 									</c:when>
-									<c:otherwise >
+									<c:otherwise>
 										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
 										<a href="/Login/logout">로그아웃</a>
 									</c:otherwise>
 								</c:choose>
-							</div></li>
+							</div>
+						</li>
 						<li><a href="/service/servicemain">고객센터</a></li>
 					</ul>
 				</div>
@@ -74,22 +76,21 @@
 			</header>
 		</div>
 		<div id="main">
-			<section id="st_1">
-			</section>	
+			<section id="st_1"></section>
 			<section id="st_2">
 				<div id="st_box">
-				<h1 ><label id="st1_label">SHOP</label></h1>
-				<p id="st_text1" >
-					다양한 메뉴를 Mongle에서 즐겨보세요<br>
-					몽글만의 특별한 선택의 업체<br>
-					반려들을 위한 완벽함을 자랑하는 푸드<br>
-					다양한 물건들이 많은 상품 <br>
-					소중한 반려에게 마음을전하는 <br>
-					가장 좋은방법 Mongle	
-				</p>
-				<a href="/shoppage/shop" id="btn_a"><input type="button" class="st_btn" value="자세히 보기"></a>
+					<h1>
+						<label id="st1_label">SHOP</label>
+					</h1>
+					<p id="st_text1">
+						다양한 메뉴를 Mongle에서 즐겨보세요<br> 몽글만의 특별한 선택의 업체<br> 반려들을 위한
+						완벽함을 자랑하는 푸드<br> 다양한 물건들이 많은 상품 <br> 소중한 반려에게 마음을전하는 <br>
+						가장 좋은방법 Mongle
+					</p>
+					<a href="/shoppage/shop" id="btn_a"><input type="button"
+						class="st_btn" value="자세히 보기"></a>
 				</div>
-			<img src="resources/css/mainimg/s_pt.png" id="s_pt">
+				<img src="resources/css/mainimg/s_pt.png" id="s_pt">
 			</section>
 			<div id="combox">
 				<div>
@@ -98,15 +99,15 @@
 				</div>
 			</div>
 			<section id="st_3">
-				<h2 > <label id="st1_label">HOTEL</label></h2>
+				<h2>
+					<label id="st1_label">HOTEL</label>
+				</h2>
 				<p id="st_text2" class="st1">
-					많은 사용자들이 추천하는<br>
-					호텔을 찾아보세요!
-				<br>
-				<br>
+					많은 사용자들이 추천하는<br> 호텔을 찾아보세요! <br> <br>
 				</p>
-				<a href="/place/board" id="btn_a1"  ><input type="button" class="st_btn" value="자세히 보기"></a>
-				<img src="resources/css/mainimg/s_pt1.png" id="s_pt1">
+				<a href="/place/board" id="btn_a1"><input type="button"
+					class="st_btn" value="자세히 보기"></a> <img
+					src="resources/css/mainimg/s_pt1.png" id="s_pt1">
 
 			</section>
 			<section id="st_4">section 4번</section>
