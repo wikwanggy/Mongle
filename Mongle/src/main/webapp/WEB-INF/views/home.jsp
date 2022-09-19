@@ -74,32 +74,41 @@
 			</header>
 		</div>
 		<div id="main">
-			<div class="main_div">
-				<div>
-					<span>반려가구 1500만 시대에 누구 </span>
+			<section id="st_1">
+			</section>	
+			<section id="st_2">
+				<div id="st_box">
+				<h1 ><label id="st1_label">SHOP</label></h1>
+				<p id="st_text1" >
+					다양한 메뉴를 Mongle에서 즐겨보세요<br>
+					몽글만의 특별한 선택의 업체<br>
+					반려들을 위한 완벽함을 자랑하는 푸드<br>
+					다양한 물건들이 많은 상품 <br>
+					소중한 반려에게 마음을전하는 <br>
+					가장 좋은방법 Mongle	
+				</p>
+				<a href="/shoppage/shop" id="btn_a"><input type="button" class="st_btn" value="자세히 보기"></a>
 				</div>
-			</div>
-			<section id="st_1"><h1>반려동물과 함께하는 세상 <label id="st1_label">"Mongle"</label> 입니다. </h1></section>
-			<div class="main_div">
+			<img src="resources/css/mainimg/s_pt.png" id="s_pt">
+			</section>
+			<div id="combox">
 				<div>
-					<span> 오늘도 Mongle을 찾아주셔서 감사합니다.</span>
-				</div>
-			</div>
-			<section id="st_2">귀여운 애기냥이 보고 다들 기분 좋아지세요!</section>
-			<div class="main_div">
-				<div>
-					<span> 오늘도 Mongle을 찾아주셔서 감사합니다.</span>
+					<h3>궁금한 것이 있다면 아래의 버튼을 눌러주세요</h3>
+					<a href="#"><button>바로 가기</button></a>
 				</div>
 			</div>
 			<section id="st_3">
-				집사가 데려나가길 바라고 있는 우리 냥이
-				그런 냥이랑 놀고 싶은 우리 강아지들을 챙겨주세요.
+				<h2 > <label id="st1_label">HOTEL</label></h2>
+				<p id="st_text2" class="st1">
+					많은 사용자들이 추천하는<br>
+					호텔을 찾아보세요!
+				<br>
+				<br>
+				</p>
+				<a href="/place/board" id="btn_a1"  ><input type="button" class="st_btn" value="자세히 보기"></a>
+				<img src="resources/css/mainimg/s_pt1.png" id="s_pt1">
+
 			</section>
-			<div class="main_div">
-				<div>
-					<span> 오늘도 Mongle을 찾아주셔서 감사합니다.</span>
-				</div>
-			</div>
 			<section id="st_4">section 4번</section>
 		</div>
 		<div>
