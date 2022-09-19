@@ -1,36 +1,37 @@
 package org.Mongle.model;
 
 public class CommReplyupVo {
-	private int comm_rno;
-	private String comm_reply;
-	private String comm_id;
-	private String comm_replydate;
+	private int rno;
+	private String reply;
+	private String id;
+	private String replydate;
 	private int bno;
 	
-	public int getComm_rno() {
-		return comm_rno;
+	public int getRno() {
+		return rno;
 	}
-	public void setComm_rno(int comm_rno) {
-		this.comm_rno = comm_rno;
+	public void setRno(int rno) {
+		this.rno = rno;
 	}
-	public String getComm_reply() {
-		return comm_reply;
+	public String getReply() {
+		return reply;
 	}
-	public void setComm_reply(String comm_reply) {
-		this.comm_reply = comm_reply;
+	public void setReply(String reply) {
+		this.reply = reply;
 	}
-	public String getComm_id() {
-		return comm_id;
+	public String getId() {
+		return id;
 	}
-	public void setComm_id(String comm_id) {
-		this.comm_id = comm_id;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getComm_replydate() {
-		return comm_replydate;
+	public String getReplydate() {
+		return replydate;
 	}
-	public void setComm_replydate(String comm_replydate) {
-		this.comm_replydate = comm_replydate;
+	public void setReplydate(String replydate) {
+		this.replydate = replydate;
 	}
+	
 	public int getBno() {
 		return bno;
 	}
@@ -39,8 +40,8 @@ public class CommReplyupVo {
 	}
 	@Override
 	public String toString() {
-		return "CommReplyupVo [comm_rno=" + comm_rno + ", comm_reply=" + comm_reply + ", comm_id=" + comm_id
-				+ ", comm_replydate=" + comm_replydate + ", bno=" + bno + "]";
+		return "CommReplyupVo [rno=" + rno + ", reply=" + reply + ", id=" + id + ", replydate=" + replydate + ", bno="
+				+ bno + "]";
 	}
 	
 }

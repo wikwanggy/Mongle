@@ -4,14 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.Mongle.Mapper.CommReplyMapper">
 	<insert id="rewrite">
-		insert into reply(reply, id, bno)
+		insert into com_reply(reply, id, bno)
 		values(#{reply},#{id},#{bno})
 	</insert>
 	<select id="list" resultType="org.Mongle.model.CommReplyupVo">
-		select * from reply where bno=#{bno}
+		select * from com_reply where bno=#{bno}
 	</select>
 	<delete id="remove">
-		delete from reply
+		delete from com_reply
 		where rno=#{rno}
 	</delete>
 </mapper>

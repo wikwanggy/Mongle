@@ -27,7 +27,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" style="text-align:right"><span>작성자　</span>　${detail.id}　<span>　|　작성일　</span>　${detail.regdate}</td>
+			<td colspan="2" style="text-align:right"><span>작성자　</span>${detail.id}<span>　|　작성일　</span>${detail.regdate}</td>
 		</tr>
 		<tr>
 			<td colspan="2"><pre>${detail.content}</pre>
@@ -69,7 +69,7 @@
 				<c:when test="${sessionScope.login!=null}">
 					<div class="detail_input">
 						<div><label>댓글</label></div>
-						<div><textarea cols="115" rows="7" placeholder="댓글 입력" id="comm_reply"></textarea></div>
+						<div><textarea cols="115" rows="7" placeholder="댓글 입력" id="reply"></textarea></div>
 						<div id="reply_wrt"><input type="button" class="btn_board" id="replywrt" value="작성"></div>
 					</div>
 				</c:when>
