@@ -63,7 +63,7 @@
 									<li><a href="#">종료 이벤트</a></li>
 									<li><a href="#">이벤트 당첨</a></li>
 								</ul></li>
-							<li><a href="/event/eventmain">EVENT</a>
+							<li><a href="/community/list">커뮤니티</a>
 								<ul>
 									<li><a href="/community/list">게시판</a></li>
 									<li><a href="/community/review">리뷰</a></li>
