@@ -7,7 +7,7 @@ public class NoticeVo {
 	private String writer;
 	private String id;
 	private String regdate;
-	private int notice;
+	
 	
 	public int getBno() {
 		return bno;
@@ -45,15 +45,13 @@ public class NoticeVo {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
-	public int getNotice() {
-		return notice;
-	}
-	public void setNotice(int notice) {
-		this.notice = notice;
-	}
 	@Override
 	public String toString() {
 		return "NoticeVo [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", id="
-				+ id + ", regdate=" + regdate + ", notice=" + notice + "]";
+				+ id + ", regdate=" + regdate + "]";
 	}
-}
+
+	
+	}
+
+
