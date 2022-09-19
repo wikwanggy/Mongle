@@ -49,13 +49,13 @@
 									<li><a href="/shoppage/fashion">패션</a></li>
 									<li><a href="/shoppage/etc">기타</a></li>
 								</ul></li>
-							<li><a href="/place/">PLACE</a>
+							<li><a href="/place/board">PLACE</a>
 								<ul>
-									<li><a href="/place/grooming">미용</a></li>
-									<li><a href="/place/clinic">동물병원</a></li>
-									<li><a href="/place/hotel">호텔</a></li>
-									<li><a href="/place/school">학교/유치원</a></li>
-									<li><a href="/place/cafe">식당/카페</a></li>
+									<li><a href="/place/board">미용</a></li>
+									<li><a href="/place/board">동물병원</a></li>
+									<li><a href="/place/board">호텔</a></li>
+									<li><a href="/place/board">학교/유치원</a></li>
+									<li><a href="/place/board">식당/카페</a></li>
 								</ul></li>
 							<li><a href="/event/eventmain">EVENT</a>
 								<ul>
@@ -63,7 +63,7 @@
 									<li><a href="#">종료 이벤트</a></li>
 									<li><a href="#">이벤트 당첨</a></li>
 								</ul></li>
-							<li><a href="/event/eventmain">EVENT</a>
+							<li><a href="/community/list">EVENT</a>
 								<ul>
 									<li><a href="/community/list">게시판</a></li>
 									<li><a href="/community/review">리뷰</a></li>
