@@ -93,8 +93,8 @@
 			</section>
 			<div id="combox">
 				<div>
-					<h3>궁금한 것이 있다면 아래의 버튼을 눌러주세요</h3>
-					<a href="#"><button>바로 가기</button></a>
+					<h3>사람들의 실제 후기가 궁금하다면? 아래의 버튼을 눌러주세요</h3>
+					<a href="/community/review"><button>바로 가기</button></a>
 				</div>
 			</div>
 			<section id="st_3">
