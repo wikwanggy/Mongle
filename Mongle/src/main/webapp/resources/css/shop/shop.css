@@ -67,25 +67,53 @@ header {
 	font-size: 15px;
 }
 
-#menu {
-	height: 40px;
+#menu{
+	height:40px;
 	padding: 4px 0px 10px 0px;
-	border-top: 2px solid rgba(128, 128, 128, 0.5);
-	border-bottom: 2px solid rgba(128, 128, 128, 0.5);
-	box-shadow: 0 4px 4px -4px black;
+	border-top: 2px solid rgba(38, 38, 38, 0.5); 
+	border-bottom: 2px solid rgba(38, 38, 38, 0.5);
+	box-shadow: 0 4px 4px -4px gray;
+	text-align: center;
+	margin:  0 auto;
 }
-
 #menu>li {
 	float: left; /* 메뉴 항목을 왼쪽으로 플로팅 */
 	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+	width: 140px;
+	
 }
-
 #menu>li>a {
 	color: black; /* 폰트 색상 */
 	font-weight: 300; /* 폰트 굵기 */
 	padding: 0px 20px 0px 20px; /* 패딩 지정 */
 	font-size: 25px;
 	text-decoration: none;
+}
+#menu>li>ul{
+	width: 130px;
+	display: none;
+	position: absolute;
+	font-size: 20px;
+	background-color: rgba(255, 235, 98);
+	z-index:2;
+	border: 0.5px solid black;
+}
+#menu>li:hover>ul{
+	display: block;
+}
+#menu>li>ul>li:hover{
+	background-color: orange;
+	transition:ease 1s;
+}
+#menu>li>ul>li{
+	list-style: none;
+	border: 0.5px solid black;
+}
+
+#menu>li>ul>li>a{
+	text-decoration: none;
+	color: black;
+	line-height: 50px;
 }
 
 #shop_board {
