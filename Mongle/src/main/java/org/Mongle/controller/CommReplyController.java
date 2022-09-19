@@ -19,9 +19,9 @@ public class CommReplyController {
 	CommReplyService crs;
 	
 	@RequestMapping(value="/commreply/new", method=RequestMethod.POST)
-	public ResponseEntity<String> replycomwrt(@RequestBody CommReplyupVo crv){
-		int result=crs.rewrite(crv);
-		System.out.println(crv);
+	public ResponseEntity<String> replycomwrt(@RequestBody CommReplyupVo rep){
+		int result=crs.rewrite(rep);
+		System.out.println(rep);
 		return result==1?new ResponseEntity<>("success",HttpStatus.OK)
 				:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
