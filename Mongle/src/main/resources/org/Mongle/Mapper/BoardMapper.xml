@@ -7,7 +7,7 @@
   		select *
   		from(
 			select @rownum:=@rownum+1 num, b.*
-			from board b,(select @rownum:=0) as tmp
+			from com_board b,(select @rownum:=0) as tmp
 			<if test="keyword !=null">
 				<choose>
 					<when test="type=='T'.toString()">
@@ -30,12 +30,12 @@
 		
   	</select>
   	<update id="cntup">
-   		update board
+   		update com_board
    		set cnt=cnt+1
    		where bno = ${bno}
    </update>
    <select id="total" resultType="int">
-   		select count(*) from board
+   		select count(*) from com_board
    		<if test="keyword !=null">
    			<choose>
 				<when test="type=='T'.toString()">
@@ -52,25 +52,25 @@
 		</if>
    </select>
 	<insert id="write">
-		insert into board(bno, title, content, id)
+		insert into com_board(bno, title, content, id)
 		values(#{bno}, #{title}, #{content}, #{id})
 	</insert>
 	<select id="detail" resultType="org.Mongle.model.CommBoardVo">
-		select * from board where bno=#{bno}
+		select * from com_board where bno=#{bno}
 	</select>
 	<update id="update">
-		update board
+		update com_board
 		set title=#{title},
 		content=#{content}
 		where bno=#{bno}
 	</update>
 	<delete id="boarddelete">
-		delete from board
+		delete from com_board
 		where bno=#{bno}
 	</delete>
 	
 	<select id="detailmd" resultType="org.Mongle.model.CommBoardVo">
-		select * from board where bno=#{bno}
+		select * from com_board where bno=#{bno}
 	</select>
 	
 	<select id="rvlist" resultType="org.Mongle.model.ReviewVo">
