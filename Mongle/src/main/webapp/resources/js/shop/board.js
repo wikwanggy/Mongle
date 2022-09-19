@@ -26,8 +26,8 @@ $(document).ready(function() {
 	}
 
 	// 파일 전송버튼을 클릭하면
-	$("#uploadBtn").on("click", function() {
-		//e.preventDefault();
+	$("#uploadBtn").on("click", function(e) {
+		e.stopPropagation();
 		// 파일 업로드 관련 로직 처리
 		alert("작동")
 		// .jsp에 form태그를 대체 (FormData함수)

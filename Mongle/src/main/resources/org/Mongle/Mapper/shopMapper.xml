@@ -21,10 +21,15 @@
 
 	<!-- 상품 목록 리스트,번호 -->
 	<select id="shop" resultType="org.Mongle.model.shopVO">
-	select*
-	from(
-		select @rownum:=@rownum+1 rownum, w.* 
-		from writing w, (select @rownum:=0) as tmp
+		SELECT rownum,bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity,
+		Concat(Replace(p_upload, '\\','/'),'/s_' ,p_uid,'_' ,p_name)AS file
+		FROM (SELECT @rownum:=@rownum+1 rownum, t.*
+		FROM (SELECT *FROM (SELECT
+		p_uid,p_upload,p_name,p_image,
+		w.bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity
+		FROM writing w
+		JOIN product p ON w.bno = p.bno
+		WHERE p_image = 1 )AS j GROUP BY bno
 		<if test="keyword != null">
 			<choose>
 				<when test="type == 'T'.toString()">
@@ -38,14 +43,17 @@
 				</otherwise>
 			</choose>
 		</if>
-		)shoplist join product p on shoplist.bno = p.bno
-		<![CDATA[ where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount} ]]>
-		order by shoplist.bno desc 
+		) AS t, (SELECT @rownum:=0) AS tmp
+		ORDER BY bno DESC) AS balist
+		<![CDATA[
+		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+		]]>
 	</select>
 
 	<!-- 상품 상세내용 -->
-	<select id="detail" resultType="org.Mongle.model.shopVO"> 
-	select*from	writing w join product p on w.bno = p.bno where
+	<select id="detail" resultType="org.Mongle.model.shopVO">
+		select*from writing w join
+		product p on w.bno = p.bno where
 		w.bno=#{bno};
 	</select>
 

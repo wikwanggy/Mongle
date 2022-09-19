@@ -17,8 +17,11 @@ public class shopVO {
 	private String w_type;
 	// 상품 수량
 	private int w_Quantity;
+	// 파일 업로드 관련 
+	private String file;
 	// AttachFileVo(파일업로드 관련 model)
 	private ArrayList<SAttachFileVO> attach;
+	
 	public int getBno() {
 		return bno;
 	}
@@ -79,6 +82,14 @@ public class shopVO {
 		return attach;
 	}
 
+	public String getFile() {
+		return file;
+	}
+
+	public void setFile(String file) {
+		this.file = file;
+	}
+
 	public void setAttach(ArrayList<SAttachFileVO> attach) {
 		this.attach = attach;
 	}
@@ -86,9 +97,11 @@ public class shopVO {
 	@Override
 	public String toString() {
 		return "shopVO [bno=" + bno + ", w_name=" + w_name + ", w_price=" + w_price + ", w_regdata=" + w_regdata
-				+ ", w_color=" + w_color + ", w_type=" + w_type + ", w_Quantity=" + w_Quantity + ", attach=" + attach
-				+ "]";
+				+ ", w_color=" + w_color + ", w_type=" + w_type + ", w_Quantity=" + w_Quantity + ", file=" + file
+				+ ", attach=" + attach + "]";
 	}
+
+	
 
 	
 

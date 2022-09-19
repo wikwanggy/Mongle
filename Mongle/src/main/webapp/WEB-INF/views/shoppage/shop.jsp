@@ -138,7 +138,7 @@
 								</div>
 
 							</c:forEach></li>
-						<li>
+						<!-- <li>
 							<div class="img_box">
 								<a href="/shoppage/Detail"><img class="img"
 									src="/resources/image/beauty.jpg"></a>
@@ -194,7 +194,7 @@
 							<div>상품명</div>
 							<div>가격</div> <span>리뷰</span> <span>평점</span>
 						</li>
-					</ul>
+					</ul> -->
 					<!-- prev(이전)이 true이면 이전버튼 화설화 -->
 					<c:if test="${paging.prev}">
 						<a
