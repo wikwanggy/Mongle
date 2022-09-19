@@ -79,7 +79,7 @@
 	<select id="notice" resultType="org.Mongle.model.NoticeVo">
 		select *
 		from notice
-	</select>
+	</select><!--  -->
 	<insert id="noticewrt">
 		insert into notice(bno, title, content, id)
 		values(#{bno}, #{title}, #{content}, #{id})
