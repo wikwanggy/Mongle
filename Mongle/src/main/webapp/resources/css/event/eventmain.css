@@ -25,42 +25,35 @@
 
 /*본문 카테고리 시작*/
 
+#event-kategori-box{
+	margin:30px 0 0 30px;
+}
 .event-kategorie{
-	overflow: hidden;
-	margin:30px 0 20px 0;
-}
-
-
-.event-kategorie>li{
-		position:relative;
-		float:left;
-		width:250px;
-		margin-right: -1px;
-}
-
-.event-katebox{
-	text-decoration: none;
-	display:block;
-	border: 1px solid;
-	font-size: 35px;
+	width:250px;
+	height: 50px;
 	text-align: center;
-	color: black;
+	line-height: 50px;
+	border: 1px solid #D3D3D3;
+	display: inline-block;
+	margin-left: -1px;
+	font-size: 22px;
+	color:black;
+	cursor: pointer;
 }
 
-.event-katebox:hover{
-		color: #f8e6e0;
+.event-kategorie.current{
+	background-color: #f8e6e0;
+	color:#FFFFFF;
 }
 
-#event-katebox1:hover{
-
+.event-mainlist{
+	display: none;
+	width: auto;
+	margin-top: 50px;
 }
 
-#event-katebox2:hover{
-
-}
-
-#event-katebox3:hover{
-
+.event-mainlist.current{
+	display: inherit;
 }
 
 /*본문 카테고리 끝*/
@@ -92,6 +85,10 @@
 }
 
 /*왼쪽 사이드 끝*/
+
+#.event-mainlist{
+	margin-top: 50px;
+}
 
 .event-count-box{
 	font-size: 28px;

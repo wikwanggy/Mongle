@@ -91,6 +91,10 @@ aside>ul>li>a:active{
 	margin-top: 45px;
 }
 
+#service_main_box>ul{
+	text-align: center;
+}
+
 .service_main_qbox{/*자주 묻는 질문 4 박스*/
 	width:150px;
 	height: 100px;
@@ -119,6 +123,10 @@ aside>ul>li>a:active{
 	margin-top: 45px;
 }
 
+#service_main_qlist>ul{
+	text-align: center;
+}
+
 .service_main_kategori{/* 자주묻는 질문 카테고리 분류별 공간주기*/
 	width:150px;
 	height: 50px;
@@ -127,23 +135,25 @@ aside>ul>li>a:active{
 	border: 1px solid #D3D3D3;
 	display: inline-block;
 	margin-left: -1px;
-}
-
-.service_main_kategori>a{
-	display: block;;
 	font-size: 22px;
-	text-decoration: none;
 	color:black;
+	cursor: pointer;
 }
 
-.service_main_kategori>a:hover{
+
+.service_main_kategori.current{/* 선택된 항목 글씨 배경변경*/
 	background-color: #f8e6e0;
 	color:#FFFFFF;
 }
 
-#service_faqlist{
+.service_faqlist{
+	display:none;
 	width:auto;
 	margin-top: 50px;
+}
+
+.service_faqlist.current{
+	display:inherit;
 }
 
 #service_faqlist_top{

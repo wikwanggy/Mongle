@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="..\resources\css\service\faq.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/resources/js/service/tab.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -77,16 +79,14 @@
 			<ul>
 				<li><a href="notice">공지사항</a><li>
 				<li class="a_on"><a href="faq">자주묻는 질문(FAQ)</a></li>
-				<li><a href="questions">1:1질문(Q&A)</a></li>
-				<li><a href="order">주문</a></li>
-				<li><a href="shipping">배송/환불</a></li>
+				<li><a href="questions">1:1문의</a></li>
 			</ul>
 			</aside>
 			<%-- 왼쪽 사이드바 끝 --%>
 			<%-- 본문  div --%>
 			<div id="service_main_center">
 			<div id="service_main_page">
-			<span id="service_main_title">자주묻는 질문(FAQ)</span>
+			<span id="service_main_title">자주묻는 질문</span>
 				<div id="service_main_box">
 					<ul>
 						<li class="service_main_qbox"><a href="#">test용 글1</a></li>
@@ -95,22 +95,23 @@
 						<li class="service_main_qbox"><a href="#">test용 글 4</a></li>
 					</ul>
 				</div>
+			<div>
 				<div id="service_main_qlist">
 					<ul>
-						<li class="service_main_kategori current"><a href="#">회원정보</a></li><!--
-					 --><li class="service_main_kategori"><a href="#">주문</a></li><!--
-					 --><li class="service_main_kategori"><a href="#">배송</a></li><!--
-					 --><li class="service_main_kategori"><a href="#">반품/AS</a></li><!--
-					 --><li class="service_main_kategori"><a href="#">이벤트</a></li>
+						<li class="service_main_kategori current" data-tab="tab-1">회원정보</li><!--
+					 --><li class="service_main_kategori" data-tab="tab-2">주문</li><!--
+					 --><li class="service_main_kategori" data-tab="tab-3">배송</li><!--
+					 --><li class="service_main_kategori" data-tab="tab-4">반품/AS</li><!--
+					 --><li class="service_main_kategori" data-tab="tab-5">이벤트</li>
 					</ul>
 				</div>
-				<div id="service_faqlist">
+				<div id="tab-1" class="service_faqlist current">
 					<div id="service_faqlist_top">
 						<div id="faq_list_td1">번호</div>
 						<div id="faq_list_td2">제목</div>
 						<div id="faq_list_td3">작성자</div>
 					</div>
-					<dl id="service_faqlist_lower" class="current">
+					<dl id="service_faqlist_lower">
 					<!-- for문 시작 -->
 					<c:forEach items="${list}" var="faq">
 						<dt id="service_faqlist_num">
@@ -119,11 +120,29 @@
 							<div id="faq_list_td3">${faq.name }</div>
 						</dt>
 						<dd style="display:none;">
+						<div>${faq.content }</div>
 						</dd>
 					</c:forEach>
 					<!-- for문 끝 -->
 				</dl>
 			 </div>
+			 
+			 <div id="tab-2" class="service_faqlist" >
+			 <p>2번째 탭</p>
+			 </div>
+			 
+			 <div id="tab-3" class="service_faqlist" >
+			 <p>3번째 탭</p>
+			 </div>
+			 
+			 <div id="tab-4" class="service_faqlist" >
+			 <p>4번째 탭</p>
+			 </div>
+			 
+			 <div id="tab-5" class="service_faqlist" >
+			 <p>5번째 탭</p>
+			 </div>
+		</div> 
 			</div>
 			</div><%--본문div끝 --%>
 		</div>
@@ -141,11 +160,11 @@
 					<div id="sns">
 						<ul>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/facebook.PNG" class="img2"></a></li>
+									src="../resources/css/mainimg/FACENBOOK.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/insta.PNG" class="img2"></a></li>
+									src="../resources/css/mainimg/INSTA.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/twitter.PNG" class="img2"></a></li>
+									src="../resources/css/mainimg/TWITTER.PNG" class="img2"></a></li>
 						</ul>
 					</div>
 				</div>

@@ -75,12 +75,11 @@
 		<%--본문 넣을 자리 --%>
 		<div id="service_main">
 			<aside id="service_aside"><%--왼쪽 사이드바 --%>
-			<h2 id="service_aside_header"><a href="../servicemain">고객센터</a></h2>
+			<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
 			<ul>
-				<li><a href="../faq">자주묻는 질문(FAQ)</a></li>
-				<li><a href="../questions">1:1질문(Q&A)</a></li>
-				<li><a href="../order">주문</a></li>
-				<li><a href="../shipping">배송/환불</a></li>
+				<li><a href="notice">공지사항</a><li>
+				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
+				<li><a href="questions">1:1질문(Q&A)</a></li>
 			</ul>
 			</aside>
 			<%-- 왼쪽 사이드바 끝 --%>

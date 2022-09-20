@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="..\resources\css\event\eventmain.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/resources/js/event/tab.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -83,12 +85,14 @@
 	
 	<div id="event-bon-line">
 	
-		<ul class="event-kategorie">
-			<li><a href="http://localhost:8080/event/eventmain" class="event-katebox" id="event-katebox1">진행 이벤트</a></li>
-			<li><a href="#" class="event-katebox" id="event-katebox2">종료 이벤트</a></li>
-			<li><a href="#" class="event-katebox" id="event-katebox3">이벤트 당첨</a></li>
+		<div id="event-kategori-box">
+		<ul>
+			<li class="event-kategorie current" data-tab="tab-1">이벤트 진행중</li><!--
+		 --><li class="event-kategorie" data-tab="tab-2">이벤트 종료</li><!--
+		 --><li class="event-kategorie" data-tab="tab-3">이벤트 당첨</li>
 		</ul>
-		
+		</div>
+	<div id="tab-1" class="event-mainlist current"> <!-- 탭메뉴 내용 위치 분류 div -->	
 		<div class="event-count-box">
 		총
 		<span class="event-count">7</span>
@@ -145,6 +149,15 @@
 				</a>
 			</li>
 		</ul>
+	  </div>
+	  <div id="tab-2" class="event-mainlist">
+	  이벤트 종료
+	  </div>
+	  <div id="tab-3" class="event-mainlist">
+	  이벤트 당첨자
+	  </div>
+	  
+	  
 	</div>
 </div>
 <%-- 이벤트 본문  끝부분 --%>

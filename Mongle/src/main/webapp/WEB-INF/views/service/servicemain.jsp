@@ -77,25 +77,23 @@
 			<ul>
 				<li><a href="notice">공지사항</a><li>
 				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
-				<li><a href="questions">1:1질문(Q&A)</a></li>
-				<li><a href="order">주문</a></li>
-				<li><a href="shipping">배송/환불</a></li>
+				<li><a href="questions">1:1문의</a></li>
 			</ul>
 			</aside>
 			<%-- 왼쪽 사이드바 끝 --%>
 			<%-- 본문  div --%>
 			<div id="service_main_center">
 			<div id="service_main_page">
-			<span id="service_main_title">고객센터(main)</span>
+			<span id="service_main_title">고객센터</span>
 				<div id="service_main_Identity">
-					<span id="service_main_subtitle"><b>고객지원 센터</b></span>>
+					<span id="service_main_subtitle"><b>고객지원 센터</b></span>
 					<div class="service_main_content">
 						<b>공간 채우기용 글 쓰기</b><br>
 						ㅁㄴㅇㄹㄴㅁㅇㄹㄴㅁㅇㄻㄴㅇㄹㄴㅁㅇㄹㄴㅁㅇㄹㄴㅁㅇㄹ<br>
 						asdfsadfsadfsadfsadfsadfsadfsdafsadfsadf
 					</div>
 					<a class="service_main_move" href="questions">1:1질문 하러 가기</a>
-					<a class="service_main_move">카카오톡 연결</a>
+					<a class="service_main_move">미지정</a>
 				</div>
 			
 			</div>

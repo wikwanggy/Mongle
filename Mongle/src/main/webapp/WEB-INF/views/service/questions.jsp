@@ -79,16 +79,14 @@
 			<ul>
 				<li><a href="notice">공지사항</a><li>
 				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
-				<li class="a_on"><a href="questions">1:1질문(Q&A)</a></li>
-				<li><a href="order">주문</a></li>
-				<li><a href="shipping">배송/환불</a></li>
+				<li class="a_on"><a href="questions">1:1문의</a></li>
 			</ul>
 			</aside>
 			<%-- 왼쪽 사이드바 끝 --%>
 			<%-- 본문  div --%>
 			<div id="service_main_center">
 			<div id="service_main_page">
-			<span id="service_main_title">1:1질문(Q&A)</span>
+			<span id="service_main_title">1:1문의</span>
 			<p id="service_main_subtitle">1:1질문게시판</p>
 			<div id="service_main_content">
 		
@@ -99,7 +97,7 @@
 					<option value="TC">제목+내용</option>
 				</select>
 					<input type="text" name="keyword">
-					<input type="hidden" name="bgno" value="${paging.spa.bgno }">
+					<input type="hidden" name="bgno" value="${bgno}">
 					<input type="hidden" name="pageNum" value="${paging.spa.pageNum }" >
 					<input type="hidden" name="amount" value="${paging.spa.amount}">
 					<input type="button" value="검색">
@@ -131,20 +129,20 @@
 			 <!-- prev(이전)이 true이면 이전버튼 화설화 -->
 				<td class="page_table">
 				<c:if test="${paging.prev}">
-					<a href="/service/questions?bgno=${paging.spa.bgno}&pageNum=${paging.startPage-1}&amount=${paging.spa.amount}">이전</a>
+					<a href="/service/questions?bgno=${bgno}&pageNum=${paging.startPage-1}&amount=${paging.spa.amount}">이전</a>
 				</c:if>
 				</td>
 				
 				<!-- begin(1) end(10)될 동안 반복(1일 10일 될 동안 반복) -->
 				<td class="page_table">
 				<c:forEach begin="${paging.startPage}" end="${paging.endPage }" var="num">
-					<td class="${paging.spa.pageNum eq num ? 'on' : '' }"><a href="/service/questions?bgno=${paging.spa.bgno}&type=${paging.spa.type }&keyword=${paging.spa.keyword }&pageNum=${num }&amount=${paging.spa.amount}">${num}</a></td>
+					<td class="${paging.spa.pageNum eq num ? 'on' : '' }"><a href="/service/questions?bgno=${bgno}&type=${paging.spa.type }&keyword=${paging.spa.keyword }&pageNum=${num }&amount=${paging.spa.amount}">${num}</a></td>
 				</c:forEach>
 				</td>
 				
 				<td class="page_table">
 				<c:if test="${paging.next }">
-					<a href="/service/questions?bgno=${paging.spa.bgno}&pageNum=${paging.endPage+1}&amount=${paging.spa.amount}">다음</a>
+					<a href="/service/questions?bgno=${bgno}&pageNum=${paging.endPage+1}&amount=${paging.spa.amount}">다음</a>
 				</c:if>
 				</td>
 			<!-- next(다음)이 true이면 다음버튼 활성화 -->
