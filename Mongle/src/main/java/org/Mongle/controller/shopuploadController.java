@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.UUID;
 
 import org.Mongle.model.SAttachFileVO;
+import org.Mongle.model.ZAttachFileVO;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -67,6 +68,7 @@ public class shopuploadController {
 	public ResponseEntity<ArrayList<SAttachFileVO>> shop_boardajaxPost(MultipartFile[] uploadFile) {
 		// SAttachFileVO클래스 포함
 		ArrayList<SAttachFileVO> list = new ArrayList<>();
+		ArrayList<ZAttachFileVO> zlist = new ArrayList<>();
 
 		// 폴더 경로
 		String uploadFolder = "D:\\upload";
@@ -86,6 +88,9 @@ public class shopuploadController {
 			System.out.println("getOriginalFilename="+multiparFile.getOriginalFilename());
 			System.out.println("getSize="+multiparFile.getSize());
 
+			ZAttachFileVO zattach = new ZAttachFileVO();
+			System.out.println("getOriginalFilename="+multiparFile.getOriginalFilename());
+			System.out.println("getSize="+multiparFile.getSize());
 			// 파일저장
 			// 실제 파일명(multiparFile.getOriginalFilename())
 			// UUID 적용(UUID_multiparFile.getOriginalFilename())
@@ -99,6 +104,9 @@ public class shopuploadController {
 			// SAttachFileVO의 uuid 변수에 저장()
 			attachvo.setP_uid(uuid.toString());
 
+			zattach.setZ_upload(getFolder());
+			zattach.setZ_name(multiparFile.getOriginalFilename());
+			zattach.setZ_uid(uuid.toString());
 			// 어느폴더에(D:\\upload\\현재날짜), 어떤파일이름으로(mainlogo_new.png)
 			File saveFile = new File(uploadPath, uuid.toString() + "_" + multiparFile.getOriginalFilename());
 			// D:\\upload\\mainlogo_new.png에 파일을 전송(transferTo)
@@ -109,6 +117,7 @@ public class shopuploadController {
 
 					// AttachFileVO의 image 변수에 저장()
 					attachvo.setP_image(true);
+					zattach.setZ_image(true);
 
 					// 파일 생성
 					FileOutputStream thumnail = new FileOutputStream(
@@ -121,6 +130,7 @@ public class shopuploadController {
 
 				// AttachFileVO에 저장된 데이터를 배열에 추가(add메소드)
 				list.add(attachvo);
+				zlist.add(zattach);
 
 			} catch (Exception e) {// 예외를 처리하라.
 				System.out.println(e.getMessage());
@@ -152,8 +162,8 @@ public class shopuploadController {
 		// 다운로드 주소 생성
 
 	@RequestMapping(value = "/download", method = RequestMethod.GET)
-	public ResponseEntity<Resource> downloadFile(String fileName) {
-		Resource resource = new FileSystemResource("D:\\upload\\" + fileName);
+	public ResponseEntity<Resource> downloadFile(String filename) {
+		Resource resource = new FileSystemResource("D:\\upload\\" + filename);
 		// 다운로드 시 파일의 이름을 처리
 		String resourceName = resource.getFilename();
 		HttpHeaders headers = new HttpHeaders();

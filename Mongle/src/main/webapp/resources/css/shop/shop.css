@@ -12,7 +12,7 @@
 	font-family: 'Hi Melody', cursive;
 }
 /* 테스트 */
-#bth{
+#bth {
 	text-align: right;
 	padding-right: 40px;
 }
@@ -67,21 +67,22 @@ header {
 	font-size: 15px;
 }
 
-#menu{
-	height:40px;
+#menu {
+	height: 40px;
 	padding: 4px 0px 10px 0px;
-	border-top: 2px solid rgba(38, 38, 38, 0.5); 
+	border-top: 2px solid rgba(38, 38, 38, 0.5);
 	border-bottom: 2px solid rgba(38, 38, 38, 0.5);
 	box-shadow: 0 4px 4px -4px gray;
 	text-align: center;
-	margin:  0 auto;
+	margin: 0 auto;
 }
+
 #menu>li {
 	float: left; /* 메뉴 항목을 왼쪽으로 플로팅 */
 	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
 	width: 140px;
-	
 }
+
 #menu>li>a {
 	color: black; /* 폰트 색상 */
 	font-weight: 300; /* 폰트 굵기 */
@@ -89,28 +90,32 @@ header {
 	font-size: 25px;
 	text-decoration: none;
 }
-#menu>li>ul{
+
+#menu>li>ul {
 	width: 130px;
 	display: none;
 	position: absolute;
 	font-size: 20px;
 	background-color: rgba(255, 235, 98);
-	z-index:2;
+	z-index: 2;
 	border: 0.5px solid black;
 }
-#menu>li:hover>ul{
+
+#menu>li:hover>ul {
 	display: block;
 }
-#menu>li>ul>li:hover{
+
+#menu>li>ul>li:hover {
 	background-color: orange;
-	transition:ease 1s;
+	transition: ease 1s;
 }
-#menu>li>ul>li{
+
+#menu>li>ul>li {
 	list-style: none;
 	border: 0.5px solid black;
 }
 
-#menu>li>ul>li>a{
+#menu>li>ul>li>a {
 	text-decoration: none;
 	color: black;
 	line-height: 50px;
@@ -122,29 +127,17 @@ header {
 
 /* main */
 #main {
-	height: 700px;
 	width: 100%;
 	display: flex;
-}
-/* main left */
-#ls {
-	width: 150px;
-	height: 700px;
-	float: left;
-	text-align: center;
-	line-height: 50px;
-}
-
-#ls menu>li {
-	border: 1px solid gray;
-	list-style-type:
 }
 
 /* main center */
 #cn {
-	width: 900px;
 	height: 700px;
+	width: 100%;
 	background-color: white;
+	padding-left: 40px;
+	padding-top: 30px;
 }
 
 #cn>h2 {
@@ -157,16 +150,24 @@ header {
 	list-style-type: none;
 }
 
+#cnm li a {
+	color: black;
+}
+
 .Goods li {
 	padding: 0px 15px;
 	float: left;
-	margin-left: 35px;
-	margin-bottom: 100px;
+	margin-left: 25px;
+	margin-bottom: 80px;
 }
 
 .img {
-	width: 120px;
-	height: 160px;
+	width: 130px;
+	height: 170px;
+}
+
+.font {
+	float: right;
 }
 
 /* main right */
@@ -195,6 +196,11 @@ header {
 
 #ev3 {
 	height: 180px;
+}
+
+/* pag */
+#pag {
+	text-align: center;
 }
 
 /* bottom */

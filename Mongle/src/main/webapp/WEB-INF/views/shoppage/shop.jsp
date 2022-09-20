@@ -18,35 +18,37 @@
 		<div id="hd">
 			<header>
 				<div id="tm">
-					<a href="/"><img alt="logo"src="../resources/css/mainimg/logo.png" id="logoimg"></a>
+					<a href="/"><img alt="logo"
+						src="../resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
 						<li>
 							<div id="toplist">
 								<c:choose>
 									<c:when test="${sessionScope.login==null}">
-										<a href="/Signup/Signup" >회원가입</a>
+										<a href="/Signup/Signup">회원가입</a>
 										<a href="/Login/login">로그인</a>
 									</c:when>
 									<c:when test="${sessionScope.login.id=='admin'}">
-										<a href="/Admin/Memberlist" >관리자메뉴</a>
+										<a href="/Admin/Memberlist">관리자메뉴</a>
 										<a href="/Login/logout">로그아웃</a>
 									</c:when>
-									<c:otherwise >
+									<c:otherwise>
 										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
 										<a href="/Login/logout">로그아웃</a>
 									</c:otherwise>
 								</c:choose>
-							</div></li>
+							</div>
+						</li>
 						<li><a href="/service/servicemain">고객센터</a></li>
 					</ul>
 				</div>
 				<div>
-				<nav>
+					<nav>
 						<ul id="menu">
 							<li><a href="/">HOME</a></li>
 							<li><a href="/shoppage/shop">SHOP</a>
 								<ul>
-									<li><a href="/shoppage/snack">간식</a></li>
+									<li><a href="/shoppage/Snack">간식</a></li>
 									<li><a href="/shoppage/beauty">미용용품</a></li>
 									<li><a href="/shoppage/toy">장난감</a></li>
 									<li><a href="/shoppage/House">하우스</a></li>
@@ -75,146 +77,60 @@
 						</ul>
 					</nav>
 				</div>
-
 			</header>
 		</div>
 		<!-- header 끝 -->
 
 		<!-- main 전체 -->
 		<div id="main">
-			<!-- main left 시작 -->
-			<div id="ls">
-				<ul id="ls menu">
-					<li><a href="/shoppage/Snack">간식</a></li>
-					<li><a href="/shoppage/beauty">미용용품</a></li>
-					<li><a href="/shoppage/toy">장난감</a></li>
-					<li><a href="/shoppage/House">하우스</a></li>
-					<li><a href="/shoppage/fashion">패션</a></li>
-					<li><a href="/shoppage/etc">기타</a></li>
-				</ul>
-			</div>
-			<!-- main left 끝 -->
-			<!-- center 시작 -->
-			<div id="cn">
-				<h2>
-					<a href="/shoppage/shop">전체상품</a>
-				</h2>
-				<input type="button" value="글쓰기"
-					onclick="location.href='http://localhost:8080/board/detail'">
-				<form action="/shoppage/shop" id="searchForm" method="get">
-					<select name="type">
-						<option value="T">이름</option>
-						<option value="C">종류</option>
-						<option value="TC">이름+종류</option>
-					</select> <input type="text" name="keyword"> <input type="text"
-						name="pageNum" value="${paging.scri.amount}" hidden=""> <input
-						type="text" name="amount" value="${paging.scri.amount}" hidden="">
-					<input type="button" value="검색">
-				</form>
-				<ul id="cnm">
-					<li><a href="#">인기도순</a></li>
-					<li><a href="#">누적판매순</a></li>
-					<li><a href="#">낮은가격순</a></li>
-					<li><a href="#">리뷰순</a></li>
-					<li><a href="#">평점높은순</a></li>
-				</ul>
-				<br> <br> <br>
-				<div class="Goods">
-					<ul class="Goodss">
-						<li><c:forEach items="${shop}" var="shoplist">
-								<div>${shoplist.bno}"></div>
-								<div>
-									<a href="/shoppage/Detail?bno=${shoplist.attach.bno}"><img
-										alt="${shoplist.attach.p_name}" src="D:\upload\${p_image}"></a>
-								</div>
-								<div>
-									상품명<span>${shoplist.w_name}</span>
-								</div>
-								<div>
-									가격<span>${shoplist.w_price}</span>
-								</div>
-								<div>
-									<span>리뷰</span><span>평점</span>
-								</div>
-
-							</c:forEach></li>
-						<!-- <li>
-							<div class="img_box">
-								<a href="/shoppage/Detail"><img class="img"
-									src="/resources/image/beauty.jpg"></a>
-							</div>
-							<div>상품명</div>
-							<div>가격</div> <span>리뷰</span> <span>평점</span>
-						</li>
-						<li class="Goodss">
-							<div class="img_box">
-								<a href="/shoppage/Detail"><img class="img"
-									src="/resources/image/fashion.jpg"></a>
-							</div>
-							<div>상품명</div>
-							<div>가격</div> <span>리뷰</span> <span>평점</span>
-						</li>
-						<li class="Goodss">
-							<div class="img_box">
-								<a href="/shoppage/Detail"><img class="img"
-									src="/resources/image/feed.jpg"></a>
-							</div>
-							<div>상품명</div>
-							<div>가격</div> <span>리뷰</span> <span>평점</span>
-						</li>
-						<li class="Goodss">
-							<div class="img_box">
-								<a href="/shoppage/Detail"><img class="img"
-									src="/resources/image/House.jpg"></a>
-							</div>
-							<div>상품명</div>
-							<div>가격</div> <span>리뷰</span> <span>평점</span>
-						</li>
-						<li class="Goodss">
-							<div class="img_box">
-								<a href="/shoppage/Detail"><img class="img"
-									src="/resources/image/House1.jpg"></a>
-							</div>
-							<div>상품명</div>
-							<div>가격</div> <span>리뷰</span> <span>평점</span>
-						</li>
-						<li class="Goodss">
-							<div class="img_box">
-								<a href="/shoppage/Detail"><img class="img"
-									src="/resources/image/Snack.jpg"></a>
-							</div>
-							<div>상품명</div>
-							<div>가격</div> <span>리뷰</span> <span>평점</span>
-						</li>
-						<li class="Goodss">
-							<div class="img_box">
-								<a href="/shoppage/Detail"><img class="img"
-									src="/resources/image/toy.jpg"></a>
-							</div>
-							<div>상품명</div>
-							<div>가격</div> <span>리뷰</span> <span>평점</span>
-						</li>
-					</ul> -->
-					<!-- prev(이전)이 true이면 이전버튼 화설화 -->
-					<c:if test="${paging.prev}">
-						<a
-							href="/shoppage/shop?pageNum=${paging.startPage-1}&amount=${paging.scri.amount}">이전</a>
-					</c:if>
-
-					<!-- begin(1) end(10)될 동안 반복(1일 10일 될 동안 반복) -->
-					<c:forEach begin="${paging.startPage}" end="${paging.endPage}"
-						var="num">
-						<a
-							href="/shoppage/shop?type=${paging.scri.type}&keyword=${paging.scri.keyword}&pageNum=${num}&amount=${paging.scri.amount}">${num}</a>
-					</c:forEach>
-
-					<!-- next(다음)이 true이면 다음버튼 활성화 -->
-					<c:if test="${paging.next}">
-						<a
-							href="/shoppage/shop?pageNum=${paging.endPage+1}&amount=${paging.scri.amount}">다음</a>
-					</c:if>
-					<br>
-					<!-- ${paging} -->
+			<div>
+				<!-- center 시작 -->
+				<div id="cn">
+					<input type="button" value="글쓰기"
+						onclick="location.href='http://localhost:8080/board/detail'">
+					<form action="/shoppage/shop" id="searchForm" method="get">
+						<select name="type">
+							<option value="T">이름</option>
+							<option value="C">종류</option>
+							<option value="TC">이름+종류</option>
+						</select> <input type="text" name="keyword"> <input type="text"
+							name="pageNum" value="${paging.scri.amount}" hidden=""> <input
+							type="text" name="amount" value="${paging.scri.amount}" hidden="">
+						<input type="button" value="검색">
+					</form>
+					<a href="/shoppage/shop_board"><button value="상품등록"></button></a>
+					<ul id="cnm">
+						<li><a href="#">인기도순</a></li>
+						<li><a href="#">누적판매순</a></li>
+						<li><a href="#">낮은가격순</a></li>
+						<li><a href="#">리뷰순</a></li>
+						<li><a href="#">평점높은순</a></li>
+					</ul>
+					<br> <br> <br>
+					<div class="Goods">
+						<ul class="Goodss">
+							<c:forEach items="${shop}" var="shoplist">
+								<li>
+									<div>
+										<input type="text" value="${shoplist.bno}" hidden="">
+									</div>
+									<div>
+										<a href="/shoppage/Detail?bno=${shoplist.bno}"> <img
+											class="img" src="/display?filename=${shoplist.filem}"></a>
+									</div>									
+									<div>
+										상품명<span class="font">${shoplist.w_name}</span>
+									</div>
+									<div>
+										가격<span class="font">${shoplist.w_price}</span>
+									</div>
+									<div>
+										<span>리뷰</span><span class="font">평점</span>
+									</div>
+								</li>
+							</c:forEach>
+						</ul>
+					</div>
 				</div>
 			</div>
 			<!-- center 끝 -->
@@ -231,6 +147,27 @@
 			</div>
 			<!-- right 끝-->
 		</div>
+		<div id="pag">
+			<!-- prev(이전)이 true이면 이전버튼 화설화 -->
+			<c:if test="${paging.prev}">
+				<a
+					href="/shoppage/shop?pageNum=${paging.startPage-1}&amount=${paging.scri.amount}">이전</a>
+			</c:if>
+
+			<!-- begin(1) end(10)될 동안 반복(1일 10일 될 동안 반복) -->
+			<c:forEach begin="${paging.startPage}" end="${paging.endPage}"
+				var="num">
+				<a
+					href="/shoppage/shop?type=${paging.scri.type}&keyword=${paging.scri.keyword}&pageNum=${num}&amount=${paging.scri.amount}">${num}</a>
+			</c:forEach>
+
+			<!-- next(다음)이 true이면 다음버튼 활성화 -->
+			<c:if test="${paging.next}">
+				<a
+					href="/shoppage/shop?pageNum=${paging.endPage+1}&amount=${paging.scri.amount}">다음</a>
+			</c:if>
+		</div>
+		<br>
 		<!-- main 끝 -->
 		<!-- bottom 시작 -->
 		<div>
@@ -245,11 +182,11 @@
 					<div id="sns">
 						<ul>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/facebook.PNG" class="img2"></a></li>
+									src="/resources/css/mainimg/FACENBOOK.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/insta.PNG" class="img2"></a></li>
+									src="/resources/css/mainimg/INSTA.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/twitter.PNG" class="img2"></a></li>
+									src="/resources/css/mainimg/TWITTER.PNG" class="img2"></a></li>
 						</ul>
 					</div>
 				</div>

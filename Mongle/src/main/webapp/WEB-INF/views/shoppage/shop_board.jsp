@@ -23,6 +23,10 @@
 				<td><input type="number" name="w_price" placeholder="가격"></td>
 			</tr>
 			<tr>
+				<td>썸네일 사진</td>
+				<td><input type="file" name="uploadFile"></td>
+			</tr>
+			<tr>
 				<td>상품 설명 사진 첨부</td>
 				<td><input type="file" name="uploadFile" multiple></td>
 			</tr>

@@ -70,18 +70,25 @@ $(document).ready(function() {
 					 input += "<input type='text' name='attach["+i+"].w_Quantity' value ='" + obj.w_Quantity + "'><br>";
 					 input += "<input type='text' name='attach["+i+"].p_uid' value ='" + obj.p_uid + "'><br>";
 					 input += "<input type='text' name='attach["+i+"].p_name' value ='" + obj.p_name + "'><br>";
+					 input += "<input type='text' name='zttach["+i+"].p_name' value ='" + obj.z_image + "'><br>";
+					 input += "<input type='text' name='zttach["+i+"].p_name' value ='" + obj.z_upload + "'><br>";
+					 input += "<input type='text' name='zttach["+i+"].p_name' value ='" + obj.z_name + "'><br>";
 					 // 만약 image 결과가 ture이면
 					 // obj.image == true or
 					 if(obj.p_image){
 							// 아래에 있는거 실행					
 							var filePath=encodeURIComponent(obj.p_upload+"/s_"+obj.p_uid+"_"+obj.p_name)
+							var fileZath=encodeURIComponent(obj.z_upload+"/s_"+obj.z_uid+"_"+obj.z_name)
 							console.log("filePath="+filePath)
 							
 							str += "<li><img src='/display?filename="+filePath+"'></li>"
+							str += "<li><img src='/display?filename="+fileZath+"'></li>"
 						}else{// 그렇지 않으면
 							// 다운로드 할 수 있도록 실행
 							var filePath=encodeURIComponent(obj.p_upload+"/"+obj.p_uid+"_"+obj.p_name)
+							var fileZath=encodeURIComponent(obj.z_upload+"/"+obz.z_uid+"_"+obz.z_name)
 							str += "<li><a href='/download?filename="+filePath+"'>"+obj.p_name+"</a></li>"
+							str += "<li><a href='/download?filename="+fileZath+"'>"+obj.z_name+"</a></li>"
 						 }
 				})
 				$("#uploadResult ul").html(str);

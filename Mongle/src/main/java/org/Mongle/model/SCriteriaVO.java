@@ -8,7 +8,7 @@ public class SCriteriaVO {
 	
 	// 생성자
 	public SCriteriaVO() {
-		this(1,10);
+		this(1,20);
 	}
 	
 	public SCriteriaVO(int pageNum, int amount) {
