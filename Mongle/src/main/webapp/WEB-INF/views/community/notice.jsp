@@ -22,7 +22,7 @@
 	<!-- 관리자만 공지 올리기 버튼 볼 수 있도록 -->
 <div id="ntcon">
 	<div style="margin-left:40px;">
-		<h2>공지사항/펫티켓</h2>
+		<b class="rv_b">공지사항/펫티켓</b>
 	</div>
 	<table id="ntable">
 		<tr height="40px" style="text-align:center;">

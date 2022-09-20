@@ -8,7 +8,6 @@ public class NoticeVo {
 	private String id;
 	private String regdate;
 	
-	
 	public int getBno() {
 		return bno;
 	}
@@ -50,8 +49,4 @@ public class NoticeVo {
 		return "NoticeVo [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", id="
 				+ id + ", regdate=" + regdate + "]";
 	}
-
-	
-	}
-
-
+}

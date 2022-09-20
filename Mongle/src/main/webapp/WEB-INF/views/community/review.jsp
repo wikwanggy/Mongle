@@ -24,7 +24,7 @@
 <div id="review_gallary"> -->
 <div id="review">
 	<div class="rv_top">
-		<h2>펫 용품/식품 BEST 후기</h2>
+		<b class="rv_b">펫 용품/식품 BEST 후기</b>
 	</div>
 		<ul>
 			<li>
@@ -77,7 +77,7 @@
 			</li>
 		</ul>
 	<div class="rv_top">
-		<h2>펫 이용 장소 BEST 후기</h2>
+		<b class="rv_b">펫 이용 장소 BEST 후기</b>
 	</div>
 	<ul>
 		<li>
@@ -128,7 +128,7 @@
 	</ul>
 </div>
 <div id="reviews">
-	<h1>사용후기</h1>
+	<b class="rv_b" style="margin-left:150px;">사용후기</b>
 	<div id=review_search>
 		<select id="rv_sel">
 			<option>전체</option>
