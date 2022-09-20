@@ -2,7 +2,7 @@
 @import
 	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap')
 	;
-
+	
 *{
 	margin: 0;
 	padding: 0;
@@ -11,7 +11,7 @@
 	font-family: 'Hi Melody', cursive;
 }
 
-/*service  시작 css*/
+/*questions  시작 css*/
 /*큰틀*/
 #service_main{
 	overflow:hidden;
@@ -19,7 +19,7 @@
 }
 #service_main_center{
 	overflow: hidden;
-	width:900px;
+	width:830px;
 	padding: 20px 0 20px 30px;
 }
 
@@ -56,6 +56,7 @@ aside>ul>li{
 .a_on{ /* 선택한 리스트 색깔 부여*/
 	background-color: #fff4ab;
 }
+
 aside>ul>li>a{
 	text-decoration: none;
 	display: block;
@@ -68,92 +69,43 @@ aside>ul>li:hover{
 	background-color: 	#fff9d4;
 }
 
+
 aside>ul>li>a:active{
 	color:#FFFFFF;
 }
 /*왼쪽 사이드 파트 끝*/
-
-#service_main_page{
-	position: relative;
-	width:100%;
-	float: left;
-}
-
+/*메인 시작*/
 #service_main_title{
 	font-size: 56px;
 	font-weight:700;
 	color:black;
 }
 
-#service_main_box{/*자주 묻는 질문 4 div*/
-	width:auto;
-	height: auto;
-	margin-top: 45px;
+table{
+	  border-top: 2px solid;
 }
 
-.service_main_qbox{/*자주 묻는 질문 4 박스*/
-	width:150px;
-	height: 100px;
-	border: 1px solid #D3D3D3;
-	display: inline-block;
-	margin-right: 15px;
-	text-align: center;
-	line-height: 100px;
+td{
+	padding: 2px 2px 2px 15px;
 }
 
-.service_main_qbox>a{
-	display: block;;
-	font-size: 22px;
-	text-decoration: none;
-	color:black;
+tr{
+	border-bottom: 1px solid #D3D3D3;
 }
 
-.service_main_qbox>a:hover{
-	background-color: #f8e6e0;
-	color:#FFFFFF;
-}
-
-#service_main_qlist{/* 자주묻는 질문 카테고리 div*/
-	width:auto;
-	height: auto;
-	margin-top: 45px;
-}
-
-.service_main_kategori{/* 자주묻는 질문 카테고리 분류별 공간주기*/
-	width:150px;
-	height: 50px;
-	text-align: center;
-	line-height: 50px;
-	border: 1px solid #D3D3D3;
-	display: inline-block;
-	margin-left: -1px;
-}
-
-.service_main_kategori>a{
-	display: block;;
-	font-size: 22px;
-	text-decoration: none;
-	color:black;
-}
-
-.service_main_kategori>a:hover{
-	background-color: #f8e6e0;
-	color:#FFFFFF;
-}
-
-#service_faqlist{
+#service_noticelist{
 	width:auto;
 	margin-top: 50px;
 }
 
-#service_faqlist_top{
+#service_noticelist_top{
 	width:100%;
 	border-top: 1px solid;
 	border-bottom: 1px solid #D3D3D3;
 	overflow: hidden;
 }
 
-#service_faqlist_top>div{
+#service_noticelist_top>div{
 	float:left;
 	font-size: 20px;
 	margin: 0;
@@ -162,40 +114,59 @@ aside>ul>li>a:active{
 	
 }
 
-#service_faqlist_lower{
+#service_noticelist_lower{
 	border-bottom: 1px solid;
 }
 
-#service_faqlist_num{
+#service_noticelist_num{
 	border-top: 1px solid #D3D3D3;	
 	overflow: hidden;
 }
 
-#service_faqlist_num:first-child{
+#service_noticelist_num:first-child{
 	border-top: 0;	
 }
 
-#service_faqlist_lower>dt>div{
+#service_noticelist_lower>dt>div{
 	float:left;
 	font-size: 32px;
 	margin: 0;
 	padding: 10px;
 }
 
-#faq_list_td1{
-	width:150px;
+#notice_list_td1{
+	width:100px;
 }
 
-#faq_list_td2{
+#notice_list_td2{
 	width:500px;
 }
 
-#faq_list_td3{
-	width:150px;
+#notice_list_td3{
+	width:100px;
 }
 
+#notice_list_td4{
+	width:100px;
+}
 
-/*service 끝 css*/
+.notice_list_link{
+	font-size: 32px;
+	text-decoration: none;
+	color:black;
+}
+
+#notice_button{ /* 질문 하기 버튼 꾸미기*/
+	padding:20px;
+	background-color: #FFFFFF;
+	margin:auto;
+	display: block;	
+	border: #f8e6e0 2px solid;
+	border-radius:5px;
+}
+/*메인 끝*/
+/*questions  끝 css*/
+
 #container{
    width:1200px; /* 너비 1200px로 지정 */
    margin: 0 auto; /*auto으로 화면 중앙에 배치*/
@@ -239,6 +210,7 @@ ul {
    font-size: 15px;
    
 }
+
 nav{
 	
 }

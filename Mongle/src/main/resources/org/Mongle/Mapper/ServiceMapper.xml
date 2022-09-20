@@ -10,22 +10,22 @@
 			from service_list
 		</selectKey>
 		
-	  insert into service_list(bno,title, content)
-      values(#{bno},#{title},#{content})
+	  insert into service_list(bno,title, content,id)
+      values(#{bno},#{title},#{content},#{id})
 	</insert>
 	
-	
+	<!-- questions 리스트 -->
 	<select id="list" resultType="org.Mongle.model.ServiceVO">
 		select*
-		from(
+		from (
 			select @rownum:=@rownum+1 num,b.*
-			from service_list b,(select @rownum:=0) as tmp
+			from service_list 	b ,(select @rownum:=0 )  as tmp
 			<if test="keyword !=null">
 				<choose>
 					<when test="type == 'T'.toString()">
 						where title like concat('%',#{keyword},'%')
 					</when>
-					<when test="type == 'W'.toString()">
+					<when test="type == 'C'.toString()">
 						where content like concat('%',#{keyword},'%')
 					</when>
 					<otherwise>
@@ -38,10 +38,11 @@
 			)as questions
 			<![CDATA[
 				where num> (#{pageNum}-1)*#{amount} and num<=#{pageNum}*#{amount}
-			]]>
+			]]>  
+			
 			;
 	</select>
-	
+
 		   <select id="detail" resultType="org.Mongle.model.ServiceVO">
 		      select*from service_list where bno=#{bno}
 		   </select>
@@ -66,21 +67,20 @@
 			
 	   <select id="total" resultType="int">
    		select count(*) from service_list
+   		
    		<if test="keyword !=null">
 			 <choose>
 				    <when test="type == 'T'.toString()">
 				      where title like concat('%',#{keyword},'%')
 				    </when>
-				    <when test="type == 'W'.toString()">
+				    <when test="type == 'C'.toString()">
 				      where content like concat('%',#{keyword},'%')
 				    </when>
 				    <otherwise>
 				      where title like concat('%',#{keyword},'%')
 				      OR content like concat('%',#{keyword},'%')
-				    </otherwise>
-				    
+				    </otherwise>				    	
 			 </choose>
 		</if>
-		
    </select>
 </mapper>

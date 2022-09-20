@@ -82,28 +82,33 @@ aside>ul>li>a:active{
 	color:black;
 }
 
-#service_main_subtitle{
-	font-size: 30px;
-	font-weight:500;
-	color:black;
+#service_main_Identity{/*고객센터 명함 공간*/
+	width:500px;
+	height: auto;
+	padding:15px 0 15px 20px;
+	border: 1px solid;
+	margin-top: 50px;
 }
 
-#service_main_content{
-	overflow: hidden;
+#service_main_subtitle{/*고객센터 명함 타이틀*/
+	font-size:36px;
 }
 
-.service_main_ul{
+.service_main_content{/*고객센터 명함 내용*/
+	width:400px;
+	font-size:24px;
 }
 
-.service_main_li{
-	float: left;
-	font-size: 28px;
-	width:25%;
-}
-
-.service_main_li>a{
+.service_main_move{/*적힌 곳으로 이동*/
+	width:150px;
+	height:30px;
+	font-size:20px;
+	background-color: #f8e6e0;
+	color:white;
 	text-decoration: none;
-	color:black;
+	display: inline-block;
+	text-align: center;
+	line-height: 30px;
 }
 
 /*service main 끝 css*/

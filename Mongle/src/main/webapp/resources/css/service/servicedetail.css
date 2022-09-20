@@ -81,13 +81,22 @@ aside>ul>li>a:active{
 	font-weight:500;
 }
 
+#service_sub_content{
+	resize : none
+}
+
 .questions_detail_button{
+	text-decoration:none;
 	padding:7px;
 	background-color: #FFFFFF;
 	border: #f8e6e0 2px solid;
 	border-radius:5px;
 	float:right;
 	margin-left:5px; 
+	width:110px;
+	height: 45px;
+	font-size: 17px;
+	color: black;
 }
 
 .questions_detail_button:hover{

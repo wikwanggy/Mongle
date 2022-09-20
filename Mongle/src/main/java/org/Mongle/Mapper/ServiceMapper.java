@@ -10,9 +10,9 @@ public interface ServiceMapper {
 	//글쓰기에 해당되는 DB설계
 	public void write(ServiceVO service);
 	
-	//게시글 목록 리스트에 해당되는 DB 설계
+	//questions 게시글 목록 리스트에 해당되는 DB 설계
 	public ArrayList<ServiceVO> list(ServicePageVO spa);
-	
+		
 	//service_list테이블 전체건수 DB설계
 	public int total(ServicePageVO spa);
 	

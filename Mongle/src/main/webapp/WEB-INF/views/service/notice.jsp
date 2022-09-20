@@ -6,9 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="..\resources\css\service\write.css">
+<link rel="stylesheet" href="..\resources\css\service\notice.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/resources/js/service/serviceUploadAjax.js"></script>
+<script type="text/javascript" src="/resources/js/service/test.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -73,45 +73,51 @@
 			</header>
 		</div>
 		<%--본문 넣을 자리 --%>
-			<div id="service_main">
-				<%--왼쪽 사이드바 --%>
-					<aside id="service_aside">
-					<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
-					<ul>
-						<li><a href="faq">자주묻는 질문(FAQ)</a></li>
-						<li><a href="questions">1:1질문(Q&A)</a></li>
-						<li><a href="order">주문</a></li>
-						<li><a href="shipping">배송/환불</a></li>
-					</ul>
-					</aside>
-				<%-- 왼쪽 사이드바 끝 --%>
-				
+		<div id="service_main">
+			<aside id="service_aside"><%--왼쪽 사이드바 --%>
+			<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
+			<ul>
+				<li class="a_on"><a href="Notice">공지사항</a><li>
+				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
+				<li><a href="questions">1:1질문(Q&A)</a></li>
+				<li><a href="order">주문</a></li>
+				<li><a href="shipping">배송/환불</a></li>
+			</ul>
+			</aside>
+			<%-- 왼쪽 사이드바 끝 --%>
+			<%-- 본문  div --%>
 			<div id="service_main_center">
 			<div id="service_main_page">
-			<span id="service_main_title">1:1질문</span>
-			
-			<form id="form" action="/service/write" method="post" enctype="multipart/form-data">
-			<table>
-				<tr><td><input type="hidden" name="id" value="${sessionScope.login.id}"></td></tr>
-				<tr><td class="service_sub_font">제목</td></tr>
-				<tr><td><input type="text" name="title" class="service_sub_font"></td></tr>
-				
-				<tr><td class="service_sub_font">내용</td></tr>
-				<tr><td><textarea id="service_sub_content" class="service_sub_font" name="content" cols="50" rows="10" class="service_sub_font"></textarea></td></tr>
-				
-				<tr><td><input type="file" name="uploadFile" multiple></td></tr>
-				<tr><td><input type="button" id="uploadBtn" style="cursor: pointer" value="글쓰기"></td></tr>
-			</table>
-			</form>
-			<div id="uploadResult">
-					<ul>
-				
-					</ul>
-			</div>
+			<span id="service_main_title">공지사항</span>
+			<div id="service_noticelist">
+				<div id="service_noticelist_top">
+					<div id="notice_list_td1">번호</div>
+					<div id="notice_list_td2">제목</div>
+					<div id="notice_list_td3">등록일자</div>
+					<div id="notice_list_td4">작성자</div>
+				</div>
+				<dl id="service_noticelist_lower">
+				<!-- for문 시작 -->
+				<c:forEach items="${list}" var="notice">
+					<dt id="service_noticelist_num">
+						<div id="notice_list_td1">${notice.bno }</div>
+						<div id="notice_list_td2"><a class="notice_list_link" href="javascript:onoffDisplay();">${notice.title }</a></div>
+						<div id="notice_list_td3">${notice.regdate }</div>
+						<div id="notice_list_td4">${notice.name }</div>
+					</dt>
+					<dd style="display:none;">
+					</dd>
+				</c:forEach>
+					<!-- for문 끝 -->
+				</dl>
+			 </div>
+			 <input id="notice_button" type="submit" value="1:1질문하러가기" style="cursor: pointer" onclick="location.href='write'">
+			</div><%--본문div끝 --%>
 		</div>
 	</div>
-</div>
 		<%--본문 넣을 자리 --%>
+		
+		
 		<div>
 			<footer>
 				<div id="bottomMenu">

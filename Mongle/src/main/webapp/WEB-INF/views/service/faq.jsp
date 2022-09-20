@@ -15,41 +15,36 @@
 			<!-- header 전체를 hd로 지정 -->
 			<header>
 				<div id="tm">
-					<a href="/"><img alt="logo"src="resources/css/mainimg/logo.png" id="logoimg"></a>
+					<a href="/"><img alt="logo"src="../resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
 						<li>
 							<div id="toplist">
 								<c:choose>
 									<c:when test="${sessionScope.login==null}">
-										<a href="/Signup/Signup" >회원가입</a>
+										<a href="/signup/signup" >회원가입</a>
 										<a href="/Login/login">로그인</a>
 									</c:when>
-									<c:when test="${sessionScope.login.id=='admin'}">
-										<a href="/Admin/Memberlist" >관리자메뉴</a>
-										<a href="/Login/logout">로그아웃</a>
-									</c:when>
-									<c:otherwise >
-										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
+									<c:otherwise>
 										<a href="/Login/logout">로그아웃</a>
 									</c:otherwise>
 								</c:choose>
 							</div></li>
-						<li><a href="/service/servicemain">고객센터</a></li>
+						<li><a href="/mypage/mypage">MyPage</a></li>
+						<li><a href="#">고객센터</a></li>
 					</ul>
 				</div>
 				<div>
 					<nav>
 						<ul id="menu">
-						<li><a href="/shoppage/shop_board" id="shop_board">상품 등록</a></li>
 							<li><a href="/">HOME</a></li>
-							<li><a href="/shoppage/shop">SHOP</a>
+							<li><a href="#">SHOP</a>
 								<ul>
-									<li><a href="/shoppage/Snack">간식</a></li>
-									<li><a href="/shoppage/beauty">미용용품</a></li>
-									<li><a href="/shoppage/toy">장난감</a></li>
-									<li><a href="/shoppage/House">하우스</a></li>
-									<li><a href="/shoppage/fashion">패션</a></li>
-									<li><a href="/shoppage/etc">기타</a></li>
+									<li><a href="#">간식</a></li>
+									<li><a href="#">미용용품</a></li>
+									<li><a href="#">장난감</a></li>
+									<li><a href="#">하우스</a></li>
+									<li><a href="#">패션</a></li>
+									<li><a href="#">기타</a></li>
 								</ul></li>
 							<li><a href="/place/">PLACE</a>
 								<ul>
@@ -59,16 +54,16 @@
 									<li><a href="/place/school">학교/유치원</a></li>
 									<li><a href="/place/cafe">식당/카페</a></li>
 								</ul></li>
-							<li><a href="/event/eventmain">EVENT</a>
+							<li><a href="#">EVENT</a>
 								<ul>
 									<li><a href="#">진행 이벤트</a></li>
 									<li><a href="#">종료 이벤트</a></li>
 									<li><a href="#">이벤트 당첨</a></li>
 								</ul></li>
-							<li><a href="/event/eventmain">EVENT</a>
+							<li><a href="#">커뮤니티</a>
 								<ul>
-									<li><a href="/community/list">게시판</a></li>
-									<li><a href="/community/review">리뷰</a></li>
+									<li><a href="#">게시판</a></li>
+									<li><a href="#">리뷰</a></li>
 								</ul></li>
 						</ul>
 					</nav>
@@ -80,7 +75,8 @@
 			<aside id="service_aside"><%--왼쪽 사이드바 --%>
 			<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
 			<ul>
-				<li class="on"><a href="faq">자주묻는 질문(FAQ)</a></li>
+				<li><a href="notice">공지사항</a><li>
+				<li class="a_on"><a href="faq">자주묻는 질문(FAQ)</a></li>
 				<li><a href="questions">1:1질문(Q&A)</a></li>
 				<li><a href="order">주문</a></li>
 				<li><a href="shipping">배송/환불</a></li>
@@ -91,78 +87,46 @@
 			<div id="service_main_center">
 			<div id="service_main_page">
 			<span id="service_main_title">자주묻는 질문(FAQ)</span>
-			<p id="service_main_subtitle">자주 물어본 질문 10</p>
-			<div id="service_main_content">
-				<ul class="service_main_ul">
-					<li class="service_main_li service_main_no">번호</li>
-					<li class="service_main_li service_main_tit" >제목</a></li>
-					<li class="service_main_li service_main_reg">작성일</li>
-					<li class="service_main_li service_main_cnt">조회수</li>
-				</ul>
-				<ul class="service_main_ul">
-					<li class="service_main_li service_main_no">1</li>
-					<li class="service_main_li service_main_tit"><a href="#">aasdfssdaf</a></li>
-					<li class="service_main_li service_main_reg">08-09</li>
-					<li class="service_main_li service_main_cnt">0</li>
-				</ul>
-				<ul class="service_main_ul">
-					<li class="service_main_li service_main_no">2</li>
-					<li class="service_main_li service_main_tit" ><a href="#">sdaf</a></li>
-					<li class="service_main_li service_main_reg">08-09</li>
-					<li class="service_main_li service_main_cnt">0</li>
-				</ul>
-				<ul class="service_main_ul">
-					<li class="service_main_li service_main_no">3</li>
-					<li class="service_main_li service_main_tit" ><a href="#">aㅁㅁㅁ</a></li>
-					<li class="service_main_li service_main_reg">08-09</li>
-					<li class="service_main_li service_main_cnt">0</li>
-				</ul>
-				<ul class="service_main_ul">
-					<li class="service_main_li service_main_no">4</li>
-					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
-					<li class="service_main_li service_main_reg">08-09</li>
-					<li class="service_main_li service_main_cnt">0</li>
-				</ul>
-								<ul class="service_main_ul">
-					<li class="service_main_li service_main_no">5</li>
-					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
-					<li class="service_main_li service_main_reg">08-09</li>
-					<li class="service_main_li service_main_cnt">0</li>
-				</ul>
-				<ul class="service_main_ul">
-					<li class="service_main_li service_main_no">6</li>
-					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
-					<li class="service_main_li service_main_reg">08-09</li>
-					<li class="service_main_li service_main_cnt">0</li>
-				</ul>
-				<ul class="service_main_ul">
-					<li class="service_main_li service_main_no">7</li>
-					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
-					<li class="service_main_li service_main_reg">08-09</li>
-					<li class="service_main_li service_main_cnt">0</li>
-				</ul>
-				<ul class="service_main_ul">
-					<li class="service_main_li service_main_no">8</li>
-					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
-					<li class="service_main_li service_main_reg">08-09</li>
-					<li class="service_main_li service_main_cnt">0</li>
-				</ul>
-				<ul class="service_main_ul">
-					<li class="service_main_li service_main_no">9</li>
-					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
-					<li class="service_main_li service_main_reg">08-09</li>
-					<li class="service_main_li service_main_cnt">0</li>
-				</ul>
-				<ul class="service_main_ul">
-					<li class="service_main_li service_main_no">10</li>
-					<li class="service_main_li service_main_tit" ><a href="#">aasdfsdaaf</a></li>
-					<li class="service_main_li service_main_reg">08-09</li>
-					<li class="service_main_li service_main_cnt">0</li>
-				</ul>
+				<div id="service_main_box">
+					<ul>
+						<li class="service_main_qbox"><a href="#">test용 글1</a></li>
+						<li class="service_main_qbox"><a href="#">test용 글 2</a></li>
+						<li class="service_main_qbox"><a href="#">test용 글3</a></li>
+						<li class="service_main_qbox"><a href="#">test용 글 4</a></li>
+					</ul>
+				</div>
+				<div id="service_main_qlist">
+					<ul>
+						<li class="service_main_kategori current"><a href="#">회원정보</a></li><!--
+					 --><li class="service_main_kategori"><a href="#">주문</a></li><!--
+					 --><li class="service_main_kategori"><a href="#">배송</a></li><!--
+					 --><li class="service_main_kategori"><a href="#">반품/AS</a></li><!--
+					 --><li class="service_main_kategori"><a href="#">이벤트</a></li>
+					</ul>
+				</div>
+				<div id="service_faqlist">
+					<div id="service_faqlist_top">
+						<div id="faq_list_td1">번호</div>
+						<div id="faq_list_td2">제목</div>
+						<div id="faq_list_td3">작성자</div>
+					</div>
+					<dl id="service_faqlist_lower" class="current">
+					<!-- for문 시작 -->
+					<c:forEach items="${list}" var="faq">
+						<dt id="service_faqlist_num">
+							<div id="faq_list_td1">${faq.bno }</div>
+							<div id="faq_list_td2"><a class="faq_list_link" href="javascript:onoffDisplay();">${faq.title }</a></div>
+							<div id="faq_list_td3">${faq.name }</div>
+						</dt>
+						<dd style="display:none;">
+						</dd>
+					</c:forEach>
+					<!-- for문 끝 -->
+				</dl>
+			 </div>
 			</div>
 			</div><%--본문div끝 --%>
 		</div>
-	</div>
 		<%--본문 넣을 자리 --%>
 		<div>
 			<footer>

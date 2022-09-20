@@ -11,7 +11,7 @@
 	font-family: 'Edu VIC WA NT Beginner', cursive;
 	font-family: 'Hi Melody', cursive;
 }
-
+/*큰틀*/
 #eventbon{
 	width:100%;
 	overflow: hidden;
@@ -35,6 +35,7 @@
 		position:relative;
 		float:left;
 		width:250px;
+		margin-right: -1px;
 }
 
 .event-katebox{
@@ -46,30 +47,35 @@
 	color: black;
 }
 
+.event-katebox:hover{
+		color: #f8e6e0;
+}
+
 #event-katebox1:hover{
-	color: #AFFA70;
+
 }
 
 #event-katebox2:hover{
-	color: #FBAAAA;
+
 }
 
 #event-katebox3:hover{
-	color: #E9F8C8;
+
 }
 
 /*본문 카테고리 끝*/
 
 /*본문 내용*/
+
+/*왼쪽 사이드 시작*/
 #ls{
 	width: 150px;
 	height: 700px;
 	position: relative;
 	float: left;
+	margin-left: 15px;
 }
-#eventbn{
-	
-}
+
 .event{
 	width: 150px;
 	margin-top: 10px;
@@ -84,6 +90,8 @@
 #ev3{
 	height: 180px;
 }
+
+/*왼쪽 사이드 끝*/
 
 .event-count-box{
 	font-size: 28px;

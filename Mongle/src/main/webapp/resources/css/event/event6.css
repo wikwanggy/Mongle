@@ -11,56 +11,48 @@
 	font-family: 'Hi Melody', cursive;
 }
 
-.event-count-box{
-	font-size: 28px;
+/*큰틀*/
+#eventbon{
+	width:100%;
 	overflow: hidden;
 }
 
-#eventone{
-	list-style: none;
+#event-bon-line{
+	width:900px;
 	overflow: hidden;
+	padding-left: 30px;
 }
+/*큰틀 끝*/
 
-
-.event-count{
-	color:#f89b00;
-}
-
-#eventone>li{
-	padding:15px 20px 10px 20px;
+/*왼쪽 사이드 시작*/
+#ls{
+	width: 150px;
+	height: 700px;
 	position: relative;
-	float:left;
-	border-bottom: 1px solid #d3d3d3;
-	font-size: 20px;
-	margin-bottom: 20px;
+	float: left;
+	margin-left: 15px;
 }
 
-.event_sub_page{
-	width:250px;
-	display: block;
-	text-decoration: none;
+.event{
+	width: 150px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+#ev1{
+	height: 290px; /* 높이*/
+}
+#ev2{
+	height: 180px;
+}
+#ev3{
+	height: 180px;
 }
 
-.event_img{
-	width:250px;
-	height: 220px;
-}
+/*왼쪽 사이드 끝*/
 
-#evp{
-	text-align: center;
-}
 
-.evp1{
-	font-size: 28px;
-	line-height: 2;	
-	color: black;
-}
-
-.evp2{
-	font-size: 20px;
-	margin:10px;
-}
 /*본문내용끝*/
+
 /* 이 위에 까지가 이벤트 전용 css*/
 
 #container{

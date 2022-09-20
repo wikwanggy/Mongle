@@ -16,9 +16,17 @@ public class ServiceVO {
 	private int cnt;
 	//아이디(id)
 	private String id;
+	//게시판 분류(BGNO)
+	private int BGNO;
 	//ServiceFileListVO(파일 업로드 관련 model)
 	private ArrayList<ServiceFileListVO> svfile;
-	
+
+	public int getBGNO() {
+		return BGNO;
+	}
+	public void setBGNO(int bGNO) {
+		BGNO = bGNO;
+	}
 	public int getBno() {
 		return bno;
 	}
@@ -64,7 +72,7 @@ public class ServiceVO {
 	@Override
 	public String toString() {
 		return "ServiceVO [bno=" + bno + ", title=" + title + ", content=" + content + ", regdate=" + regdate + ", cnt="
-				+ cnt + ", id=" + id + ", svfile=" + svfile + "]";
+				+ cnt + ", id=" + id + ", BGNO=" + BGNO + ", svfile=" + svfile + "]";
 	}
 	
 	

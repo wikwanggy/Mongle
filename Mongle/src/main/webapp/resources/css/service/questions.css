@@ -9,7 +9,6 @@
 	box-sizing: border-box;
 	font-family: 'Edu VIC WA NT Beginner', cursive;
 	font-family: 'Hi Melody', cursive;
-	font-size: 18px;
 }
 
 /*questions  시작 css*/
@@ -43,7 +42,7 @@
 	color: black;
 }
 
-aside>ul{
+aside>ul{ /* 왼쪽사이드 리스트 꾸미기 */
 	background-color: #FFFFFF;
 	border: 1px solid #ECEAEA;
 }
@@ -54,7 +53,7 @@ aside>ul>li{
 	display: block;
 }
 
-.on{
+.a_on{ /* 선택한 리스트 색깔 부여*/
 	background-color: #fff4ab;
 }
 
@@ -72,7 +71,7 @@ aside>ul>li:hover{
 
 
 aside>ul>li>a:active{
-	color:red;
+	color:#FFFFFF;
 }
 /*왼쪽 사이드 파트 끝*/
 /*메인 시작*/
@@ -93,8 +92,19 @@ aside>ul>li>a:active{
 }
 
 table, td, th {
-  border: 1px solid;
   font-size: 24px;
+}
+
+table{
+	  border-top: 2px solid;
+}
+
+td{
+	padding: 2px 2px 2px 15px;
+}
+
+tr{
+	border-bottom: 1px solid #D3D3D3;
 }
 
 #questions_list{
@@ -102,22 +112,49 @@ table, td, th {
 	border-collapse: collapse;
 }
 
-.page_table{
+#questions_list_td1{
+	width:15%;
+}
+
+#questions_list_td2{
+	width:40%;
+}
+
+#questions_list_td3{
+	width:30%;
+}
+
+#questions_list_td4{
+	width:15%;
+}
+
+.questions_list_link{
+	font-size: 32px;
+	text-decoration: none;
+	color:black;
+}
+
+.page_table{ /*페이지 감싼 테이블*/
 	border: none;
 	margin: auto;
 }
 
-.page_table>a{
+.page_table>td{ /* a태그 색부여를 위한 td 감추기*/
+	border: 0px;
+	padding: 0 3px 0 3px;
+}
+
+.page_table>td>a{ /* a태그 꾸미는 파트 */
 	text-decoration: none;
 	font-size:30px;
 	color:black;
 }
 
-.page_table>a:hover{
+.page_table>.on>a{ /* 선택된 a태그 색부여 */
 	color:#f8e6e0;
 }
 
-#questions_button{
+#questions_button{ /* 질문 하기 버튼 꾸미기*/
 	padding:20px;
 	background-color: #FFFFFF;
 	margin:auto;
@@ -132,7 +169,6 @@ table, td, th {
 
 /*메인 끝*/
 /*questions  끝 css*/
-
 #container{
    width:1200px; /* 너비 1200px로 지정 */
    margin: 0 auto; /*auto으로 화면 중앙에 배치*/

@@ -17,41 +17,36 @@
 			<!-- header 전체를 hd로 지정 -->
 			<header>
 				<div id="tm">
-					<a href="/"><img alt="logo"src="resources/css/mainimg/logo.png" id="logoimg"></a>
+					<a href="/"><img alt="logo"src="../resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
 						<li>
 							<div id="toplist">
 								<c:choose>
 									<c:when test="${sessionScope.login==null}">
-										<a href="/Signup/Signup" >회원가입</a>
+										<a href="/signup/signup" >회원가입</a>
 										<a href="/Login/login">로그인</a>
 									</c:when>
-									<c:when test="${sessionScope.login.id=='admin'}">
-										<a href="/Admin/Memberlist" >관리자메뉴</a>
-										<a href="/Login/logout">로그아웃</a>
-									</c:when>
-									<c:otherwise >
-										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
+									<c:otherwise>
 										<a href="/Login/logout">로그아웃</a>
 									</c:otherwise>
 								</c:choose>
 							</div></li>
-						<li><a href="/service/servicemain">고객센터</a></li>
+						<li><a href="/mypage/mypage">MyPage</a></li>
+						<li><a href="#">고객센터</a></li>
 					</ul>
 				</div>
 				<div>
 					<nav>
 						<ul id="menu">
-						<li><a href="/shoppage/shop_board" id="shop_board">상품 등록</a></li>
 							<li><a href="/">HOME</a></li>
-							<li><a href="/shoppage/shop">SHOP</a>
+							<li><a href="#">SHOP</a>
 								<ul>
-									<li><a href="/shoppage/Snack">간식</a></li>
-									<li><a href="/shoppage/beauty">미용용품</a></li>
-									<li><a href="/shoppage/toy">장난감</a></li>
-									<li><a href="/shoppage/House">하우스</a></li>
-									<li><a href="/shoppage/fashion">패션</a></li>
-									<li><a href="/shoppage/etc">기타</a></li>
+									<li><a href="#">간식</a></li>
+									<li><a href="#">미용용품</a></li>
+									<li><a href="#">장난감</a></li>
+									<li><a href="#">하우스</a></li>
+									<li><a href="#">패션</a></li>
+									<li><a href="#">기타</a></li>
 								</ul></li>
 							<li><a href="/place/">PLACE</a>
 								<ul>
@@ -61,16 +56,16 @@
 									<li><a href="/place/school">학교/유치원</a></li>
 									<li><a href="/place/cafe">식당/카페</a></li>
 								</ul></li>
-							<li><a href="/event/eventmain">EVENT</a>
+							<li><a href="#">EVENT</a>
 								<ul>
 									<li><a href="#">진행 이벤트</a></li>
 									<li><a href="#">종료 이벤트</a></li>
 									<li><a href="#">이벤트 당첨</a></li>
 								</ul></li>
-							<li><a href="/event/eventmain">EVENT</a>
+							<li><a href="#">커뮤니티</a>
 								<ul>
-									<li><a href="/community/list">게시판</a></li>
-									<li><a href="/community/review">리뷰</a></li>
+									<li><a href="#">게시판</a></li>
+									<li><a href="#">리뷰</a></li>
 								</ul></li>
 						</ul>
 					</nav>
@@ -82,8 +77,9 @@
 			<aside id="service_aside"><%--왼쪽 사이드바 --%>
 			<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
 			<ul>
+				<li><a href="notice">공지사항</a><li>
 				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
-				<li class="on"><a href="questions">1:1질문(Q&A)</a></li>
+				<li class="a_on"><a href="questions">1:1질문(Q&A)</a></li>
 				<li><a href="order">주문</a></li>
 				<li><a href="shipping">배송/환불</a></li>
 			</ul>
@@ -99,12 +95,13 @@
 			<form id="searchForm" action="/service/questions" method="get">
 				<select name="type">
 					<option value="T">제목</option>
-					<option value="W">작성자</option>
-					<option value="TC">제목+게시글</option>
+					<option value="C">내용</option>
+					<option value="TC">제목+내용</option>
 				</select>
 					<input type="text" name="keyword">
-					<input type="text" name="pageNum" value="${paging.spa.pageNum }">
-					<input type="text" name="amount" value="${paging.spa.amount}">
+					<input type="hidden" name="bgno" value="${paging.spa.bgno }">
+					<input type="hidden" name="pageNum" value="${paging.spa.pageNum }" >
+					<input type="hidden" name="amount" value="${paging.spa.amount}">
 					<input type="button" value="검색">
 			</form>
 			
@@ -118,10 +115,11 @@
 				<!-- for문 시작 -->
 				<c:forEach items="${list }" var="questions">
 					<tr>
-						<td>${questions.bno }</td>
-						<td><a href="questions/detail?bno=${questions.bno }">${questions.title }</a></td>
-						<td>${questions.regdate }</td>
-						<td>${questions.cnt }</td>
+						<td id="questions_list_td1">${questions.bno }</td>
+						<td id="questions_list_td2"><a class="questions_list_link" href="detail?bno=${questions.bno }">${questions.title }</a></td>
+						<td id="questions_list_td3">${questions.regdate }</td>
+						<td id="questions_list_td4">${questions.cnt }</td>
+											<td id="questions_list_td4">${questions.BGNO }</td>
 					</tr>
 				</c:forEach>
 					<!-- for문 끝 -->
@@ -133,20 +131,20 @@
 			 <!-- prev(이전)이 true이면 이전버튼 화설화 -->
 				<td class="page_table">
 				<c:if test="${paging.prev}">
-					<a href="/service/questions?pageNum=${paging.startPage-1}&amount=${paging.spa.amount}">이전</a>
+					<a href="/service/questions?bgno=${paging.spa.bgno}&pageNum=${paging.startPage-1}&amount=${paging.spa.amount}">이전</a>
 				</c:if>
 				</td>
 				
 				<!-- begin(1) end(10)될 동안 반복(1일 10일 될 동안 반복) -->
 				<td class="page_table">
 				<c:forEach begin="${paging.startPage}" end="${paging.endPage }" var="num">
-					<a href="/service/questions?type=${paging.spa.type }&keyword=${paging.spa.keyword }&pageNum=${num }&amount=${paging.spa.amount}">${num}</a>
+					<td class="${paging.spa.pageNum eq num ? 'on' : '' }"><a href="/service/questions?bgno=${paging.spa.bgno}&type=${paging.spa.type }&keyword=${paging.spa.keyword }&pageNum=${num }&amount=${paging.spa.amount}">${num}</a></td>
 				</c:forEach>
 				</td>
 				
 				<td class="page_table">
 				<c:if test="${paging.next }">
-					<a href="/service/questions?pageNum=${paging.endPage+1}&amount=${paging.spa.amount}">다음</a>
+					<a href="/service/questions?bgno=${paging.spa.bgno}&pageNum=${paging.endPage+1}&amount=${paging.spa.amount}">다음</a>
 				</c:if>
 				</td>
 			<!-- next(다음)이 true이면 다음버튼 활성화 -->
@@ -155,8 +153,15 @@
 			 <!-- 페이지 번호 끝 -->
 			 
 			 <br>
+			 <c:choose>
+			<c:when test="${sessionScope.login!=null}">
 			 	<input id="questions_button" type="submit" value="1:1질문하러가기" style="cursor: pointer" onclick="location.href='write'">
-			</div>
+			 </c:when>
+			 <c:otherwise>
+			 <input id="questions_button" type="submit" value="1:1질문하러가기" style="cursor: pointer" onclick="alert('로그인후 이용해주세요')";>
+			 </c:otherwise>
+			 </c:choose>
+			 </div>
 		</div>
 	</div>
 	<%--본문div끝 --%>

@@ -6,9 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="..\resources\css\service\write.css">
+<!-- service detail 과 html 거의 동일 함으로 css 그대로 연결 -->
+<link rel="stylesheet" href="..\..\resources\css\service\servicedetail.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/resources/js/service/serviceUploadAjax.js"></script>
+<script type="text/javascript" src="/resources/js/service/serviceAttach.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -17,7 +18,7 @@
 			<!-- header 전체를 hd로 지정 -->
 			<header>
 				<div id="tm">
-					<a href="/"><img alt="logo"src="../resources/css/mainimg/logo.png" id="logoimg"></a>
+					<a href="/"><img alt="logo"src="../../resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
 						<li>
 							<div id="toplist">
@@ -73,45 +74,64 @@
 			</header>
 		</div>
 		<%--본문 넣을 자리 --%>
-			<div id="service_main">
-				<%--왼쪽 사이드바 --%>
-					<aside id="service_aside">
-					<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
-					<ul>
-						<li><a href="faq">자주묻는 질문(FAQ)</a></li>
-						<li><a href="questions">1:1질문(Q&A)</a></li>
-						<li><a href="order">주문</a></li>
-						<li><a href="shipping">배송/환불</a></li>
-					</ul>
-					</aside>
-				<%-- 왼쪽 사이드바 끝 --%>
-				
+		<div id="service_main">
+			<aside id="service_aside"><%--왼쪽 사이드바 --%>
+			<h2 id="service_aside_header"><a href="../servicemain">고객센터</a></h2>
+			<ul>
+				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
+				<li><a href="questions">1:1질문(Q&A)</a></li>
+				<li><a href="order">주문</a></li>
+				<li><a href="shipping">배송/환불</a></li>
+			</ul>
+			</aside>
+			<%-- 왼쪽 사이드바 끝 --%>
+			<%-- 본문  div --%>
 			<div id="service_main_center">
 			<div id="service_main_page">
-			<span id="service_main_title">1:1질문</span>
-			
-			<form id="form" action="/service/write" method="post" enctype="multipart/form-data">
-			<table>
-				<tr><td><input type="hidden" name="id" value="${sessionScope.login.id}"></td></tr>
-				<tr><td class="service_sub_font">제목</td></tr>
-				<tr><td><input type="text" name="title" class="service_sub_font"></td></tr>
+			<span id="service_main_title">1:1질문(Q&A)</span>
+					<form method="POST" action="/service/modify">
+					<table>
+						<tr>
+							<td>
+								<input class="questions_detail_button" type="submit" value="수정 완료" style="cursor: pointer" onclick="alert('글수정완료')" formaction="/service/modify">
+							</td>
+						</tr>
+						<tr>
+							<td class="service_sub_font">제목</td>
+						</tr>
+							
+						<tr>
+							<td><input class="service_sub_font" type="text" name="title" value="${detail.title }" ></td>
+							<td><input type="hidden" name="bno" value="${detail.bno}"></td>
+							<td><input type="hidden" name="id" value="${detail.id}"></td>
+						</tr>
+						
+						<tr>
+							<td class="service_sub_font">내용</td>
+						</tr>
+						
+						<tr>
+							<td><textarea id="service_sub_content" class="service_sub_font" name="content" cols="50" rows="10"  >${detail.content }</textarea></td>
+						</tr>
+						<tr><td><input type="file" name="uploadFile" multiple></td></tr>
+						<tr>
+							<td>				
+								<div id="uploadResult">
+									<ul>
 				
-				<tr><td class="service_sub_font">내용</td></tr>
-				<tr><td><textarea id="service_sub_content" class="service_sub_font" name="content" cols="50" rows="10" class="service_sub_font"></textarea></td></tr>
-				
-				<tr><td><input type="file" name="uploadFile" multiple></td></tr>
-				<tr><td><input type="button" id="uploadBtn" style="cursor: pointer" value="글쓰기"></td></tr>
-			</table>
-			</form>
-			<div id="uploadResult">
-					<ul>
-				
-					</ul>
+									</ul>
+								</div>
+							</td>
+						</tr>
+						
+					</table>
+					</form>
+				</div>
 			</div>
-		</div>
-	</div>
-</div>
+		</div>	
 		<%--본문 넣을 자리 --%>
+		
+		
 		<div>
 			<footer>
 				<div id="bottomMenu">
@@ -124,11 +144,11 @@
 					<div id="sns">
 						<ul>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/facebook.PNG" class="img2"></a></li>
+									src="../../resources/css/mainimg/facebook.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/insta.PNG" class="img2"></a></li>
+									src="../../resources/css/mainimg/insta.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/twitter.PNG" class="img2"></a></li>
+									src="../../resources/css/mainimg/twitter.PNG" class="img2"></a></li>
 						</ul>
 					</div>
 				</div>
