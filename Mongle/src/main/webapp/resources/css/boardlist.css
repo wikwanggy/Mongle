@@ -190,7 +190,11 @@ a{
 }
 .rv_top{
 	margin:15px;
+	font-size:23px;
 }
+/* .rv_top b{
+	font-size:23px;
+} */
 h5{
 	float:right;
 }

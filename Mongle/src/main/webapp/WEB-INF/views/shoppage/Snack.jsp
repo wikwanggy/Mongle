@@ -14,7 +14,7 @@
 		<div id="hd">
 			<header>
 					<div id="tm">
-					<a href="/"><img alt="logo"src="resources/css/mainimg/logo.png" id="logoimg"></a>
+					<a href="/"><img alt="logo"src="../resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
 						<li>
 							<div id="toplist">
@@ -38,8 +38,7 @@
 				</div>
 				<div>
 					<nav>
-						<ul id="menu">
-						<li><a href="/shoppage/shop_board" id="shop_board">상품 등록</a></li>
+						<ul id="menu">						
 							<li><a href="/">HOME</a></li>
 							<li><a href="/shoppage/shop">SHOP</a>
 								<ul>
@@ -78,24 +77,8 @@
 
 		<!-- main 전체 -->
 		<div id="main">
-			<!-- main left 시작 -->
-			<div id="ls">
-				<ul id="ls menu">
-					<li><a href="/shoppage/feed">사료</a></li>
-					<li><a href="/shoppage/Snack">간식</a></li>
-					<li><a href="/shoppage/beauty">미용용품</a></li>
-					<li><a href="/shoppage/toy">장난감</a></li>
-					<li><a href="/shoppage/House">하우스</a></li>
-					<li><a href="/shoppage/fashion">패션</a></li>
-					<li><a href="/shoppage/etc">기타</a></li>
-				</ul>
-			</div>
-			<!-- main left 끝 -->
 			<!-- center 시작 -->
 			<div id="cn">
-				<h2>
-					<a href="/shoppage/shop">전체상품</a>
-				</h2>
 				<ul id="cnm">
 					<li><a href="#">인기도순</a></li>
 					<li><a href="#">누적판매순</a></li>
@@ -145,11 +128,11 @@
 					<div id="sns">
 						<ul>
 							<li><a href="#"><img
-									src="resources/css/mainimg/facebook.PNG" class="img2"></a></li>
+									src="/resources/css/mainimg/FACENBOOK.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="resources/css/mainimg/insta.PNG" class="img2"></a></li>
+									src="/resources/css/mainimg/INSTA.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="resources/css/mainimg/twitter.PNG" class="img2"></a></li>
+									src="/resources/css/mainimg/TWITTER.PNG" class="img2"></a></li>
 						</ul>
 					</div>
 				</div>

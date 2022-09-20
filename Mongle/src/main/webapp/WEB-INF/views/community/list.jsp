@@ -24,10 +24,9 @@
 
 <div class="board_l">
 	<div style="margin-left:40px;">
-		<h2>커뮤니티</h2>
+		<b class="rv_b">커뮤니티</b>
 	</div>
 	<table border="1" id="board_list">
-		
 		<tr>
 			<td colspan="5" id="board_list_search"><div style="padding:10px;">
 				<c:choose>

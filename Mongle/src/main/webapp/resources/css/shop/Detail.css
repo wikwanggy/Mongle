@@ -4,10 +4,7 @@
 	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap')
 	;
 /* 전체 */
-body {
-  padding-top: 75px;
-  /* 생략 */
-}
+
 * {
 	margin: 0; /* 마진값 초기화 */
 	padding: 0; /* 패딩값 초기화*/
@@ -17,11 +14,8 @@ body {
 }
 
 #container {
-	position: static;
 	width: 1200px;
-	left: 50%;
 	margin: auto; /*auto으로 화면 중앙에 배치*/
-	top: 30px;
 }
 
 ul {
@@ -37,7 +31,7 @@ a {
 	color: #aaa;
 }
 /* header */
-#header {
+header {
 	width: 100%; /* 너비 */
 	height: 130px; /* 높이 */
 	background-color: rgba(255, 235, 98);
@@ -71,14 +65,17 @@ a {
 #menu {
 	height: 40px;
 	padding: 4px 0px 10px 0px;
-	border-top: 2px solid rgba(128, 128, 128, 0.5);
-	border-bottom: 2px solid rgba(128, 128, 128, 0.5);
-	box-shadow: 0 4px 4px -4px black;
+	border-top: 2px solid rgba(38, 38, 38, 0.5);
+	border-bottom: 2px solid rgba(38, 38, 38, 0.5);
+	box-shadow: 0 4px 4px -4px gray;
+	text-align: center;
+	margin: 0 auto;
 }
 
 #menu>li {
 	float: left; /* 메뉴 항목을 왼쪽으로 플로팅 */
 	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+	width: 140px;
 }
 
 #menu>li>a {
@@ -87,6 +84,36 @@ a {
 	padding: 0px 20px 0px 20px; /* 패딩 지정 */
 	font-size: 25px;
 	text-decoration: none;
+}
+
+#menu>li>ul {
+	width: 130px;
+	display: none;
+	position: absolute;
+	font-size: 20px;
+	background-color: rgba(255, 235, 98);
+	z-index: 2;
+	border: 0.5px solid black;
+}
+
+#menu>li:hover>ul {
+	display: block;
+}
+
+#menu>li>ul>li:hover {
+	background-color: orange;
+	transition: ease 1s;
+}
+
+#menu>li>ul>li {
+	list-style: none;
+	border: 0.5px solid black;
+}
+
+#menu>li>ul>li>a {
+	text-decoration: none;
+	color: black;
+	line-height: 50px;
 }
 /*본문 큰틀*/
 #test {

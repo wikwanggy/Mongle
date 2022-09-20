@@ -22,7 +22,7 @@
 	<!-- 상품 목록 리스트,번호 -->
 	<select id="shop" resultType="org.Mongle.model.shopVO">
 		SELECT rownum,bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity,
-		Concat(Replace(p_upload, '\\','/'),'/s_' ,p_uid,'_' ,p_name)AS file
+		Concat(Replace(p_upload, '\\','/'),'/s_' ,p_uid,'_' ,p_name)AS filem
 		FROM (SELECT @rownum:=@rownum+1 rownum, t.*
 		FROM (SELECT *FROM (SELECT
 		p_uid,p_upload,p_name,p_image,
@@ -52,9 +52,8 @@
 
 	<!-- 상품 상세내용 -->
 	<select id="detail" resultType="org.Mongle.model.shopVO">
-		select*from writing w join
-		product p on w.bno = p.bno where
-		w.bno=#{bno};
+	select w.bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity, Concat(Replace(p_upload, '\\','/'),'/s_' ,p_uid,'_' ,p_name)AS filem 
+	   from writing w join product p on w.bno = p.bno where w.bno=#{bno};
 	</select>
 
 	<select id="total" resultType="int">

@@ -6,6 +6,7 @@ import org.Mongle.Mapper.shopAttachMapper;
 import org.Mongle.Mapper.shopMapper;
 import org.Mongle.model.SAttachFileVO;
 import org.Mongle.model.SCriteriaVO;
+import org.Mongle.model.ZAttachFileVO;
 import org.Mongle.model.shopVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,8 +61,13 @@ public class shopServiceimpl implements shopService {
 		return sm.total(scri);
 	}
 	
-	// 첨부파일 저회 구현
+	// 썸네일 첨부파일 조회 구현
 	public ArrayList<SAttachFileVO> attachlist(int bno){
 		return sam.attachlist(bno);
+	}
+	
+	// 상품 설명 파일 조회 구현
+	public ArrayList<ZAttachFileVO> zlist(int bno){
+		return sam.zlist(bno);
 	}
 }

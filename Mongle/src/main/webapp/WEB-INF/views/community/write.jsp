@@ -12,7 +12,7 @@
 <body>
 <div class="board_l">
 	<div style="margin-left:40px;">
-		<h2>커뮤니티</h2>
+		<b class="rv_b">커뮤니티</b>
 	</div>
 <form method="post">
 	<table border="1" class="board_write">

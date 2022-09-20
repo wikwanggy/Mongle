@@ -17,11 +17,15 @@ public class shopVO {
 	private String w_type;
 	// 상품 수량
 	private int w_Quantity;
-	// 파일 업로드 관련 
-	private String file;
-	// AttachFileVo(파일업로드 관련 model)
+	// 상품 설명 이미지 업로드
+	private String files;
+	// 썸네일 파일 업로드 관련
+	private String filem;
+	// ZAttachFileVo(파일업로드 관련 model)
+	private ArrayList<ZAttachFileVO> zttach;
+	// SAttachFileVo(파일업로드 관련 model)
 	private ArrayList<SAttachFileVO> attach;
-	
+
 	public int getBno() {
 		return bno;
 	}
@@ -82,28 +86,39 @@ public class shopVO {
 		return attach;
 	}
 
-	public String getFile() {
-		return file;
+	public String getFiles() {
+		return files;
 	}
 
-	public void setFile(String file) {
-		this.file = file;
+	public void setFiles(String files) {
+		this.files = files;
+	}
+
+	public String getFilem() {
+		return filem;
+	}
+
+	public void setFilem(String filem) {
+		this.filem = filem;
 	}
 
 	public void setAttach(ArrayList<SAttachFileVO> attach) {
 		this.attach = attach;
 	}
 
+	public ArrayList<ZAttachFileVO> getZttach() {
+		return zttach;
+	}
+
+	public void setZttach(ArrayList<ZAttachFileVO> zttach) {
+		this.zttach = zttach;
+	}
+
 	@Override
 	public String toString() {
 		return "shopVO [bno=" + bno + ", w_name=" + w_name + ", w_price=" + w_price + ", w_regdata=" + w_regdata
-				+ ", w_color=" + w_color + ", w_type=" + w_type + ", w_Quantity=" + w_Quantity + ", file=" + file
-				+ ", attach=" + attach + "]";
+				+ ", w_color=" + w_color + ", w_type=" + w_type + ", w_Quantity=" + w_Quantity + ", files=" + files
+				+ ", filem=" + filem + ", zttach=" + zttach + ", attach=" + attach + "]";
 	}
 
-	
-
-	
-
-	
 }

@@ -16,7 +16,7 @@
 <form method="post">
 	<div class="board_l">
 		<div style="margin-left:40px;">
-			<h2>커뮤니티</h2>
+			<b class="rv_b">커뮤니티</b>
 		</div>
 	<table border="1" id="board_detail">
 		<tr>
@@ -39,7 +39,7 @@
 			</td>
 		</tr>
 		<c:choose>
-				<c:when test="${sessionScope.login.id==detail.id}">
+				<c:when test="${sessionScope.login.id==detail.id||sessionScope.login.id=='admin'}">
 		<tr>
 			<td colspan="2" id="btn_board_detail">
 			

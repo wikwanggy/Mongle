@@ -57,7 +57,7 @@ public class shopController {
 	// 상품 상세설명
 	@RequestMapping(value = "/shoppage/Detail", method = RequestMethod.GET)
 	public String detail(shopVO shop, Model model) {
-		System.out.println("shop2=" + shop);
+		System.out.println(ss.detail(shop));
 		model.addAttribute("detail", ss.detail(shop));
 		return "/shoppage/Detail";
 	}
