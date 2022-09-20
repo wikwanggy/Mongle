@@ -1,6 +1,6 @@
 package org.Mongle.model;
 
-public class ServicePageSubVO {
+public class ServicePageSubVO {	
 	//시작번호
 	private int startPage;
 	//끝번호

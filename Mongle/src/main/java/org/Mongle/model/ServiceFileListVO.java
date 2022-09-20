@@ -1,7 +1,7 @@
 package org.Mongle.model;
 
 public class ServiceFileListVO {
-	
+		
 	//파일저장된 경로
 	private String uploadPath;
 	//업로드 파일명

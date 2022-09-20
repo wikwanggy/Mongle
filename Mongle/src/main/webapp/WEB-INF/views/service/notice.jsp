@@ -117,7 +117,6 @@
 	</div>
 		<%--본문 넣을 자리 --%>
 		
-		
 		<div>
 			<footer>
 				<div id="bottomMenu">

@@ -5,8 +5,7 @@ $(document).ready(function(){
 	/* 4.첨부파일 공격에 대비하기 위한 업로드 파일 확장자 제한.
 	  
 	  .exe .zip .alz
-	 
-	 
+	 	 
 	 */
 	//함수선언(checkExtension)
 	//정규식을 이용하여 확장자 제한

@@ -1,7 +1,7 @@
 package org.Mongle.model;
 
 import java.util.ArrayList;
-
+	
 public class ServiceVO {
 	
 	//게시판번호(bno)

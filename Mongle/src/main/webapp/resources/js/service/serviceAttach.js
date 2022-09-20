@@ -2,6 +2,7 @@
  * 첨부파일 관련 js
  */
 
+
 $(document).ready(function(){
 	//detail.jsp가 시작되자마자 bno값 가져오기
 	var bno=$("input[name='bno']").val();

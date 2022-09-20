@@ -81,6 +81,10 @@ aside>ul>li>a:active{
 	font-weight:500;
 }
 
+#service_sub_content{
+	resize : none
+}
+
 #uploadBtn{
 	padding:10px 15px 10px 15px;
 	background-color: #FFFFFF;
@@ -90,7 +94,7 @@ aside>ul>li>a:active{
 	border-radius:5px;
 }
 
-#uploadButton:hover{
+#uploadBtn:hover{
 	background-color:#f8e6e0;
 }
 

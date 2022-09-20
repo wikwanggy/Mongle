@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.Mongle.model.ServicePageVO;
 import org.Mongle.model.ServiceVO;
 import org.Mongle.model.ServiceFileListVO;
-
+	
 public interface ServiceService {
 	//글쓰기 설계
 	public void write(ServiceVO service);
