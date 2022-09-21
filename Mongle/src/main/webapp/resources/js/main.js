@@ -13,11 +13,11 @@ let h2_3 = document.querySelector("#btn_a1")
 		let value = window.scrollY;
 		console.log("scrollY",value);
 		
-		if(700< value && value<1900){// 700~2100
+		if(300< value && value<1300){// 700~2100
 			h1_1.style.animation = "slidein 2s ease-out";
 			h1_2.style.animation = "slidein 2s ease-out";
 			h1_3.style.animation = "slidein 2s ease-out";
-		}else if(1901 < value && value<3000){// 2101~3000
+		}else if(1301 < value && value<3000){// 2101~3000
 
 			h2_1.style.animation = "slidein 2s ease-out";
 			h2_2.style.animation = "slidein 2s ease-out";
@@ -38,9 +38,9 @@ let h2_3 = document.querySelector("#btn_a1")
 	window.addEventListener("scroll",function(){
 		let value = window.scrollY;
 		
-		if(700 < value && value<1900){
+		if(300 < value && value<1300){
 			pt.style.animation = "slidein_pt 2s ease-out";
-		}else if(1901 < value && value<3000){
+		}else if(1301 < value && value<3000){
 			pt1.style.animation = "slidein_pt 2s ease-out";
 		}else{
 			pt.style.animation ="disappear_pt 2s ease-out forwards";

@@ -108,9 +108,7 @@
 				<a href="/place/board" id="btn_a1"><input type="button"
 					class="st_btn" value="자세히 보기"></a> <img
 					src="resources/css/mainimg/s_pt1.png" id="s_pt1">
-
 			</section>
-			<section id="st_4">section 4번</section>
 		</div>
 		<div>
 			<footer>

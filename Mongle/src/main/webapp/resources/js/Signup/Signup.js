@@ -17,7 +17,7 @@ $(document).ready(function() {
 		
 		
 
-		var idRegex = /^[a-z]+[a-z0-9-_]{5,20}$/g;
+		var idRegex = /^[a-z]+[a-z0-9-_]{4,20}$/g;
 		var id=$("#id").val();
 		// 아이디를 서버로전송 > DB 유효성검사 >결과반환
 		// 아이디 중복 체크
@@ -58,7 +58,7 @@ $(document).ready(function() {
 	// 비밀번호 길이 체크
 	$("#password").blur(function() {
 		
-		var pwreg =/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$/;
+		var pwreg =/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{7,20}$/;
 		
 		if (pwreg.test(($("#password").val()))) {
 			$("#passwordalert").remove();
@@ -110,6 +110,19 @@ $(document).ready(function() {
 		var a = yy+mm+dd;
 		
 		$("#bth").val(a);
+	})
+	$(document).on("keyup","input[name=bth_dd]",function(){
+		var val= $(this).val();
+		 
+		if(val.replace(/[0-9]/g, "").length > 0) {
+		        alert("숫자만 입력해 주십시오.");
+		        $(this).val('');
+		    }
+
+		    if(val < 1 || val > 31) {
+		        alert("1일~31일 로 입력해 주십시오.");
+		        $(this).val('');
+		    }
 	})
 	// name
 	$("#name").blur(function(){

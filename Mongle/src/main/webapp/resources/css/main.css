@@ -119,6 +119,7 @@ section{
 	background-size: cover;
 	margin-top: 25px;
 	position: relative;
+	background-repeat: no-repeat;
 }
 #st1_label{
 	color: yellow;
@@ -139,13 +140,6 @@ section{
 	background-size: cover;
 	margin-top: 25px;
 }
-#st_4{
-	background: url("/resources/css/mainimg/st_4.jpg") fixed ;
-	background-color: black;
-	background-size: cover;
-	margin-top: 25px;
-}
-
 h1{
 	color: white;
 	font-size: 8em;
