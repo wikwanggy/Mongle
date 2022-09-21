@@ -33,7 +33,7 @@
 		</div>
 		<div>
 			<h3>생년월일</h3>
-			<input type="text" placeholder="년" id="yy" class="bth"  maxlength="4" name="bth_yy">
+			<input type="text" placeholder="년" id="yy" class="bth" pattern="[0-9]{4,4}" title="'1998'와 같은 4자리 숫자" name="bth_yy">
 			<select id="mm" class="bth">
 				<option>월</option>
 				<option value="01">1</option>
