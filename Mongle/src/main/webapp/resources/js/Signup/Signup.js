@@ -133,8 +133,8 @@ $(document).ready(function() {
 		    }
 
 		    if(val < 1 || val > 31) {
-		        alert("1일~31일 로 입력해 주십시오.");
-		        $(this).val('');
+		    	$(this).val('');
+		    	 alert("1일~31일 로 입력해 주십시오.");
 		    }
 	})
 	// name
