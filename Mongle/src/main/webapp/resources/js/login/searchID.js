@@ -2,78 +2,59 @@
  * 
  */
 
-$(document).ready(function() {
-	var namecheckresult="";
-	var emailcheckresult="";
-	var bthcheckresult="";
-	var numbercheckresult="";
-
-
-
-	// name
-	$("#name").blur(function(){
-		$.getJSON("/Signup/Signup/namecheck/"+name+".json",function(data){
+$(document).ready(function(){
+	$("#searchidcheck").submit(function() {
+		//event.preventDefault();
 		
-			namecheckresult=false;
-	}).fail(function(data){
-		namecheckresult=true;
-	})
-	})
-	//생년월일
-	$("#bth").blur(function(){
-		$.getJSON("/Signup/Signup/bthcheck/"+bth+".json",function(data){
+		var name = $("#name").val();
+		var email = $("#eamil").val();
+		var bth=$("#bth").val();
+		var number=$("#number").val();
+		var check = false;
 		
-			bthcheckresult=false;
-	}).fail(function(data){
-		bthcheckresult=true;
-	})
-	})
-	// email
-	$("#email").blur(function(){
-
+		// 이름이 공백이라면 false
+		if (name == "") {
+			alert("이름을 입력해주세요");
+			$("#name").focus();
 		
-		var email=$("#email").val();
+		// 비밀번호가 공백이라면 false
+		} else if (email == "") {
+			alert("email을 입력해주세요.");
+			$("#email").focus();
 		
-		$.getJSON("/Signup/Signup/emailcheck/"+email+".json",function(data){
-			
-			 idcheckresult= false;
-				
-		}).fail(function(data){// select된 결과가 없으면 fail로 인식
-			
-			idcheckresule=true;
-		})
-	})
-	
-	// 전화번호
-	$("#number").blur(function(){
-		$.getJSON("/Signup/Signup/numbercheck/"+number+".json",function(data){
-			
-			 numbercheckresult= false;
-				
-		}).fail(function(data){// select된 결과가 없으면 fail로 인식
-			
-			numbercheckresule=true;
-		})
-	
-	})
-	
-	// 필요한 데이터가 전부 입력되었다면 submit을 진행한다//
-	$("form").on("submit", function() {
-		if(namecheckresult=false && emailcheckresult==false && bthcheckresult==false &&numbercheckresult== false){
-			
-			
+		// 어느쪽에도 해당되지 않는다면 아래의 ajax를 실행한다.
+		}else if (bth == "") {
+			alert("생년월일을 yyyy-mm-dd로 입력해주세요.");
+			$("#bth").focus();
 		
-		}else if( idcheckresult== true){
-			alert("없는 id 입니다.")
-			return false;
-		}else if(emailcheckresult==true){
-			alert("없는 email 입니다.")
-			return false;
-		}else{
+		// 어느쪽에도 해당되지 않는다면 아래의 ajax를 실행한다.
+		}else if (number == "") {
+			alert("전화번호를 000-0000-0000식으로 입력해주세요.");
+			$("#number").focus();
+		
+		// 어느쪽에도 해당되지 않는다면 아래의 ajax를 실행한다.
+		}else {
 			
-			return false;
+			$.ajax ({
+				type : "POST",
+				url : "/Login/searchidcheck",
+				data : JSON.stringify ({name:name, email:email,bth:bth,number:number}),
+				contentType : "application/json; charset=utf-8",
+				async : false,
+				success:function(result) {
+					console("result")
+					if(result == "success") {
+						alert("찾으시는 id는'ㅁㄴㅇㄴㅁㅇ'입니다 ")
+						check = true;
+					}
+				},
+				error:function() {
+					alert("없는 정보입니다.")
+					check = false;
+				}
+			}) // ajax 끝
 		}
-	
+		return check;
 	})
 
-});
+})

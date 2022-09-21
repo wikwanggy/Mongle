@@ -227,7 +227,7 @@ $(document).ready(function() {
 		var da = $("#detail_addr").val();
 		var ap = $("#addr_post").val();
 		
-		var a = ma+da+ap;
+		var a = ma+","+da+",'우편번호'"+ap;
 		
 		$("#addr").val(a);
 	})

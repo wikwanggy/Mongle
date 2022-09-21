@@ -32,6 +32,8 @@ public interface LoginService {
 	public int total(adminCriteriaDTO cri);
 	// 로그인체크
 	public int logincheck(LoginDTO ldto);
+	// id찾기
+	public int searchidcheck(LoginDTO ldto);
 	
 
 }

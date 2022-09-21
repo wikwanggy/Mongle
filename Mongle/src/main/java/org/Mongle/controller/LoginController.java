@@ -56,6 +56,16 @@ public class LoginController {
 		return result==1?new ResponseEntity<>("success", HttpStatus.OK)
 						:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	// id찾ㄱ
+		@PostMapping("/Login/searchidcheck")
+		public ResponseEntity<String> searchidcheck(@RequestBody LoginDTO ldto) {
+			System.out.println(ldto);
+			int result = ls.searchidcheck(ldto);
+			System.out.println("result 결과" + result);
+			
+			return result==1?new ResponseEntity<>("success", HttpStatus.OK)
+							:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	// 회원가입 이동
 	@GetMapping("/Signup/Signup")
 	public void getsignup() {

@@ -74,5 +74,10 @@ public class LoginServiceImpl implements LoginService {
 			System.out.println(ldto);
 			return ldao.logincheck(ldto);
 		}
+		// id찾기
+		public int searchidcheck(LoginDTO ldto) {
+			System.out.println(ldto);
+			return ldao.searchidcheck(ldto);
+		}
 
 }

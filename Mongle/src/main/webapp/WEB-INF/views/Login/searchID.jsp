@@ -13,7 +13,7 @@
 		<div id="ls"></div>
 		<div id="cn">
 		<h1>ID 찾기</h1>
-			<form action="/Login/resultID" method="post"> 
+			<form action="/Login/searchidcheck" method="post" id="searchidcheck"> 
 				<table>
 					<tr>
 						<th>이름</th>
@@ -37,9 +37,6 @@
 				<br>
 				<div>
 					<input type="submit" value="ID찾기">
-				</div>
-				<div itd="searchresult">
-				
 				</div>
 			</form>
 		</div>

@@ -81,5 +81,12 @@
   	<select id="emailcheck" resultType="org.Mongle.model.LoginDTO">
   	select * from member where email=#{email}
   	</select>
+  	<select id="searchidcheck" resultType="String">
+  	select id from member
+  		where name=#{id} 
+		and bth = #{bth}
+		and number=#{number}
+		and email=#{email}
+  	</select>
 
   </mapper>
