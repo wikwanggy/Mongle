@@ -13,7 +13,7 @@
 		<div id="hd">
 				<header>
 				<div id="tm">
-					<a href="/"><img alt="logo"src="resources/css/mainimg/logo.png" id="logoimg"></a>
+					<a href="/"><img alt="logo"src="/resources/css/mainimg/logo.png" id="logoimg"></a>
 					<ul id="topmenu">
 						<li>
 							<div id="toplist">
@@ -38,7 +38,6 @@
 				<div>
 					<nav>
 						<ul id="menu">
-						<li><a href="/shoppage/shop_board" id="shop_board">상품 등록</a></li>
 							<li><a href="/">HOME</a></li>
 							<li><a href="/shoppage/shop">SHOP</a>
 								<ul>
@@ -100,6 +99,14 @@
 									<th>이메일</th>
 									<td><input type="text" value="${mypage.email}" name="email" readonly></td>
 								</tr>
+								<tr>
+									<th>주소</th>
+									<td><input type="text" value="${mypage.addr}" name="addr" readonly></td>
+								</tr>
+								<tr>
+									<th>전화번호</th>
+									<td><input type="text" value="${mypage.number}" name="number" readonly></td>
+								</tr>
 							</table><br><br>
 							<div>
 								<a href="/mypage/leave?id=${sessionScope.login.id}"><input type="button" value="회원탈퇴" class="btn"></a>
@@ -122,11 +129,11 @@
 						<div id="sns">
 							<ul>
 								<li><a href="#"><img
-										src="../resources/css/mainimg/facebook.PNG" class="img2"></a></li>
+										src="../resources/css/mainimg/FACENBOOK.PNG" class="img2"></a></li>
 								<li><a href="#"><img
-										src="../resources/css/mainimg/insta.PNG" class="img2"></a></li>
+										src="../resources/css/mainimg/INSTA.PNG" class="img2"></a></li>
 								<li><a href="#"><img
-										src="../resources/css/mainimg/twitter.PNG" class="img2"></a></li>
+										src="../resources/css/mainimg/TWITTER.PNG" class="img2"></a></li>
 							</ul>
 						</div>
 					</div>

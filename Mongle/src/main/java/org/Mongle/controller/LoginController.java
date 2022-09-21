@@ -76,6 +76,15 @@ public class LoginController {
 		return new ResponseEntity<>(ls.idcheck(id), HttpStatus.OK);
 
 	}
+	// email 중복체크
+	
+		@GetMapping("/Signup/Signup/emailcheck/{email}")
+		//                  @PathVariable
+		public ResponseEntity<LoginDTO> emailcheck(@PathVariable("email") String email) {
+			System.out.println(email);
+			return new ResponseEntity<>(ls.emailcheck(email), HttpStatus.OK);
+		}
+
 	// 회원 페이지 이동
 	@GetMapping("/mypage/mypage")
 	public void mypagemove(SignupDTO sdto,Model model) {
@@ -121,4 +130,15 @@ public class LoginController {
 		model.addAttribute("paging",new adminPageDTO(cri,total));
 		return "/Admin/Memberlist";
 	}
+	// ID찾기 이동
+	@GetMapping("/Login/searchID")
+	public void getsearchID() {
+		
+	}
+	// PW찾기 이동
+	@GetMapping("/Login/searchPW")
+	public void getsearchPW() {
+		
+	}
+	
 }

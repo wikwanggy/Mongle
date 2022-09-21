@@ -52,17 +52,24 @@ public class LoginServiceImpl implements LoginService {
 		// 회원 탈퇴
 		public void leave(SignupDTO sdto) {
 			ldao.leave(sdto);
-		}// 중복체크
+		}// id중복체크
 		
 		public LoginDTO idcheck(String id) {
 			
 			return ldao.idcheck(id);
 		}
-		@Override
+		// email 중복체크
+
+		public LoginDTO emailcheck(String email) {
+
+		return ldao.emailcheck(email);
+		}
+
+	// 페이징
 		public int total(adminCriteriaDTO cri) {
 			return ldao.total(cri);
 		}
-		@Override
+		// 로그인체크
 		public int logincheck(LoginDTO ldto) {
 			System.out.println(ldto);
 			return ldao.logincheck(ldto);

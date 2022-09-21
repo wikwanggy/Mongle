@@ -21,11 +21,11 @@
 					<div id="sns">
 						<ul>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/facebook.PNG" class="img2"></a></li>
+									src="../resources/css/mainimg/FACEBOOK.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/insta.PNG" class="img2"></a></li>
+									src="../resources/css/mainimg/INSTA.PNG" class="img2"></a></li>
 							<li><a href="#"><img
-									src="../resources/css/mainimg/twitter.PNG" class="img2"></a></li>
+									src="../resources/css/mainimg/TWITTER.PNG" class="img2"></a></li>
 						</ul>
 					</div>
 				</div>

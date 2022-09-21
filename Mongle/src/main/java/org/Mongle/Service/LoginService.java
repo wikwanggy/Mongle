@@ -23,10 +23,15 @@ public interface LoginService {
 	public void modify(SignupDTO sdto);
 	// 회원정보 상세 
 	public void leave(SignupDTO sdto);
-	// 로그인체크
+	// id 중복체크
 	public LoginDTO idcheck(String id);
+	// email 중복체크
+	public LoginDTO emailcheck(String email);
+
 	// memberlist테이블 전체건수 설계
 	public int total(adminCriteriaDTO cri);
-	// 
+	// 로그인체크
 	public int logincheck(LoginDTO ldto);
+	
+
 }

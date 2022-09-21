@@ -16,8 +16,8 @@
   	</select>
   	<!-- 회원가입 -->
   	<insert id="signup">
-  		insert into member(id, password, name, bth, email,gender) 
-	values(#{id},#{password},#{name},#{bth},#{email},#{gender});
+  		insert into member(id, password, name, bth, email,gender,number,addr) 
+	values(#{id},#{password},#{name},#{bth},#{email},#{gender},#{number},#{addr});
   	</insert>
   	<!--회원리스트 -->
 	<select id="list" resultType="org.Mongle.model.SignupDTO">
@@ -78,4 +78,8 @@
   	<select id="idcheck" resultType="org.Mongle.model.LoginDTO">
   			select * from member where id=#{id}
   	</select>
+  	<select id="emailcheck" resultType="org.Mongle.model.LoginDTO">
+  	select * from member where email=#{email}
+  	</select>
+
   </mapper>

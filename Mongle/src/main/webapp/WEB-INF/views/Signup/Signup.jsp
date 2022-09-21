@@ -12,7 +12,7 @@
 </head>
 <body>
 <div id="signup">
-	<img src="/resources/css/signup/signupimg/logo.png" alt="로고"><a href="/"></a>
+	<a href="/"><img src="/resources/css/signup/signupimg/logo.png" alt="로고"></a>
 	<form action="/Signup/Signup" method="post" id="form">
 		<div id="idbox">
 			<h3>아이디</h3>
@@ -64,11 +64,27 @@
 			<h3>이메일</h3>
 			<input type="text" name="email" placeholder="이메일" id="email" class="input"><br>
 		</div>
+		<div id="addrbox">
+			<h3>주소<button type="button" id="searchaddr" >주소찾기</button></h3> 
+			<input id="member_addr" type="text" placeholder="주소" class="input" readonly><br>
+		</div>
 		<div>
-			<input type="submit" value="가입하기" class="input">
+			<input type="text" id="detail_addr" placeholder="상세 주소" class="input"><br>
+		</div>
+		<div id="addrbox1">
+			<input type="text" name="addr_post" placeholder="주소" id="addr_post" class="input"readonly>		
+			<input type="hidden" id="addr" name="addr" >
+		</div>
+		<div id="numberbox">
+			<h3>전화번호</h3>
+			<input type="text" name="number" placeholder="전화번호" id="number" class="input"><br>
+		</div>
+		<div>
+			<input type="submit" value="가입하기" class="input" id="sb_btn">
 		</div>
 	</form>
 </div>
 <script type="text/javascript" src="/resources/js/Signup/Signup.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

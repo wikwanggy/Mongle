@@ -21,8 +21,11 @@ public interface LoginDAO {
 	public void leave(SignupDTO sdto);
 	// id 중복체크
 	public LoginDTO idcheck(String id);
+	// email 중복 체크
+	public LoginDTO emailcheck(String email);
 	// memberlist 전체 테이블 건수 체크
 	public int total(adminCriteriaDTO cri);
-	
+	// 로그인 체크
 	public int logincheck(LoginDTO ldto);
+
 }

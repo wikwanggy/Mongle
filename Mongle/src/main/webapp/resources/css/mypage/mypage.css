@@ -104,7 +104,7 @@ nav{
 	line-height: 50px;
 }
 #main{
-	height: 700px;
+	height: 100%;
 	width: 100%; 
 	display: flex;
 }
@@ -176,6 +176,7 @@ footer {
 	width: 100%; /* 너비 */
 	height: 100px; /* 높아 */
 	border-top: 1px solid #222; /* 위쪽에 가로선 추가 */
+	margin-top: 10px;
 }
 #bottomMenu {
 	width: 100%;

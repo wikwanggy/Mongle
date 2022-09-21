@@ -7,12 +7,9 @@ public class LoginDTO {
 	private String name ;
 	private String gender;
 	private String bth;
-	public String getBth() {
-		return bth;
-	}
-	public void setBth(String bth) {
-		this.bth = bth;
-	}
+	private String addr;
+	private String number;
+	
 	public String getId() {
 		return id;
 	}
@@ -43,10 +40,28 @@ public class LoginDTO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public String getBth() {
+		return bth;
+	}
+	public void setBth(String bth) {
+		this.bth = bth;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number = number;
+	}
 	@Override
 	public String toString() {
 		return "LoginDTO [id=" + id + ", password=" + password + ", email=" + email + ", name=" + name + ", gender="
-				+ gender + ", bth=" + bth + "]";
+				+ gender + ", bth=" + bth + ", addr=" + addr + ", number=" + number + "]";
 	}
 	
 	

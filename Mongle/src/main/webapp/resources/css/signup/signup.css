@@ -13,7 +13,7 @@ body{
 	display:flex;
 	margin: 0 auto;
 	width: 100% auto;
-	height: 960px;
+	height: 1300px;
 	text-align: center;
 	position: relative;
 	background-color: rgba(255, 235, 98);
@@ -22,16 +22,17 @@ body{
 }
 #signup{
 	width:800px;
-	height: 860px;
-	position: absolute;	
+	height: 1220px;
+	position: absolute;
 	background-color: white;
 	border-radius:100px; 
 	box-shadow: 10px 10px 10px gray; 
 	text-align: center;
+	
 }
 div{
-	height: 80px;
-	margin-top: 10px;
+	height: 70px;
+	margin-top: 20px;
 }
 img{
 	width: 100px;
@@ -42,8 +43,8 @@ img{
 }
 
 .input{
-	width: 360px;
-	height: 40px;
+	width: 540px;
+	height: 50px;
 	border-radius: 25px;
 	font-size: 25px;
 	text-align: center;
@@ -81,4 +82,33 @@ img{
 	background: rgba(195,195,195,0.5);
 	border:1px solid rgba(195,195,195,0.5);
 	outline:none;
+	cursor: pointer;
+}
+#addrbox{
+	position: relative;	
+}
+#searchaddr{
+	width: 60px;
+	height: 28px;
+	position: absolute;
+	top: 35px;
+	right: 150px;
+	border-radius: 25px;
+	background-color: transparent;
+}
+#searchaddr:hover {
+	background-color: rgba(255, 235, 98);
+	border: 1px solid rgba(255, 235, 98);
+	cursor: pointer;
+}
+#sb_btn:hover{
+	background-color: rgba(255, 235, 98);
+	border: 1px solid rgba(255, 235, 98);
+	cursor: pointer;
+}
+#addrbox1{
+	margin-top: 0px;
+}
+#numberbox{
+	margin-top: 0px;
 }

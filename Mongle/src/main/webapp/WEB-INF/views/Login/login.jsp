@@ -36,7 +36,11 @@
 		</form>
 		<form>
 			<input class="btn" type="submit" value="Sign UP"
-				formaction="/Signup/Signup">
+				formaction="/Signup/Signup"><br>
+			<input class="search" type="submit" value="id찾기"
+				formaction="/Login/searchID">
+			<input class="search" type="submit" value="pw찾기"
+				formaction="/Login/searchPW">
 			<p>제작자 3조</p>
 		</form>
 	</div>
