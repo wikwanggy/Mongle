@@ -111,6 +111,19 @@ $(document).ready(function() {
 		
 		$("#bth").val(a);
 	})
+		$(document).on("keyup","input[name=bth_yy]",function(){
+		var val= $(this).val();
+		 
+		if(val.replace(/[0-9]/g, "").length > 0) {
+		        alert("숫자만 입력해 주십시오.");
+		        $(this).val('');
+		    }
+
+		    if(val >2022) {
+		        alert("2022년까지만 입력해 주십시오.");
+		        $(this).val('');
+		    }
+	})
 	$(document).on("keyup","input[name=bth_dd]",function(){
 		var val= $(this).val();
 		 

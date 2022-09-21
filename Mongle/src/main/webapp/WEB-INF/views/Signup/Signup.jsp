@@ -33,7 +33,7 @@
 		</div>
 		<div>
 			<h3>생년월일</h3>
-			<input type="text" placeholder="년" id="yy" class="bth" maxlength="4" name="bth_yy">
+			<input type="text" placeholder="년" id="yy" class="bth"  maxlength="4" name="bth_yy">
 			<select id="mm" class="bth">
 				<option>월</option>
 				<option value="01">1</option>
