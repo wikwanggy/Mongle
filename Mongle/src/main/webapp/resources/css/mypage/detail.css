@@ -115,6 +115,7 @@ nav{
 }
 
 #cn{
+	margin:0 auto;
 	width: 900px;
 	height: 100%;	
 	text-align: center;
@@ -123,10 +124,7 @@ h2{
 	height:50px;
 	font-size: 45px;
 }
-h2{
-	height:50px;
-	font-size: 45px;
-}
+
 table{
 	width: 900px;	
 	height: 100%;

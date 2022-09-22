@@ -56,17 +56,12 @@
 									<li><a href="/place/school">학교/유치원</a></li>
 									<li><a href="/place/cafe">식당/카페</a></li>
 								</ul></li>
-							<li><a href="/event/eventmain">EVENT</a>
-								<ul>
-									<li><a href="#">진행 이벤트</a></li>
-									<li><a href="#">종료 이벤트</a></li>
-									<li><a href="#">이벤트 당첨</a></li>
-								</ul></li>
 							<li><a href="/community/list">커뮤니티</a>
 								<ul>
 									<li><a href="/community/list">게시판</a></li>
 									<li><a href="/community/review">리뷰</a></li>
 								</ul></li>
+							<li><a href="/event/eventmain">EVENT</a>
 						</ul>
 					</nav>
 				</div>

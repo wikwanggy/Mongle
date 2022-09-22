@@ -79,7 +79,7 @@
 			<section id="st_1"></section>
 			<section id="st_2">
 				<div id="st_box">
-					<h1>
+					<h1 id="h1">
 						<label id="st1_label">SHOP</label>
 					</h1>
 					<p id="st_text1">
@@ -99,7 +99,7 @@
 				</div>
 			</div>
 			<section id="st_3">
-				<h2>
+				<h2 id="h2">
 					<label id="st1_label">HOTEL</label>
 				</h2>
 				<p id="st_text2" class="st1">

@@ -2,10 +2,10 @@
  * 
  */
 
-let h1_1 = document.querySelector("h1")
+let h1_1 = document.querySelector("#h1")
 let h1_2 = document.querySelector("#st_text1")
 let h1_3 = document.querySelector("#btn_a")
-let	h2_1 = document.querySelector("h2")
+let	h2_1 = document.querySelector("#h2")
 let h2_2 = document.querySelector(".st1")
 let h2_3 = document.querySelector("#btn_a1")
 	window.addEventListener("scroll",function(){
