@@ -33,7 +33,9 @@ public interface LoginService {
 	// 로그인체크
 	public int logincheck(LoginDTO ldto);
 	// id찾기
-	public int searchidcheck(LoginDTO ldto);
+	public LoginDTO searchidcheck(String name, String email, String number);
+	// pw 찾기
+	public LoginDTO searchpwcheck(String id, String name, String email, String number);
 	
 
 }

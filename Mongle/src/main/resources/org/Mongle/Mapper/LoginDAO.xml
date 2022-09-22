@@ -81,12 +81,19 @@
   	<select id="emailcheck" resultType="org.Mongle.model.LoginDTO">
   	select * from member where email=#{email}
   	</select>
-  	<select id="searchidcheck" resultType="user">
+  	<select id="searchidcheck" resultType="org.Mongle.model.LoginDTO">
   	select id from member
-  		where name=#{id} 
-		and bth = #{bth}
+  		where name=#{name} 
 		and number=#{number}
 		and email=#{email}
   	</select>
+  	<select id="searchpwcheck" resultType="org.Mongle.model.LoginDTO">
+  	select password from member
+  		where id=#{id}
+   		and name=#{name} 
+		and number=#{number}
+		and email=#{email}
+  	</select>
+  	
 
   </mapper>

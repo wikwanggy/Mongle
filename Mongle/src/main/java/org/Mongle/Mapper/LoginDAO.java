@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.Mongle.model.LoginDTO;
 import org.Mongle.model.SignupDTO;
 import org.Mongle.model.adminCriteriaDTO;
+import org.apache.ibatis.annotations.Param;
 //
 public interface LoginDAO {
 	// 로그인 select
@@ -28,6 +29,7 @@ public interface LoginDAO {
 	// 로그인 체크
 	public int logincheck(LoginDTO ldto);
 	// id찾기
-	public int searchidcheck(LoginDTO ldto);
-
+	public LoginDTO searchidcheck(@Param("name") String name, @Param("email") String email, @Param("number") String number);
+	// pw찾기
+	public LoginDTO searchpwcheck(String id, String name, String email, String number);
 }

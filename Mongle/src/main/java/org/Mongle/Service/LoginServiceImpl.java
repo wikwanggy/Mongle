@@ -71,13 +71,22 @@ public class LoginServiceImpl implements LoginService {
 		}
 		// 로그인체크
 		public int logincheck(LoginDTO ldto) {
-			System.out.println(ldto);
+			System.out.println("service="+ldto);
 			return ldao.logincheck(ldto);
 		}
 		// id찾기
-		public int searchidcheck(LoginDTO ldto) {
-			System.out.println(ldto);
-			return ldao.searchidcheck(ldto);
+		public LoginDTO searchidcheck(String name, String email, String number) {
+			System.out.println("service="+name);
+			System.out.println("service="+email);
+			System.out.println("service="+number);
+			return ldao.searchidcheck(name,email,number);
 		}
-
+		// pw찾기
+		public LoginDTO searchpwcheck(String id,String name, String email, String number) {
+			System.out.println("service="+id);
+			System.out.println("service="+name);
+			System.out.println("service="+email);
+			System.out.println("service="+number);
+			return ldao.searchpwcheck(id,name,email,number);
+		}
 }

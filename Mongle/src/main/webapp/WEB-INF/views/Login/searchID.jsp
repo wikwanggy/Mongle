@@ -20,8 +20,31 @@
 						<td><input type="text" id="name" name="name"></td>
 					</tr>
 					<tr>
-						<th>생년월일</th>
-						<td><input type="text" id="bth" name="bth"></td>
+						<th>이메일</th>
+						<td><input type="text" id="email" name="email"></td>
+					</tr>
+
+					<tr>
+						<th>전화번호</th>
+						<td><input type="text" id="number" name="number"></td>
+					</tr>
+				</table>
+				<br>
+				<br>
+				<div>
+					<input type="submit" value="ID찾기">
+				</div>
+			</form>
+			<!-- <h1>PW 찾기</h1>
+			<form action="/Login/searchidcheck" method="post" id="searchidcheck"> 
+				<table>
+					<tr>
+						<th>이름</th>
+						<td><input type="text" id="name" name="name"></td>
+					</tr>
+					<tr>
+						<th>아이디</th>
+						<td><input type="text" id="id" name="id"></td>
 					</tr>
 					<tr>
 						<th>이메일</th>
@@ -38,7 +61,7 @@
 				<div>
 					<input type="submit" value="ID찾기">
 				</div>
-			</form>
+			</form> -->
 		</div>
 		<div id="rs"></div>
 	</div>

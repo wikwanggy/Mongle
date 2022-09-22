@@ -49,14 +49,32 @@ public class LoginController {
 	// 로그인 체크
 	@PostMapping("/Login/logincheck")
 	public ResponseEntity<String> logincheck(@RequestBody LoginDTO ldto) {
-		System.out.println(ldto);
+		System.out.println("controller="+ldto);
 		int result = ls.logincheck(ldto);
 		System.out.println("result 결과" + result);
 		
 		return result==1?new ResponseEntity<>("success", HttpStatus.OK)
 						:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-	
+	// id찾기
+		@GetMapping("/Login/searchidcheck/{name}/{email}/{number}")
+		public ResponseEntity<LoginDTO> searchidcheck(@PathVariable String name,@PathVariable String email,@PathVariable String number) {
+			System.out.println("controller="+name);
+			System.out.println("controller="+email);
+			System.out.println("controller="+number);
+			return new ResponseEntity<>(ls.searchidcheck(name,email,number), HttpStatus.OK);
+
+	}
+	// pw찾기
+	@GetMapping("/Login/searchpwcheck/{id}/{name}/{email}/{number}")
+	public ResponseEntity<LoginDTO> searchpwcheck(@PathVariable String id,@PathVariable String name,@PathVariable String email,@PathVariable String number) {
+	System.out.println("controller="+id);
+	System.out.println("controller="+name);
+	System.out.println("controller="+email);
+	System.out.println("controller="+number);
+	return new ResponseEntity<>(ls.searchpwcheck(id,name,email,number), HttpStatus.OK);
+
+	}	
 	// 회원가입 이동
 	@GetMapping("/Signup/Signup")
 	public void getsignup() {
@@ -139,7 +157,7 @@ public class LoginController {
 	// PW찾기 이동
 	@GetMapping("/Login/searchPW")
 	public void getsearchPW() {
-		
+			
 	}
 	
 }
