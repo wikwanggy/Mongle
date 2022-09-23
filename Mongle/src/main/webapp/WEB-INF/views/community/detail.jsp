@@ -94,7 +94,7 @@
 			<c:choose>
 				<c:when test="${sessionScope.login!=null}">
 					<div class="detail_input">
-						<div><label>댓글</label></div>
+						<div><label>댓글</label><input type="hidden" name="sessionid" value="${sessionScope.login.id}"></div>
 						<div><textarea cols="115" rows="7" placeholder="댓글 입력" id="reply"></textarea></div>
 						<div id="reply_wrt"><input type="button" class="btn_board" id="replywrt" value="작성"></div>
 					</div>

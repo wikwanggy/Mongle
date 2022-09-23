@@ -19,12 +19,13 @@ $(document).ready(function(){
 	})
 	//댓글
 	var bnoval=$("input[name='bno']").val();
+	//var idvv=$("input[name='id']").val();
 	
 	list(bnoval);
 	
 	$("#replywrt").on("click",function(){
 		var replyval=$("#reply").val();
-		var idval="qwer1234";
+		var idval=$("input[name='sessionid']").val();
 		
 		if(replyval==''){
 			alert("내용을 입력하세요.");
@@ -82,6 +83,7 @@ function list(bno){
 			str+="</li>"
 		}
 	$("#replyUL").html(str);
+	
 	})
 }
 function remove(rno){
