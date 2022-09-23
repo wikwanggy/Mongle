@@ -37,14 +37,14 @@
 			<td style="text-align:center;">${ntlist.id}</td>
 		</tr>
 		</c:forEach>
-		<c:choose>
+	</table>
+	<c:choose>
 			<c:when test="${sessionScope.login.id=='admin'}">
 				<tr>
 					<td><input type="button" value="글쓰기" class="btn_board" onclick="location.href='http://localhost:8080/community/noticewrt'"></td>
 				</tr>
 			</c:when>
 		</c:choose>
-	</table>
 </div>
 </div>
 </body>

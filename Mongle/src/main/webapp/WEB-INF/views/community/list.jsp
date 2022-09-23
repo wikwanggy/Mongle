@@ -20,8 +20,6 @@
 		<li><a href="http://localhost:8080/community/notice">공지사항</a></li>
 	</ul>
 </div>
-
-
 <div class="board_l">
 	<div style="margin-left:40px;">
 		<b class="rv_b">커뮤니티</b>
@@ -59,7 +57,12 @@
 		<c:forEach items="${list}" var="boardlist">
 			<tr height="40px">
 				<td>${boardlist.bno}</td>
-				<td><a href="detail?bno=${boardlist.bno}">${boardlist.title}</a></td>
+				<td>
+					<a href="detail?bno=${boardlist.bno}">${boardlist.title}
+					<c:if test="${boardlist.count ne 0}">
+						<small><b>[&nbsp;<c:out value="${boardlist.count}"/>&nbsp;]</b></small>
+					</c:if></a>
+				</td>
 				<td>${boardlist.regdate}</td>
 				<td>${boardlist.cnt}</td>
 				<td>${boardlist.id}</td>

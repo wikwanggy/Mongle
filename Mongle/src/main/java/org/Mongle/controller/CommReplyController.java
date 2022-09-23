@@ -37,4 +37,11 @@ public class CommReplyController {
 		return result==1?new ResponseEntity<>("success",HttpStatus.OK)
 				:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	@RequestMapping (value = "/commreplies/modify", method = RequestMethod.PUT)
+	public ResponseEntity<String> commreplymodify(@RequestBody CommReplyupVo rep){ //비동기식으로 전달해야 할 경우 @RequestBody
+		System.out.println(rep);
+		int result=crs.modify(rep);
+		return result==1?new ResponseEntity<>("success",HttpStatus.OK)
+				:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 }

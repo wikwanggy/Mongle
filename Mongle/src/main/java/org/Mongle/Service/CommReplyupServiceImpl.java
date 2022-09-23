@@ -21,4 +21,7 @@ public class CommReplyupServiceImpl implements CommReplyService {
 	public int remove(int rno) {
 		return crm.remove(rno);
 	}
+	public int modify(CommReplyupVo rep) {
+		return crm.modify(rep);
+	}
 }

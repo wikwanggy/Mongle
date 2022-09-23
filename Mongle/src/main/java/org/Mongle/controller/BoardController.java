@@ -1,12 +1,17 @@
 package org.Mongle.controller;
 
+import java.util.ArrayList;
+
 import org.Mongle.Service.BoardService;
 import org.Mongle.model.CommBoardVo;
 import org.Mongle.model.CommCriterionVo;
 import org.Mongle.model.CommPageVo;
+import org.Mongle.model.CommUVo;
 import org.Mongle.model.NoticeVo;
 import org.Mongle.model.ReviewVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +37,8 @@ public class BoardController {
 	public String detail(CommBoardVo bvo, Model model) {
 		System.out.println(bvo);
 		model.addAttribute("detail", bs.detail(bvo));
+		model.addAttribute("move", bs.movepage(bvo.getBno()));
+		bs.replycount(bvo.getBno());
 		return "/community/detail";
 	}
 	@RequestMapping(value="/community/detailmd", method=RequestMethod.POST)
@@ -40,6 +47,12 @@ public class BoardController {
 		model.addAttribute("detailmd",bs.detail(bvo));
 		return "/community/detailmd";
 	}
+	/*@RequestMapping(value = "/community/detailview", method = RequestMethod.GET)
+	public String move(CommBoardVo bvo,Model model) {
+		System.out.println("move");
+		model.addAttribute("move", bs.movepage(bvo.getBno()));
+		return "/community/detailview";
+	}*/
 	// 게시판 수정 및 삭제 페이지
 	@RequestMapping(value = "/community/update", method = RequestMethod.POST)
 	public String update(CommBoardVo bvo,RedirectAttributes rttr) {
@@ -113,5 +126,9 @@ public class BoardController {
 	public String ntdelete(NoticeVo nv) {
 		bs.ntdelete(nv);
 		return "redirect:/community/notice";
+	}
+	@RequestMapping(value = "/community/uplist", method = RequestMethod.GET)
+	public ResponseEntity<ArrayList<CommUVo>> CommuploadAjaxPost(int bno) {
+	    return new ResponseEntity<>(bs.uplist(bno),HttpStatus.OK); //통신상태가 원활하면
 	}
 }

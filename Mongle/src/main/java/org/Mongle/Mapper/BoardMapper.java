@@ -26,4 +26,7 @@ public interface BoardMapper {
 	public NoticeVo ntdetailmd(NoticeVo nv);
 	public void ntupdate(NoticeVo nv);
 	public void ntdelete(NoticeVo nv);
+	
+	public CommBoardVo movepage(int bno);
+	public void replycount(int bno);
 }

@@ -2,6 +2,14 @@
  * 
  */
 $(document).ready(function(){
+	/*$("#uploadbtn").on("click",function(){
+		alert("aaa");
+		if($("input[name='title']").val().trim() == ''){
+			alert("제목을 입력하세요.");
+			$("input[name='title']").focus();
+			return false;
+		}
+	})*/
 	//검색
 	$("#searching").on("click",function(){
 		//pageNum을 1로 초기화한 후
@@ -18,11 +26,13 @@ $(document).ready(function(){
 		var replyval=$("#reply").val();
 		var idval="qwer1234";
 		
-		replywrt({bno:bnoval,reply:replyval,id:idval});
 		if(replyval==''){
 			alert("내용을 입력하세요.");
 			return;
 		}
+		
+		replywrt({bno:bnoval,reply:replyval,id:idval});
+		
 		console.log(replyval);
 	})
 	$("#chat").on("click",".remove",function(){
@@ -31,6 +41,15 @@ $(document).ready(function(){
 		if(result){
 			remove(rno);
 		}
+	})
+	$("#chat").on("click",".update",function(){
+		var rno=$(this).data("rno");
+		var reply=$('#replycontent'+rno).val();
+		if(reply==''){
+			alert("내용을 입력하세요.");
+			return;
+		}
+		modify({rno:rno,reply:reply});
 	})
 })
 function replywrt(reply){
@@ -42,7 +61,7 @@ function replywrt(reply){
 		contentType:"application/json; charset=utf-8",
 		success:function(result){
 			if(result=="success"){
-				alert("작성 성공");
+				//alert("작성 성공");
 				location.reload();
 			}
 		}
@@ -56,9 +75,10 @@ function list(bno){
 		
 		for(var i=0;i<data.length;i++){
 			str+="<li>"
-			str+=data[i].id+"<span> | </span><span>"+data[i].replydate+"</span><p><pre>"+data[i].reply+"</pre></p>"
-			//str+="<input type='button' class='modify' value='수정' data-rno="+data[i].rno+">"
-			str+="<input type='button' class='remove' value='삭제' data-rno="+data[i].rno+">"
+			str+=data[i].id+"<span> | </span><span>"+data[i].replydate+"</span>"
+			str+="<pre><textarea cols='115' id='replycontent"+data[i].rno+"'>"+data[i].reply+"</textarea></pre>"
+			str+="<input type='button' class='update' id='reply_btn' value='수정' data-rno='"+data[i].rno+"' data-reply='"+data[i].reply+"'>"
+			str+="<input type='button' class='remove' id='reply_btn' value='삭제' data-rno='"+data[i].rno+"'>"
 			str+="</li>"
 		}
 	$("#replyUL").html(str);
@@ -71,6 +91,20 @@ function remove(rno){
 		success:function(result){
 			if(result=="success"){
 				//alert("삭제가 완료되었습니다.");
+				location.reload();
+			}
+		}
+	})
+}
+function modify(reply){
+	console.log(reply);
+	$.ajax({
+		type:"put",
+		url:"/commreplies/modify",
+		data:JSON.stringify(reply),
+		contentType:"application/json; charset=utf-8",
+		success:function(result){
+			if(result=="success"){
 				location.reload();
 			}
 		}

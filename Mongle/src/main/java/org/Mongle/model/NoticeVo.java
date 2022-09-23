@@ -1,5 +1,7 @@
 package org.Mongle.model;
 
+import java.util.ArrayList;
+
 public class NoticeVo {
 	private int bno;
 	private String title;
@@ -7,7 +9,6 @@ public class NoticeVo {
 	private String writer;
 	private String id;
 	private String regdate;
-	
 	public int getBno() {
 		return bno;
 	}

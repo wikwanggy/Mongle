@@ -3,8 +3,10 @@ package org.Mongle.Service;
 import java.util.ArrayList;
 
 import org.Mongle.Mapper.BoardMapper;
+import org.Mongle.Mapper.CommUMapper;
 import org.Mongle.model.CommBoardVo;
 import org.Mongle.model.CommCriterionVo;
+import org.Mongle.model.CommUVo;
 import org.Mongle.model.NoticeVo;
 import org.Mongle.model.ReviewVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +18,18 @@ public class BoardServiceImpl implements BoardService{
 	
 	@Autowired
 	BoardMapper bm;
+	@Autowired
+	CommUMapper um;
 	
 	public ArrayList<CommBoardVo> list(CommCriterionVo cri) {
 		return bm.list(cri);
 	}
 	public void write(CommBoardVo bvo) {
 		bm.write(bvo);
+		bvo.getAttach().forEach(attach->{
+			attach.setBno(bvo.getBno());
+			um.upload(attach);
+		});
 	}
 	//@Transactional
 	public CommBoardVo detail(CommBoardVo bvo) {
@@ -64,5 +72,15 @@ public class BoardServiceImpl implements BoardService{
 	}
 	public void ntdelete(NoticeVo nv) {
 		bm.ntdelete(nv);
+	}
+	//첨부파일 조회
+	public ArrayList<CommUVo> uplist(int bno){
+		return um.uplist(bno);
+	}
+	public CommBoardVo movepage(int bno) {
+		return bm.movepage(bno);
+	}
+	public void replycount(int bno) {
+		bm.replycount(bno);
 	}
 }

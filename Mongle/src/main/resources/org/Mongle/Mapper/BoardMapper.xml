@@ -3,6 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.Mongle.Mapper.BoardMapper">
+	<update id="replycount" parameterType="int">
+		update com_board b
+		set b.count = (select count(rno) from com_reply where bno = #{bno})
+		where b.bno = #{bno};
+	</update>
+	<select id="movepage" parameterType="int" resultType="org.Mongle.model.CommBoardVo">
+		select *
+		from(select
+		bno,
+		lead(bno,1,9999) over(order by bno) as next,
+		lag(bno,1,9999) over(order by bno) as last,
+		title,
+		lead(title,1,9999) over(order by bno) as nexttitle,
+		lag(title,1,9999) over(order by bno) as lasttitle
+		
+		from com_board
+		order by bno desc)as move
+		where bno=#{bno}
+	</select>
    <select id="list" resultType="org.Mongle.model.CommBoardVo">
   		select *
   		from(
@@ -32,7 +51,7 @@
   	<update id="cntup">
    		update com_board
    		set cnt=cnt+1
-   		where bno = ${bno}
+   		where bno = #{bno}
    </update>
    <select id="total" resultType="int">
    		select count(*) from com_board
@@ -52,6 +71,11 @@
 		</if>
    </select>
 	<insert id="write">
+		<!-- insert를 하기 전(BEFORE)에 bno값을 구하라는 것 -->
+   		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
+   			select max(bno)+1 bno
+			from com_board
+   		</selectKey>
 		insert into com_board(bno, title, content, id)
 		values(#{bno}, #{title}, #{content}, #{id})
 	</insert>
@@ -79,8 +103,13 @@
 	<select id="notice" resultType="org.Mongle.model.NoticeVo">
 		select *
 		from notice
+		order by bno desc
 	</select><!--  -->
 	<insert id="noticewrt">
+			<selectKey keyProperty="bno" order="BEFORE" resultType="int"> 
+   			select max(bno)+1 bno
+			from notice
+   			</selectKey>
 		insert into notice(bno, title, content, id)
 		values(#{bno}, #{title}, #{content}, #{id})
 	</insert>
@@ -99,4 +128,5 @@
 	<delete id="ntdelete">
 		delete from notice where bno=#{bno}
 	</delete>
+	
 </mapper>

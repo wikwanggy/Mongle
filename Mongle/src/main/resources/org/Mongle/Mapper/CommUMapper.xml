@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="org.Mongle.Mapper.CommUMapper">
+	<insert id="upload">
+   		insert into com_attach(uuid, uploadPath, filename, image, bno)
+   		values(#{uuid}, #{uploadPath}, #{filename},#{image},#{bno})
+	</insert>
+	<select id="uplist" resultType="org.Mongle.model.CommUVo">
+   		select * from com_attach where bno=#{bno}
+	</select>
+	<!-- <insert id="ntupload">
+   		insert into nt_attach(uuid, uploadPath, filename, image, bno)
+   		values(#{uuid}, #{uploadPath}, #{filename},#{image},#{bno})
+	</insert> -->
+</mapper>

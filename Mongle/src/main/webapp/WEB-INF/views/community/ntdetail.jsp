@@ -7,10 +7,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../resources/css/boardlist.css">
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/resources/js/comAttach.js"></script>
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
+<div class="commu_top">
+		<ul>
+			<li><a href="http://localhost:8080/community/list">커뮤니티</a></li>
+			<li><a href="http://localhost:8080/community/review">사용후기</a></li>
+			<li><a href="http://localhost:8080/community/notice"><b>공지사항</b></a></li>
+		</ul>
+	</div>
 <div id="detail_all">
+
 <div class="board_l">
 	<div style="margin-left:40px;">
 		<b class="rv_b">공지사항/펫티켓</b>
@@ -36,7 +46,7 @@
 			<c:when test="${sessionScope.login.id=='admin'}">
 				<tr>
 					<td colspan="2" id="btn_board_detail">
-					<input type="submit" value="삭제" class="btn_board" formaction="ntdelete">
+					<input type="submit" value="삭제" class="btn_board" formaction="ntdelete" onclick="return confirm('삭제 후엔 복구할 수 없습니다. 정말 삭제하시겠습니까?')">
 					<input type="submit" value="수정" class="btn_board" formaction="ntdetailmd?bno=${ntdetail.bno}">
 					</td>
 				</tr>

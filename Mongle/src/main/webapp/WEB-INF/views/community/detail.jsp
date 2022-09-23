@@ -8,10 +8,18 @@
 <link rel="stylesheet" href="../resources/css/boardlist.css">
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="/resources/js/community.js"></script>
+<script type="text/javascript" src="/resources/js/comAttach.js"></script>
 <title>Insert title here</title>
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
+<div class="commu_top">
+		<ul>
+			<li><a href="http://localhost:8080/community/list"><b>커뮤니티</b></a></li>
+			<li><a href="http://localhost:8080/community/review">사용후기</a></li>
+			<li><a href="http://localhost:8080/community/notice">공지사항</a></li>
+		</ul>
+	</div>
 <div id="detail_all">
 <form method="post">
 	<div class="board_l">
@@ -43,7 +51,7 @@
 		<tr>
 			<td colspan="2" id="btn_board_detail">
 			
-					<input type="submit" value="삭제" class="btn_board" formaction="boarddelete">
+					<input type="submit" value="삭제" class="btn_board" formaction="boarddelete" onclick="return confirm('삭제 후엔 복구할 수 없습니다. 정말 삭제하시겠습니까?')">
 					<input type="submit" value="수정" class="btn_board" formaction="detailmd?bno=${detail.bno}">
 				
 			</td>
@@ -51,15 +59,33 @@
 		</c:when>
 			</c:choose>
 	</table>
-	<div class="tolist"><a href="http://localhost:8080/community/list">목록</a></div>
 	</div>
 </form>
-<div>
-	<ul>
-		<li></li>
-	</ul>
+<div class="board_l">
+	<div id="movepage">
+		<c:choose>
+			<c:when test="${move.next!=9999}">
+				<button class="movepage_btn" onclick="location.href='detail?bno=${move.next}'">다음 글</button>
+				<span class="movepage_left"><a href="detail?bno=${move.next}">${move.nexttitle}</a></span>
+			</c:when>
+			<c:when test="${move.next==9999}">
+				<button class="movepage_btn" disabled>다음 글이 없습니다.</button>
+			</c:when>
+		</c:choose>
+		<br>
+		<c:choose>
+			<c:when test="${move.last!=9999}">
+				<button class="movepage_btn" onclick="location.href='detail?bno=${move.last}'">이전 글</button>
+				<span class="movepage_left"><a href="detail?bno=${move.last}">${move.lasttitle}</a></span>
+			</c:when>
+			<c:when test="${move.last==9999}">
+				<button class="movepage_btn" disabled>다음 글이 없습니다.</button>
+			</c:when>
+		</c:choose>
+	</div>
+	<div class="tolist"><a href="http://localhost:8080/community/list">목록</a></div>
+</div>	
 </div>
-
 
 <div style="padding:20px">
 <table id="detail_reply">
@@ -90,7 +116,7 @@
 	</tr>
 </table>
 
-</div></div>
+</div>
 </body>
 <jsp:include page="../footer.jsp"/>
 </html>

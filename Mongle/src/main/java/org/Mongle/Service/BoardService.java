@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.Mongle.model.CommBoardVo;
 import org.Mongle.model.CommCriterionVo;
+import org.Mongle.model.CommUVo;
 import org.Mongle.model.NoticeVo;
 import org.Mongle.model.ReviewVo;
 
@@ -27,4 +28,10 @@ public interface BoardService {
 	public void ntupdate(NoticeVo nv);
 	public void ntdelete(NoticeVo nv);
 	
+	//파일 조회
+	public ArrayList<CommUVo> uplist(int bno);
+	
+	public CommBoardVo movepage(int bno);
+	
+	public void replycount(int bno);
 }

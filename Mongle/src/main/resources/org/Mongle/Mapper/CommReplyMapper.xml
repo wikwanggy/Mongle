@@ -14,4 +14,9 @@
 		delete from com_reply
 		where rno=#{rno}
 	</delete>
+	<update id="modify">
+	update com_reply
+	set reply=#{reply}
+	where rno=#{rno}
+</update>
 </mapper>

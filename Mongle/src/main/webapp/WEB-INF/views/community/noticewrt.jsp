@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../resources/css/boardlist.css">
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/resources/js/comUpload.js"></script>
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
@@ -14,6 +16,8 @@
 	<div style="margin-left:40px;">
 		<b class="rv_b">공지사항/펫티켓</b>
 	</div>
+	<c:choose>
+			<c:when test="${sessionScope.login.id=='admin'}">
 <form method="post">
 	<table border="1" class="board_write">
 		<tr>
@@ -25,23 +29,26 @@
 			<td><textarea cols="115" rows="30" placeholder="내용" name="content"></textarea></td>
 		</tr>
 		<tr>
-			<td><input type="file" name="uploadFile" multiple>
+			<td><input type="file" name="ntuploadFile" multiple>
 				<div id="uploadResult">
 					<ul>
-						
+						 
 					</ul>
 				</div>
 			</td>
 		</tr>
-		<c:choose>
-			<c:when test="${sessionScope.login.id=='admin'}">
+		
 				<tr>
-					<td><input type="submit" value="올리기" id="uploadbtn" class="btn_board"></td>
+					<td><input type="button" value="올리기" id="ntuploadbtn" class="btn_board"></td>
 				</tr>
-			</c:when>
-		</c:choose>
+			
 	</table>
 </form>
+			</c:when>
+			<c:otherwise>
+				<%response.sendRedirect("http://localhost:8080/");%>
+			</c:otherwise>
+		</c:choose>
 </div>
 </body>
 <jsp:include page="../footer.jsp"/>
