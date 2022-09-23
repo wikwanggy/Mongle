@@ -83,11 +83,10 @@
 
 		<!-- main 전체 -->
 		<div id="main">
-			<div>
+			<div id="main_left">
 				<!-- center 시작 -->
 				<div id="cn">
-					<input type="button" value="글쓰기"
-						onclick="location.href='http://localhost:8080/board/detail'">
+					<a href="/shoppage/shop_board"><input type="button" value="글쓰기"></a>
 					<form action="/shoppage/shop" id="searchForm" method="get">
 						<select name="type">
 							<option value="T">이름</option>
@@ -98,7 +97,6 @@
 							type="text" name="amount" value="${paging.scri.amount}" hidden="">
 						<input type="button" value="검색">
 					</form>
-					<a href="/shoppage/shop_board"><button value="상품등록"></button></a>
 					<ul id="cnm">
 						<li><a href="#">인기도순</a></li>
 						<li><a href="#">누적판매순</a></li>
@@ -108,7 +106,7 @@
 					</ul>
 					<br> <br> <br>
 					<div class="Goods">
-						<ul class="Goodss">
+						<ul class="Goodss">						
 							<c:forEach items="${shop}" var="shoplist">
 								<li>
 									<div>
@@ -117,7 +115,7 @@
 									<div>
 										<a href="/shoppage/Detail?bno=${shoplist.bno}"> <img
 											class="img" src="/display?filename=${shoplist.filem}"></a>
-									</div>									
+									</div>
 									<div>
 										상품명<span class="font">${shoplist.w_name}</span>
 									</div>

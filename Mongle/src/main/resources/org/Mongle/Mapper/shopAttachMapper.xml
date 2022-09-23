@@ -8,8 +8,8 @@
 	<!-- 파일경로, 파일명, uuid, image여부를 attach테이블 insert -->
 	<insert id="insert">
 		insert into product(p_uid, p_name, p_image, p_upload,
-		bno)
-		value(#{p_uid}, #{p_name}, #{p_image}, #{p_upload}, #{bno})
+		vision,bno)
+		value(#{p_uid}, #{p_name}, #{p_image}, #{p_upload}, #{vision}, #{bno})
 	</insert>
 
 	<select id="attachlist"
@@ -17,7 +17,4 @@
 		select*from product where bno=#{bno};
 	</select>
 
-	<select id="zlist" resultType="org.Mongle.model.ZAttachFileVO">
-		select*from z_img where bno=#{bno};
-	</select>
 </mapper>

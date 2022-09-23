@@ -11,6 +11,8 @@ public class SAttachFileVO {
 	private boolean p_image;
 	// 5.게시판 번호
 	private int bno;
+	// 6.사진 구분
+	private String vision;
 	
 	public String getP_upload() {
 		return p_upload;
@@ -42,11 +44,17 @@ public class SAttachFileVO {
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
+	
+	public String getVision() {
+		return vision;
+	}
+	public void setVision(String vision) {
+		this.vision = vision;
+	}
 	@Override
 	public String toString() {
 		return "SAttachFileVO [p_upload=" + p_upload + ", p_name=" + p_name + ", p_uid=" + p_uid + ", p_image="
-				+ p_image + ", bno=" + bno + "]";
-	}
-	
+				+ p_image + ", bno=" + bno + ", vision=" + vision + "]";
+	}	
 	
 }

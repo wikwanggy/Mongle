@@ -7,7 +7,6 @@ import org.Mongle.model.SAttachFileVO;
 import org.Mongle.model.SCriteriaVO;
 import org.Mongle.model.SPageVO;
 import org.Mongle.model.shopVO;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +40,7 @@ public class shopController {
 	// 게시물의 첨부파일의 데이터를 ajax로 전송
 	@RequestMapping(value = "/attachlist", method = RequestMethod.GET)
 	public ResponseEntity<ArrayList<SAttachFileVO>> uploadAjaxPost(int bno) {
-		System.out.println("attachlist="+ss.attachlist(bno));
+		System.out.println("attachlist=" + ss.attachlist(bno));
 		return new ResponseEntity<>(ss.attachlist(bno), HttpStatus.OK);
 	}
 
@@ -57,11 +56,12 @@ public class shopController {
 	// 상품 상세설명
 	@RequestMapping(value = "/shoppage/Detail", method = RequestMethod.GET)
 	public String detail(shopVO shop, Model model) {
-		System.out.println(ss.detail(shop));
-		model.addAttribute("detail", ss.detail(shop));
+		System.out.println(shop);
+		model.addAttribute("main", ss.main(shop));
+		model.addAttribute("sub", ss.sub(shop));
 		return "/shoppage/Detail";
 	}
-
+	
 	// 상품 수정
 	@RequestMapping(value = "/shoppage/modify", method = RequestMethod.POST)
 	public String modify(shopVO shop, RedirectAttributes rttr) {

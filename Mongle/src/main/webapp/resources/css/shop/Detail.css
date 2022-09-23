@@ -4,7 +4,6 @@
 	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap')
 	;
 /* 전체 */
-
 * {
 	margin: 0; /* 마진값 초기화 */
 	padding: 0; /* 패딩값 초기화*/
@@ -117,29 +116,20 @@ header {
 }
 /*본문 큰틀*/
 #test {
-	position: static;
-	width: 100%;
-	margin-bottom: 100px;
+	width: 1200px;
 }
 /* main */
-#main {
-	width: 500px;
-	margin: 0 auto;
-	float: left;
-}
 
 /* main center */
 #cnt {
-	width: 1050px;
+	width: 1200px;
 	background-color: white;
 }
 
-#box {
-	padding: 15px;
+/* #box {
 	border: 1px solid;
 	border-style: none;
-}
-
+} */
 #title_header {
 	margin-bottom: 20px;
 	padding-bottom: 20px;
@@ -157,47 +147,36 @@ header {
 	float: left;
 }
 
-#br {
-	height: 30px;
-}
-
 #cnt_header {
 	display: flex;
 	justify-content: center;
+	width: 1200px;
+	padding-top: 80px;
 }
 
 #cnt-header_left {
-	float: left;
+	margin-right: -100px;
+}
+
+#cnt-header_left img {
+	width: 70%;
 }
 
 #cnt-header_right>span {
 	float: left;
 }
 
-#sale {
-	float: left;
-	width: 45px;
-	color: white;
-	border: 1px solid;
-	text-align: center;
-	border-radius: 5px;
-	background-color: red;
-}
-
-#best {
-	color: red;
-	width: 45px;
-	float: left;
-	margin-left: 5%;
-	border: 1px solid;
-	border-radius: 5px;
-	text-align: center;
-	margin-left: 5%;
-	margin-left: 5%;
+#detail_name {
+	font-size: 35px;
 }
 
 #price {
-	clear: both; /* float된 부모속성을 무시 */
+	font-size: 55px;
+	color: red;
+}
+
+#shipping {
+	font-size: 23px;
 }
 
 .title {
@@ -208,6 +187,14 @@ header {
 	padding: 40px 0px 40px 0px;
 	border-top: 1px solid;
 	border-bottom: 1px solid;
+}
+
+#selcbk {
+	font-size: 20px;
+}
+
+#selcbk option {
+	font-size: 20px;
 }
 
 #bun {
@@ -270,13 +257,12 @@ header {
 }
 
 #btfTab {
-	margin-top: 50px;
-	margin-left: 80px;
+	margin-top: 100px;
 }
 
 #slidemenu { /* 메뉴 스크롤 이동 */
 	position: sticky; /* 스크롤 이동을 위한 포지션 */
-	top: 0; /* 상단 */ 
+	top: 0; /* 상단 */
 }
 
 /* 상품 상세 설명메뉴 시작 */
@@ -287,7 +273,7 @@ header {
 	list-style-type: none; /* li스타일 변경 */
 	font-size: 0;
 	top: 0;
-	width: 115%; /* 가로 총 길이 */
+	width: 100%; /* 가로 총 길이 */
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
@@ -307,6 +293,10 @@ header {
 	cursor: pointer;
 }
 
+.active {
+	
+}
+
 /* #tab-titles li.active { 자바스크립트 적용 클릭시, 해당 페이지 시
 	margin-bottom: -2px; 해당 메뉴 아래선 제거
 	background: #fff; 배경섹 변경
@@ -320,17 +310,21 @@ header {
 	padding-top: 50px;
 }
 
-.product-detail .product-essential-info {
+#product-detail img {
+	width: 80%;
+}
+
+#product-detail .product-essential-info {
 	margin-bottom: 30px;
 }
 
-.product-detail .product-essential-info .table-title { /* 글자태그 */
+#product-detail .product-essential-info .table-title { /* 글자태그 */
 	padding-bottom: 10px; /* p태그 바닥 간격 띄우기 */
 	font-size: 14px; /* 글자 크기 */
 	font-weight: 700; /* 글자 굵기 */
 }
 
-.product-detail .product-essential-info table { /* 테이블 관련설정 */
+#product-detail .product-essential-info table { /* 테이블 관련설정 */
 	width: 100%;
 	border-bottom: 1px solid #ccc;
 	text-align: left;
@@ -360,59 +354,35 @@ header {
 	font-size: 13px; /* 글자 크기 */
 }
 
-.product-detail .product-detail-content-new {
+#product-detail .product-detail-content-new {
 	font-size: 16px
 		/*! normalize.css v3.0.0 | MIT License | git.io/normalize;;;;; */;
 }
 
-.product-detail .product-detail-content.hide-overflow .product-detail-content-inside
+#product-detail .product-detail-content.hide-overflow .product-detail-content-inside
 	{
 	max-height: 1200px;
 	overflow: hidden;
 }
 
-.product-detail .product-detail-content-inside {
+#product-detail .product-detail-content-inside {
 	margin-bottom: 20px; /* 아래 20px만큼 margin생김 */
 }
 
-.product-detail {
+#product-detail {
+	text-align: center;
+}
+
+#product-review {
 	height: 400px;
 }
 
-.product-review {
+#product-qna {
 	height: 400px;
 }
 
-.product-qna {
+#product-etc {
 	height: 400px;
-}
-
-.product-etc {
-	height: 400px;
-}
-
-/* main right */
-
-#eventbn {
-	float: right;
-}
-
-.event {
-	width: 130px;
-	margin-top: 10px;
-	margin-right: 10px;
-}
-
-#ev1 {
-	height: 290px; /* 높이*/
-}
-
-#ev2 {
-	height: 180px;
-}
-
-#ev3 {
-	height: 180px;
 }
 
 /* bottom */

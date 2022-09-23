@@ -5,21 +5,21 @@ $(document).ready(function() {
 	// detail.jsp가 시작되자마자(ready이벤트) bno값 가져오기
 	var bno = $("input[name=bno]").val();
 	// controller 주소, bno를 json으로 저장 function 콜백
-	$.getJSON("/Detaillist", {
+	$.getJSON("/attachlist", {
 		bno : bno
-	}, function(Detaillist) {
-		console.log("Detaillist="+Detaillist);
+	}, function(attachlist) {
+		console.log("attachlist="+attachlist);
 		var str = "";
-		$(attachlist).each(function(i, attachlist) {
+		$(attachlist).each(function(i, attach) {
 			// 만약 image결과가 true면
-			if (attachlist.p_image){
-				var filePath=encodeURIComponent(attachlist.upload+"/s_"+attachlist.p_uid+"_"+attachlist.filename)
-				str += "<img src='/diplay?filename="+filefilePath+"'>"
+			if (attach.p_image){
+				var filePath=encodeURIComponent(attach.p_upload+"/s_"+attach.p_uid+"_"+attach.filename)
+				str += "<img src='/diplay?filename="+filePath+"'>"
 			} else{ // 그렇지 않으면
-				var filePath=encodeURIComponent(attachlist.upload+"/s_"+attachlist.p_uid+"_"+attachlist.filename)
-				str += "<img src='/diplay?filename="+filefilePath+"'>"+attachlist.filename
+				var filePath=encodeURIComponent(attach.p_upload+"/s_"+attach.p_uid+"_"+attach.filename)
+				str += "<img src='/diplay?filename="+filePath+"'>"+attach.filename
 			}			
 		})
-		$(".product-detail li").html(str);
+		$("#cnt-header_left").html(str);
 	})
 })

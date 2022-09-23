@@ -1,7 +1,6 @@
 package org.Mongle.controller;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
@@ -10,7 +9,6 @@ import java.util.Date;
 import java.util.UUID;
 
 import org.Mongle.model.SAttachFileVO;
-import org.Mongle.model.ZAttachFileVO;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -22,17 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import net.coobird.thumbnailator.Thumbnailator;
-
-
 @Controller
 public class shopuploadController {
-	/*// 파일 업로드
-	@RequestMapping(value = "/shop_board", method = RequestMethod.GET)
-	public void uploadajax() {
-
-	}*/
-	
 	// 년,월,일 폴더를 생성하는 메서드 선언
 	private String getFolder() {
 		// 현재날짜 추출(Thu Aug 24 09:23:12 KST 2022)
@@ -64,12 +53,10 @@ public class shopuploadController {
 		return false;
 	}
 
-	@RequestMapping(value = "/shop_boardajax", method = RequestMethod.POST)
-	public ResponseEntity<ArrayList<SAttachFileVO>> shop_boardajaxPost(MultipartFile[] uploadFile) {
+	@RequestMapping(value = "/shop_board_main", method = RequestMethod.POST)
+	public ResponseEntity<SAttachFileVO> shop_boardmainPost(MultipartFile main) {
 		// SAttachFileVO클래스 포함
-		ArrayList<SAttachFileVO> list = new ArrayList<>();
-		ArrayList<ZAttachFileVO> zlist = new ArrayList<>();
-
+		SAttachFileVO attachvo = new SAttachFileVO();
 		// 폴더 경로
 		String uploadFolder = "D:\\upload";
 		// 서버 업로드 경로와 getFolder메서드의 날짜문자열을 이어서 하나의 폴더 생성
@@ -80,17 +67,61 @@ public class shopuploadController {
 			uploadPath.mkdirs(); // 만들어라
 		}
 
+		System.out.println("getOriginalFilename=" + main.getOriginalFilename());
+		System.out.println("getSize=" + main.getSize());
+
+		// 파일저장
+		// 실제 파일명(multiparFile.getOriginalFilename())
+		// UUID 적용(UUID_multiparFile.getOriginalFilename())
+		UUID uuid = UUID.randomUUID();
+		System.out.println("UUID= " + uuid.toString());
+
+		// SAttachFileVO의 uploadPath 변수에 저장()
+		attachvo.setP_upload(getFolder());
+		// SAttachFileVO의 fileName 변수에 저장()
+		attachvo.setP_name(main.getOriginalFilename());
+		// SAttachFileVO의 uuid 변수에 저장()
+		attachvo.setP_uid(uuid.toString());
+		// SAttachFileVO의 vision 변수에 저장()
+		attachvo.setVision("m");
+
+		// 어느폴더에(D:\\upload\\현재날짜), 어떤파일이름으로(mainlogo_new.png)
+		File saveFile = new File(uploadPath+"\\"+uuid.toString() + "_" + main.getOriginalFilename());
+		// D:\\upload\\mainlogo_new.png에 파일을 전송(transferTo)
+		try {// transferTo() 메소드에 예외가 있으면
+			main.transferTo(saveFile); // 서버 원본파일 전송
+			// 내가 서버에 올리고자 하는 파일이 이미지 이면,
+			if (checkImageType(saveFile)) {
+				// AttachFileVO의 image 변수에 저장()
+				attachvo.setP_image(true);
+			} // checkImageType 메서드 끝
+		} catch (Exception e) {// 예외를 처리하라.
+			System.out.println(e.getMessage());
+		}
+		return new ResponseEntity<>(attachvo, HttpStatus.OK);// new ResponseEntity<>(list, HttpStatus.OK);
+	} // uploadajax 끝...
+		// 이미지 주소 생성 http://localhost:8080/uploadajax/disply?finename=a.jpg
+
+	@RequestMapping(value = "/shop_board_sub", method = RequestMethod.POST)
+	public ResponseEntity<ArrayList<SAttachFileVO>> shop_boardsubPost(MultipartFile[] sub) {
+		// SAttachFileVO
+		ArrayList<SAttachFileVO> list = new ArrayList<>();
+		// 폴더 경로
+		String uploadFolder = "D:\\upload";
+		// 서버 업로드 경로와 getFolder메서드의 날짜문자열을 이어서 하나의 폴더 생성
+		File uploadPath = new File(uploadFolder, getFolder());
+		// 폴더 생성
+		if (uploadPath.exists() == false) {// uploadPath가 존재하지 않으면,
+			uploadPath.mkdirs(); // 만들어라
+		}
 		// for(변수명:배열명)
-		for (MultipartFile multiparFile : uploadFile) {
-			// SAttachFileVO클래스의 새로운 주소를 반복적으로 생성하여
+		for (MultipartFile multipartFile : sub) {
+			// SAttachFileVO클래스으의 새로운 주소를 반복적으로 생성하여
 			// ArrayList에 저장
 			SAttachFileVO attachvo = new SAttachFileVO();
-			System.out.println("getOriginalFilename="+multiparFile.getOriginalFilename());
-			System.out.println("getSize="+multiparFile.getSize());
 
-			ZAttachFileVO zattach = new ZAttachFileVO();
-			System.out.println("getOriginalFilename="+multiparFile.getOriginalFilename());
-			System.out.println("getSize="+multiparFile.getSize());
+			System.out.println("getOriginalFilename=" + multipartFile.getOriginalFilename());
+			System.out.println("getSize=" + multipartFile.getSize());
 			// 파일저장
 			// 실제 파일명(multiparFile.getOriginalFilename())
 			// UUID 적용(UUID_multiparFile.getOriginalFilename())
@@ -100,50 +131,35 @@ public class shopuploadController {
 			// SAttachFileVO의 uploadPath 변수에 저장()
 			attachvo.setP_upload(getFolder());
 			// SAttachFileVO의 fileName 변수에 저장()
-			attachvo.setP_name(multiparFile.getOriginalFilename());
+			attachvo.setP_name(multipartFile.getOriginalFilename());
 			// SAttachFileVO의 uuid 변수에 저장()
 			attachvo.setP_uid(uuid.toString());
+			// SAttachFileVO의 vision 변수에 저장()
+			attachvo.setVision("s");
 
-			zattach.setZ_upload(getFolder());
-			zattach.setZ_name(multiparFile.getOriginalFilename());
-			zattach.setZ_uid(uuid.toString());
 			// 어느폴더에(D:\\upload\\현재날짜), 어떤파일이름으로(mainlogo_new.png)
-			File saveFile = new File(uploadPath, uuid.toString() + "_" + multiparFile.getOriginalFilename());
+			File saveFile = new File(uploadPath+"\\"+uuid.toString() + "_" + multipartFile.getOriginalFilename());
 			// D:\\upload\\mainlogo_new.png에 파일을 전송(transferTo)
 			try {// transferTo() 메소드에 예외가 있으면
-				multiparFile.transferTo(saveFile); // 서버 원본파일 전송
+				multipartFile.transferTo(saveFile); // 서버 원본파일 전송
 				// 내가 서버에 올리고자 하는 파일이 이미지 이면,
 				if (checkImageType(saveFile)) {
-
 					// AttachFileVO의 image 변수에 저장()
 					attachvo.setP_image(true);
-					zattach.setZ_image(true);
-
-					// 파일 생성
-					FileOutputStream thumnail = new FileOutputStream(
-							new File(uploadPath, "s_" + uuid.toString() + "_" + multiparFile.getOriginalFilename()));
-					// 섬네일형식의 파일 생성
-					Thumbnailator.createThumbnail(multiparFile.getInputStream(), thumnail, 100, 100);
-					thumnail.close();
-
 				} // checkImageType 메서드 끝
 
-				// AttachFileVO에 저장된 데이터를 배열에 추가(add메소드)
+				// SAttachFileVO에 저장된 데이터를 배열에 추가
 				list.add(attachvo);
-				zlist.add(zattach);
-
 			} catch (Exception e) {// 예외를 처리하라.
 				System.out.println(e.getMessage());
 			}
-
-		} // for문 끝
-		return new ResponseEntity<>(list, HttpStatus.OK);
-	} // uploadajax 끝...
-		// 이미지 주소 생성 http://localhost:8080/uploadajax/disply?finename=a.jpg
+		}
+		return new ResponseEntity<>(list,HttpStatus.OK);
+	}
 
 	@RequestMapping(value = "/display", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> getFile(String filename) {
-		System.out.println("fileName="+filename);
+		System.out.println("fileName=" + filename);
 
 		File file = new File("D:\\upload\\" + filename); // 경로 숨기는 작업
 
@@ -158,7 +174,7 @@ public class shopuploadController {
 		}
 
 		return result;
-	}   // getFile 끝
+	} // getFile 끝
 		// 다운로드 주소 생성
 
 	@RequestMapping(value = "/download", method = RequestMethod.GET)

@@ -131,10 +131,13 @@ header {
 	display: flex;
 }
 
+#main_left {
+	width: 87%;
+	
+}
+
 /* main center */
 #cn {
-	height: 700px;
-	width: 100%;
 	background-color: white;
 	padding-left: 40px;
 	padding-top: 30px;
@@ -171,9 +174,9 @@ header {
 }
 
 /* main right */
-#ls {
-	width: 150px;
-	height: 700px;
+#rs {
+	float:right;
+	width: 13%;
 }
 
 #eventbn {

@@ -21,15 +21,12 @@
 
 	<!-- 상품 목록 리스트,번호 -->
 	<select id="shop" resultType="org.Mongle.model.shopVO">
-		SELECT rownum,bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity,
-		Concat(Replace(p_upload, '\\','/'),'/s_' ,p_uid,'_' ,p_name)AS filem
-		FROM (SELECT @rownum:=@rownum+1 rownum, t.*
-		FROM (SELECT *FROM (SELECT
-		p_uid,p_upload,p_name,p_image,
-		w.bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity
-		FROM writing w
-		JOIN product p ON w.bno = p.bno
-		WHERE p_image = 1 )AS j GROUP BY bno
+		select
+		rownum,j.bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity,vision,Concat(Replace(p_upload,
+		'\\','/'),<![CDATA['/']]>
+		, p_uid , '_' ,p_name)AS filem from(select @rownum:=@rownum+1 rownum,
+		w.* from writing w,
+		(select @rownum:=0) as tmp
 		<if test="keyword != null">
 			<choose>
 				<when test="type == 'T'.toString()">
@@ -43,27 +40,37 @@
 				</otherwise>
 			</choose>
 		</if>
-		) AS t, (SELECT @rownum:=0) AS tmp
-		ORDER BY bno DESC) AS balist
+		)as j join product p on j.bno = p.bno
 		<![CDATA[
-		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount} and vision = "m"
 		]]>
+		order by j.bno desc
 	</select>
 
 	<!-- 상품 상세내용 -->
-	<select id="detail" resultType="org.Mongle.model.shopVO">
-	select w.bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity, Concat(Replace(p_upload, '\\','/'),'/s_' ,p_uid,'_' ,p_name)AS filem 
-	   from writing w join product p on w.bno = p.bno where w.bno=#{bno};
+	<select id="main" resultType="org.Mongle.model.shopVO">
+		select
+		w.bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity,
+		Concat(Replace(p_upload, '\\','/'),<![CDATA['/']]>,p_uid,'_' ,p_name)AS filem
+		from writing w join product p on w.bno = p.bno where w.bno = #{bno} and
+		vision = 'm';
+	</select>
+
+	<select id="sub" resultType="org.Mongle.model.shopVO">
+		select
+		w.bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity,
+		Concat(Replace(p_upload, '\\','/'),<![CDATA['/']]>,p_uid,'_' ,p_name)AS filem
+		from writing w join product p on w.bno = p.bno where w.bno = #{bno} and
+		vision = 's';
 	</select>
 
 	<select id="total" resultType="int">
-		select count(*) from writing w join product p on w.bno = p.bno
+		select count(*) from writing w join product p on w.bno = p.bno where
+		vision = "m"
 		<if test="keyword != null">
 			<choose>
-				<when test="type == 'T'.toString()"> where w_name like concat('%',#{keyword},'%') </when>
-				<when test="type == 'C'.toString()"> where w_type like concat('%',#{keyword},'%') </when>
-				<otherwise> where w_name like concat('%',#{keyword},'%') or w_type
-					like concat('%',#{keyword},'%') </otherwise>
+				<when test="type == 'T'.toString()"> and w_name like concat('%',#{keyword},'%') </when>
+				<when test="type == 'C'.toString()"> and w_type like concat('%',#{keyword},'%') </when>
 			</choose>
 		</if>
 	</select>
