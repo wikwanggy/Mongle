@@ -225,9 +225,8 @@ $(document).ready(function() {
 	$("#detail_addr").blur(function() {
 		var ma = $("#member_addr").val();
 		var da = $("#detail_addr").val();
-		var ap = $("#addr_post").val();
 		
-		var a = ma+","+da+",'우편번호'"+ap;
+		var a = ma+"  "+da;
 		
 		$("#addr").val(a);
 	})

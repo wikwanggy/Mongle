@@ -31,5 +31,5 @@ public interface LoginDAO {
 	// id찾기
 	public LoginDTO searchidcheck(@Param("name") String name, @Param("email") String email, @Param("number") String number);
 	// pw찾기
-	public LoginDTO searchpwcheck(String id, String name, String email, String number);
+	public LoginDTO searchpwcheck(@Param("name") String name, @Param("id") String id ,@Param("email") String email, @Param("number") String number);
 }

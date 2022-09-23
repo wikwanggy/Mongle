@@ -16,8 +16,8 @@
   	</select>
   	<!-- 회원가입 -->
   	<insert id="signup">
-  		insert into member(id, password, name, bth, email,gender,number,addr) 
-	values(#{id},#{password},#{name},#{bth},#{email},#{gender},#{number},#{addr});
+  		insert into member(id, password, name, bth, email,gender,number,addr,addr_post) 
+	values(#{id},#{password},#{name},#{bth},#{email},#{gender},#{number},#{addr},#{addr_post});
   	</insert>
   	<!--회원리스트 -->
 	<select id="list" resultType="org.Mongle.model.SignupDTO">
@@ -89,8 +89,8 @@
   	</select>
   	<select id="searchpwcheck" resultType="org.Mongle.model.LoginDTO">
   	select password from member
-  		where id=#{id}
-   		and name=#{name} 
+  		where  name=#{name}
+   		and id=#{id} 
 		and number=#{number}
 		and email=#{email}
   	</select>

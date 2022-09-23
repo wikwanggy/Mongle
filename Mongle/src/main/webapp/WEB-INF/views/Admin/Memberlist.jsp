@@ -12,7 +12,6 @@
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
-	<
 		<div id="main">
 
 			<div id="ls">
@@ -39,16 +38,14 @@
 							<th>생년월일</th>
 							<th>성별</th>
 							<th>이메일</th>
-							<th>체크</th>
 						</tr>
 						<c:forEach items="${list}" var="list">
 							<tr>
 								<td>${list.name}</td>
-								<td>${list.id}</td>
+								<td><a href="/Admin/listdetail?id=${list.id}" id="a_id">${list.id}</a></td>
 								<td>${list.bth}</td>
 								<td>${list.gender}</td>
 								<td>${list.email}</td>
-								<td><input type="checkbox"></td>
 							</tr>
 						</c:forEach>
 					</table>

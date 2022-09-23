@@ -1,0 +1,102 @@
+
+@charset "UTF-8";
+@import
+	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap');
+* {
+	margin: 0 auto; /* 마진값 초기화 */
+	padding: 0; /* 패딩값 초기화*/
+	box-sizing: border-box; /* 박스 영역은 테투리까지 지정*/
+	font-family: 'Edu VIC WA NT Beginner', cursive;
+	font-family: 'Hi Melody', cursive;
+}/**/
+body{
+	margin: 0 auto;
+	width: 1024px;
+	height: 960px;
+	text-align: center;
+	position: relative;
+	background-color: rgba(255, 235, 98);
+}
+.Loginform{
+	width:800px;
+	height: 800px;
+	position: absolute;
+	top: 100px;
+	left: 100px;	
+	background-color: white;
+	border-radius:100px; 
+	box-shadow: 10px 10px 10px gray; 
+}
+img{
+	border-radius: 25px;
+	margin-top: 25px;
+}
+
+input{
+	width: 500px;
+	height : 75px;
+	border-radius: 25px;
+	font-size: 25px;
+	text-align: center;
+}
+input:focus{
+	border: 5px solid rgba(255, 235, 98);
+	outline: none;
+}
+input:focus::placeholder{
+	color :  rgba(255, 235, 98);
+}
+input{
+}
+#naver_icon{
+	width: 60px;
+	height: 30px;
+}
+#pw{
+	margin-top: 15px;
+}
+#sign{
+	margin-top:30px; 
+}
+
+.btn{
+	margin-top: 30px;
+	width: 300px;
+	height : 60px;
+	border-radius: 25px;
+	font-size: 45px;
+	background-color: rgba(255, 235, 98);
+	border: 1px solid rgba(255, 235, 98);
+}
+.btn:hover{
+	background: rgba(195,195,195,0.5);
+	border:1px solid rgba(195,195,195,0.5);
+	outline:none;
+	cursor: pointer;
+}
+p{
+	margin-top: 30px;
+	color: rgba(38, 38, 38, 0.5);
+	font-size: 25px;
+}
+span{
+	font-size: 20px;
+}
+.search{
+	margin-top: 30px;
+	width: 140px;
+	height : 30px;
+	border-radius: 25px;
+	font-size: 20px;
+	background-color: rgba(255, 235, 98);
+	border: 1px solid rgba(255, 235, 98);
+}
+.search:hover {
+	cursor: pointer;
+	background: rgba(195,195,195,0.5);
+	border:1px solid rgba(195,195,195,0.5);
+	outline:none;
+}
+th{
+	font-size: 25px;
+}

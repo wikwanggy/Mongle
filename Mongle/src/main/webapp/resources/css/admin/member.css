@@ -114,6 +114,7 @@ nav{
 }
 
 #cn{
+	margin:0 auto;
 	width: 900px;
 	height: 100%;	
 	text-align: center;
@@ -141,8 +142,10 @@ tr{
 td{
 	width: 600px;
 	height: 110px;
-
-	
+}
+#a_id{
+	text-decoration: none;
+	color: black;
 }
 .btn{
 	float:right;

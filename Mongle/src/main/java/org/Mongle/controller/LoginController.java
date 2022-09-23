@@ -66,14 +66,24 @@ public class LoginController {
 
 	}
 	// pw찾기
-	@GetMapping("/Login/searchpwcheck/{id}/{name}/{email}/{number}")
-	public ResponseEntity<LoginDTO> searchpwcheck(@PathVariable String id,@PathVariable String name,@PathVariable String email,@PathVariable String number) {
-	System.out.println("controller="+id);
-	System.out.println("controller="+name);
-	System.out.println("controller="+email);
-	System.out.println("controller="+number);
-	return new ResponseEntity<>(ls.searchpwcheck(id,name,email,number), HttpStatus.OK);
+	@GetMapping("/Login/searchpwcheck/{name}/{id}/{email}/{number}")
+	public ResponseEntity<LoginDTO> searchpwcheck(@PathVariable String name,@PathVariable String id,@PathVariable String email,@PathVariable String number) {
+		System.out.println("controller="+id);
+		System.out.println("controller="+name);
+		System.out.println("controller="+email);
+		System.out.println("controller="+number);
+	return new ResponseEntity<>(ls.searchpwcheck(name,id,email,number), HttpStatus.OK);
 
+	}
+	// ID찾기 이동
+	@GetMapping("/Login/searchID")
+	public void getsearchID() {
+		
+	}
+	// PW찾기 이동
+	@GetMapping("/Login/searchPW")
+	public void getsearchPW() {
+			
 	}	
 	// 회원가입 이동
 	@GetMapping("/Signup/Signup")
@@ -133,6 +143,7 @@ public class LoginController {
 		return "redirect:/mypage/mypage";
 	}
 	
+	
 	// 회원 탈퇴
 	@GetMapping("/mypage/leave")
 	public String leave(SignupDTO sdto,HttpSession session) {
@@ -149,15 +160,16 @@ public class LoginController {
 		model.addAttribute("paging",new adminPageDTO(cri,total));
 		return "/Admin/Memberlist";
 	}
-	// ID찾기 이동
-	@GetMapping("/Login/searchID")
-	public void getsearchID() {
-		
+	// 관리자로 로그인 후 멤버리스트에서 상세정보로 이동
+	@GetMapping("/Admin/listdetail")
+	public void listdetail(SignupDTO sdto,Model model) {
+		model.addAttribute("mypage",ls.detail(sdto));
 	}
-	// PW찾기 이동
-	@GetMapping("/Login/searchPW")
-	public void getsearchPW() {
-			
+	// 관리자로 로그인 후 멤버리스트 상세정보들어가서 회원삭제
+	@GetMapping("/Admin/leave")
+	public String adminleave(SignupDTO sdto,HttpSession session) {
+		ls.leave(sdto);
+		return "redirect:/Admin/Memberlist";
 	}
 	
 }

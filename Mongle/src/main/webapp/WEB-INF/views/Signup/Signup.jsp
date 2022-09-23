@@ -57,7 +57,6 @@
 			<select id="gender" name="gender"  class="input">
 				<option value="남성">남성</option>
 				<option value="여성">여성</option>
-				<option value=null>선택안함</option>
 			</select>
 		</div>
 		<div id="emailbox">
@@ -70,10 +69,10 @@
 		</div>
 		<div>
 			<input type="text" id="detail_addr" placeholder="상세 주소" class="input"><br>
+			<input type="hidden" id="addr" name="addr" >
 		</div>
 		<div id="addrbox1">
-			<input type="text" name="addr_post" placeholder="주소" id="addr_post" class="input"readonly>		
-			<input type="hidden" id="addr" name="addr" >
+			<input type="text" name="addr_post" placeholder="우편번호" id="addr_post" class="input"readonly>		
 		</div>
 		<div id="numberbox">
 			<h3>전화번호</h3>

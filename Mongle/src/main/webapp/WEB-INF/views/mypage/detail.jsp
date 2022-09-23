@@ -49,6 +49,10 @@
 									<td><input type="text" value="${mdetail.addr}" name="addr"></td>
 								</tr>
 								<tr>
+									<th>우편번호</th>
+									<td><input type="text" value="${mdetail.addr_post}" name="addr_post"></td>
+								</tr>
+								<tr>
 									<th>전화번호</th>
 									<td><input type="text" value="${mdetail.number}" name="number"></td>
 								</tr>

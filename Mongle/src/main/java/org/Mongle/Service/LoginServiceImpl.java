@@ -82,11 +82,11 @@ public class LoginServiceImpl implements LoginService {
 			return ldao.searchidcheck(name,email,number);
 		}
 		// pw찾기
-		public LoginDTO searchpwcheck(String id,String name, String email, String number) {
+		public LoginDTO searchpwcheck(String name,String id, String email, String number) {
 			System.out.println("service="+id);
 			System.out.println("service="+name);
 			System.out.println("service="+email);
 			System.out.println("service="+number);
-			return ldao.searchpwcheck(id,name,email,number);
+			return ldao.searchpwcheck(name,id,email,number);
 		}
 }

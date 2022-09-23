@@ -9,7 +9,7 @@ public class LoginDTO {
 	private String bth;
 	private String addr;
 	private String number;
-	
+	private String addr_post;
 	public String getId() {
 		return id;
 	}
@@ -22,12 +22,10 @@ public class LoginDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
-		System.out.println("dto = "+email);
 		this.email = email;
 	}
 	public String getName() {
@@ -60,12 +58,15 @@ public class LoginDTO {
 	public void setNumber(String number) {
 		this.number = number;
 	}
+	public String getAddr_post() {
+		return addr_post;
+	}
+	public void setAddr_post(String addr_post) {
+		this.addr_post = addr_post;
+	}
 	@Override
 	public String toString() {
-		return "LoginDTO [id=" + id + ", password=" + password + ", email=" + email + ", name=" + name + ", gender="
-				+ gender + ", bth=" + bth + ", addr=" + addr + ", number=" + number + "]";
+		return "SignupDTO [id=" + id + ", password=" + password + ", email=" + email + ", name=" + name + ", gender="
+				+ gender + ", bth=" + bth + ", addr=" + addr + ", number=" + number + ", addr_post=" + addr_post + "]";
 	}
-
-	
-	
 }

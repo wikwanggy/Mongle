@@ -42,6 +42,10 @@
 									<td><input type="text" value="${mypage.addr}" name="addr" readonly></td>
 								</tr>
 								<tr>
+									<th>우편번호</th>
+									<td><input type="text" value="${mypage.addr_post}" name="addr_post" readonly></td>
+								</tr>
+								<tr>
 									<th>전화번호</th>
 									<td><input type="text" value="${mypage.number}" name="number" readonly></td>
 								</tr>
