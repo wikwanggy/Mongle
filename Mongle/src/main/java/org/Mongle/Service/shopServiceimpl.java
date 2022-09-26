@@ -6,6 +6,7 @@ import org.Mongle.Mapper.shopAttachMapper;
 import org.Mongle.Mapper.shopMapper;
 import org.Mongle.model.SAttachFileVO;
 import org.Mongle.model.SCriteriaVO;
+import org.Mongle.model.shopCategoryVO;
 import org.Mongle.model.shopVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,21 +34,29 @@ public class shopServiceimpl implements shopService {
 		});
 	}
 
+	// 상품등록(분류)
+	public ArrayList<shopCategoryVO> c_type1(){
+		return sm.c_type1();			
+	}
+
+	public ArrayList<shopCategoryVO> c_type2(String shop){
+		return sm.c_type2(shop);
+	}
+
 	// 상품 목록 리스트 구현
 	public ArrayList<shopVO> shop(SCriteriaVO scri) {
 		return sm.shop(scri);
 	}
-	
+
 	// 상품 상세 내용보기 메인 이미지 구현
 	public shopVO main(shopVO shop) {
 		return sm.main(shop);
 	}
-	
+
 	// 상품 상세 내용보기 서브 이미지 구현
-	public ArrayList<shopVO> sub(shopVO shop){
+	public ArrayList<shopVO> sub(shopVO shop) {
 		return sm.sub(shop);
 	}
-	
 
 	// 상품 수정 구현
 	public void modify(shopVO shop) {
@@ -58,14 +67,14 @@ public class shopServiceimpl implements shopService {
 	public void remove(shopVO shop) {
 		sm.remove(shop);
 	}
-	
+
 	// 테이블 전체건수 조희 구현
 	public int total(SCriteriaVO scri) {
 		return sm.total(scri);
 	}
-	
+
 	// 썸네일 첨부파일 조회 구현
-	public ArrayList<SAttachFileVO> attachlist(int bno){
+	public ArrayList<SAttachFileVO> attachlist(int bno) {
 		return sam.attachlist(bno);
 	}
 }

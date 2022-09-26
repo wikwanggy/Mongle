@@ -6,12 +6,14 @@ import org.Mongle.Service.shopService;
 import org.Mongle.model.SAttachFileVO;
 import org.Mongle.model.SCriteriaVO;
 import org.Mongle.model.SPageVO;
+import org.Mongle.model.shopCategoryVO;
 import org.Mongle.model.shopVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -22,9 +24,19 @@ public class shopController {
 	shopService ss;
 
 	// 상품 등록 페이지 실행
+	// 상품 등록 대분류
 	@RequestMapping(value = "/shoppage/shop_board", method = RequestMethod.GET)
-	public String writeget() {
-		return "/shoppage/shop_board";
+	public String shop_board(String shop, Model model) {
+		model.addAttribute("c_type1", ss.c_type1()); // shop_board.jsp가 실행하자마자 1분류 select
+		return "shoppage/shop_board"; // url주소가 매핑이 되면, shoppage폴더 안에 있는 shop_board.jsp실행
+	}
+
+	// 상품 등록 소분류
+	@RequestMapping(value = "/shop/{s}", method = RequestMethod.GET)
+	public ResponseEntity<ArrayList<shopCategoryVO>> getshop_board(@PathVariable String s) {
+		System.out.println("s=" + s);
+
+		return new ResponseEntity<>(ss.c_type2(s), HttpStatus.OK);
 	}
 
 	// 상품 등록
@@ -61,7 +73,7 @@ public class shopController {
 		model.addAttribute("sub", ss.sub(shop));
 		return "/shoppage/Detail";
 	}
-	
+
 	// 상품 수정
 	@RequestMapping(value = "/shoppage/modify", method = RequestMethod.POST)
 	public String modify(shopVO shop, RedirectAttributes rttr) {

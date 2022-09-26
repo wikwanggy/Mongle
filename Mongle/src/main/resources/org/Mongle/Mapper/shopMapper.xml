@@ -14,15 +14,26 @@
 			select ifnull(MAX(bno)+1,1)from
 			writing
 		</selectKey>
-		insert into writing(bno, w_name, w_price, w_color, w_type, w_Quantity)
-		values(#{bno}, #{w_name}, #{w_price}, #{w_color}, #{w_type},
-		#{w_Quantity})
+		insert ignore into writing(bno, w_name, w_price,w_Quantity)
+		values(#{bno}, #{w_name}, #{w_price},#{w_Quantity})
 	</insert>
 
+	<!-- 상품분류 -->
+	<select id="c_type1"
+		resultType="org.Mongle.model.shopCategoryVO">
+		select distinct(c_type1) from Category
+	</select>
+	
+	<select id="c_type2"
+		resultType="org.Mongle.model.shopCategoryVO">
+		select c_type2 from Category
+		where c_type1=#{c_type1}
+	</select>
+	
 	<!-- 상품 목록 리스트,번호 -->
 	<select id="shop" resultType="org.Mongle.model.shopVO">
 		select
-		rownum,j.bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity,vision,Concat(Replace(p_upload,
+		rownum,j.bno,w_name,w_price,w_regdata,w_quantity,vision,Concat(Replace(p_upload,
 		'\\','/'),<![CDATA['/']]>
 		, p_uid , '_' ,p_name)AS filem from(select @rownum:=@rownum+1 rownum,
 		w.* from writing w,
@@ -32,7 +43,7 @@
 				<when test="type == 'T'.toString()">
 					where w_name like concat('%',#{keyword},'%') </when>
 				<when test="type == 'C'.toString()">
-					where w_type like concat('%',#{keyword},'%') </when>
+					where j.bno like concat('%',#{keyword},'%') </when>
 				<otherwise>
 					where w_name like concat('%',#{keyword},'%') or w_type
 					like
@@ -50,19 +61,27 @@
 	<!-- 상품 상세내용 -->
 	<select id="main" resultType="org.Mongle.model.shopVO">
 		select
-		w.bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity,
-		Concat(Replace(p_upload, '\\','/'),<![CDATA['/']]>,p_uid,'_' ,p_name)AS filem
-		from writing w join product p on w.bno = p.bno where w.bno = #{bno} and
+		w.bno,w_name,w_price,w_regdata,w_quantity,
+		Concat(Replace(p_upload, '\\','/'),<![CDATA['/']]>,p_uid,'_'
+		,p_name)AS filem
+		from writing w join product p on w.bno = p.bno where
+		w.bno = #{bno} and
 		vision = 'm';
 	</select>
 
 	<select id="sub" resultType="org.Mongle.model.shopVO">
 		select
-		w.bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity,
-		Concat(Replace(p_upload, '\\','/'),<![CDATA['/']]>,p_uid,'_' ,p_name)AS filem
-		from writing w join product p on w.bno = p.bno where w.bno = #{bno} and
-		vision = 's';
+		Concat(Replace(p_upload, '\\','/'),<![CDATA['/']]>,p_uid,'_'
+		,p_name)AS filem
+		from product where
+		bno = #{bno} and
+		vision = 's' ;
 	</select>
+
+	<!-- <select id="sub" resultType="org.Mongle.model.shopVO"> select w.bno,w_name,w_price,w_regdata,w_color,w_type,w_quantity, 
+		Concat(Replace(p_upload, '\\','/'),<![CDATA['/']]>,p_uid,'_' ,p_name)AS filem 
+		from writing w join product p on w.bno = p.bno where w.bno = #{bno} and vision 
+		= 's' ; </select> -->
 
 	<select id="total" resultType="int">
 		select count(*) from writing w join product p on w.bno = p.bno where
@@ -70,7 +89,7 @@
 		<if test="keyword != null">
 			<choose>
 				<when test="type == 'T'.toString()"> and w_name like concat('%',#{keyword},'%') </when>
-				<when test="type == 'C'.toString()"> and w_type like concat('%',#{keyword},'%') </when>
+				<when test="type == 'C'.toString()"> and j.bno like concat('%',#{keyword},'%') </when>
 			</choose>
 		</if>
 	</select>

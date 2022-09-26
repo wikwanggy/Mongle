@@ -11,8 +11,6 @@ public class shopVO {
 	private int w_price;
 	// 상품 작성일자
 	private String w_regdata;
-	// 상품 색상
-	private String w_color;
 	// 상품 종류
 	private String w_type;
 	// 상품 수량
@@ -54,14 +52,6 @@ public class shopVO {
 		this.w_regdata = w_regdata;
 	}
 
-	public String getW_color() {
-		return w_color;
-	}
-
-	public void setW_color(String w_color) {
-		this.w_color = w_color;
-	}
-
 	public String getW_type() {
 		return w_type;
 	}
@@ -98,7 +88,7 @@ public class shopVO {
 	@Override
 	public String toString() {
 		return "shopVO [bno=" + bno + ", w_name=" + w_name + ", w_price=" + w_price + ", w_regdata=" + w_regdata
-				+ ", w_color=" + w_color + ", w_type=" + w_type + ", w_Quantity=" + w_Quantity + ", filem=" + filem + ", attach=" + attach + "]";
+				+  ", w_type=" + w_type + ", w_Quantity=" + w_Quantity + ", filem=" + filem + ", attach=" + attach + "]";
 	}
 
 }

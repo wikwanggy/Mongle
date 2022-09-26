@@ -3,11 +3,17 @@ package org.Mongle.Mapper;
 import java.util.ArrayList;
 
 import org.Mongle.model.SCriteriaVO;
+import org.Mongle.model.shopCategoryVO;
 import org.Mongle.model.shopVO;
 
 public interface shopMapper {
 	// 상품 등록 설계 (shopVo : 게시판정보+파일업로드 정보)
 	public void write(shopVO shop);
+
+	// 상품등록(분류)
+	public ArrayList<shopCategoryVO> c_type1();
+
+	public ArrayList<shopCategoryVO> c_type2(String shop);
 
 	// 상품 목록 리스트 설계
 	public ArrayList<shopVO> shop(SCriteriaVO scrit);

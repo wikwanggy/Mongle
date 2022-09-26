@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+<%@ page session="true"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -98,7 +98,7 @@
 											<h2>${main.w_name}</h2>
 										</div>
 										<div id="price">
-											<span>${main.w_price}원</span>
+											<span>${main.w_price}원</span>											
 										</div>
 									</div>
 									<div id="shipping">
@@ -113,20 +113,8 @@
 											<span class="title"><b>배송 안내</b></span><br> <span>무료배송/제주도25,000원
 												추가/도서산간50,000원 추가/반품 및 교환비50,000원</span>
 										</div>
-									</div>
-									<div>
-										<div id="color">
-											<div>
-												<select style="width: 600px; height: 50px;" id="selcbk"><option>&nbsp;&nbsp;컬러선택</option>
-													<c:forEach items="${sub}" var="sub">
-														<option>${sub.w_color}</option>
-													</c:forEach>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div id="bun">
-										<p style="font-size: 20px;">색상/</p>
+									</div>									
+									<div id="bun">										
 										<button type="button" id="plus" class="but" value="-">-</button>
 										<input type="text" id="Quantity" class="but" value="1">
 										<button type="button" id="minus" class="but" value="+">+</button>
@@ -156,12 +144,12 @@
 							<!-- 상품 상세 메뉴 -->
 							<div id="slidemenu">
 								<ul id="tab-titles">
-									<li name="detail"><a href="#product-detail">상세정보</a></li>
-									<li name="review"><a href="#product-review">구매평</a></li>
-									<li name="qna"><a href="#product-qna">상품문의 <span
+									<li name="detail" class="">상세정보</li>
+									<li name="review" class="">구매평</li>
+									<li name="qna" class=""><a href="#product-qna">상품문의 <span
 											class="product-tab-review-count">(0)</span>
 									</a></li>
-									<li name="etc"><a href="#product-etc">배송/반품/교환 안내</a></li>
+									<li name="etc" class=""><a href="#product-etc">배송/반품/교환 안내</a></li>
 								</ul>
 							</div>
 							<!-- 상품 설명,리뷰,문의,배송 전체 배치 -->
@@ -173,37 +161,7 @@
 								</c:forEach>
 								<li id="product-review"></li>
 								<li id="product-qna"></li>
-								<li id="product-etc">
-									<h5 class="">배송정보</h5>
-									<table class="">
-										<colgroup>
-											<col width="150px">
-											<col width="340px">
-											<col width="150px">
-											<col width="*">
-										</colgroup>
-										<tbody>
-											<tr>
-												<th>배송방법</th>
-												<td>순차배송</td>
-												<th rowspan="2">배송비</th>
-												<td rowspan="2">무료배송<br>로켓배송 상품 중 19,800원 이상 구매 시
-													무료배송<br>도서산간 지역 추가비용 없음
-												</td>
-											</tr>
-											<tr>
-											<th>묶음배송 여부</th>
-											<td>가능</td>
-											</tr>
-											<tr>
-											<th>배송기간</th>
-											</tr>	
-											<td colspan="3">
-											<ul><li></ul>
-											</td>										
-										</tbody>
-									</table>
-								</li>
+								<li id="product-etc"></li>
 							</ul>
 						</div>
 					</div>
@@ -223,7 +181,7 @@
 						<div id="sns">
 							<ul>
 								<li><a href="#"><img
-										src="/resources/css/mainimg/FACENBOOK.PNG" class="img2"></a></li>
+									src="/resources/css/mainimg/FACEBOOK.PNG" class="img2"></a></li>
 								<li><a href="#"><img
 										src="/resources/css/mainimg/INSTA.PNG" class="img2"></a></li>
 								<li><a href="#"><img

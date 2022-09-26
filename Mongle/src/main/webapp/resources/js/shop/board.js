@@ -9,8 +9,6 @@ $(document).ready(function() {
 		var product_name_chk = false;
 		// 상품 가격
 		var product_price_chk = false;
-		// 삼풍 색상
-		var product_color_chk = false;
 		// 상품 종류
 		var product_type_chk = false;
 		// 상품 수량
@@ -21,8 +19,6 @@ $(document).ready(function() {
 		var product_name = $("input[name='w_name']").val();
 		// 상품 가격
 		var product_price = $("input[name='w_price']").val();
-		// 삼풍 색상
-		var product_color = $("input[name='w_color']").val();
 		// 상품 종류
 		var product_type = $("input[name='w_type']").val();
 		// 상품 수량
@@ -44,13 +40,6 @@ $(document).ready(function() {
 			product_price_chk=false;
 		}
 		if(product_price.length>0){
-			$(".shop_color").css('display','none');
-			product_color_chk=true;
-		}else{
-			$(".shop_color").css('display','block');
-			product_color_chk=false;
-		}
-		if(product_price.length>0){
 			$(".shop_type").css('display','none');
 			product_type_chk=true;
 		}else{
@@ -64,13 +53,28 @@ $(document).ready(function() {
 			$(".shop_Q").css('display','block');
 			product_Q_chk=false;
 		}
-		if(product_name_chk && product_price_chk && product_color_chk && product_type_chk && product_Q_chk){
+		if(product_name_chk && product_price_chk && product_type_chk && product_Q_chk){
 			alert('통과');
 			$("#shop_form").append(input).submit();
 		}else{
 			return false;
 		}
 	});
+	
+	// ajax를 통해 select box안에 들어갈 값 불러오기
+	$("#c_type1").on("change",function(){
+		var s = $("#c_type1").val();
+		console.log("대분류 ="+s)
+		
+		$.getJSON("/shop/"+s+".json", function(data){
+			var str="";
+			str +="";
+			for(var i = 0; i < data.length; i++){
+				str += "<option>" + data[i].c_type2+"</option>"
+			}
+			$("#c_type2").html(str);
+		})
+	})
 	
 	// 첨부파일 공격에 대비하기 위한 업포드 파일 확장자 제한.((.exe .zip .aiz, 특정 크기 이상 파일) = 첨부x)
 	// 함수 선언
