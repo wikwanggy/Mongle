@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
 <!DOCTYPE html>
 <html>
@@ -40,7 +40,7 @@
 			<input class="search" type="submit" value="id찾기"
 				formaction="/Login/searchID">
 			<input class="search" type="submit" value="pw찾기"
-				formaction="/Login/searchPW">
+				formaction="/Login/findpw">
 			<p>제작자 3조</p>
 		</form>
 	</div>

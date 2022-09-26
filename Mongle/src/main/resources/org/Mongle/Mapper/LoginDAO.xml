@@ -94,6 +94,9 @@
 		and number=#{number}
 		and email=#{email}
   	</select>
-  	
+  	<!-- 비밀번호 변경 -->
+	<update id="updatePassword" >
+	update member set password = #{password} where id = #{id}
+	</update>
 
   </mapper>

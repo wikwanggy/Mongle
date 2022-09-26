@@ -32,4 +32,10 @@ public interface LoginDAO {
 	public LoginDTO searchidcheck(@Param("name") String name, @Param("email") String email, @Param("number") String number);
 	// pw찾기
 	public LoginDTO searchpwcheck(@Param("name") String name, @Param("id") String id ,@Param("email") String email, @Param("number") String number);
+	// 비밀번호 변경
+	public int updatePassword(LoginDTO ldto) throws Exception;
+
+	
+	
+
 }
