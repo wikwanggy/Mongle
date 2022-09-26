@@ -32,8 +32,7 @@
 			</tr>
 			<tr>
 				<td>상품 색상</td>
-				<td><input type="text" class="shop_color" id="product_color" name="w_color" placeholder="색상"><button type="button" id="multi" name="multi_color">+</button></td>
-				<td class="multi"></td>
+				<td><input type="text" class="shop_color" id="product_color" name="w_color" placeholder="색상"></td>
 			</tr>
 			<tr>
 				<td>상품 종류</td>

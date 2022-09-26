@@ -279,7 +279,7 @@ header {
 	user-select: none;
 }
 
-#tab-titles li { /* 메뉴  */
+#tab-titles>li { /* 메뉴  */
 	display: inline-block; /* 가로정렬 */
 	padding: 15px 20px 14px; /* 글자 기준 간격 */
 	width: 25%; /* 가로 길이 분배 */
@@ -293,16 +293,12 @@ header {
 	cursor: pointer;
 }
 
-.active {
-	
+#tab-titles>li.active { /* 자바스크립트 적용 클릭시, 해당 페이지 시 */
+	margin-bottom: -2px; /* 해당 메뉴 아래선 제거 */
+	background: #fff; /* 배경색 변경 */
+	border-bottom: 1px solid #fff; /* 테투리 아래선 */
+	color: #111; /* 글자 색상 */
 }
-
-/* #tab-titles li.active { 자바스크립트 적용 클릭시, 해당 페이지 시
-	margin-bottom: -2px; 해당 메뉴 아래선 제거
-	background: #fff; 배경섹 변경
-	border-bottom: 1px solid #fff; 테투리 아래선
-	color: #111; 글자 색상
-} */
 /* 상품 상세 설명메뉴 끝 */
 
 /* 상품 상세 설명 시작 */

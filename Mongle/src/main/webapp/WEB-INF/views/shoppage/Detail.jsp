@@ -10,7 +10,7 @@
 <title>shop</title>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- <script type="text/javascript" src="/resources/js/shop/Detail.js"></script> -->
+<script type="text/javascript" src="/resources/js/shop/Detail.js"></script>
 <link rel="stylesheet" href="/resources/css/shop/Detail.css">
 </head>
 <body>
@@ -117,14 +117,11 @@
 									<div>
 										<div id="color">
 											<div>
-												
-													<select style="width: 600px; height: 50px;" id="selcbk">
-													<option>&nbsp;&nbsp;색상 선택</option>
+												<select style="width: 600px; height: 50px;" id="selcbk"><option>&nbsp;&nbsp;컬러선택</option>
 													<c:forEach items="${sub}" var="sub">
 														<option>${sub.w_color}</option>
-														</c:forEach>
-													</select>
-												
+													</c:forEach>
+												</select>
 											</div>
 										</div>
 									</div>
@@ -155,18 +152,16 @@
 						</div>
 
 						<!-- 상품 설명,리뷰,문의,배송 전체 -->
-						<div id="btfTab">
+						<div id="btfTab" class="tab">
 							<!-- 상품 상세 메뉴 -->
 							<div id="slidemenu">
 								<ul id="tab-titles">
-									<li name="detail" class="active"><a href="#product-detail">상세정보</a></li>
-									<li name="review" class="active"><a href="#product-review">구매평</a></li>
-									<li name="qna" class="active"><a
-										href="http://localhost:8080/shoppage/Detail#product-etc">상품문의
-											<span class="product-tab-review-count">(0)</span>
+									<li name="detail"><a href="#product-detail">상세정보</a></li>
+									<li name="review"><a href="#product-review">구매평</a></li>
+									<li name="qna"><a href="#product-qna">상품문의 <span
+											class="product-tab-review-count">(0)</span>
 									</a></li>
-									<li name="etc" class="active"><a href="#product-etc">배송/반품/교환
-											안내</a></li>
+									<li name="etc"><a href="#product-etc">배송/반품/교환 안내</a></li>
 								</ul>
 							</div>
 							<!-- 상품 설명,리뷰,문의,배송 전체 배치 -->
@@ -178,7 +173,37 @@
 								</c:forEach>
 								<li id="product-review"></li>
 								<li id="product-qna"></li>
-								<li id="product-etc"></li>
+								<li id="product-etc">
+									<h5 class="">배송정보</h5>
+									<table class="">
+										<colgroup>
+											<col width="150px">
+											<col width="340px">
+											<col width="150px">
+											<col width="*">
+										</colgroup>
+										<tbody>
+											<tr>
+												<th>배송방법</th>
+												<td>순차배송</td>
+												<th rowspan="2">배송비</th>
+												<td rowspan="2">무료배송<br>로켓배송 상품 중 19,800원 이상 구매 시
+													무료배송<br>도서산간 지역 추가비용 없음
+												</td>
+											</tr>
+											<tr>
+											<th>묶음배송 여부</th>
+											<td>가능</td>
+											</tr>
+											<tr>
+											<th>배송기간</th>
+											</tr>	
+											<td colspan="3">
+											<ul><li></ul>
+											</td>										
+										</tbody>
+									</table>
+								</li>
 							</ul>
 						</div>
 					</div>

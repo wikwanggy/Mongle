@@ -3,8 +3,6 @@
  */
 $(document).ready(function() {
 	var input = "";
-	var multi = "";
-	var t = 1;
 	// 상품등록 체크
 	$("#uploadBtn").click(function(){
 		// 상품 이름
@@ -96,11 +94,7 @@ $(document).ready(function() {
 		}
 		return true;
 	}
-	// 버튼 클리시
-	$("#multi").click(function(){
-		$(".multi").addend("<td><input type="text" class="shop_color" name="w_color" placeholder="색상">"+ t +"</td>")
-		t++;
-	})
+	
 	// 파일 전송버튼을 클릭하면 mian 이미지
 	$("#imagemain").on("change", function(e) {
 		e.stopPropagation();
