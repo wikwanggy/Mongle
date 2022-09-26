@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="..\resources\css\service\notice.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/resources/js/service/test.js"></script>
+<script type="text/javascript" src="/resources/js/service/tab.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -74,20 +74,15 @@
 		</div>
 		<%--본문 넣을 자리 --%>
 		<div id="service_main">
-			<aside id="service_aside"><%--왼쪽 사이드바 --%>
-			<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
-			<ul>
-				<li class="a_on"><a href="notice">공지사항</a><li>
-				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
-				<li><a href="questions">1:1문의</a></li>
-			</ul>
-			</aside>
+			<%--왼쪽 사이드바 --%>
+					<jsp:include page="../include/serviceinclude.jsp"></jsp:include>
 			<%-- 왼쪽 사이드바 끝 --%>
 			<%-- 본문  div --%>
 			<div id="service_main_center">
 			<div id="service_main_page">
 			<span id="service_main_title">공지사항</span>
 			<div id="service_noticelist">
+						<input type="hidden" name="bgno" value="${bgno}">
 				<div id="service_noticelist_top">
 					<div id="notice_list_td1">번호</div>
 					<div id="notice_list_td2">제목</div>
@@ -104,12 +99,45 @@
 						<div id="notice_list_td4">${notice.name }</div>
 					</dt>
 					<dd style="display:none;">
+						${notice.content }
 					</dd>
 				</c:forEach>
 					<!-- for문 끝 -->
 				</dl>
 			 </div>
-			 <input id="notice_button" type="submit" value="1:1질문하러가기" style="cursor: pointer" onclick="location.href='write'">
+			 
+			 	 <!-- 페이지 번호 시작 -->
+			 <table class="page_table">
+				 <tr class="page_table">
+			 <!-- prev(이전)이 true이면 이전버튼 화설화 -->
+				<td class="page_table">
+				<c:if test="${paging.prev}">
+					<a href="/service/bkind?bgno=${paging.spa.bgno}&pageNum=${paging.startPage-1}&amount=${paging.spa.amount}">이전</a>
+				</c:if>
+				</td>
+				
+				<!-- begin(1) end(10)될 동안 반복(1일 10일 될 동안 반복) -->
+				<td class="page_table">
+				<c:forEach begin="${paging.startPage}" end="${paging.endPage }" var="num">
+					<td class="${paging.spa.pageNum eq num ? 'on' : '' }"><a href="/service/bkind?bgno=${paging.spa.bgno}&type=${paging.spa.type }&keyword=${paging.spa.keyword }&pageNum=${num }&amount=${paging.spa.amount}">${num}</a></td>
+				</c:forEach>
+				</td>
+				
+				<td class="page_table">
+				<c:if test="${paging.next }">
+					<a href="/service/bkind?bgno=${paging.spa.bgno}&pageNum=${paging.endPage+1}&amount=${paging.spa.amount}">다음</a>
+				</c:if>
+				</td>
+			<!-- next(다음)이 true이면 다음버튼 활성화 -->
+			 	</tr>
+			 </table>
+			 <!-- 페이지 번호 끝 -->
+			 
+			<c:choose>
+			 <c:when test="${sessionScope.login.id=='admin'}">
+			 <input id="notice_button" type="submit" value="공지사항쓰러가기" style="cursor: pointer" onclick="location.href='/service/write?bgno=1'">
+			</c:when>
+			</c:choose>
 			</div><%--본문div끝 --%>
 		</div>
 	</div>

@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="..\..\resources\css\service\servicedetail.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/service/serviceAttach.js"></script>
+<script type="text/javascript" src="/resources/js/service/serviceUploadAjax.js"></script>
+<script type="text/javascript" src="/resources/js/service/tab.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -75,24 +77,17 @@
 		</div>
 		<%--본문 넣을 자리 --%>
 		<div id="service_main">
-			<aside id="service_aside"><%--왼쪽 사이드바 --%>
-			<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
-			<ul>
-				<li><a href="notice">공지사항</a><li>
-				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
-				<li><a href="questions">1:1질문(Q&A)</a></li>
-			</ul>
-			</aside>
-			<%-- 왼쪽 사이드바 끝 --%>
+				<%-- 왼쪽 사이드바 시작--%>
+					<jsp:include page="../include/serviceinclude.jsp"></jsp:include>
+				<%-- 왼쪽 사이드바 끝 --%>
 			<%-- 본문  div --%>
 			<div id="service_main_center">
 			<div id="service_main_page">
-			<span id="service_main_title">1:1질문(Q&A)</span>
-					<form method="POST" action="/service/modify">
+					<form method="POST" action="/service/modify" enctype="multipart/form-data">
 					<table>
 						<tr>
 							<td>
-								<input class="questions_detail_button" type="submit" value="수정 완료" style="cursor: pointer" onclick="alert('글수정완료')" formaction="/service/modify">
+								<input class="questions_detail_button" id="uploadBtn" type="submit" value="수정 완료" style="cursor: pointer" onclick="alert('글수정완료')" formaction="/service/modify">
 							</td>
 						</tr>
 						<tr>
@@ -101,6 +96,7 @@
 							
 						<tr>
 							<td><input class="service_sub_font" type="text" name="title" value="${detail.title }" ></td>
+							<td><input type="hidden" name="bgno" value="${detail.bgno}"></td>
 							<td><input type="hidden" name="bno" value="${detail.bno}"></td>
 							<td><input type="hidden" name="id" value="${detail.id}"></td>
 						</tr>
@@ -116,6 +112,15 @@
 						<tr>
 							<td>				
 								<div id="uploadResult">
+									<ul>
+				
+									</ul>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>첨부파일				
+								<div id="filelistimage">
 									<ul>
 				
 									</ul>

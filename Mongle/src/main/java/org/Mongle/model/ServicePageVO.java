@@ -1,11 +1,12 @@
 package org.Mongle.model;
 
-public class ServicePageVO {	
+public class ServicePageVO {
 	private int pageNum; 	//페이지번호
 	private int amount; 	//한 페이지당 게시물 갯수
 	private String keyword; //키워드를 통해 검색.
 	private String type; 	//키워드 기준
 	private int bgno;
+	
 	
 	
 	public int getBgno() {

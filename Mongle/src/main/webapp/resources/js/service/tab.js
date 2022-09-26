@@ -2,6 +2,27 @@
  * 
  */
 $(document).ready(function(){ /*탭메뉴*/
+		var url = location.href;
+		var getAr0 = url.indexOf("bgno=1");
+		var getAr1 = url.indexOf("bgno=2");
+		var getAr2 = url.indexOf("bgno=3");
+		console.log(url);
+		console.log(getAr0);
+		console.log(getAr1);
+		console.log(getAr2);
+		
+		if(getAr0 != -1) {
+			$('#service_aside_list1').addClass("a_on");
+		}
+		
+		if(getAr1 != -1) {
+			$('#service_aside_list2').addClass("a_on");
+		}
+		
+		
+		if(getAr2 != -1) {
+			$('#service_aside_list3').addClass("a_on");
+		}
 	
 	$('.service_main_kategori').click(function(){
 		var tab_id = $(this).attr('data-tab');
@@ -12,6 +33,14 @@ $(document).ready(function(){ /*탭메뉴*/
 		$(this).addClass('current');
 		$("#"+tab_id).addClass('current');
 	})
+	
+
+	/*if( (Trim(wti)=="")||(wti==null) ) {
+		alert("제목써주");
+		return;
+		var wti=document.fw.title.value;
+		console.log(wti); 
+	}*/
 });
 
 function onoffDisplay(){ /*클릭시 글 내용 평쳐지게하기*/
@@ -26,4 +55,8 @@ function onoffDisplay(){ /*클릭시 글 내용 평쳐지게하기*/
 			$(this).next().css("display","none");
 		}
 	});
+}
+
+function tabno(bgno) {
+	alert(bgno);
 }

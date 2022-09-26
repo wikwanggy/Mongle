@@ -6,21 +6,21 @@
 <mapper namespace="org.Mongle.Mapper.ServiceMapper">
 	<insert id="write">
 		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
-			select infull(max(bno)+1,1)bno
+			select ifnull(max(bno)+1,1)bno
 			from service_list
 		</selectKey>
 		
-	  insert into service_list(bno,title, content,id)
-      values(#{bno},#{title},#{content},#{id})
+	  insert into service_list(bno,title, content,id,bgno,name)
+      values(#{bno},#{title},#{content},#{id},#{bgno},#{name})
 	</insert>
 	
 	<!-- questions 리스트 -->
-	<select id="list" resultType="org.Mongle.model.ServiceVO">
+	<select id="list" resultType="org.Mongle.model.ServiceVO" parameterType="map">
 		select*
 		from (
 			select @rownum:=@rownum+1 num,b.*
 			from service_list 	b ,(select @rownum:=0 )  as tmp
-			where BGNO=#{bgno}
+			where bgno=#{bgno}
 			<if test="keyword !=null">
 				<choose>
 					<when test="type == 'T'.toString()">
@@ -36,12 +36,10 @@
 				</choose>
 			</if>
 			order by bno desc
-			)as questions
+			)as bkind
 			<![CDATA[
 				where num> (#{pageNum}-1)*#{amount} and num<=#{pageNum}*#{amount}
-			]]>  
-			
-			;
+			]]>
 	</select>
 
 		   <select id="detail" resultType="org.Mongle.model.ServiceVO">

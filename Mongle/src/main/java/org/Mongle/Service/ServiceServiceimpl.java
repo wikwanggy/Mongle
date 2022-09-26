@@ -34,6 +34,7 @@ public class ServiceServiceimpl implements ServiceService{
 	
 	//list 추상메서드 구현
 	public ArrayList<ServiceVO> list(ServicePageVO spa){
+		System.out.println("service="+spa);
 		return sm.list(spa);
 	}
 	

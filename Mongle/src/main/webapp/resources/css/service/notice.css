@@ -19,7 +19,7 @@
 }
 #service_main_center{
 	overflow: hidden;
-	width:830px;
+	width:870px;
 	padding: 20px 0 20px 30px;
 }
 
@@ -53,7 +53,7 @@ aside>ul>li{
 	display: block;
 }
 
-.a_on{ /* 선택한 리스트 색깔 부여*/
+.a_on{ /* 주소값에 따른 사이드 색깔부여*/
 	background-color: #fff4ab;
 }
 
@@ -115,12 +115,21 @@ tr{
 }
 
 #service_noticelist_lower{
-	border-bottom: 1px solid;
+	border-bottom: 1px solid #d3d3d3;
 }
 
 #service_noticelist_num{
 	border-top: 1px solid #D3D3D3;	
 	overflow: hidden;
+}
+
+#service_noticelist_lower>dd{
+	padding: 20px;
+	font-size: 24px;
+	font-weight: 500;
+	background-color: #f3f3f3;
+	border-width: 1px 0 1px 0;
+	border-style: solid;
 }
 
 #service_noticelist_num:first-child{
@@ -139,11 +148,11 @@ tr{
 }
 
 #notice_list_td2{
-	width:500px;
+	width:450px;
 }
 
 #notice_list_td3{
-	width:100px;
+	width:180px;
 }
 
 #notice_list_td4{
@@ -156,6 +165,27 @@ tr{
 	color:black;
 }
 
+.page_table{ /*페이지 감싼 테이블*/
+	border: none;
+	margin: auto;
+}
+
+.page_table>td{ /* a태그 색부여를 위한 td 감추기*/
+	border: 0px;
+	padding: 0 3px 0 3px;
+}
+
+.page_table>td>a{ /* a태그 꾸미는 파트 */
+	text-decoration: none;
+	font-size:30px;
+	color:black;
+}
+
+.page_table>.on>a{ /* 선택된 a태그 색부여 */
+	color:#f8e6e0;
+}
+
+
 #notice_button{ /* 질문 하기 버튼 꾸미기*/
 	padding:20px;
 	background-color: #FFFFFF;
@@ -163,6 +193,14 @@ tr{
 	display: block;	
 	border: #f8e6e0 2px solid;
 	border-radius:5px;
+	width:130px;
+	font-size: 15px;
+	text-decoration: none;
+	color: black;
+}
+
+#notice_button:hover{
+	background-color:#f8e6e0;
 }
 /*메인 끝*/
 /*questions  끝 css*/

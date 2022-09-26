@@ -17,6 +17,11 @@
 	overflow:hidden;
 	margin-bottom: 30px;
 }
+
+.a_on{ /* 주소값에 따른 사이드 색깔부여*/
+	background-color: #fff4ab;
+}
+
 #service_main_center{
 	overflow: hidden;
 	width:900px;
@@ -70,12 +75,6 @@ aside>ul>li>a:active{
 }
 /*왼쪽 사이드 파트 끝*/
 /*메인 시작*/
-#service_main_title{
-	font-size: 56px;
-	font-weight:700;
-	color:black;
-}
-
 .service_sub_font{
 	font-size:24px;
 	font-weight:500;

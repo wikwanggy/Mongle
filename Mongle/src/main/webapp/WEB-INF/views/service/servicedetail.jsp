@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="..\..\resources\css\service\servicedetail.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/service/serviceAttach.js"></script>
+<script type="text/javascript" src="/resources/js/service/tab.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -74,26 +75,19 @@
 		</div>
 		<%--본문 넣을 자리 --%>
 		<div id="service_main">
-			<aside id="service_aside"><%--왼쪽 사이드바 --%>
-			<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
-			<ul>
-				<li><a href="notice">공지사항</a><li>
-				<li><a href="faq">자주묻는 질문(FAQ)</a></li>
-				<li><a href="questions">1:1질문(Q&A)</a></li>
-			</ul>
-			</aside>
+			<%--왼쪽 사이드바 --%>
+				<jsp:include page="../include/serviceinclude.jsp"></jsp:include>
 			<%-- 왼쪽 사이드바 끝 --%>
 			<%-- 본문  div --%>
 			<div id="service_main_center">
 			<div id="service_main_page">
-			<span id="service_main_title">1:1질문(Q&A)</span>
-					<form method="POST">
+					<form name="fw" method="POST">
 					<table>
 						<tr>
 							<td>
 			<c:choose>
 			     <c:when test="${detail.id==sessionScope.login.id || sessionScope.login.id=='admin'}">
-								<a href="/service/modify?bno=${detail.bno }" class="questions_detail_button" style="cursor: pointer">수정 하러 하기</a>
+								<a href="/service/modify?bno=${detail.bno }&bgno=${detail.bgno}" class="questions_detail_button" style="cursor: pointer">수정 하러 하기</a>
 					</c:when>
 			 </c:choose>
 			<c:choose>
@@ -106,11 +100,13 @@
 						<tr>
 							<td class="service_sub_font">제목</td>
 						</tr>
-							
+					
 						<tr>
 							<td><input class="service_sub_font" type="text" name="title" value="${detail.title }" readonly="readonly"></td>
+							<td><input type="hidden" name="bgno" value="${detail.bgno}"></td>
 							<td><input type="hidden" name="bno" value="${detail.bno}"></td>
 							<td><input type="hidden" name="id" value="${detail.id}"></td>
+							<td><input type="hidden" name="name" value="${detail.name}"></td>
 						</tr>
 						
 						<tr>

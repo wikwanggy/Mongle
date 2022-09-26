@@ -9,6 +9,9 @@
 <link rel="stylesheet" href="..\resources\css\service\faq.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/service/tab.js"></script>
+
+
+
 </head>
 <body>
 	<div id="container">
@@ -74,19 +77,14 @@
 		</div>
 		<%--본문 넣을 자리 --%>
 		<div id="service_main">
-			<aside id="service_aside"><%--왼쪽 사이드바 --%>
-			<h2 id="service_aside_header"><a href="servicemain">고객센터</a></h2>
-			<ul>
-				<li><a href="notice">공지사항</a><li>
-				<li class="a_on"><a href="faq">자주묻는 질문(FAQ)</a></li>
-				<li><a href="questions">1:1문의</a></li>
-			</ul>
-			</aside>
-			<%-- 왼쪽 사이드바 끝 --%>
+				<%--왼쪽 사이드바 --%>
+					<jsp:include page="../include/serviceinclude.jsp"></jsp:include>
+				<%-- 왼쪽 사이드바 끝 --%>
 			<%-- 본문  div --%>
 			<div id="service_main_center">
 			<div id="service_main_page">
 			<span id="service_main_title">자주묻는 질문</span>
+						<input type="hidden" name="bgno" value="${bgno}">
 				<div id="service_main_box">
 					<ul>
 						<li class="service_main_qbox"><a href="#">test용 글1</a></li>
@@ -99,10 +97,10 @@
 				<div id="service_main_qlist">
 					<ul>
 						<li class="service_main_kategori current" data-tab="tab-1">회원정보</li><!--
-					 --><li class="service_main_kategori" data-tab="tab-2">주문</li><!--
-					 --><li class="service_main_kategori" data-tab="tab-3">배송</li><!--
-					 --><li class="service_main_kategori" data-tab="tab-4">반품/AS</li><!--
-					 --><li class="service_main_kategori" data-tab="tab-5">이벤트</li>
+					 --><li class="service_main_kategori" data-tab="tab-2"><a href=#none onclick="javascript:tabno(5);">주문</a></li><!--
+					 --><li class="service_main_kategori" data-tab="tab-3"><a href=#none onclick="javascript:tabno(6);">배송</a></li><!--
+					 --><li class="service_main_kategori" data-tab="tab-4"><a href=#none onclick="javascript:tabno(7);">반품/AS</a></li><!--
+					 --><li class="service_main_kategori" data-tab="tab-5"><a href=#none onclick="javascript:tabno(8);">이벤트</a></li>
 					</ul>
 				</div>
 				<div id="tab-1" class="service_faqlist current">
@@ -129,6 +127,7 @@
 			 
 			 <div id="tab-2" class="service_faqlist" >
 			 <p>2번째 탭</p>
+			 <input type="text" value="${bgno }">
 			 </div>
 			 
 			 <div id="tab-3" class="service_faqlist" >
@@ -144,6 +143,34 @@
 			 </div>
 		</div> 
 			</div>
+			
+			<!-- 페이지 번호 시작 -->
+			 <table class="page_table">
+				 <tr class="page_table">
+			 <!-- prev(이전)이 true이면 이전버튼 화설화 -->
+				<td class="page_table">
+				<c:if test="${paging.prev}">
+					<a href="/service/bkind?bgno=${paging.spa.bgno}&pageNum=${paging.startPage-1}&amount=${paging.spa.amount}">이전</a>
+				</c:if>
+				</td>
+				
+				<!-- begin(1) end(10)될 동안 반복(1일 10일 될 동안 반복) -->
+				<td class="page_table">
+				<c:forEach begin="${paging.startPage}" end="${paging.endPage }" var="num">
+					<td class="${paging.spa.pageNum eq num ? 'on' : '' }"><a href="/service/bkind?bgno=${paging.spa.bgno}&type=${paging.spa.type }&keyword=${paging.spa.keyword }&pageNum=${num }&amount=${paging.spa.amount}">${num}</a></td>
+				</c:forEach>
+				</td>
+				
+				<td class="page_table">
+				<c:if test="${paging.next }">
+					<a href="/service/bkind?bgno=${paging.spa.bgno}&pageNum=${paging.endPage+1}&amount=${paging.spa.amount}">다음</a>
+				</c:if>
+				</td>
+			<!-- next(다음)이 true이면 다음버튼 활성화 -->
+			 	</tr>
+			 </table>
+			 <!-- 페이지 번호 끝 -->
+			 
 			</div><%--본문div끝 --%>
 		</div>
 		<%--본문 넣을 자리 --%>

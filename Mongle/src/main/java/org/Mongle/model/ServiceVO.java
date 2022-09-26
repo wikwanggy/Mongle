@@ -17,15 +17,17 @@ public class ServiceVO {
 	//아이디(id)
 	private String id;
 	//게시판 분류(BGNO)
-	private int BGNO;
+	private int bgno;
+	//이름(name)
+	private String name;
 	//ServiceFileListVO(파일 업로드 관련 model)
 	private ArrayList<ServiceFileListVO> svfile;
 
-	public int getBGNO() {
-		return BGNO;
+	public int getBgno() {
+		return bgno;
 	}
-	public void setBGNO(int bGNO) {
-		BGNO = bGNO;
+	public void setBgno(int bgno) {
+		this.bgno = bgno;
 	}
 	public int getBno() {
 		return bno;
@@ -69,10 +71,17 @@ public class ServiceVO {
 	public void setSvfile(ArrayList<ServiceFileListVO> svfile) {
 		this.svfile = svfile;
 	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	@Override
 	public String toString() {
 		return "ServiceVO [bno=" + bno + ", title=" + title + ", content=" + content + ", regdate=" + regdate + ", cnt="
-				+ cnt + ", id=" + id + ", BGNO=" + BGNO + ", svfile=" + svfile + "]";
+				+ cnt + ", id=" + id + ", bgno=" + bgno + ", name=" + name + ", svfile=" + svfile + "]";
 	}
 	
 	
