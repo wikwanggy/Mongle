@@ -6,6 +6,11 @@ $(document).ready(function(){ /*탭메뉴*/
 		var getAr0 = url.indexOf("bgno=1");
 		var getAr1 = url.indexOf("bgno=2");
 		var getAr2 = url.indexOf("bgno=3");
+		var getAr3 = url.indexOf("bgno=4");
+		var getAr4 = url.indexOf("bgno=5");
+		var getAr5 = url.indexOf("bgno=6");
+		var getAr6 = url.indexOf("bgno=7");
+		
 		console.log(url);
 		console.log(getAr0);
 		console.log(getAr1);
@@ -17,13 +22,36 @@ $(document).ready(function(){ /*탭메뉴*/
 		
 		if(getAr1 != -1) {
 			$('#service_aside_list2').addClass("a_on");
+			$('.service_main_kategori:eq(0)').addClass("current");
 		}
 		
 		
 		if(getAr2 != -1) {
 			$('#service_aside_list3').addClass("a_on");
 		}
-	
+		
+		if(getAr3 != -1) {
+			$('#service_aside_list2').addClass("a_on");
+			$('.service_main_kategori:eq(1)').addClass("current");
+		}
+		
+		if(getAr4 != -1) {
+			$('#service_aside_list2').addClass("a_on");
+			$('.service_main_kategori:eq(2)').addClass("current");
+		}
+		
+		if(getAr5 != -1) {
+			$('#service_aside_list2').addClass("a_on");
+			$('.service_main_kategori:eq(3)').addClass("current");
+		}
+		
+		if(getAr6 != -1) {
+			$('#service_aside_list2').addClass("a_on");
+			$('.service_main_kategori:eq(4)').addClass("current");
+		}
+		
+
+		
 	$('.service_main_kategori').click(function(){
 		var tab_id = $(this).attr('data-tab');
 		
@@ -57,6 +85,10 @@ function onoffDisplay(){ /*클릭시 글 내용 평쳐지게하기*/
 	});
 }
 
-function tabno(bgno) {
-	alert(bgno);
-}
+const test = function(bgno) {
+	  const URLSearch = new URLSearchParams(location.search);
+	  URLSearch.set('bgno', String(bgno));
+	  const newParam = URLSearch.toString();
+
+	  window.open(location.pathname + '?' + newParam, '_self');
+	};

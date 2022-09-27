@@ -146,6 +146,11 @@ aside>ul>li>a:active{
 	color:#FFFFFF;
 }
 
+.service_main_kategori>a{
+	display: block;
+	text-decoration: none;
+}
+
 .service_faqlist{
 	display:none;
 	width:auto;
@@ -202,6 +207,28 @@ aside>ul>li>a:active{
 
 #faq_list_td3{
 	width:150px;
+}
+
+.faq_list_link{
+	text-decoration: none;
+	color: black;
+}
+
+#questions_button{ /* 질문 하기 버튼 꾸미기*/
+	padding:20px;
+	background-color: #FFFFFF;
+	margin:auto;
+	display: block;	
+	border: #f8e6e0 2px solid;
+	border-radius:5px;
+	width:130px;
+	font-size: 15px;
+	text-decoration: none;
+	color: black;
+}
+
+#questions_button:hover{
+	background-color:#f8e6e0;
 }
 
 .page_table{ /*페이지 감싼 테이블*/

@@ -101,6 +101,18 @@ public class ServiceController {
 		}else if(spa.getBgno()==2) {	// 만약에 bgno가 2이면
 			model.addAttribute("list",ss.list(spa));
 			path="service/faq";// faq
+		}else if(spa.getBgno()==4) {	// 만약에 bgno가 4이면
+			model.addAttribute("list",ss.list(spa));
+			path="service/faq2";// faq
+		}else if(spa.getBgno()==5) {	// 만약에 bgno가 5이면
+			model.addAttribute("list",ss.list(spa));
+			path="service/faq3";// faq
+		}else if(spa.getBgno()==6) {	// 만약에 bgno가 6이면
+			model.addAttribute("list",ss.list(spa));
+			path="service/faq4";// faq
+		}else if(spa.getBgno()==7) {	// 만약에 bgno가 7이면
+			model.addAttribute("list",ss.list(spa));
+			path="service/faq5";// faq
 		}else {// 그렇지 않으면
 			model.addAttribute("list",ss.list(spa));
 			path="service/questions";// 1:1문즤

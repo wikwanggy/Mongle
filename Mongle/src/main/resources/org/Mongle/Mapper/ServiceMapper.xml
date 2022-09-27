@@ -16,11 +16,13 @@
 	
 	<!-- questions 리스트 -->
 	<select id="list" resultType="org.Mongle.model.ServiceVO" parameterType="map">
-		select*
-		from (
-			select @rownum:=@rownum+1 num,b.*
-			from service_list 	b ,(select @rownum:=0 )  as tmp
-			where bgno=#{bgno}
+        select * from (
+        select @row_no:=IF(@prev_val =b.bgno,@row_no+1,1)AS 
+         bno,@prev_val := b.bgno as bgno,b.title
+		from service_list b,
+        (select @row_no := 0)x,
+        (select @prev_val :='')y
+        where BGNO=#{bgno}
 			<if test="keyword !=null">
 				<choose>
 					<when test="type == 'T'.toString()">
@@ -35,10 +37,10 @@
 					</otherwise>
 				</choose>
 			</if>
-			order by bno desc
-			)as bkind
+			     order by bno desc,b.title desc
+			    )as test
 			<![CDATA[
-				where num> (#{pageNum}-1)*#{amount} and num<=#{pageNum}*#{amount}
+				where bno> (#{pageNum}-1)*#{amount} and bno<=#{pageNum}*#{amount}
 			]]>
 	</select>
 
@@ -66,18 +68,18 @@
 			
 	   <select id="total" resultType="int">
    		select count(*) from service_list
-   		
+   		where BGNO=#{bgno}
    		<if test="keyword !=null">
 			 <choose>
 				    <when test="type == 'T'.toString()">
-				      where title like concat('%',#{keyword},'%')
+				      and title like concat('%',#{keyword},'%')
 				    </when>
 				    <when test="type == 'C'.toString()">
-				      where content like concat('%',#{keyword},'%')
+				      and content like concat('%',#{keyword},'%')
 				    </when>
 				    <otherwise>
-				      where title like concat('%',#{keyword},'%')
-				      OR content like concat('%',#{keyword},'%')
+				      or title like concat('%',null,'%')
+				      OR content like concat('%',null,'%')
 				    </otherwise>				    	
 			 </choose>
 		</if>

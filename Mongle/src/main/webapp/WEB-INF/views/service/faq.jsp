@@ -84,26 +84,10 @@
 			<div id="service_main_center">
 			<div id="service_main_page">
 			<span id="service_main_title">자주묻는 질문</span>
-						<input type="hidden" name="bgno" value="${bgno}">
-				<div id="service_main_box">
-					<ul>
-						<li class="service_main_qbox"><a href="#">test용 글1</a></li>
-						<li class="service_main_qbox"><a href="#">test용 글 2</a></li>
-						<li class="service_main_qbox"><a href="#">test용 글3</a></li>
-						<li class="service_main_qbox"><a href="#">test용 글 4</a></li>
-					</ul>
-				</div>
-			<div>
-				<div id="service_main_qlist">
-					<ul>
-						<li class="service_main_kategori current" data-tab="tab-1">회원정보</li><!--
-					 --><li class="service_main_kategori" data-tab="tab-2"><a href=#none onclick="javascript:tabno(5);">주문</a></li><!--
-					 --><li class="service_main_kategori" data-tab="tab-3"><a href=#none onclick="javascript:tabno(6);">배송</a></li><!--
-					 --><li class="service_main_kategori" data-tab="tab-4"><a href=#none onclick="javascript:tabno(7);">반품/AS</a></li><!--
-					 --><li class="service_main_kategori" data-tab="tab-5"><a href=#none onclick="javascript:tabno(8);">이벤트</a></li>
-					</ul>
-				</div>
-				<div id="tab-1" class="service_faqlist current">
+					<!-- 기초틀 시작-->
+						<jsp:include page="../include/servicefaqinclude.jsp"></jsp:include>
+					<!-- 기초틀끝 -->
+					<div id="tab-1" class="service_faqlist current">
 					<div id="service_faqlist_top">
 						<div id="faq_list_td1">번호</div>
 						<div id="faq_list_td2">제목</div>
@@ -123,23 +107,30 @@
 					</c:forEach>
 					<!-- for문 끝 -->
 				</dl>
+				 <c:choose>
+				<c:when test="${sessionScope.login.id=='admin'}">
+				 	<input id="questions_button" type="submit" value="글쓰기" style="cursor: pointer" onclick="location.href='/service/write?bgno=2'";>
+				 </c:when>
+				 <c:otherwise>
+				 	<input id="questions_button" type="submit" value="글쓰기" style="cursor: pointer" onclick="alert('로그인 해주세요')";>
+				 </c:otherwise>
+			 </c:choose>
 			 </div>
 			 
 			 <div id="tab-2" class="service_faqlist" >
-			 <p>2번째 탭</p>
-			 <input type="text" value="${bgno }">
+
 			 </div>
 			 
 			 <div id="tab-3" class="service_faqlist" >
-			 <p>3번째 탭</p>
+
 			 </div>
 			 
 			 <div id="tab-4" class="service_faqlist" >
-			 <p>4번째 탭</p>
+
 			 </div>
 			 
 			 <div id="tab-5" class="service_faqlist" >
-			 <p>5번째 탭</p>
+
 			 </div>
 		</div> 
 			</div>
