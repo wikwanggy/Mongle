@@ -3,5 +3,6 @@ $(document).ready(function() {
 	$('#tab-titles li').click(function(){	
 		$('#tab-titles li').removeClass('active');			
 		$(this).addClass('active');		
-	})	
+	})
+
 });

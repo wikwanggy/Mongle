@@ -67,15 +67,11 @@ public class shopController {
 	}
 
 	// 상품 상세설명
-	@SuppressWarnings("null")
 	@RequestMapping(value = "/shoppage/Detail", method = RequestMethod.GET)
-	public String detail() {
-		Model model = null;
-		shopVO shop = null;
+	public String detail(shopVO shop, Model model) {
 		model.addAttribute("main", ss.main(shop));
 		model.addAttribute("sub", ss.sub(shop));
-		shopitemVO item = null;
-		model.addAttribute("qna", ss.s_item(item));
+		model.addAttribute("item",ss.s_item());
 		return "/shoppage/Detail";
 	}
 

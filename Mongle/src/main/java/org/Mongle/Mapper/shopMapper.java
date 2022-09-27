@@ -29,7 +29,7 @@ public interface shopMapper {
 	public void s_write(shopitemVO item);
 	
 	// 문의 목록 리스트 설계
-	public ArrayList<shopitemVO> s_item(shopitemVO item);
+	public ArrayList<shopitemVO> s_item();
 	
 	// 상품 수정 설계
 	public void modify(shopVO shop);

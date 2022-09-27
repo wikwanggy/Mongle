@@ -65,8 +65,9 @@ public class shopServiceimpl implements shopService {
 		sm.s_write(item);
 	}
 	// 문의 목록리스트 구현
-	public ArrayList<shopitemVO> s_item(shopitemVO item) {
-		return sm.s_item(item);
+	public ArrayList<shopitemVO> s_item() {
+		System.out.println("s_item="+sm.s_item());
+		return sm.s_item();
 	}
 	// 상품 수정 구현
 	public void modify(shopVO shop) {

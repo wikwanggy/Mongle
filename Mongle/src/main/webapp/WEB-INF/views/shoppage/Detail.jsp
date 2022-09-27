@@ -213,11 +213,12 @@
 												<div class="prod-inquiry-list__container">
 													<div class="prod-inquiry-items">
 														<em class="prod-inquiry-item__label">질문</em>
+														
 
-														<c:forEach items="item" var="item">
+														 <c:forEach items="${item}" var="item">
 															<div class="prod-inquiry-item__wrap">
 																<strong calss="prod-inquiry-author">${item.s_id}</strong>
-																<c:forEach items="sub" var="sub">
+																<c:forEach items="${sub}" var="sub">
 																<div class="prod-inquiry-selected">${sub.w_name}</div>
 																</c:forEach>
 																<div class="prod-inquiry-content">${item.s_question}</div>
