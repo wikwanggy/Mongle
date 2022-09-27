@@ -11,8 +11,6 @@ public class shopVO {
 	private int w_price;
 	// 상품 작성일자
 	private String w_regdata;
-	// 상품 종류
-	private String w_type;
 	// 상품 수량
 	private int w_Quantity;
 	// 썸네일 파일 업로드 관련
@@ -52,14 +50,6 @@ public class shopVO {
 		this.w_regdata = w_regdata;
 	}
 
-	public String getW_type() {
-		return w_type;
-	}
-
-	public void setW_type(String w_type) {
-		this.w_type = w_type;
-	}
-
 	public int getW_Quantity() {
 		return w_Quantity;
 	}
@@ -84,11 +74,10 @@ public class shopVO {
 		this.attach = attach;
 	}
 
-
 	@Override
 	public String toString() {
 		return "shopVO [bno=" + bno + ", w_name=" + w_name + ", w_price=" + w_price + ", w_regdata=" + w_regdata
-				+  ", w_type=" + w_type + ", w_Quantity=" + w_Quantity + ", filem=" + filem + ", attach=" + attach + "]";
+				+ ", w_Quantity=" + w_Quantity + ", filem=" + filem + ", attach=" + attach + "]";
 	}
 
 }

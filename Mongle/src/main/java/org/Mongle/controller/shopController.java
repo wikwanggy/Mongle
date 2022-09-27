@@ -8,6 +8,7 @@ import org.Mongle.model.SCriteriaVO;
 import org.Mongle.model.SPageVO;
 import org.Mongle.model.shopCategoryVO;
 import org.Mongle.model.shopVO;
+import org.Mongle.model.shopitemVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -66,12 +67,29 @@ public class shopController {
 	}
 
 	// 상품 상세설명
+	@SuppressWarnings("null")
 	@RequestMapping(value = "/shoppage/Detail", method = RequestMethod.GET)
-	public String detail(shopVO shop, Model model) {
-		System.out.println(shop);
+	public String detail() {
+		Model model = null;
+		shopVO shop = null;
 		model.addAttribute("main", ss.main(shop));
 		model.addAttribute("sub", ss.sub(shop));
+		shopitemVO item = null;
+		model.addAttribute("qna", ss.s_item(item));
 		return "/shoppage/Detail";
+	}
+
+	// 문의하기
+	@RequestMapping(value = "/shoppage/shop_item", method = RequestMethod.GET)
+	public String s_writeget() {
+		return "/shoppage/shop_item";
+	}
+
+	// 문의하기
+	@RequestMapping(value = "/shoppage/shop_item", method = RequestMethod.POST)
+	public String s_writepost(shopitemVO item) {
+		ss.s_write(item);
+		return "/shoppage/shop";
 	}
 
 	// 상품 수정

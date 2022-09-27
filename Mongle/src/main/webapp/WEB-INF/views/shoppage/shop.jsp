@@ -102,11 +102,10 @@
 						<li><a href="#">누적판매순</a></li>
 						<li><a href="#">낮은가격순</a></li>
 						<li><a href="#">리뷰순</a></li>
-						<li><a href="#">평점높은순</a></li>
 					</ul>
 					<br> <br> <br>
 					<div class="Goods">
-						<ul class="Goodss">						
+						<ul class="Goodss">
 							<c:forEach items="${shop}" var="shoplist">
 								<li>
 									<div>
@@ -123,7 +122,7 @@
 										가격<span class="font">${shoplist.w_price}</span>
 									</div>
 									<div>
-										<span>리뷰</span><span class="font">평점</span>
+										<span>리뷰</span>
 									</div>
 								</li>
 							</c:forEach>

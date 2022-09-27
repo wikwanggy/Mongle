@@ -8,6 +8,7 @@ import org.Mongle.model.SAttachFileVO;
 import org.Mongle.model.SCriteriaVO;
 import org.Mongle.model.shopCategoryVO;
 import org.Mongle.model.shopVO;
+import org.Mongle.model.shopitemVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,6 +51,7 @@ public class shopServiceimpl implements shopService {
 
 	// 상품 상세 내용보기 메인 이미지 구현
 	public shopVO main(shopVO shop) {
+		
 		return sm.main(shop);
 	}
 
@@ -58,6 +60,14 @@ public class shopServiceimpl implements shopService {
 		return sm.sub(shop);
 	}
 
+	// 문의 등록 구현
+	public void s_write(shopitemVO item) {
+		sm.s_write(item);
+	}
+	// 문의 목록리스트 구현
+	public ArrayList<shopitemVO> s_item(shopitemVO item) {
+		return sm.s_item(item);
+	}
 	// 상품 수정 구현
 	public void modify(shopVO shop) {
 		sm.modify(shop);
