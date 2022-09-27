@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="org.Mongle.Mapper.LoginDAO">
+  	<!-- 로그인 -->
+  	<select id="login" resultType="org.Mongle.model.LoginDTO">
+  		select * from member
+  		where id=#{id} 
+		and password=#{password}
+  	</select>
+  	<!--로그인 체크  -->
+  	<select id="logincheck" resultType="int">
+  		select count(*) from member where id=#{id} and password=#{password}
+  	</select>
+  	<!-- 회원가입 -->
+  	<insert id="signup">
+  		insert into member(id, password, name, bth, email,gender,number,addr,addr_post) 
+	values(#{id},#{password},#{name},#{bth},#{email},#{gender},#{number},#{addr},#{addr_post});
+  	</insert>
+  	<!--회원리스트 -->
+	<select id="list" resultType="org.Mongle.model.SignupDTO">
+		select *
+		from(
+		select @rownum:=@rownum+1 rownum,b.* 
+		from member b,(select @rownum:=0)as tmp
+		<if test="keyword!=null">
+				<choose>
+					<when test="type =='T'.toString()">
+						where id like concat('%',#{keyword},'%')
+					</when>
+					<when test="type =='C'.toString()">
+						where name like concat('%',#{keyword},'%')
+					</when>
+					<otherwise>
+						where id like concat('%',#{keyword},'%')
+						OR name like concat('%',#{keyword},'%')
+					</otherwise>
+				</choose>
+		</if>
+		order by id DESC
+		) as memberlist
+		<![CDATA[
+		where rownum > (#{pageNum}-1)*#{amount} and rownum<= #{pageNum}*#{amount} 
+		]]>
+	</select>
+		<select id="total" resultType="int">
+		select count(*) from member
+				<if test="keyword!=null">
+				<choose>
+					<when test="type =='T'.toString()">
+						where id like concat('%',#{keyword},'%')
+					</when>
+					<when test="type =='C'.toString()">
+						where name like concat('%',#{keyword},'%')
+					</when>
+					<otherwise>
+						where id like concat('%',#{keyword},'%')
+						OR name like concat('%',#{keyword},'%')
+					</otherwise>
+				</choose>
+		</if>
+	</select>
+  	<select id="detail" resultType="org.Mongle.model.SignupDTO">
+  		select * from member where id=#{id};
+  	</select>
+  	<delete id="leave">
+  		delete from member where id=#{id};
+  	</delete>
+  	<update id="modify">
+  		update member 
+  		set password=#{password}, 
+  		email=#{email},
+  		name=#{name}
+  		where id=#{id};
+  	</update>
+  	<select id="idcheck" resultType="org.Mongle.model.LoginDTO">
+  			select * from member where id=#{id}
+  	</select>
+  	<select id="emailcheck" resultType="org.Mongle.model.LoginDTO">
+  	select * from member where email=#{email}
+  	</select>
+  	<select id="searchidcheck" resultType="org.Mongle.model.LoginDTO">
+  	select id from member
+  		where name=#{name} 
+		and number=#{number}
+		and email=#{email}
+  	</select>
+  	<select id="searchpwcheck" resultType="org.Mongle.model.LoginDTO">
+  	select password from member
+  		where  name=#{name}
+   		and id=#{id} 
+		and number=#{number}
+		and email=#{email}
+  	</select>
+  	<!-- 비밀번호 변경 -->
+	<update id="updatePassword" >
+	update member set password = #{password} where id = #{id}
+	</update>
+
+  </mapper>
