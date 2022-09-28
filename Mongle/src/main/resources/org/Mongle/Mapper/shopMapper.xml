@@ -17,7 +17,6 @@
 		insert ignore into writing(bno, w_name, w_price,w_Quantity)
 		values(#{bno}, #{w_name}, #{w_price},#{w_Quantity})
 	</insert>
-
 	<!-- 상품분류 -->
 	<select id="c_type1"
 		resultType="org.Mongle.model.shopCategoryVO">
@@ -29,6 +28,7 @@
 		select c_type2 from Category
 		where c_type1=#{c_type1}
 	</select>
+
 
 	<!-- 상품 목록 리스트,번호 -->
 	<select id="shop" resultType="org.Mongle.model.shopVO">
@@ -58,6 +58,7 @@
 		order by j.bno desc
 	</select>
 
+
 	<!-- 상품 상세내용 -->
 	<select id="main" resultType="org.Mongle.model.shopVO">
 		select
@@ -68,7 +69,6 @@
 		w.bno = #{bno} and
 		vision = 'm';
 	</select>
-
 	<select id="sub" resultType="org.Mongle.model.shopVO">
 		select
 		w.bno,w_name,w_price,w_regdata,w_quantity,
@@ -79,7 +79,6 @@
 		w.bno = #{bno} and
 		vision = 's' ;
 	</select>
-
 	<select id="total" resultType="int">
 		select count(*) from writing w join product p on w.bno = p.bno where
 		vision = "m"
@@ -90,18 +89,12 @@
 			</choose>
 		</if>
 	</select>
-
+	
+	
 	<!-- 문의 등록 -->
 	<insert id="s_write">
-		<!-- order:"대문자만사용" -->
-		<!-- <selectKey keyProperty="rno" order="BEFORE" resultType="int">
-			select 값을 keyProperty="bno"에 추가BEFORE로 먼저
-			select max(rno)+1 rno
-			from shop_item
-		</selectKey> -->
-
-		insert into shop_item(rno, s_id, s_title, s_question)
-		values(#{rno},#{s_id},#{s_title},#{s_question})
+		insert into shop_item(rno, bno, s_id, s_question, s_answer)
+		values(#{rno},#{bno},#{s_id},#{s_question},#{s_answer})
 	</insert>
 	
 	<!-- 문의 리스트  -->
