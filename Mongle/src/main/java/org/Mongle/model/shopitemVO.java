@@ -7,8 +7,6 @@ public class shopitemVO {
 	private int bno;
 	// 회원아이디
 	private String s_id;
-	// 상품문의 제목
-	private String s_title;
 	// 상품 질문
 	private String s_question;
 	// 상품 답변
@@ -40,14 +38,6 @@ public class shopitemVO {
 		this.s_id = s_id;
 	}
 
-	public String getS_title() {
-		return s_title;
-	}
-
-	public void setS_title(String s_title) {
-		this.s_title = s_title;
-	}
-
 	public String getS_question() {
 		return s_question;
 	}
@@ -55,6 +45,7 @@ public class shopitemVO {
 	public void setS_question(String s_question) {
 		this.s_question = s_question;
 	}
+
 
 	public String getS_answer() {
 		return s_answer;
@@ -74,8 +65,10 @@ public class shopitemVO {
 
 	@Override
 	public String toString() {
-		return "shopitemVO [rno=" + rno + ", bno=" + bno + ", s_id=" + s_id + ", s_title=" + s_title + ", s_question="
-				+ s_question + ", s_answer=" + s_answer + "]";
+		return "shopitemVO [rno=" + rno + ", bno=" + bno + ", s_id=" + s_id + ", s_question=" + s_question
+				+ ", s_answer=" + s_answer + ", s_time=" + s_time + "]";
 	}
+
+	
 
 }
