@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -49,6 +50,14 @@ public class ServiceController {
 			writepath="redirect:/service/bkind?bgno=1";
 	}else if(service.getBgno()==2) {	// 만약에 bgno가 2이면
 			writepath="redirect:/service/bkind?bgno=2";// faq
+	}else if(service.getBgno()==4) {	// 만약에 bgno가 4이면
+		writepath="redirect:/service/bkind?bgno=2";// faq
+	}else if(service.getBgno()==5) {	// 만약에 bgno가 5이면
+		writepath="redirect:/service/bkind?bgno=2";// faq
+	}else if(service.getBgno()==6) {	// 만약에 bgno가 6이면
+		writepath="redirect:/service/bkind?bgno=2";// faq
+	}else if(service.getBgno()==7) {	// 만약에 bgno가 7이면
+		writepath="redirect:/service/bkind?bgno=2";// faq
 	}else {// 그렇지 않으면
 			writepath="redirect:/service/bkind?bgno=3";// 1:1문즤
 	}
@@ -92,7 +101,6 @@ public class ServiceController {
 	
 	@RequestMapping(value = "/service/bkind", method = RequestMethod.GET)
 	public String notice(Model model,ServicePageVO spa) {
-		System.out.println("controller="+spa);
 		String path="";
 		if(spa.getBgno()==1) {// 만약에 bgno가 1이면
 			// 공지사항(service/notice)
@@ -103,16 +111,16 @@ public class ServiceController {
 			path="service/faq";// faq
 		}else if(spa.getBgno()==4) {	// 만약에 bgno가 4이면
 			model.addAttribute("list",ss.list(spa));
-			path="service/faq2";// faq
+			path="service/faq";// faq
 		}else if(spa.getBgno()==5) {	// 만약에 bgno가 5이면
 			model.addAttribute("list",ss.list(spa));
-			path="service/faq3";// faq
+			path="service/faq";// faq
 		}else if(spa.getBgno()==6) {	// 만약에 bgno가 6이면
 			model.addAttribute("list",ss.list(spa));
-			path="service/faq4";// faq
+			path="service/faq";// faq
 		}else if(spa.getBgno()==7) {	// 만약에 bgno가 7이면
 			model.addAttribute("list",ss.list(spa));
-			path="service/faq5";// faq
+			path="service/faq";// faq
 		}else {// 그렇지 않으면
 			model.addAttribute("list",ss.list(spa));
 			path="service/questions";// 1:1문즤
@@ -120,7 +128,6 @@ public class ServiceController {
 		//model.addAttribute("list",ss.list(bgno,spa));
 		int total=ss.total(spa);
 		model.addAttribute("paging",new ServicePageSubVO(spa,total));
-		System.out.println("path="+path);
 		return path;
 	}
 	
@@ -146,7 +153,7 @@ public class ServiceController {
     	modipath="redirect:/service/bkind?bgno=1";
 	}else if(service.getBgno()==2) {	// 만약에 bgno가 2이면
 		modipath="redirect:/service/bkind?bgno=2";// faq
-	}else {// 그렇지 않으면
+	}else if(service.getBgno()==3){// 그렇지 않으면
 		modipath="redirect:/service/bkind?bgno=3";// 1:1문즤
 	}
        ss.modify(service);

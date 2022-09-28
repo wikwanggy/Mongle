@@ -149,6 +149,7 @@ aside>ul>li>a:active{
 .service_main_kategori>a{
 	display: block;
 	text-decoration: none;
+	color: black;
 }
 
 .service_faqlist{
@@ -194,7 +195,7 @@ aside>ul>li>a:active{
 	float:left;
 	font-size: 32px;
 	margin: 0;
-	padding: 10px;
+	padding: 2px 10px 2px 10px;
 }
 
 #faq_list_td1{
@@ -202,7 +203,7 @@ aside>ul>li>a:active{
 }
 
 #faq_list_td2{
-	width:500px;
+	width:570px;
 }
 
 #faq_list_td3{
@@ -211,6 +212,7 @@ aside>ul>li>a:active{
 
 .faq_list_link{
 	text-decoration: none;
+	display:block;
 	color: black;
 }
 

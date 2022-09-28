@@ -12,9 +12,9 @@ $(document).ready(function(){ /*탭메뉴*/
 		var getAr6 = url.indexOf("bgno=7");
 		
 		console.log(url);
-		console.log(getAr0);
-		console.log(getAr1);
-		console.log(getAr2);
+		console.log(getAr3);
+		console.log(getAr4);
+		console.log(getAr5);
 		
 		if(getAr0 != -1) {
 			$('#service_aside_list1').addClass("a_on");
@@ -23,6 +23,7 @@ $(document).ready(function(){ /*탭메뉴*/
 		if(getAr1 != -1) {
 			$('#service_aside_list2').addClass("a_on");
 			$('.service_main_kategori:eq(0)').addClass("current");
+			$('.service_faqlist:eq(0)').addClass('current');
 		}
 		
 		
@@ -33,21 +34,25 @@ $(document).ready(function(){ /*탭메뉴*/
 		if(getAr3 != -1) {
 			$('#service_aside_list2').addClass("a_on");
 			$('.service_main_kategori:eq(1)').addClass("current");
+			$('.service_faqlist:eq(1)').addClass('current');
 		}
 		
 		if(getAr4 != -1) {
 			$('#service_aside_list2').addClass("a_on");
 			$('.service_main_kategori:eq(2)').addClass("current");
+			$('.service_faqlist:eq(2)').addClass('current');
 		}
 		
 		if(getAr5 != -1) {
 			$('#service_aside_list2').addClass("a_on");
 			$('.service_main_kategori:eq(3)').addClass("current");
+			$('.service_faqlist:eq(3)').addClass('current');
 		}
 		
 		if(getAr6 != -1) {
 			$('#service_aside_list2').addClass("a_on");
 			$('.service_main_kategori:eq(4)').addClass("current");
+			$('.service_faqlist:eq(4)').addClass('current');
 		}
 		
 
@@ -85,9 +90,10 @@ function onoffDisplay(){ /*클릭시 글 내용 평쳐지게하기*/
 	});
 }
 
-const test = function(bgno) {
+const test = function(bgno,pageNum) {
 	  const URLSearch = new URLSearchParams(location.search);
 	  URLSearch.set('bgno', String(bgno));
+	  URLSearch.set('pageNum', String(pageNum));
 	  const newParam = URLSearch.toString();
 
 	  window.open(location.pathname + '?' + newParam, '_self');

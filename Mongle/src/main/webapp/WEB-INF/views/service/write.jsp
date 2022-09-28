@@ -29,7 +29,7 @@
 			<table>
 				<tr><td><input type="hidden" name="id" value="${sessionScope.login.id}"></td></tr>
 				<tr><td><input type="hidden" name="name" value="${sessionScope.login.name}"></td></tr>
-				<tr><td><input type="hidden" name="bgno" value="${bgno}"></td></tr>
+				<tr><td><input type="text" name="bgno" value="${bgno}"></td></tr>
 				<tr><td class="service_sub_font">제목</td></tr>
 				<tr><td><input type="text" name="title" vlaue="title" class="service_sub_font"></td></tr>
 				

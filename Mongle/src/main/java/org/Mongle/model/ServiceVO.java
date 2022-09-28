@@ -3,7 +3,8 @@ package org.Mongle.model;
 import java.util.ArrayList;
 	
 public class ServiceVO {
-	
+	//가상번호(rownum)
+	private int rownum;
 	//게시판번호(bno)
 	private int bno;
 	//제목(title)
@@ -22,7 +23,13 @@ public class ServiceVO {
 	private String name;
 	//ServiceFileListVO(파일 업로드 관련 model)
 	private ArrayList<ServiceFileListVO> svfile;
-
+	
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
 	public int getBgno() {
 		return bgno;
 	}
@@ -80,8 +87,9 @@ public class ServiceVO {
 	}
 	@Override
 	public String toString() {
-		return "ServiceVO [bno=" + bno + ", title=" + title + ", content=" + content + ", regdate=" + regdate + ", cnt="
-				+ cnt + ", id=" + id + ", bgno=" + bgno + ", name=" + name + ", svfile=" + svfile + "]";
+		return "ServiceVO [rownum=" + rownum + ", bno=" + bno + ", title=" + title + ", content=" + content
+				+ ", regdate=" + regdate + ", cnt=" + cnt + ", id=" + id + ", bgno=" + bgno + ", name=" + name
+				+ ", svfile=" + svfile + "]";
 	}
 	
 	

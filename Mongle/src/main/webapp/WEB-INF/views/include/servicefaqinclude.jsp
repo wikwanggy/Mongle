@@ -13,10 +13,10 @@
 			<div>
 				<div id="service_main_qlist">
 					<ul>
-						<li class="service_main_kategori" data-tab="tab-1"><a href=#none onclick="javascript:test(2);">회원정보</a></li><!--
-					 --><li class="service_main_kategori" data-tab="tab-2"><a href=#none onclick="javascript:test(4);">주문</a></li><!--
-					 --><li class="service_main_kategori" data-tab="tab-3"><a href=#none onclick="javascript:test(5);">배송</a></li><!--
-					 --><li class="service_main_kategori" data-tab="tab-4"><a href=#none onclick="javascript:test(6);">반품/AS</a></li><!--
-					 --><li class="service_main_kategori" data-tab="tab-5"><a href=#none onclick="javascript:test(7);">이벤트</a></li>
+						<li class="service_main_kategori" data-tab="tab-1"><a href=#none onclick="javascript:test(2,1);">회원정보</a></li><!--
+					 --><li class="service_main_kategori" data-tab="tab-2"><a href=#none onclick="javascript:test(4,1);">주문</a></li><!--
+					 --><li class="service_main_kategori" data-tab="tab-3"><a href=#none onclick="javascript:test(5,1);">배송</a></li><!--
+					 --><li class="service_main_kategori" data-tab="tab-4"><a href=#none onclick="javascript:test(6,1);">반품/AS</a></li><!--
+					 --><li class="service_main_kategori" data-tab="tab-5"><a href=#none onclick="javascript:test(7,1);">이벤트</a></li>
 					</ul>
 				</div>

@@ -87,7 +87,7 @@
 					<!-- 기초틀 시작-->
 						<jsp:include page="../include/servicefaqinclude.jsp"></jsp:include>
 					<!-- 기초틀끝 -->
-					<div id="tab-1" class="service_faqlist current">
+					<div id="tab-1" class="service_faqlist">
 					<div id="service_faqlist_top">
 						<div id="faq_list_td1">번호</div>
 						<div id="faq_list_td2">제목</div>
@@ -97,7 +97,8 @@
 					<!-- for문 시작 -->
 					<c:forEach items="${list}" var="faq">
 						<dt id="service_faqlist_num">
-							<div id="faq_list_td1">${faq.bno }</div>
+							<div id="faq_list_td1">${faq.rownum }</div>
+							<input type="hidden" value="${faq.bno }">
 							<div id="faq_list_td2"><a class="faq_list_link" href="javascript:onoffDisplay();">${faq.title }</a></div>
 							<div id="faq_list_td3">${faq.name }</div>
 						</dt>
@@ -111,27 +112,129 @@
 				<c:when test="${sessionScope.login.id=='admin'}">
 				 	<input id="questions_button" type="submit" value="글쓰기" style="cursor: pointer" onclick="location.href='/service/write?bgno=2'";>
 				 </c:when>
-				 <c:otherwise>
-				 	<input id="questions_button" type="submit" value="글쓰기" style="cursor: pointer" onclick="alert('로그인 해주세요')";>
-				 </c:otherwise>
 			 </c:choose>
 			 </div>
 			 
 			 <div id="tab-2" class="service_faqlist" >
-
+  
+  
+  							<div id="service_faqlist_top">
+						<div id="faq_list_td1">번호</div>
+						<div id="faq_list_td2">제목</div>
+						<div id="faq_list_td3">작성자</div>
+					</div>
+					<dl id="service_faqlist_lower">
+					<!-- for문 시작 -->
+					<c:forEach items="${list}" var="faq">
+						<dt id="service_faqlist_num">
+							<div id="faq_list_td1">${faq.rownum }</div>
+							<input type="hidden" value="${faq.bno }">
+							<div id="faq_list_td2"><a class="faq_list_link" href="javascript:onoffDisplay();">${faq.title }</a></div>
+							<div id="faq_list_td3">${faq.name }</div>
+						</dt>
+						<dd style="display:none;">
+						<div>${faq.content }</div>
+						</dd>
+					</c:forEach>
+					<!-- for문 끝 -->
+				</dl>
+				 <c:choose>
+				<c:when test="${sessionScope.login.id=='admin'}">
+				 	<input id="questions_button" type="submit" value="글쓰기" style="cursor: pointer" onclick="location.href='/service/write?bgno=4'";>
+				 </c:when>
+			 </c:choose>
+			 
 			 </div>
 			 
 			 <div id="tab-3" class="service_faqlist" >
-
+			
+							<div id="service_faqlist_top">
+						<div id="faq_list_td1">번호</div>
+						<div id="faq_list_td2">제목</div>
+						<div id="faq_list_td3">작성자</div>
+					</div>
+					<dl id="service_faqlist_lower">
+					<!-- for문 시작 -->
+					<c:forEach items="${list}" var="faq">
+						<dt id="service_faqlist_num">
+							<div id="faq_list_td1">${faq.rownum }</div>
+							<input type="hidden" value="${faq.bno }">
+							<div id="faq_list_td2"><a class="faq_list_link" href="javascript:onoffDisplay();">${faq.title }</a></div>
+							<div id="faq_list_td3">${faq.name }</div>
+						</dt>
+						<dd style="display:none;">
+						<div>${faq.content }</div>
+						</dd>
+					</c:forEach>
+					<!-- for문 끝 -->
+				</dl>
+				 <c:choose>
+				<c:when test="${sessionScope.login.id=='admin'}">
+				 	<input id="questions_button" type="submit" value="글쓰기" style="cursor: pointer" onclick="location.href='/service/write?bgno=5'";>
+				 </c:when>
+			 </c:choose>	
+		
 			 </div>
 			 
 			 <div id="tab-4" class="service_faqlist" >
 
+							<div id="service_faqlist_top">
+						<div id="faq_list_td1">번호</div>
+						<div id="faq_list_td2">제목</div>
+						<div id="faq_list_td3">작성자</div>
+					</div>
+					<dl id="service_faqlist_lower">
+					<!-- for문 시작 -->
+					<c:forEach items="${list}" var="faq">
+						<dt id="service_faqlist_num">
+							<div id="faq_list_td1">${faq.rownum }</div>
+							<input type="hidden" value="${faq.bno }">
+							<div id="faq_list_td2"><a class="faq_list_link" href="javascript:onoffDisplay();">${faq.title }</a></div>
+							<div id="faq_list_td3">${faq.name }</div>
+						</dt>
+						<dd style="display:none;">
+						<div>${faq.content }</div>
+						</dd>
+					</c:forEach>
+					<!-- for문 끝 -->
+				</dl>
+				 <c:choose>
+				<c:when test="${sessionScope.login.id=='admin'}">
+				 	<input id="questions_button" type="submit" value="글쓰기" style="cursor: pointer" onclick="location.href='/service/write?bgno=6'";>
+				 </c:when>
+			 </c:choose>
+
 			 </div>
 			 
 			 <div id="tab-5" class="service_faqlist" >
-
+			 
+						<div id="service_faqlist_top">
+						<div id="faq_list_td1">번호</div>
+						<div id="faq_list_td2">제목</div>
+						<div id="faq_list_td3">작성자</div>
+					</div>
+					<dl id="service_faqlist_lower">
+					<!-- for문 시작 -->
+					<c:forEach items="${list}" var="faq">
+						<dt id="service_faqlist_num">
+							<div id="faq_list_td1">${faq.rownum }</div>
+							<input type="hidden" value="${faq.bno }">
+							<div id="faq_list_td2"><a class="faq_list_link" href="javascript:onoffDisplay();">${faq.title }</a></div>
+							<div id="faq_list_td3">${faq.name }</div>
+						</dt>
+						<dd style="display:none;">
+						<div>${faq.content }</div>
+						</dd>
+					</c:forEach>
+					<!-- for문 끝 -->
+				</dl>
+				 <c:choose>
+				<c:when test="${sessionScope.login.id=='admin'}">
+				 	<input id="questions_button" type="submit" value="글쓰기" style="cursor: pointer" onclick="location.href='/service/write?bgno=7'";>
+				 </c:when>
+			 </c:choose>
 			 </div>
+			 
 		</div> 
 			</div>
 			
@@ -148,7 +251,7 @@
 				<!-- begin(1) end(10)될 동안 반복(1일 10일 될 동안 반복) -->
 				<td class="page_table">
 				<c:forEach begin="${paging.startPage}" end="${paging.endPage }" var="num">
-					<td class="${paging.spa.pageNum eq num ? 'on' : '' }"><a href="/service/bkind?bgno=${paging.spa.bgno}&type=${paging.spa.type }&keyword=${paging.spa.keyword }&pageNum=${num }&amount=${paging.spa.amount}">${num}</a></td>
+					<td class="${paging.spa.pageNum eq num ? 'on' : '' }"><a href="/service/bkind?bgno=${paging.spa.bgno}&pageNum=${num }&amount=${paging.spa.amount}">${num}</a></td>
 				</c:forEach>
 				</td>
 				

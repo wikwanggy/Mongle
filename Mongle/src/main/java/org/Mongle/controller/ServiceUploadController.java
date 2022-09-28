@@ -115,7 +115,7 @@ public class ServiceUploadController {
 			//파일 생성
 			FileOutputStream thumnail=new FileOutputStream(new File(uploadPath,"s_"+uuid.toString()+"_"+multipartFile.getOriginalFilename()));
 			//섬네일형식의 파일 생성
-			Thumbnailator.createThumbnail(multipartFile.getInputStream(),thumnail,100,100);
+			Thumbnailator.createThumbnail(multipartFile.getInputStream(),thumnail,400,200);
 		
 			thumnail.close();
 		

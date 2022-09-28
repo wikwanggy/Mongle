@@ -105,12 +105,18 @@
 					<td>작성일자</td>
 					<td>조회수</td>
 					<td>작성자</td>
-					
 				</tr>
 				<!-- for문 시작 -->
 				<c:forEach items="${list }" var="questions">
 					<tr>
-						<td id="questions_list_td1">${questions.bno }</td>
+						<!-- 테스트중 -->
+						
+						
+						<input type="hidden" name="bno" value="${questions.bno}">
+						
+						
+						<!--  테스트중  -->		
+						<td id="questions_list_td1">${questions.rownum }</td>																		
 						<td id="questions_list_td2"><a class="questions_list_link" href="detail?bno=${questions.bno }&bgno=3">${questions.title }</a></td>
 						<td id="questions_list_td3">${questions.regdate }</td>
 						<td id="questions_list_td4">${questions.cnt }</td>
