@@ -430,7 +430,7 @@ article.sdp-review__article__list.js_reviewArticleReviewList {
 }
 /* 문의하기 */
 #product-qna {
-	height: 400px;
+	
 }
 
 .prod-inquiry-list {
@@ -478,29 +478,73 @@ article.sdp-review__article__list.js_reviewArticleReviewList {
 
 .prod-inquiry-item__label {
 	left: 1em;
-	background-color: #777;
+    background-color: #777;
+    color: white;
 }
 
 .prod-inquiry-item__wrap {
 	padding: 20px 10px 20px 4em;
+	display: contents;
 }
-.prod-inquiry-selected{
+
+.prod-inquiry-selected {
 	margin-top: 4px;
-    color: #888;
+	color: #888;
+	font-size: 11px;
 }
-.prod-inquiry-content{
+
+.prod-inquiry-content {
 	margin-top: 10px;
+	margin-bottom: 20px;
 }
-.prod-inquiry-reg{
-	position: absolute;
-    right: 10px;
-    top: 20px;
-    color: #888;
+
+.prod-inquiry-item {
+	position: relative;
+	margin-top: 30px;
 }
-/* 배송,반품 */
-#product-etc {
+
+.prod-inquiry-time {
+	right: 10px;
+	top: 20px;
+	color: #888;
+	font-size: 12px;
+}
+
+.prod-inquiry-reg {
+	position: relative;
+	border-top: 1px solid #ddd;
+	background-color: #fafafa;
+	border-bottom: 1px solid #ddd;
+}
+
+.prod-inquiry-reg-wrap {
+	padding: 0px 10px 20px 2.2em;
+	display: contents;
+}
+
+.prod-inquiry-reg-label {
+	left: 2.2em;
+    background-color: #346aff;
+    color: white;
+}
+
+.prod-inquiry-reg-author {
 	
 }
+
+.prod-inquiry-reg-content {
+	word-break: break-all;
+	margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.prod-inquiry-reg-time {
+	right: 10px;
+	top: 20px;
+	color: #888;
+	font-size: 12px;
+}
+/* 배송,반품 */
 
 .prod-title {
 	padding-bottom: 10px;

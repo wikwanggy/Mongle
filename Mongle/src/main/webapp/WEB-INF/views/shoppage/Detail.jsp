@@ -212,19 +212,30 @@
 												</div>
 												<div class="prod-inquiry-list__container">
 													<div class="prod-inquiry-items">
-														<em class="prod-inquiry-item__label">질문</em>
-														
-
-														 <c:forEach items="${item}" var="item">
-															<div class="prod-inquiry-item__wrap">
-																<strong calss="prod-inquiry-author">${item.s_id}</strong>
-																<c:forEach items="${sub}" var="sub">
-																<div class="prod-inquiry-selected">${sub.w_name}</div>
-																</c:forEach>
-																<div class="prod-inquiry-content">${item.s_question}</div>
-																<div class="prod-inquiry-reg">${item.s_time}</div>
-															</div>
-														</c:forEach>
+														<div class="prod-inquiry-item">																																						
+															<c:forEach items="${item}" var="item">															
+																<em class="prod-inquiry-item__label">질문</em>
+																<div class="prod-inquiry-item__wrap">																    
+																	<strong calss="prod-inquiry-author">${item.s_id}</strong>
+																	<div class="prod-inquiry-selected">${main.w_name}</div>
+																	<div class="prod-inquiry-content">${item.s_question}</div>
+																	<div class="prod-inquiry-time">${item.s_time}</div>
+																	<c:choose>
+																		<c:when test="${item.s_Confirm == 2}">
+																			<div class="prod-inquiry-reg">
+																				<em class="prod-inquiry-reg-label">답변</em>
+																				<div class="prod-inquiry-reg-wrap">
+																					<strong class="prod-inquiry-reg-author">관리자</strong>
+																					<div class="prod-inquiry-reg-content">${item.s_answer}
+																					</div>
+																					<div class="prod-inquiry-reg-time">${item.s_time}</div>
+																				</div>
+																			</div>
+																		</c:when>
+																	</c:choose>
+																</div>
+															</c:forEach>
+														</div>
 													</div>
 												</div>
 												<div class="prod-inquiry-list__pagination" data-current="1"

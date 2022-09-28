@@ -79,6 +79,36 @@
 		w.bno = #{bno} and
 		vision = 's' ;
 	</select>
+
+
+
+
+	<!-- 문의 등록 -->
+	<insert id="s_write">
+		<!-- order:"대문자만사용" -->
+		<selectKey keyProperty="rno" order="BEFORE" resultType="int">
+			<!-- select 값을 keyProperty="bno"에 추가BEFORE로 먼저 -->
+			select ifnull(MAX(rno)+1,1)from
+			shop_item
+		</selectKey>
+		insert into shop_item(rno, bno, s_id, s_question,s_title, s_answer,
+		s_Confirm)
+		values(#{rno},#{bno},#{s_id},#{s_question},#{s_title},#{s_answer},#{s_Confirm})
+	</insert>
+
+	<!-- 문의 리스트 -->
+	<select id="s_item" resultType="org.Mongle.model.shopitemVO">
+		 select * from shop_item i join writing w on i.bno= w.bno where i.bno = #{bno}
+	</select>
+
+	<!-- 상품 수정 -->
+	<!-- <update id="modify"> update writing set w_name=#{w_name}, w_price=#{w_price}, 
+		w_color=#{w_color}, w_type=#{w_type}, w_Quantity=#{w_Quantity} where bno=#{bno} 
+		</update> -->
+
+	<!-- 상품 삭제 -->
+	<!-- <delete id="remove"> delete from writing where bno=#{bno} </delete> -->
+
 	<select id="total" resultType="int">
 		select count(*) from writing w join product p on w.bno = p.bno where
 		vision = "m"
@@ -89,24 +119,4 @@
 			</choose>
 		</if>
 	</select>
-	
-	
-	<!-- 문의 등록 -->
-	<insert id="s_write">
-		insert into shop_item(rno, bno, s_id, s_question, s_answer)
-		values(#{rno},#{bno},#{s_id},#{s_question},#{s_answer})
-	</insert>
-	
-	<!-- 문의 리스트  -->
-	<select id="s_item" resultType="org.Mongle.model.shopitemVO">
-	 select * from shop_item;
-	</select>
-
-	<!-- 상품 수정 -->
-	<!-- <update id="modify"> update writing set w_name=#{w_name}, w_price=#{w_price}, 
-		w_color=#{w_color}, w_type=#{w_type}, w_Quantity=#{w_Quantity} where bno=#{bno} 
-		</update> -->
-
-	<!-- 상품 삭제 -->
-	<!-- <delete id="remove"> delete from writing where bno=#{bno} </delete> -->
 </mapper>

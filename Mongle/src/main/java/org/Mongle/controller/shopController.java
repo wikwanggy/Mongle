@@ -69,9 +69,10 @@ public class shopController {
 	// 상품 상세설명
 	@RequestMapping(value = "/shoppage/Detail", method = RequestMethod.GET)
 	public String detail(shopVO shop, Model model) {
+		System.out.println(shop);
 		model.addAttribute("main", ss.main(shop));
 		model.addAttribute("sub", ss.sub(shop));
-		model.addAttribute("item",ss.s_item());
+		model.addAttribute("item",ss.s_item(shop));
 		return "/shoppage/Detail";
 	}
 
@@ -85,7 +86,7 @@ public class shopController {
 	@RequestMapping(value = "/shoppage/shop_item", method = RequestMethod.POST)
 	public String s_writepost(shopitemVO item) {
 		ss.s_write(item);
-		return "/shoppage/shop";
+		return "redirect:/shoppage/shop";
 	}
 
 	// 상품 수정

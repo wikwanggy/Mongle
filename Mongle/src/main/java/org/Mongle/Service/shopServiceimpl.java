@@ -36,11 +36,11 @@ public class shopServiceimpl implements shopService {
 	}
 
 	// 상품등록(분류)
-	public ArrayList<shopCategoryVO> c_type1(){
-		return sm.c_type1();			
+	public ArrayList<shopCategoryVO> c_type1() {
+		return sm.c_type1();
 	}
 
-	public ArrayList<shopCategoryVO> c_type2(String shop){
+	public ArrayList<shopCategoryVO> c_type2(String shop) {
 		return sm.c_type2(shop);
 	}
 
@@ -51,7 +51,7 @@ public class shopServiceimpl implements shopService {
 
 	// 상품 상세 내용보기 메인 이미지 구현
 	public shopVO main(shopVO shop) {
-		
+
 		return sm.main(shop);
 	}
 
@@ -64,11 +64,12 @@ public class shopServiceimpl implements shopService {
 	public void s_write(shopitemVO item) {
 		sm.s_write(item);
 	}
+
 	// 문의 목록리스트 구현
-	public ArrayList<shopitemVO> s_item() {
-		System.out.println("s_item="+sm.s_item());
-		return sm.s_item();
+	public ArrayList<shopitemVO> s_item(shopVO shop) {
+		return sm.s_item(shop);
 	}
+
 	// 상품 수정 구현
 	public void modify(shopVO shop) {
 		sm.modify(shop);
