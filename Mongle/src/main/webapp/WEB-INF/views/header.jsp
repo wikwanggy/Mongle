@@ -1,14 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../resources/css/main.css">
-</head>
-<body>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<body> 
 	<div id="container">
 		<div id="hd">
 			<header>
@@ -67,7 +60,3 @@
 				</div>
 			</header>
 		</div>
-	</div>
-	<script src="../resources/js/main.js"></script>
-</body>
-</html>

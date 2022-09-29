@@ -1,14 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../resources/css/main.css">
-</head>
-<body>
-	<div id="container">
+ 
+
 		<div>
 			<footer>
 				<div id="bottomMenu">
@@ -35,6 +28,4 @@
 			</footer>
 		</div>
 	</div>
-	<script src="../resources/js/main.js"></script>
 </body>
-</html>
