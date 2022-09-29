@@ -23,6 +23,20 @@ public class ServiceServiceimpl implements ServiceService{
 	public void write(ServiceVO service) {
 		sm.write(service);
 		
+		String title = service.getTitle();
+		String content = service.getContent();
+		// replace(a,b) a를 b로 변환
+		title=title.replace("<", "&lt;");
+		title=title.replace(">","&gt;");
+		//공백 문자 처리
+		title=title.replace("  ",  "&nbsp;&nbsp;");
+		content=content.replace("  ",  "&nbsp;&nbsp;");
+		//줄바꿈 처리
+		content = content.replace("\n", "<br>");
+		service.setTitle(title);
+		service.setContent(content);
+		
+		
 		service.getSvfile().forEach(svfile->{
 			
 			//ServiceFileListVO의 bno에 Service VO 의 bno 저장

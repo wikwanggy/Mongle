@@ -15,6 +15,8 @@
 /*큰틀*/
 #service_main{
 	overflow:hidden;
+	width:1200px;
+	margin:auto;
 	margin-bottom: 30px;
 }
 #service_main_center{
@@ -102,7 +104,6 @@ aside>ul>li>a:active{
 /*write  끝 css*/
 
 #container{
-	/* 너비 1200px로 지정 */
 	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
 }/**/
 header {

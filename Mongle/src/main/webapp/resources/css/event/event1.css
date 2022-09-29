@@ -13,7 +13,8 @@
 
 /*큰틀*/
 #eventbon{
-	width:100%;
+	width:1200px;
+	margin:auto;
 	overflow: hidden;
 }
 
@@ -55,7 +56,6 @@
 /* 이 위에 까지가 이벤트 전용 css*/
 
 #container{
-   width:1200px; /* 너비 1200px로 지정 */
    margin: 0 auto; /*auto으로 화면 중앙에 배치*/
 }
 header {

@@ -11,68 +11,11 @@
 <script type="text/javascript" src="/resources/js/service/questionslist.js"></script>
 <script type="text/javascript" src="/resources/js/service/tab.js"></script>
 </head>
-<body>
-	<div id="container">
-		<!-- 바디 전체를 container로 지정 -->
-		<div id="hd">
-			<!-- header 전체를 hd로 지정 -->
-			<header>
-				<div id="tm">
-					<a href="/"><img alt="logo"src="../resources/css/mainimg/logo.png" id="logoimg"></a>
-					<ul id="topmenu">
-						<li>
-							<div id="toplist">
-								<c:choose>
-									<c:when test="${sessionScope.login==null}">
-										<a href="/signup/signup" >회원가입</a>
-										<a href="/Login/login">로그인</a>
-									</c:when>
-									<c:otherwise>
-										<a href="/Login/logout">로그아웃</a>
-									</c:otherwise>
-								</c:choose>
-							</div></li>
-						<li><a href="/mypage/mypage">MyPage</a></li>
-						<li><a href="#">고객센터</a></li>
-					</ul>
-				</div>
-				<div>
-					<nav>
-						<ul id="menu">
-							<li><a href="/">HOME</a></li>
-							<li><a href="#">SHOP</a>
-								<ul>
-									<li><a href="#">간식</a></li>
-									<li><a href="#">미용용품</a></li>
-									<li><a href="#">장난감</a></li>
-									<li><a href="#">하우스</a></li>
-									<li><a href="#">패션</a></li>
-									<li><a href="#">기타</a></li>
-								</ul></li>
-							<li><a href="/place/">PLACE</a>
-								<ul>
-									<li><a href="/place/grooming">미용</a></li>
-									<li><a href="/place/clinic">동물병원</a></li>
-									<li><a href="/place/hotel">호텔</a></li>
-									<li><a href="/place/school">학교/유치원</a></li>
-									<li><a href="/place/cafe">식당/카페</a></li>
-								</ul></li>
-							<li><a href="#">EVENT</a>
-								<ul>
-									<li><a href="#">진행 이벤트</a></li>
-									<li><a href="#">종료 이벤트</a></li>
-									<li><a href="#">이벤트 당첨</a></li>
-								</ul></li>
-							<li><a href="#">커뮤니티</a>
-								<ul>
-									<li><a href="#">게시판</a></li>
-									<li><a href="#">리뷰</a></li>
-								</ul></li>
-						</ul>
-					</nav>
-				</div>
-			</header>
-		</div>
+
+			<%--상단 시작 --%>							
+				<jsp:include page="../header.jsp"></jsp:include>
+			<%--상단 끝 --%>
+			
 		<%--본문 넣을 자리 --%>
 		<div id="service_main">
 				<%-- 왼쪽 사이드바 시작--%>
@@ -109,13 +52,7 @@
 				<!-- for문 시작 -->
 				<c:forEach items="${list }" var="questions">
 					<tr>
-						<!-- 테스트중 -->
-						
-						
 						<input type="hidden" name="bno" value="${questions.bno}">
-						
-						
-						<!--  테스트중  -->		
 						<td id="questions_list_td1">${questions.rownum }</td>																		
 						<td id="questions_list_td2"><a class="questions_list_link" href="detail?bno=${questions.bno }&bgno=3">${questions.title }</a></td>
 						<td id="questions_list_td3">${questions.regdate }</td>
@@ -169,31 +106,7 @@
 	</div>
 		<%--본문 넣을 자리 --%>
 		
-		<div>
-			<footer>
-				<div id="bottomMenu">
-					<ul>
-						<li><a href="#">회사 소개</a></li>
-						<li><a href="#">개인정보처리방침</a></li>
-						<li><a href="#">이용안내</a></li>
-						<li><a href="#">고객센터</a></li>
-					</ul>
-					<div id="sns">
-						<ul>
-							<li><a href="#"><img
-									src="../resources/css/mainimg/facebook.PNG" class="img2"></a></li>
-							<li><a href="#"><img
-									src="../resources/css/mainimg/insta.PNG" class="img2"></a></li>
-							<li><a href="#"><img
-									src="../resources/css/mainimg/twitter.PNG" class="img2"></a></li>
-						</ul>
-					</div>
-				</div>
-				<div id="company">
-					<p>제 3조 팀 프로젝드 참여자 : 현우 연희 민서 석현 광규</p>
-				</div>
-			</footer>
-		</div>
-	</div>
-</body>
-</html>
+	<%--하단 시작 --%>							
+				<jsp:include page="../footer.jsp"></jsp:include>
+			<%--하단 끝 --%>
+	</html>

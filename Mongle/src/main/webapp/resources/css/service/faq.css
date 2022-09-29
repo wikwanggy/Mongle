@@ -15,6 +15,8 @@
 /*큰틀*/
 #service_main{
 	overflow:hidden;
+	width:1200px;
+	margin:auto;
 	margin-bottom: 30px;
 }
 #service_main_center{
@@ -216,7 +218,34 @@ aside>ul>li>a:active{
 	color: black;
 }
 
-#questions_button{ /* 질문 하기 버튼 꾸미기*/
+.faq_detail_button{
+	text-decoration:none;
+	padding:7px;
+	background-color: #FFFFFF;
+	border: #f8e6e0 2px solid;
+	border-radius:5px;
+	float:right;
+	margin-left:5px; 
+	width:110px;
+	height: 45px;
+	font-size: 17px;
+	color: black;
+}
+
+.faq_detail_button:hover{
+	background-color: #f8e6e0;
+}
+
+#service_faqlist_lower>dd{
+	padding: 30px;
+	font-size: 24px;
+	font-weight: 500;
+	background-color: #f3f3f3;
+	border-width: 1px 0 1px 0;
+	border-style: solid;
+}
+
+#faq_button{ /* 질문글 넣기*/
 	padding:20px;
 	background-color: #FFFFFF;
 	margin:auto;
@@ -229,7 +258,7 @@ aside>ul>li>a:active{
 	color: black;
 }
 
-#questions_button:hover{
+#faq_button:hover{
 	background-color:#f8e6e0;
 }
 
@@ -256,7 +285,6 @@ aside>ul>li>a:active{
 
 /*service 끝 css*/
 #container{
-   width:1200px; /* 너비 1200px로 지정 */
    margin: 0 auto; /*auto으로 화면 중앙에 배치*/
 }
 header {
