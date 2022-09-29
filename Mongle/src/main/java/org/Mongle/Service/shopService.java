@@ -13,11 +13,15 @@ public interface shopService {
 	public void write(shopVO shop);
 
 	// 상품등록(분류)
-	public ArrayList<shopCategoryVO>c_type1();
-	public ArrayList<shopCategoryVO>c_type2(String shop);
-	
+	public ArrayList<shopCategoryVO> c_type1();
+
+	public ArrayList<shopCategoryVO> c_type2(String shop);
+
 	// 상품 목록 리스트 설계
 	public ArrayList<shopVO> shop(SCriteriaVO scri);
+
+	// 상품 등록 리스트
+	public ArrayList<shopVO> shop_list(shopVO shop);
 
 	// 상품 상세 내용보기 메인 이미지 설계
 	public shopVO main(shopVO shop);
@@ -26,11 +30,11 @@ public interface shopService {
 	public ArrayList<shopVO> sub(shopVO shop);
 
 	// 문의 등록 설계
-	public void s_write(shopitemVO item); 
-	
+	public void s_write(shopitemVO item);
+
 	// 문의 리스트 설계
 	public ArrayList<shopitemVO> s_item(shopVO shop);
-	
+
 	// 상품 수정 설계
 	public void modify(shopVO shop);
 

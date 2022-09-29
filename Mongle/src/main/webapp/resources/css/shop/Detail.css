@@ -63,6 +63,14 @@ header {
 	font-size: 15px;
 }
 
+#toplist>a {
+	color: black; /* 폰트 색상 */
+	padding-right: 10px; /* 패딩 지정 */
+	padding-bottom: 10px;
+	text-decoration: none;
+	font-size: 15px;
+}
+
 #menu {
 	height: 40px;
 	padding: 4px 0px 10px 0px;
@@ -478,8 +486,8 @@ article.sdp-review__article__list.js_reviewArticleReviewList {
 
 .prod-inquiry-item__label {
 	left: 1em;
-    background-color: #777;
-    color: white;
+	background-color: #777;
+	color: white;
 }
 
 .prod-inquiry-item__wrap {
@@ -524,8 +532,8 @@ article.sdp-review__article__list.js_reviewArticleReviewList {
 
 .prod-inquiry-reg-label {
 	left: 2.2em;
-    background-color: #346aff;
-    color: white;
+	background-color: #346aff;
+	color: white;
 }
 
 .prod-inquiry-reg-author {
@@ -535,7 +543,7 @@ article.sdp-review__article__list.js_reviewArticleReviewList {
 .prod-inquiry-reg-content {
 	word-break: break-all;
 	margin-top: 10px;
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .prod-inquiry-reg-time {
@@ -545,7 +553,6 @@ article.sdp-review__article__list.js_reviewArticleReviewList {
 	font-size: 12px;
 }
 /* 배송,반품 */
-
 .prod-title {
 	padding-bottom: 10px;
 	font-size: 19px;
