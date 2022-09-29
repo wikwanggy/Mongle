@@ -1,13 +1,16 @@
 package org.Mongle.Mapper;
 
+import org.Mongle.model.PlaceLikeVO;
+
 public interface PlaceLikeMapper {
-	public int findLike(int bno, String id);
 
-	public void likeUp(int bno, String id);
+	public int findLike(PlaceLikeVO plvo);
 
-	public void likeDown(int bno, String id);
-	
-	public void placeLikeUp(int bno);
-	
-	public void placeLikeDown(int bno);
+	public void likeUp(PlaceLikeVO plvo);
+
+	public void likeDown(PlaceLikeVO plvo);
+
+	public void placeLikeUp(PlaceLikeVO plvo);
+
+	public void placeLikeDown(PlaceLikeVO plvo);
 }

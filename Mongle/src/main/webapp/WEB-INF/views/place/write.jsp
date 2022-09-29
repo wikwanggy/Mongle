@@ -9,136 +9,73 @@
 <title>place</title>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="/resources/js/place/placeUploadAjax.js"></script>
+<script type="text/javascript"
+	src="/resources/js/place/placeUploadAjax.js"></script>
 <link rel="stylesheet" href="/resources/css/place/place.css">
 </head>
+<jsp:include page="../header.jsp" />
 <body>
-	<div id="container">
-		<div id="hd">
-			<header>
-				<div id="tm">
-					<a href="/"><img alt="logo"
-						src="resources/css/mainimg/logo.png" id="logoimg"></a>
-					<ul id="topmenu">
-						<li>
-							<div id="toplist">
-								<c:choose>
-									<c:when test="${sessionScope.login==null}">
-										<a href="Signup/Signup">회원가입</a>
-										<a href="/Login/login">로그인</a>
-									</c:when>
-									<c:when test="${sessionScope.login.id=='admin'}">
-										<a href="/Admin/Memberlist">관리자메뉴</a>
-										<a href="/Login/logout">로그아웃</a>
-									</c:when>
-									<c:otherwise>
-										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
-										<a href="/Login/logout">로그아웃</a>
-									</c:otherwise>
-								</c:choose>
-							</div>
-						</li>
-						<li><a href="/service/servicemain">고객센터</a></li>
-					</ul>
-				</div>
-				<div>
-					<nav>
-						<ul id="menu">
-							<li><a href="/">HOME</a></li>
-							<li><a href="/">SHOP</a></li>
-							<li><a href="/place">PLACE</a></li>
-							<li><a href="/">EVENT</a></li>
-							<li><a href="/">커뮤니티</a></li>
-						</ul>
-					</nav>
-				</div>
-			</header>
-		</div>
-		<div>
-			<div class="main">
-			<div id="ls"></div>
-			<div id="cn">
-				<form action="/place/write" method="post" id="form">
+	<div class="main">
+		<div id="ls"></div>
+		<div id="cn">
+			<form action="/place/write" method="post" id="form">
 				<input type="hidden" name="id" value="${sessionScope.login.id}">
 				<input type="hidden" name="name" value="${sessionScope.login.name}">
-					<table>
-						<tr style="height: 40px">
-							<th>카테고리</th>
-							<td><select name="ctgr" style="float: left" required>
-									<option value="clinic">동물병원</option>
-									<option value="grooming">미용</option>
-									<option value="hotel">호텔</option>
-									<option value="school">학교/유치원</option>
-									<option value="cafe">식당/카페</option>
-							</select></td>
-							<th>지역</th>
-							<td><select name="loc" style="float: left" required><option>지역</option>
-									<option value="서울">서울</option>
-									<option value="인천">인천</option>
-									<option value="경기">경기</option>
-									<option value="부산">부산</option>
-									<option value="대구">대구</option>
-									<option value="울산">울산</option>
-									<option value="광주">광주</option>
-									<option value="대전">대전</option>
-									<option value="강원">강원</option>
-									<option value="충북">충북</option>
-									<option value="충남">충남</option>
-									<option value="전북">전북</option>
-									<option value="전남">전남</option>
-									<option value="경북">경북</option>
-									<option value="경남">경남</option>
-									<option value="제주">제주</option>
-							</select></td>
-						</tr>
-						<tr style="height: 40px">
-							<th>제목</th>
-							<td colspan="3"><input id="writetitle" type="text" name="title"></td>
-						</tr>
-						<tr style="height: 40px">
-							<th>첨부</th>
-							<td colspan="3"><input type="file" name="uploadFile" multiple></td>
-						</tr>
-						<tr>
-							<th>내용</th>
-							<td colspan="3"><textarea id="writecontent" rows="20" name="content"></textarea></td>
-						</tr>
-					</table>
-					<input type="button" id="uploadBtn" value="글쓰기">
-				</form>
-				
-				<div id="uploadResult">
-					<ul></ul>
-				</div>
-			</div>
-			<div id="rs"></div>
+				<table>
+					<tr style="height: 40px">
+						<th>카테고리</th>
+						<td><select name="ctgr" style="float: left" required>
+								<option value="clinic">동물병원</option>
+								<option value="grooming">미용</option>
+								<option value="hotel">호텔</option>
+								<option value="school">학교/유치원</option>
+								<option value="cafe">식당/카페</option>
+						</select></td>
+						<th>지역</th>
+						<td><select name="loc" style="float: left" required><option>지역</option>
+								<option value="서울">서울</option>
+								<option value="인천">인천</option>
+								<option value="경기">경기</option>
+								<option value="부산">부산</option>
+								<option value="대구">대구</option>
+								<option value="울산">울산</option>
+								<option value="광주">광주</option>
+								<option value="대전">대전</option>
+								<option value="강원">강원</option>
+								<option value="충북">충북</option>
+								<option value="충남">충남</option>
+								<option value="전북">전북</option>
+								<option value="전남">전남</option>
+								<option value="경북">경북</option>
+								<option value="경남">경남</option>
+								<option value="제주">제주</option>
+						</select></td>
+					</tr>
+					<tr style="height: 40px">
+						<th>제목</th>
+						<td colspan="3"><input id="writetitle" type="text"
+							name="title"></td>
+					</tr>
+					<tr style="height: 40px">
+						<th>첨부</th>
+						<td colspan="3"><input type="file" name="uploadFile" multiple></td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td colspan="3"><textarea id="writecontent" rows="20"
+								name="content"></textarea></td>
+					</tr>
+				</table>
+				<input type="button" id="uploadBtn" value="글쓰기">
+			</form>
+
+			<div id="uploadResult">
+				<ul></ul>
 			</div>
 		</div>
-		<div>
-			<footer>
-				<div id="bottomMenu">
-					<ul>
-						<li><a href="#">회사 소개</a></li>
-						<li><a href="#">개인정보처리방침</a></li>
-						<li><a href="#">이용안내</a></li>
-						<li><a href="#">고객센터</a></li>
-					</ul>
-					<div id="sns">
-						<ul>
-							<li><a href="#"><img
-									src="../resources/css/mainimg/facebook.PNG" class="img2"></a></li>
-							<li><a href="#"><img
-									src="../resources/css/mainimg/insta.PNG" class="img2"></a></li>
-							<li><a href="#"><img
-									src="../resources/css/mainimg/twitter.PNG" class="img2"></a></li>
-						</ul>
-					</div>
-				</div>
-				<div id="company">
-					<p>제 3조 팀 프로젝트 참여자 : 현우 연희 민서 석현 광규</p>
-				</div>
-			</footer>
-		</div>
+		<div id="rs"></div>
 	</div>
+
 </body>
+<jsp:include page="../footer.jsp" />
 </html>

@@ -1,14 +1,16 @@
 package org.Mongle.Service;
 
+import org.Mongle.model.PlaceLikeVO;
+
 public interface PlaceLikeService {
 
-	public int findLike(int bno, String id);
+	public int findLike(PlaceLikeVO plvo);
 
-	public void likeUp(int bno, String id);
+	public void likeUp(PlaceLikeVO plvo);
 
-	public void likeDown(int bno, String id);
+	public void likeDown(PlaceLikeVO plvo);
 
-	public void placeLikeUp(int bno);
+	public void placeLikeUp(PlaceLikeVO plvo);
 
-	public void placeLikeDown(int bno);
+	public void placeLikeDown(PlaceLikeVO plvo);
 }

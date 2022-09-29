@@ -5,7 +5,6 @@ $(document).ready(function() {
 	console.log("like:"+likeval+",bno:"+bno+",id:"+id);
 
 	if (likeval > 0) {
-		console.log(likeval + "좋아요 누름");
 		$('.LikeBtn').attr("value", "♥");
 		$(".LikeBtn").on("click", function() {
 
@@ -18,13 +17,12 @@ $(document).ready(function() {
 					"id" : id
 				}),
 				success : function(data) {
-					alert('취소 성공');
+					$('.LikeBtn').attr("value", "♡");
 				}
 			})// 아작스 끝
 		})
 
 	} else if (likeval == 0) {
-		console.log(likeval + "좋아요 안누름")
 		$('.LikeBtn').on("click", function() {
 			$.ajax({
 				type : 'post',
@@ -35,7 +33,7 @@ $(document).ready(function() {
 					"id" : id
 				}),
 				success : function(data) {
-					alert('성공');
+					$('.LikeBtn').attr("value", "♥");
 				}
 			})// 아작스 끝
 		})

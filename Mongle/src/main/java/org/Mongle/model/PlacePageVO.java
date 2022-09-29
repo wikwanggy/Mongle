@@ -55,12 +55,12 @@ public class PlacePageVO {
 		this.next = next;
 	}
 
-	public PlaceCriteriaVO getCri() {
+	public PlaceCriteriaVO getPcri() {
 		return pcri;
 	}
 
-	public void setCri(PlaceCriteriaVO cri) {
-		this.pcri = cri;
+	public void setPcri(PlaceCriteriaVO pcri) {
+		this.pcri = pcri;
 	}
 
 	public int getTotal() {

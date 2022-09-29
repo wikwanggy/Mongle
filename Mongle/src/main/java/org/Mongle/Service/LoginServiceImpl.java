@@ -27,6 +27,7 @@ public class LoginServiceImpl implements LoginService {
 			if(login!=null) {
 				System.out.println("세션값");
 				session.setAttribute("login", login);
+				session.setAttribute("loginId", login.getId());
 				System.out.println("세션값 ="+session.getAttribute("login"));
 				result=true;
 			}

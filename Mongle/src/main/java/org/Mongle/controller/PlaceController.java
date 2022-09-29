@@ -2,13 +2,10 @@ package org.Mongle.controller;
 
 import java.util.ArrayList;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.Mongle.Service.PlaceLikeService;
 import org.Mongle.Service.PlaceService;
-import org.Mongle.model.LoginDTO;
 import org.Mongle.model.PlaceAttachFileVO;
 import org.Mongle.model.PlaceCriteriaVO;
 import org.Mongle.model.PlaceLikeVO;
@@ -23,7 +20,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -32,6 +28,7 @@ public class PlaceController {
 	// 포함관계
 	@Autowired
 	PlaceService ps;
+	@Autowired
 	PlaceLikeService pls;
 
 	@RequestMapping(value = "/place/board", method = RequestMethod.GET)
@@ -70,49 +67,41 @@ public class PlaceController {
 
 	// place-content
 	@RequestMapping(value = "/place/detail", method = RequestMethod.GET)
-	public String content(PlaceVO pvo, Model model, LoginDTO login,HttpSession session) {
+	public String content(PlaceVO pvo,PlaceLikeVO plvo, Model model,HttpSession session) {
 		model.addAttribute("detail", ps.detail(pvo));
 		ps.cntup(pvo);
-		
-		
-		// 세션 id 가져와서 plvo.likecheck 호출해야함
-		// ajax로 받거나 세션으로 바로 받아야하는데 세션으로 바로 받는게 더 효율적이므로 세션으로 받기
-		// id만 받으면 likecheck 적용돼서 다 되는데 ㅠㅠㅠㅠㅠㅠㅠㅠㅠ
-		
-		String id=session.getId();
-		int bno=pvo.getBno();
-		//String id=(String)session.getAttribute(name);
-		System.out.println("id="+id);
-		PlaceLikeVO plvo=new PlaceLikeVO();
+		int bno = (int)pvo.getBno();
+		String id=(String) session.getAttribute("loginId");
 		plvo.setBno(bno);
 		plvo.setId(id);
-
+		System.out.println(plvo);
 		try {
-			int like=pls.findLike(bno,id);
-			model.addAttribute("like",like);
-			System.out.println("findLike:"+pls.findLike(bno,id));
-		//model.addAttribute("getLike",pls.getLike(bno));
-		}catch(NullPointerException e) {
-			model.addAttribute("like","0");
+			model.addAttribute("like", pls.findLike(plvo));
+			System.out.println("like:"+pls.findLike(plvo));
+			
+		}catch(Exception e) {
+			model.addAttribute("like", "0");
+			System.out.println("null");
 		}
 		return "place/detail";
 	}
-	//좋아요
-	@ResponseBody 
+
+	// 좋아요
+	@ResponseBody
 	@PostMapping("/likeUp")
-	public void likeup(@RequestBody PlaceLikeVO plvo,int bno,String id) {
-		System.out.println("컨트롤러 연결 성공");
-		System.out.println(plvo);
-		pls.likeUp(bno, id);
-		pls.placeLikeUp(plvo.getBno());
+	public void likeup(@RequestBody PlaceLikeVO plvo) {
+		System.out.println("좋아요성공");
+		pls.likeUp(plvo);
+		pls.placeLikeUp(plvo);
 	}
-	//좋아요취소
+
+	// 좋아요취소
 	@ResponseBody
 	@PostMapping("/likeDown")
 	public void likeDown(@RequestBody PlaceLikeVO plvo) {
-		System.out.println("좋아요 싫어요!");
-		pls.likeDown(plvo.getBno(), plvo.getId());
-		pls.placeLikeDown(plvo.getBno());
+		System.out.println("좋아요취소");
+		pls.likeDown(plvo);
+		pls.placeLikeDown(plvo);
 	}
 
 	@RequestMapping(value = "/place/modifyform", method = RequestMethod.GET)
@@ -135,7 +124,5 @@ public class PlaceController {
 		ps.remove(pvo);
 		return "redirect:/place/board";
 	}
-
-
 
 }
