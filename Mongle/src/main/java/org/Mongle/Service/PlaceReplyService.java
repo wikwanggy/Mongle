@@ -3,6 +3,7 @@ package org.Mongle.Service;
 import java.util.ArrayList;
 
 import org.Mongle.model.PlaceReplyVO;
+import org.Mongle.model.PlaceVO;
 
 
 
@@ -18,4 +19,5 @@ public interface PlaceReplyService {
 
 	// 댓글 삭제을 위한 설계
 	public int remove(int rno);
+
 }

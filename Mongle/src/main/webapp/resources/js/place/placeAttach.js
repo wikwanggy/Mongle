@@ -2,7 +2,7 @@ $(document).ready(function() {
 	//detail.jsp 시작되자마자(ready이벤트) bno값 가져오기
 	var bno=$("input[name='bno']").val();
 	$.getJSON("/placeattachlist",{bno:bno},function(attachlist){
-		console.log(attachlist);
+	//	console.log(attachlist);
 		var str="";
 		
 		$(attachlist).each(function(i,attach){

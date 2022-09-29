@@ -4,6 +4,7 @@ import java.util.ArrayList;
 //댓글 관련 mapper
 
 import org.Mongle.model.PlaceReplyVO;
+import org.Mongle.model.PlaceVO;
 
 public interface PlaceReplyMapper {
 	// 댓글 쓰기를 구현
@@ -18,4 +19,5 @@ public interface PlaceReplyMapper {
 	
 	// 댓글 삭제를 구현
 	public int remove(int rno);
+
 }

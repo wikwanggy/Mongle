@@ -8,7 +8,7 @@ $(document).ready(function() {
 	$('#add').on('click', function() {
 		// 댓글쓰기 버튼을 클릭했을 당시에 댓글 내용을 가져오려면 $('#add').on('click',function() 아래에 선언
 		var replyValue = $("#reply").val();
-		var idValue = "aaaa";
+		var idValue = $("#idValue").val();
 		add({
 			bno : bnoValue,
 			reply : replyValue,
@@ -40,7 +40,7 @@ function remove(rno){
 	console.log(rno);
 	$.ajax({
 		type : "delete", // method방식(get,post,put,delete)
-		url : "/replies/remove/"+rno,
+		url : "/placereplies/remove/"+rno,
 		success : function(result) {
 			if (result == "success") {
 				alert("댓글삭제성공")
@@ -50,10 +50,10 @@ function remove(rno){
 }
 // 댓글 수정 함수 선언
 function modify(reply) {
-	console.log(reply);
+//	console.log(reply);
 	$.ajax({ // ajax준비 (비동기식으로처리)
 		type : "put", // method방식(get,post,put,delete)
-		url : "/replies/modify",
+		url : "/placereplies/modify",
 		data : JSON.stringify(reply),
 		contentType : "application/json; charset=utf-8",
 		success : function(result) {
@@ -65,31 +65,29 @@ function modify(reply) {
 }
 
 function list(bno) { // list함수선언시작
-	$
-			.getJSON(
-					"/replies/" + bno + ".json",
-					function(data) {
-						var str = "";
-						for (var i = 0; i < data.length; i++) {
-
-							str += "<li>id : " + data[i].id + "</li>"
-							str += "<li>rno : " + data[i].rno + "</li>"
-							str += "<li><textarea id='replycontent"+ data[i].rno + "'>" + data[i].reply+ "</textarea></li>"
+	$.getJSON(
+			"/placereplies/" + bno + ".json",
+			function(data) {
+				var str = "";
+				for (var i = 0; i < data.length; i++) {
+		str += "</li>"
+		str += "<li>id : " + data[i].id + "</li>"
+		str += "<li>rno : " + data[i].rno + "</li>"
+		str += "<li><textarea id='replycontent"+ data[i].rno + "'>" + data[i].reply+ "</textarea></li>"
 		str += "<li>"
 		str += "<input class='update' type='button' value='수정' data-rno="+ data[i].rno + " data-reply=" + data[i].reply + ">"
 		str += "<input class='remove' type='button' value='삭제' data-rno="+ data[i].rno + " data-reply=" + data[i].reply + ">"
 		str += "</li>"
-						}
-						$("#replyUL").html(str);
+					}
+					$("#replyUL").html(str);
 					});
-
 } // list함수선언끝
 
 // 댓글쓰기를 하기위한 함수선언
 function add(reply) { // add함수선언시작
 	$.ajax({ // ajax준비 (비동기식으로처리)
 		type : "post", // method방식(get,post,put,delete)
-		url : "/replies/new", // controller와 연결하기위한 주소
+		url : "/placereplies/new", // controller와 연결하기위한 주소
 		data : JSON.stringify(reply),
 		// contentType을 생략하면 web Browser한테 위임
 		contentType : "application/json; charset=utf-8",

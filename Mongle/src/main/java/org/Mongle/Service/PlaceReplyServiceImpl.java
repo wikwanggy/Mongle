@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.Mongle.Mapper.PlaceReplyMapper;
 import org.Mongle.model.PlaceReplyVO;
+import org.Mongle.model.PlaceVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,4 +32,6 @@ public class PlaceReplyServiceImpl implements PlaceReplyService {
 	public int remove(int rno) {
 		return prm.remove(rno);
 	}
+	
+
 }

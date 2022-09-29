@@ -17,28 +17,15 @@
 		<div id="hd">
 			<header>
 				<div id="tm">
-					<a href="/"><img alt="logo"
-						src="resources/css/mainimg/logo.png" id="logoimg"></a>
+					<div id="logo">
+						<a href="#"><img alt="logo"
+							src="../resources/css/mainimg/logo.png" id="logoimg"></a>
+					</div>
 					<ul id="topmenu">
-						<li>
-							<div id="toplist">
-								<c:choose>
-									<c:when test="${sessionScope.login==null}">
-										<a href="Signup/Signup">회원가입</a>
-										<a href="/Login/login">로그인</a>
-									</c:when>
-									<c:when test="${sessionScope.login.id=='admin'}">
-										<a href="/Admin/Memberlist">관리자메뉴</a>
-										<a href="/Login/logout">로그아웃</a>
-									</c:when>
-									<c:otherwise>
-										<a href="/mypage/mypage?id=${sessionScope.login.id}">${sessionScope.login.id}님</a>
-										<a href="/Login/logout">로그아웃</a>
-									</c:otherwise>
-								</c:choose>
-							</div>
-						</li>
-						<li><a href="/service/servicemain">고객센터</a></li>
+						<li><a href="/signup/signup">회원가입</a></li>
+						<li><a href="/signin/signin">로그인</a></li>
+						<li><a href="/">MyPage</a></li>
+						<li><a href="/">고객센터</a></li>
 					</ul>
 				</div>
 				<div>
@@ -58,9 +45,8 @@
 			<div class="main">
 			<div id="ls"></div>
 			<div id="cn">
-				<form action="/place/write" method="post" id="form">
-				<input type="hidden" name="id" value="${sessionScope.login.id}">
-				<input type="hidden" name="name" value="${sessionScope.login.name}">
+				<form action="/place/modify" method="post" id="form">
+				<input type="hidden" value="${detail.bno}">
 					<table>
 						<tr style="height: 40px">
 							<th>카테고리</th>
@@ -72,7 +58,7 @@
 									<option value="cafe">식당/카페</option>
 							</select></td>
 							<th>지역</th>
-							<td><select name="loc" style="float: left" required><option>지역</option>
+							<td><select name="loc" style="float: left" required>
 									<option value="서울">서울</option>
 									<option value="인천">인천</option>
 									<option value="경기">경기</option>
@@ -93,23 +79,18 @@
 						</tr>
 						<tr style="height: 40px">
 							<th>제목</th>
-							<td colspan="3"><input id="writetitle" type="text" name="title"></td>
+							<td colspan="3"><input value="${detail.title}" id="writetitle" type="text" name="title"></td>
 						</tr>
-						<tr style="height: 40px">
-							<th>첨부</th>
-							<td colspan="3"><input type="file" name="uploadFile" multiple></td>
-						</tr>
+				
 						<tr>
 							<th>내용</th>
-							<td colspan="3"><textarea id="writecontent" rows="20" name="content"></textarea></td>
+							<td colspan="3"><textarea id="writecontent" rows="20" name="content">${detail.content}</textarea></td>
 						</tr>
 					</table>
-					<input type="button" id="uploadBtn" value="글쓰기">
+					<input type="submit" value="수정하기">
 				</form>
 				
-				<div id="uploadResult">
-					<ul></ul>
-				</div>
+				
 			</div>
 			<div id="rs"></div>
 			</div>

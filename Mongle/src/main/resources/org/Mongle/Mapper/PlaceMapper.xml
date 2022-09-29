@@ -6,34 +6,56 @@
 
 	<insert id="write">
 		<!-- order:"대문자만사용" -->
-	    <selectKey keyProperty="bno" order="BEFORE" resultType="int">
-	    <!-- select 값을 keyProperty="bno"에 추가 --><!-- BEFORE로 먼저  -->
-	         select max(bno)+1 bno
-	         from place
-	    </selectKey>
-		insert into place(loc, title, content, ctgr)
-		value(#{loc},#{title},#{content},#{ctgr});
+		<selectKey keyProperty="bno" order="BEFORE" resultType="int">
+			<!-- select 값을 keyProperty="bno"에 추가 --><!-- BEFORE로 먼저 -->
+			select max(bno)+1 bno
+			from place
+		</selectKey>
+		insert into place(loc, title, content, ctgr, id, name ,cnt, rec)
+		value(#{loc},#{title},#{content},#{ctgr}, #{id}, #{name},'0','0');
 	</insert>
 
-	<select id="list" resultType="org.Mongle.model.PlaceVo">
+	<select id="list" resultType="org.Mongle.model.PlaceVO">
 		select *
 		from (
 		select @rownum:=@rownum+1 rownum,p.*
 		from place p,(select @rownum:=0) as tmp
+		
+		<!-- 1. ctgr = null & loc = null -->
+		where bno is not null
+		
+		<!-- 2. ctgr != null & loc = null -->
+		<choose>
+			<when test="ctgr != null">
+				and ctgr=#{ctgr}
+			</when>
+			<!-- 3. ctgr = null & loc != null -->
+			<when test="loc != null">
+				and loc=#{loc}
+			</when>
+			<!-- 4. ctgr != null & loc != null -->
+			<when test="ctgr != null and loc != null">
+				and ctgr=#{ctgr} and loc=#{loc}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+		
 		<if test="keyword != null">
 			<choose>
 				<when test="type == 'T'.toString()">
-					where title like concat('%',#{keyword},'%')
+					and title like concat('%',#{keyword},'%')
 				</when>
-				<when test="type == 'C'.toString()">
-					where id like concat('%',#{keyword},'%')
+				<when test="type == 'C'.toString()"> 
+					and id like concat('%',#{keyword},'%')
 				</when>
 				<otherwise>
-					where title like concat('%',#{keyword},'%')
+					and title like concat('%',#{keyword},'%')
 					or content like concat('%',#{keyword},'%')
 				</otherwise>
 			</choose>
 		</if>
+
 		order by bno desc
 		) as placelist
 		<![CDATA[
@@ -41,9 +63,11 @@
 		]]>
 	</select>
 
-	<select id="detail" resultType="org.Mongle.model.PlaceVo">
-		select * from place where bno=#{bno};
+	<select id="detail" resultType="org.Mongle.model.PlaceVO">
+		select * from place where
+		bno=#{bno};
 	</select>
+	
 	<update id="cntup">
 		update place
 		set cnt=cnt+1
@@ -62,10 +86,23 @@
 	</delete>
 
 	<select id="total" resultType="int">
-		select count(*) from place
+		select count(*) from place where bno is not null
+		<choose>
+			<when test="ctgr != null">
+				and ctgr=#{ctgr}
+			</when>
+			<!-- 3. ctgr = null & loc != null -->
+			<when test="loc != null">
+				and loc=#{loc}
+			</when>
+			<!-- 4. ctgr != null & loc != null -->
+			<when test="ctgr != null and loc != null">
+				and ctgr=#{ctgr} and loc=#{loc}
+			</when>
+		</choose>
 		<if test="keyword != null">
-			where title like concat('%',#{keyword},'%')
-			<choose>  
+			AND title like concat('%',#{keyword},'%')
+			<choose>
 				<when test="type == 'T'.toString()">
 					AND title like concat('%',#{keyword},'%')
 				</when>
@@ -74,9 +111,15 @@
 				</when>
 				<otherwise>
 					AND title like concat('%',#{keyword},'%')
-					or content like concat('%',#{keyword},'%')
+					or content like
+					concat('%',#{keyword},'%')
 				</otherwise>
 			</choose>
 		</if>
 	</select>
+	
+	<update id="replycnt">
+		update place set replycnt = (select count(rno) from p_reply where place.bno=p_reply.bno);
+	</update>
+
 </mapper>

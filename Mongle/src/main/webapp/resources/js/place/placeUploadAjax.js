@@ -1,13 +1,12 @@
 $(document).ready(function() {
-	/* 첨부파일 공격에 대비하기 위한 업로드 파일 확장자 제한
-		.exe .xip .alz -> 첨부X
-		특정 크기 이상의 파일 -> 첨부X
-	*/
+	/*
+	 * 첨부파일 공격에 대비하기 위한 업로드 파일 확장자 제한 .exe .xip .alz -> 첨부X 특정 크기 이상의 파일 -> 첨부X
+	 */
 	// 함수 선언
 	// 정규식을 이용하여 확장자 제한
 	var reg = new RegExp("(.*?)\.(exe|zip|alz)$")
 	// 최대 크기를 설정하여 그 이상이면 제한
-	var maxSize=5242880; //5MB
+	var maxSize=5242880; // 5MB
 	// 파일이름, 파일크기
 	function checkExtension(fileName,fileSize){
 		// 파일 크기 제한
@@ -28,8 +27,11 @@ $(document).ready(function() {
 	
 	// 파일전송버튼을 클릭하면
 	$("#uploadBtn").on("click", function() {
-		//e.preventDefault();
-		alert("a");
+		// e.preventDefault();
+		
+		// ****첨부파일이 없을때 오류 뜸****
+	if($("input[type='file']")!=null){
+
 		// 파일 업로드 관련 로직 처리
 		// .jsp에 form태그를 대체(FormData함수)
 		var formData = new FormData();
@@ -64,13 +66,13 @@ $(document).ready(function() {
 				var input = "";
 				
 				$(result).each(function(i,obj){
-					//console.log(obj)
-					//console.log(obj.fileName)
+					// console.log(obj)
+					// console.log(obj.fileName)
 					 input += "<input type='text' name='attach["+i+"].uploadPath' value ='" + obj.uploadPath + "'><br>";
 					 input += "<input type='text' name='attach["+i+"].fileName' value ='" + obj.fileName + "'><br>";
 					 input += "<input type='text' name='attach["+i+"].uuid' value ='" + obj.uuid + "'><br>";
 					 input += "<input type='text' name='attach["+i+"].image' value ='" + obj.image + "'><br>";
-					//만약 image 결과가 true면 
+					// 만약 image 결과가 true면
 					if(obj.image){	// 아래 실행
 					
 						var filePath=encodeURIComponent(obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName);
@@ -90,5 +92,8 @@ $(document).ready(function() {
 				$("#form").append(input).submit();
 			}
 		})
+		}else{
+			$("#form").submit();
+		}
 	})
 })
