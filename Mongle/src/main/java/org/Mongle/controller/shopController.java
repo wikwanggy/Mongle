@@ -2,6 +2,8 @@ package org.Mongle.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.Mongle.Service.shopService;
 import org.Mongle.model.SAttachFileVO;
 import org.Mongle.model.SCriteriaVO;
@@ -23,6 +25,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class shopController {
 	@Autowired
 	shopService ss;
+	
+	HttpSession session;
 
 	// 상품 등록 페이지 실행
 	// 상품 등록 대분류
@@ -31,7 +35,6 @@ public class shopController {
 		model.addAttribute("c_type1", ss.c_type1()); // shop_board.jsp가 실행하자마자 1분류 select
 		return "shoppage/shop_board"; // url주소가 매핑이 되면, shoppage폴더 안에 있는 shop_board.jsp실행
 	}
-
 	// 상품 등록 소분류
 	@RequestMapping(value = "/shop/{s}", method = RequestMethod.GET)
 	public ResponseEntity<ArrayList<shopCategoryVO>> getshop_board(@PathVariable String s) {
@@ -39,7 +42,6 @@ public class shopController {
 
 		return new ResponseEntity<>(ss.c_type2(s), HttpStatus.OK);
 	}
-
 	// 상품 등록
 	@RequestMapping(value = "/shoppage/shop_board", method = RequestMethod.POST)
 	public String writepost(shopVO shop) {
@@ -49,7 +51,14 @@ public class shopController {
 
 		return "redirect:/shoppage/shop";
 	}
-
+	
+	// 상품 등록 리스트
+	@RequestMapping(value = "/shoppage/shop_list", method = RequestMethod.GET)
+	public String getlist(Model model, shopVO shop) {
+		model.addAttribute("shop_list",ss.shop_list(shop));
+		return "/shoppage/shop_list";
+	}
+	
 	// 게시물의 첨부파일의 데이터를 ajax로 전송
 	@RequestMapping(value = "/attachlist", method = RequestMethod.GET)
 	public ResponseEntity<ArrayList<SAttachFileVO>> uploadAjaxPost(int bno) {
@@ -62,13 +71,13 @@ public class shopController {
 	public String shop(Model model, SCriteriaVO scri) {
 		model.addAttribute("shop", ss.shop(scri));
 		int total = ss.total(scri);
-		model.addAttribute("paging", new SPageVO(scri, total));
+		model.addAttribute("paging", new SPageVO(scri,total));
 		return "/shoppage/shop";
 	}
 
 	// 상품 상세설명
 	@RequestMapping(value = "/shoppage/Detail", method = RequestMethod.GET)
-	public String detail(shopVO shop, Model model) {
+	public String detail(shopVO shop, Model model, SCriteriaVO scri) {
 		System.out.println(shop);
 		model.addAttribute("main", ss.main(shop));
 		model.addAttribute("sub", ss.sub(shop));
@@ -81,7 +90,6 @@ public class shopController {
 	public String s_writeget() {
 		return "/shoppage/shop_item";
 	}
-
 	// 문의하기
 	@RequestMapping(value = "/shoppage/shop_item", method = RequestMethod.POST)
 	public String s_writepost(shopitemVO item) {

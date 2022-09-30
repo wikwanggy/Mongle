@@ -15,6 +15,8 @@
 /*큰틀*/
 #service_main{
 	overflow:hidden;
+	width:1200px;
+	margin:auto;
 	margin-bottom: 30px;
 }
 #service_main_center{
@@ -124,7 +126,7 @@ tr{
 }
 
 #service_noticelist_lower>dd{
-	padding: 20px;
+	padding: 30px;
 	font-size: 24px;
 	font-weight: 500;
 	background-color: #f3f3f3;
@@ -163,6 +165,24 @@ tr{
 	font-size: 32px;
 	text-decoration: none;
 	color:black;
+}
+
+.notice_detail_button{
+	text-decoration:none;
+	padding:7px;
+	background-color: #FFFFFF;
+	border: #f8e6e0 2px solid;
+	border-radius:5px;
+	float:right;
+	margin-left:5px; 
+	width:110px;
+	height: 45px;
+	font-size: 17px;
+	color: black;
+}
+
+.notice_detail_button:hover{
+	background-color: #f8e6e0;
 }
 
 .page_table{ /*페이지 감싼 테이블*/
@@ -206,7 +226,6 @@ tr{
 /*questions  끝 css*/
 
 #container{
-   width:1200px; /* 너비 1200px로 지정 */
    margin: 0 auto; /*auto으로 화면 중앙에 배치*/
 }
 header {

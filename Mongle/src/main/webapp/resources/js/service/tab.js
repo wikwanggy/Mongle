@@ -66,14 +66,6 @@ $(document).ready(function(){ /*탭메뉴*/
 		$(this).addClass('current');
 		$("#"+tab_id).addClass('current');
 	})
-	
-
-	/*if( (Trim(wti)=="")||(wti==null) ) {
-		alert("제목써주");
-		return;
-		var wti=document.fw.title.value;
-		console.log(wti); 
-	}*/
 });
 
 function onoffDisplay(){ /*클릭시 글 내용 평쳐지게하기*/
@@ -89,12 +81,40 @@ function onoffDisplay(){ /*클릭시 글 내용 평쳐지게하기*/
 		}
 	});
 }
-
-const test = function(bgno,pageNum) {
+const tabcustom = function(bgno,pageNum) {
 	  const URLSearch = new URLSearchParams(location.search);
 	  URLSearch.set('bgno', String(bgno));
 	  URLSearch.set('pageNum', String(pageNum));
 	  const newParam = URLSearch.toString();
 
 	  window.open(location.pathname + '?' + newParam, '_self');
+	};
+
+const tabcustom2 = function(bgno,pageNum,bno) {
+	  const URLSearch2 = new URLSearchParams(location.search);
+	  URLSearch2.set('bgno', String(bgno));
+	  URLSearch2.set('pageNum', String(pageNum));
+	  URLSearch2.set('bno', bno);
+	  const newParam2 = URLSearch2.toString();	  
+	  
+	  if($('input[name=faqbno]'==bno)) {
+		  $(this).hasClass("on");
+		  $(this).next().css("display","block");
+		  alert(faq.bno);
+	  }
+	  
+		$("dt").off().click(function(){
+			$(this).toggleClass("on");
+			$(this).siblings().removeClass("on");
+			$("dt").not(this).next().css("display","none");
+
+			if($(this).hasClass("on")) {
+				// BNO값이 100이면
+				$(this).next().css("display","block");
+			}else {
+				$(this).next().css("display","none");
+			}
+		});
+
+	  window.open(location.pathname + '?' + newParam2, '_self');
 	};

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+<%@ page session="true"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -90,8 +90,6 @@
 					<form action="/shoppage/shop" id="searchForm" method="get">
 						<select name="type">
 							<option value="T">이름</option>
-							<option value="C">종류</option>
-							<option value="TC">이름+종류</option>
 						</select> <input type="text" name="keyword"> <input type="text"
 							name="pageNum" value="${paging.scri.amount}" hidden=""> <input
 							type="text" name="amount" value="${paging.scri.amount}" hidden="">

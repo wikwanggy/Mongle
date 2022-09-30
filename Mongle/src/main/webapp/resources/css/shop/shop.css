@@ -67,6 +67,14 @@ header {
 	font-size: 15px;
 }
 
+#toplist>a {
+	color: black; /* 폰트 색상 */
+	padding-right: 10px; /* 패딩 지정 */
+	padding-bottom: 10px;
+	text-decoration: none;
+	font-size: 15px;
+}
+
 #menu {
 	height: 40px;
 	padding: 4px 0px 10px 0px;
@@ -133,7 +141,6 @@ header {
 
 #main_left {
 	width: 87%;
-	
 }
 
 /* main center */
@@ -175,7 +182,7 @@ header {
 
 /* main right */
 #rs {
-	float:right;
+	float: right;
 	width: 13%;
 }
 

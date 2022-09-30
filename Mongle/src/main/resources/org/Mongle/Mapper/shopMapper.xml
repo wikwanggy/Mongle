@@ -28,6 +28,14 @@
 		select c_type2 from Category
 		where c_type1=#{c_type1}
 	</select>
+	<!-- 상품 등록 리스트 -->
+	<select id="shop_list" resultType="org.Mongle.model.shopVO">
+		select
+		w.bno,w_name,w_price,w_regdata,w_quantity,vision,Concat(Replace(p_upload,'\\','/')
+		,<![CDATA['/']]>,p_uid,'_' ,p_name)AS filem
+		from writing w JOIN product p ON w.bno = p.bno WHERE p_image = 1 and
+		vision = 'm' ORDER BY w.bno;
+	</select>
 
 
 	<!-- 상품 목록 리스트,번호 -->
@@ -42,13 +50,6 @@
 			<choose>
 				<when test="type == 'T'.toString()">
 					where w_name like concat('%',#{keyword},'%') </when>
-				<when test="type == 'C'.toString()">
-					where j.bno like concat('%',#{keyword},'%') </when>
-				<otherwise>
-					where w_name like concat('%',#{keyword},'%') or w_type
-					like
-					concat('%',#{keyword},'%')
-				</otherwise>
 			</choose>
 		</if>
 		)as j join product p on j.bno = p.bno
@@ -98,7 +99,8 @@
 
 	<!-- 문의 리스트 -->
 	<select id="s_item" resultType="org.Mongle.model.shopitemVO">
-		 select * from shop_item i join writing w on i.bno= w.bno where i.bno = #{bno}
+		select * from shop_item i join writing w on i.bno= w.bno where i.bno =
+		#{bno}
 	</select>
 
 	<!-- 상품 수정 -->
@@ -109,14 +111,15 @@
 	<!-- 상품 삭제 -->
 	<!-- <delete id="remove"> delete from writing where bno=#{bno} </delete> -->
 
+	<!-- shop페이지 total -->
 	<select id="total" resultType="int">
 		select count(*) from writing w join product p on w.bno = p.bno where
 		vision = "m"
 		<if test="keyword != null">
 			<choose>
 				<when test="type == 'T'.toString()"> and w_name like concat('%',#{keyword},'%') </when>
-				<when test="type == 'C'.toString()"> and j.bno like concat('%',#{keyword},'%') </when>
 			</choose>
 		</if>
 	</select>
+
 </mapper>

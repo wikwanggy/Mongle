@@ -12,6 +12,7 @@ import org.Mongle.model.shopitemVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class shopServiceimpl implements shopService {
 	@Autowired
@@ -43,7 +44,10 @@ public class shopServiceimpl implements shopService {
 	public ArrayList<shopCategoryVO> c_type2(String shop) {
 		return sm.c_type2(shop);
 	}
-
+	// 상품 등록 리스트
+	public ArrayList<shopVO> shop_list(shopVO shop){
+		return sm.shop_list(shop);
+	}
 	// 상품 목록 리스트 구현
 	public ArrayList<shopVO> shop(SCriteriaVO scri) {
 		return sm.shop(scri);

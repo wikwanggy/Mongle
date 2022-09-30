@@ -49,15 +49,15 @@ public class ServiceController {
 			// 공지사항(service/notice)
 			writepath="redirect:/service/bkind?bgno=1";
 	}else if(service.getBgno()==2) {	// 만약에 bgno가 2이면
-			writepath="redirect:/service/bkind?bgno=2";// faq
+			writepath="redirect:/service/bkind?bgno=2";// faq 첫번찌 탭
 	}else if(service.getBgno()==4) {	// 만약에 bgno가 4이면
-		writepath="redirect:/service/bkind?bgno=2";// faq
+		writepath="redirect:/service/bkind?bgno=4";// faq 두번찌 탭
 	}else if(service.getBgno()==5) {	// 만약에 bgno가 5이면
-		writepath="redirect:/service/bkind?bgno=2";// faq
-	}else if(service.getBgno()==6) {	// 만약에 bgno가 6이면
-		writepath="redirect:/service/bkind?bgno=2";// faq
+		writepath="redirect:/service/bkind?bgno=5";// faq 세번찌 탭
+	}else if(service.getBgno()==6) {	// 만약에 bgno가 6이면 
+		writepath="redirect:/service/bkind?bgno=6";// faq 네번찌 탭
 	}else if(service.getBgno()==7) {	// 만약에 bgno가 7이면
-		writepath="redirect:/service/bkind?bgno=2";// faq
+		writepath="redirect:/service/bkind?bgno=7";// faq 다섯번찌 탭
 	}else {// 그렇지 않으면
 			writepath="redirect:/service/bkind?bgno=3";// 1:1문즤
 	}
@@ -148,12 +148,20 @@ public class ServiceController {
     System.out.println(service);
    	String path="";
 	String modipath="";
-    if(service.getBgno()==1) {// 만약에 bgno가 1이면
-		// 공지사항(service/notice)
-    	modipath="redirect:/service/bkind?bgno=1";
+	if(service.getBgno()==1) {// 만약에 bgno가 1이면
+			// 공지사항(service/notice)
+		modipath="redirect:/service/bkind?bgno=1";
 	}else if(service.getBgno()==2) {	// 만약에 bgno가 2이면
-		modipath="redirect:/service/bkind?bgno=2";// faq
-	}else if(service.getBgno()==3){// 그렇지 않으면
+		modipath="redirect:/service/bkind?bgno=2";// faq 첫번찌 탭
+	}else if(service.getBgno()==4) {	// 만약에 bgno가 4이면
+		modipath="redirect:/service/bkind?bgno=4";// faq 두번찌 탭
+	}else if(service.getBgno()==5) {	// 만약에 bgno가 5이면
+		modipath="redirect:/service/bkind?bgno=5";// faq 세번찌 탭
+	}else if(service.getBgno()==6) {	// 만약에 bgno가 6이면 
+		modipath="redirect:/service/bkind?bgno=6";// faq 네번찌 탭
+	}else if(service.getBgno()==7) {	// 만약에 bgno가 7이면
+		modipath="redirect:/service/bkind?bgno=7";// faq 다섯번찌 탭
+	}else {// 그렇지 않으면
 		modipath="redirect:/service/bkind?bgno=3";// 1:1문즤
 	}
        ss.modify(service);

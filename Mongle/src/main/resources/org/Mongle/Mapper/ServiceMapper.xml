@@ -16,10 +16,13 @@
 	
 	<!-- questions 리스트 -->
 	<select id="list" resultType="org.Mongle.model.ServiceVO" parameterType="map">
-        select * from (
-        select @row_no:=IF(@prev_val =b.bgno,@row_no+1,1)AS 
-         bno,@prev_val := b.bgno as bgno,b.title
+		select * from(
+        select *, @rownum:=@rownum+1 num from(
+        select
+        @row_no:=IF(@prev_val =b.bgno,@row_no+1,1)AS 
+        rownum,@prev_val := b.bgno as bgno,title,content,regdate,cnt,id,name,bno
 		from service_list b,
+        (select @rownum :=0)z,
         (select @row_no := 0)x,
         (select @prev_val :='')y
         where BGNO=#{bgno}
@@ -37,10 +40,10 @@
 					</otherwise>
 				</choose>
 			</if>
-			     order by bno desc,b.title desc
-			    )as test
+			    order by rownum desc
+			    )as service)as service2
 			<![CDATA[
-				where bno> (#{pageNum}-1)*#{amount} and bno<=#{pageNum}*#{amount}
+				where num> (#{pageNum}-1)*#{amount} and num<=#{pageNum}*#{amount}
 			]]>
 	</select>
 
@@ -63,7 +66,7 @@
 			
 			   <delete id="remove">
 				   	delete from service_list
-				   	where bno=#{bno}
+				   	where bno=#{bno} and bgno=#{bgno}
 			   </delete>
 			
 	   <select id="total" resultType="int">

@@ -19,6 +19,9 @@ public interface shopMapper {
 	// 상품 목록 리스트 설계
 	public ArrayList<shopVO> shop(SCriteriaVO scrit);
 
+	// 상품 등록 리스트
+	public ArrayList<shopVO> shop_list(shopVO shop);
+
 	// 상품 상세 내용보기 메인 이미지 설계
 	public shopVO main(shopVO shop);
 
@@ -30,7 +33,7 @@ public interface shopMapper {
 
 	// 문의 목록 리스트 설계
 	public ArrayList<shopitemVO> s_item(shopVO shop);
-	
+
 	// 상품 수정 설계
 	public void modify(shopVO shop);
 

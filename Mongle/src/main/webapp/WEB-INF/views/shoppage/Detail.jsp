@@ -114,10 +114,9 @@
 										</div>
 									</div>
 									<div id="bun">
-										<button type="button" id="plus" class="but" value="-">-</button>
-										<input type="text" id="Quantity" class="but"
-											value="${main.w_Quantity}">
-										<button type="button" id="minus" class="but" value="+">+</button>
+										<button type="button" id="plus" class="but" value="+">+</button>
+										<input type="text" id="Quantity" class="but" value="${main.w_Quantity}">
+										<button type="button" id="minus" class="but" value="-">-</button>
 										<span>원</span>
 									</div>
 									<div id="sum">
@@ -212,10 +211,10 @@
 												</div>
 												<div class="prod-inquiry-list__container">
 													<div class="prod-inquiry-items">
-														<div class="prod-inquiry-item">																																						
-															<c:forEach items="${item}" var="item">															
+														<div class="prod-inquiry-item">
+															<c:forEach items="${item}" var="item">
 																<em class="prod-inquiry-item__label">질문</em>
-																<div class="prod-inquiry-item__wrap">																    
+																<div class="prod-inquiry-item__wrap">
 																	<strong calss="prod-inquiry-author">${item.s_id}</strong>
 																	<div class="prod-inquiry-selected">${main.w_name}</div>
 																	<div class="prod-inquiry-content">${item.s_question}</div>
@@ -237,32 +236,7 @@
 															</c:forEach>
 														</div>
 													</div>
-												</div>
-												<div class="prod-inquiry-list__pagination" data-current="1"
-													data-total="5">
-													<a
-														class="prod-inquiry-list__pagination__btn
-                      prod-inquiry-list__pagination__btn--prev"
-														href="javascript:;" data-page="1">이전</a> <a
-														class="prod-inquiry-list__pagination__item
-                          active"
-														href="javascript:;" data-page="1">1</a> <a
-														class="prod-inquiry-list__pagination__item
-                          "
-														href="javascript:;" data-page="2">2</a> <a
-														class="prod-inquiry-list__pagination__item
-                          "
-														href="javascript:;" data-page="3">3</a> <a
-														class="prod-inquiry-list__pagination__item
-                          "
-														href="javascript:;" data-page="4">4</a> <a
-														class="prod-inquiry-list__pagination__item
-                          "
-														href="javascript:;" data-page="5">5</a> <a
-														class="prod-inquiry-list__pagination__btn
-                      prod-inquiry-list__pagination__btn--next"
-														href="javascript:;" data-page="5">다음</a>
-												</div>
+												</div>												
 											</div>
 										</div>
 									</div>
