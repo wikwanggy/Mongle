@@ -44,4 +44,8 @@ public class CommReplyController {
 		return result==1?new ResponseEntity<>("success",HttpStatus.OK)
 				:new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	/*@RequestMapping(value="/commreply/list", method=RequestMethod.GET)
+	public CommReplyPageVo ReplyList(CommCriterionVo cri) {
+		return crs.ReplyList(cri);
+	}*/
 }

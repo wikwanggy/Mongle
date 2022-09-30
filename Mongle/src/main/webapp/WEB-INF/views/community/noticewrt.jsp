@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../resources/css/boardlist.css">
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="/resources/js/comUpload.js"></script>
+<script type="text/javascript" src="/resources/js/community.js"></script>
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
@@ -18,7 +19,7 @@
 	</div>
 	<c:choose>
 			<c:when test="${sessionScope.login.id=='admin'}">
-<form method="post">
+<form method="post" id="ntform" role="form">
 	<table border="1" class="board_write">
 		<tr>
 			<td>
@@ -29,19 +30,24 @@
 			<td><textarea cols="115" rows="30" placeholder="내용" name="content"></textarea></td>
 		</tr>
 		<tr>
-			<td><input type="file" name="ntuploadFile" multiple>
-				<div id="uploadResult">
+			<td><div id="ntuploaddiv"><input type="file" name="ntuploadFile" multiple></div>
+				<div id="ntuploadResult">
 					<ul>
 						 
 					</ul>
 				</div>
+				<div class="oImg">
+				
+				</div>
 			</td>
 		</tr>
-		
-				<tr>
-					<td><input type="button" value="올리기" id="ntuploadbtn" class="btn_board"></td>
-				</tr>
-			
+		<tr>
+			<td>
+				<!-- 상단고정이 체크되어 있을 경우 pin값 1 아닐 경우 pin값 0 -->
+				<input type="checkbox" name="pin" value="상단고정"><span>상단고정</span>
+				<input type="button" value="올리기" id="ntuploadbtn" class="btn_board">
+			</td>
+		</tr>
 	</table>
 </form>
 			</c:when>

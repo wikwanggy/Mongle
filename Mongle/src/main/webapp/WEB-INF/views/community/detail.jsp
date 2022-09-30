@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,13 +36,17 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" style="text-align:right"><span>작성자　</span>${detail.id}<span>　|　작성일　</span>${detail.regdate}</td>
+			<td colspan="2" style="text-align:right">
+				<fmt:parseDate var="parsedDate" value="${detail.regdate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+				<fmt:formatDate var="dateString" value="${parsedDate}" pattern="yyyy-MM-dd HH:mm"/> 
+				<span>작성자　</span>${detail.id}<span>　|　작성일　</span>${dateString}
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2"><pre>${detail.content}</pre>
-				<div id="uploadResult">
+				<div id="uploadResult" style="width:100%">
 					<ul>
-					
+						
 					</ul>
 				</div>
 			</td>
@@ -66,7 +71,8 @@
 		<c:choose>
 			<c:when test="${move.next!=9999}">
 				<button class="movepage_btn" onclick="location.href='detail?bno=${move.next}'">다음 글</button>
-				<span class="movepage_left"><a href="detail?bno=${move.next}">${move.nexttitle}</a></span>
+				<span class="movepage_left">
+					<a href="detail?bno=${move.next}">${move.nexttitle}</a></span>
 			</c:when>
 			<c:when test="${move.next==9999}">
 				<button class="movepage_btn" disabled>다음 글이 없습니다.</button>
@@ -79,7 +85,7 @@
 				<span class="movepage_left"><a href="detail?bno=${move.last}">${move.lasttitle}</a></span>
 			</c:when>
 			<c:when test="${move.last==9999}">
-				<button class="movepage_btn" disabled>다음 글이 없습니다.</button>
+				<button class="movepage_btn" disabled>이전 글이 없습니다.</button>
 			</c:when>
 		</c:choose>
 	</div>
@@ -94,7 +100,12 @@
 			<c:choose>
 				<c:when test="${sessionScope.login!=null}">
 					<div class="detail_input">
-						<div><label>댓글</label><input type="hidden" name="sessionid" value="${sessionScope.login.id}"></div>
+						<div><label>댓글 
+							<c:if test="${detail.count!=0}">
+								${detail.count}개
+							</c:if>
+						</label>
+						<input type="hidden" name="sessionid" value="${sessionScope.login.id}"></div>
 						<div><textarea cols="115" rows="7" placeholder="댓글 입력" id="reply"></textarea></div>
 						<div id="reply_wrt"><input type="button" class="btn_board" id="replywrt" value="작성"></div>
 					</div>
@@ -115,7 +126,29 @@
 		</td>
 	</tr>
 </table>
-
+<script>
+$(document).ready(function(){
+	(function(){
+		var bno = $("input[name='bno']").val();
+		$.getJSON("/community/uplist", {bno:bno}, function(arr){
+			console.log(arr);
+			var str="";
+			$(arr).each(function(i,attach){
+				if(attach.image){
+					var fileCellPath=encodeURIComponent(attach.uploadPath+"/"+attach.uuid+"_"+attach.filename);
+					str+="<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.filename+"' data-type='"+attach.image+"'><div>"
+					str+="<img src='comdisplay?filename="+fileCellPath+"'></div></li>"
+				}else{
+					str+="<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.filename+"' data-type='"+attach.image+"'><div>"
+					str+="<div style='text-decoration:underline;'>"+attach.filename+"<img src='../resources/image/paper-clip.png'></div>"
+					str+="</div></li>"
+				}
+			})
+			$(".uploadResult ul").html(str);
+		});
+	})();
+})
+</script>
 </div>
 </body>
 <jsp:include page="../footer.jsp"/>

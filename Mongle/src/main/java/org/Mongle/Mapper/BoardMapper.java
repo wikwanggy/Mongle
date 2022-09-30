@@ -18,9 +18,9 @@ public interface BoardMapper {
 	
 	public CommBoardVo detailmd(CommBoardVo bvo);
 	
-	public ArrayList<ReviewVo> rvlist(ReviewVo rev);
+	public ArrayList<ReviewVo> rvlist(CommCriterionVo cri);
 	
-	public ArrayList<NoticeVo> notice(NoticeVo nv);
+	public ArrayList<NoticeVo> notice(CommCriterionVo cri);
 	public void noticewrt(NoticeVo nv);
 	public NoticeVo ntdetail(NoticeVo nv);
 	public NoticeVo ntdetailmd(NoticeVo nv);
@@ -29,4 +29,7 @@ public interface BoardMapper {
 	
 	public CommBoardVo movepage(int bno);
 	public void replycount(int bno);
+	
+	public int countBoard(CommCriterionVo cri);
+	public int countreview(CommCriterionVo cri);
 }

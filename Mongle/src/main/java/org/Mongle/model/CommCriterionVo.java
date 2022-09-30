@@ -5,9 +5,16 @@ public class CommCriterionVo {
 	private int amount; //한 페이지당 게시물 갯수
 	private String keyword; //키워드를 통해 검색
 	private String type; //키워드 기준
+	private int bno;
 	
+	public int getBno() {
+		return bno;
+	}
+	public void setBno(int bno) {
+		this.bno = bno;
+	}
 	public CommCriterionVo() {
-		this(1,10);
+		this(1,15);
 	}
 	public CommCriterionVo(int pageNum,int amount) {
 		this.pageNum=pageNum;
@@ -40,8 +47,8 @@ public class CommCriterionVo {
 	}
 	@Override
 	public String toString() {
-		return "CriterionVo [pageNum=" + pageNum + ", amount=" + amount + ", keyword=" + keyword + ", type=" + type
-				+ "]";
+		return "CommCriterionVo [pageNum=" + pageNum + ", amount=" + amount + ", keyword=" + keyword + ", type=" + type
+				+ ", bno=" + bno + "]";
 	}
 	
 	

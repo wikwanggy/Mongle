@@ -24,4 +24,11 @@ public class CommReplyupServiceImpl implements CommReplyService {
 	public int modify(CommReplyupVo rep) {
 		return crm.modify(rep);
 	}
+	/*public CommReplyPageVo ReplyList(CommCriterionVo cri) {
+		CommReplyPageVo rpo=new CommReplyPageVo();
+		rpo.setList(crm.ReplyList(cri));
+		rpo.setPage(new CommPageVo(cri,crm.getReplyTotal(cri.getBno())));
+		return rpo;
+	}*/
+	
 }

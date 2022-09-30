@@ -10,4 +10,7 @@ public interface CommReplyMapper {
 	public ArrayList<CommReplyupVo> list(int bno);
 	public int remove(int rno);
 	public int modify(CommReplyupVo rep);
+	//public List<CommReplyupVo> ReplyList(CommCriterionVo cri);
+	//public int getReplyTotal(int bno);
+	
 }

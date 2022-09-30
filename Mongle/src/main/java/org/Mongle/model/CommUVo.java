@@ -9,6 +9,7 @@ public class CommUVo {
 	//4. 업로드된 파일의 이미지 파일 여부
 	private boolean image;
 	private int bno;
+	
 	public String getUploadPath() {
 		return uploadPath;
 	}
