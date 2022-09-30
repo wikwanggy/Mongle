@@ -87,37 +87,6 @@ aside>ul>li>a:active{
 	color:black;
 }
 
-#service_main_box{/*자주 묻는 질문 4 div*/
-	width:auto;
-	height: auto;
-	margin-top: 45px;
-}
-
-#service_main_box>ul{
-	text-align: center;
-}
-
-.service_main_qbox{/*자주 묻는 질문 4 박스*/
-	width:150px;
-	height: 100px;
-	border: 1px solid #D3D3D3;
-	display: inline-block;
-	margin-right: 15px;
-	text-align: center;
-	line-height: 100px;
-}
-
-.service_main_qbox>a{
-	display: block;;
-	font-size: 22px;
-	text-decoration: none;
-	color:black;
-}
-
-.service_main_qbox>a:hover{
-	background-color: #f8e6e0;
-	color:#FFFFFF;
-}
 
 #service_main_qlist{/* 자주묻는 질문 카테고리 div*/
 	width:auto;

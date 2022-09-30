@@ -89,32 +89,3 @@ const tabcustom = function(bgno,pageNum) {
 
 	  window.open(location.pathname + '?' + newParam, '_self');
 	};
-
-const tabcustom2 = function(bgno,pageNum,bno) {
-	  const URLSearch2 = new URLSearchParams(location.search);
-	  URLSearch2.set('bgno', String(bgno));
-	  URLSearch2.set('pageNum', String(pageNum));
-	  URLSearch2.set('bno', bno);
-	  const newParam2 = URLSearch2.toString();	  
-	  
-	  if($('input[name=faqbno]'==bno)) {
-		  $(this).hasClass("on");
-		  $(this).next().css("display","block");
-		  alert(faq.bno);
-	  }
-	  
-		$("dt").off().click(function(){
-			$(this).toggleClass("on");
-			$(this).siblings().removeClass("on");
-			$("dt").not(this).next().css("display","none");
-
-			if($(this).hasClass("on")) {
-				// BNO값이 100이면
-				$(this).next().css("display","block");
-			}else {
-				$(this).next().css("display","none");
-			}
-		});
-
-	  window.open(location.pathname + '?' + newParam2, '_self');
-	};

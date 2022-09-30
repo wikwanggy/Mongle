@@ -25,7 +25,6 @@
 			<div id="service_main_center">
 			<div id="service_main_page">
 			<span id="service_main_title">자주묻는 질문</span>
-			<input type="text" value="${faq.bno}">
 					<!-- 기초틀 시작-->
 						<jsp:include page="../include/servicefaqinclude.jsp"></jsp:include>
 					<!-- 기초틀끝 -->
@@ -39,8 +38,8 @@
 					<!-- for문 시작 -->
 					<c:forEach items="${list}" var="faq">
 						<dt id="service_faqlist_num">
+							<input type="text" name="faqbno" value="${faq.bno }">
 							<div id="faq_list_td1">${faq.rownum }</div>
-							<input type="hidden" name="faqbno" value="${faq.bno }">
 							<div id="faq_list_td2"><a class="faq_list_link" href="javascript:onoffDisplay();">${faq.title }</a></div>
 							<div id="faq_list_td3">${faq.name }</div>
 				<!--  id 운영자 권한 삭제or수정 이동 -->
@@ -74,8 +73,8 @@
 					<!-- for문 시작 -->
 					<c:forEach items="${list}" var="faq">
 						<dt id="service_faqlist_num">
-							<div id="faq_list_td1">${faq.rownum }</div>
 							<input type="hidden" name="faqbno" value="${faq.bno }">
+							<div id="faq_list_td1">${faq.rownum }</div>
 							<div id="faq_list_td2"><a class="faq_list_link" href="javascript:onoffDisplay();">${faq.title }</a></div>
 							<div id="faq_list_td3">${faq.name }</div>
 				<!--  id 운영자 권한 삭제or수정 이동 -->
@@ -110,8 +109,8 @@
 					<!-- for문 시작 -->
 					<c:forEach items="${list}" var="faq">
 						<dt id="service_faqlist_num">
-							<div id="faq_list_td1">${faq.rownum }</div>
 							<input type="hidden" name="faqbno" value="${faq.bno }">
+							<div id="faq_list_td1">${faq.rownum }</div>
 							<div id="faq_list_td2"><a class="faq_list_link" href="javascript:onoffDisplay();">${faq.title }</a></div>
 							<div id="faq_list_td3">${faq.name }</div>
 				<!--  id 운영자 권한 삭제or수정 이동 -->
@@ -146,8 +145,8 @@
 					<!-- for문 시작 -->
 					<c:forEach items="${list}" var="faq">
 						<dt id="service_faqlist_num">
+							<input type="hidden" name="faqbno" value="${faq.bno }">						
 							<div id="faq_list_td1">${faq.rownum }</div>
-							<input type="hidden" name="faqbno" value="${faq.bno }">
 							<div id="faq_list_td2"><a class="faq_list_link" href="javascript:onoffDisplay();">${faq.title }</a></div>
 							<div id="faq_list_td3">${faq.name }</div>
 				<!--  id 운영자 권한 삭제or수정 이동 -->
@@ -182,8 +181,8 @@
 					<!-- for문 시작 -->
 					<c:forEach items="${list}" var="faq">
 						<dt id="service_faqlist_num">
-							<div id="faq_list_td1">${faq.rownum }</div>
 							<input type="hidden" name="faqbno" value="${faq.bno }">
+							<div id="faq_list_td1">${faq.rownum }</div>
 							<div id="faq_list_td2"><a class="faq_list_link" href="javascript:onoffDisplay();">${faq.title }</a></div>
 							<div id="faq_list_td3">${faq.name }</div>
 				<!--  id 운영자 권한 삭제or수정 이동 -->

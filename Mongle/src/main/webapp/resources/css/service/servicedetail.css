@@ -19,6 +19,12 @@
 	margin:auto;
 	margin-bottom: 30px;
 }
+
+#filelistimage{
+	border: 1px solid #d3d3d3;
+	padding:10px;
+}
+
 .a_on{ /* 주소값에 따른 사이드 색깔부여*/
 	background-color: #fff4ab;
 }

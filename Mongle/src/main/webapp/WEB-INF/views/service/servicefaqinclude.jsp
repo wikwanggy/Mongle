@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  
+
+				<div id="service_main_box">
+					<ul>
+						<li class="service_main_qbox"><a href="#" onclick="javascript:tabcustom2(2,1,140);">test용 글1</a></li>
+						<li class="service_main_qbox"><a href="#" onclick="javascript:tabcustom2(2,1);">test용 글 2</a></li>
+						<li class="service_main_qbox"><a href="#" onclick="javascript:tabcustom2(2,1);">test용 글3</a></li>
+						<li class="service_main_qbox"><a href="#" onclick="javascript:tabcustom2(2,3);">test용 글 4</a></li>
+					</ul>
+				</div>
 			<div>
 				<div id="service_main_qlist">
 					<ul>
