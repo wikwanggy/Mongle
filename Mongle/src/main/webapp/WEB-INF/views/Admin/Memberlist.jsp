@@ -9,9 +9,12 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/admin/admin.js"></script>
 <link rel="stylesheet" href="../resources/css/admin/member.css">
+<link rel="stylesheet" href="../resources/css/admin/footer.css">
+<link rel="stylesheet" href="../resources/css/admin/header.css"><!--  -->
 </head>
-<jsp:include page="../header.jsp"/>
+
 <body>
+<jsp:include page="../header.jsp"/>
 		<div id="main">
 
 			<div id="ls">
@@ -69,6 +72,7 @@
 			</div>
 			<div id="rs"></div>
 		</div>
+		<jsp:include page="../footer.jsp"/>
 </body>
-<jsp:include page="../footer.jsp"/>
+
 </html>
