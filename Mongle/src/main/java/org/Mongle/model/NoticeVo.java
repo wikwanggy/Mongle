@@ -9,6 +9,21 @@ public class NoticeVo {
 	private String writer;
 	private String id;
 	private String regdate;
+	private int pin;
+	private ArrayList<CommUVo> attach;
+	
+	public ArrayList<CommUVo> getAttach() {
+		return attach;
+	}
+	public void setAttach(ArrayList<CommUVo> attach) {
+		this.attach = attach;
+	}
+	public int getPin() {
+		return pin;
+	}
+	public void setPin(int pin) {
+		this.pin = pin;
+	}
 	public int getBno() {
 		return bno;
 	}
@@ -48,6 +63,6 @@ public class NoticeVo {
 	@Override
 	public String toString() {
 		return "NoticeVo [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", id="
-				+ id + ", regdate=" + regdate + "]";
+				+ id + ", regdate=" + regdate + ", pin=" + pin + ", attach=" + attach + "]";
 	}
 }

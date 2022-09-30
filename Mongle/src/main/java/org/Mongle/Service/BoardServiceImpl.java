@@ -26,6 +26,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 	public void write(CommBoardVo bvo) {
 		bm.write(bvo);
+		if(bvo.getAttach()==null||bvo.getAttach().size()<=0) {
+			return;
+		}
 		bvo.getAttach().forEach(attach->{
 			attach.setBno(bvo.getBno());
 			um.upload(attach);
@@ -51,14 +54,26 @@ public class BoardServiceImpl implements BoardService{
 		return bm.detailmd(bvo);
 	}
 	
-	public ArrayList<ReviewVo> rvlist(ReviewVo rev){
-		return bm.rvlist(rev);
+	public ArrayList<ReviewVo> rvlist(CommCriterionVo cri){
+		return bm.rvlist(cri);
 	}
-	public ArrayList<NoticeVo> notice(NoticeVo nv){
-		return bm.notice(nv);
+	public int countreview(CommCriterionVo cri) {
+		return bm.countreview(cri);
 	}
+	public ArrayList<NoticeVo> notice(CommCriterionVo cri){
+		return bm.notice(cri);
+	}
+	@Transactional
 	public void noticewrt(NoticeVo nv) {
+		System.out.println("noticesi..."+nv);
 		bm.noticewrt(nv);
+		if(nv.getAttach()==null||nv.getAttach().size()<=0) {
+			return;
+		}
+		nv.getAttach().forEach(attach->{
+			attach.setBno(nv.getBno());
+			um.ntinsert(attach);
+		});
 	}
 	public NoticeVo ntdetail(NoticeVo nv) {
 		return bm.ntdetail(nv);
@@ -82,5 +97,11 @@ public class BoardServiceImpl implements BoardService{
 	}
 	public void replycount(int bno) {
 		bm.replycount(bno);
+	}
+	public int countBoard(CommCriterionVo cri) {
+		return bm.countBoard(cri);
+	}
+	public ArrayList<CommUVo> ntlist(int bno){
+		return um.ntlist(bno);
 	}
 }

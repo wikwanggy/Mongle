@@ -32,7 +32,6 @@ public class CommPageVo {
 		//endPage가 realEnd 보다 작으면
 		this.next=this.endPage<realEnd;
 	}
-	
 	public int getStartPage() {
 		return startPage;
 	}

@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../resources/css/boardlist.css">
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="/resources/js/community.js"></script>
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
@@ -17,11 +19,6 @@
 		<li><a href="http://localhost:8080/community/notice">공지사항</a></li>
 	</ul>
 </div>
-
-
-
-<!-- <div id="review_all">
-<div id="review_gallary"> -->
 <div id="review">
 	<div class="rv_top">
 		<b class="rv_b">펫 용품/식품 BEST 후기</b>
@@ -130,12 +127,33 @@
 <div id="reviews">
 	<b class="rv_b" style="margin-left:150px;">사용후기</b>
 	<div id=review_search>
-		<select id="rv_sel">
-			<option>전체</option>
-			<option>상품</option>
-			<option>장소</option>
-		</select>
-		<input type="search" placeholder="상품명 검색" id="rv_search2"><a href="#">검색</a>
+		<form action="/community/review" id="rv_search" method="get">
+			<select id="type1">
+				<option value="0" selected="selected">전체</option>
+				<option value="1">장소별</option>
+				<option value="2">상품별</option>
+				<option value="3">기타</option>
+			</select>
+			<select id="type2">
+				<option value="0">--</option>
+				<option value="hos" class="select1">병원</option>
+				<option value="bar" class="select1">미용실</option>
+				<option value="hot" class="select1">호텔</option>
+				<option value="sch" class="select1">유치원</option>
+				<option value="foo" class="select1">음식점</option>
+				<option value="ano_p" class="select1">기타</option>
+				<option value="sna" class="select2">간식</option>
+				<option value="pla" class="select2">미용용품</option>
+				<option value="toy" class="select2">장난감</option>
+				<option value="hou" class="select2">집</option>
+				<option value="clo" class="select2">의류</option>
+				<option value="ano_s" class="select2">기타</option>
+			</select>
+			<input type="hidden" name="pageNum" value="${reviewpaging.cri.pageNum}">
+			<input type="hidden" name="amount" value="${reviewpaging.cri.amount}">
+			<input type="text" name="keyword">
+			<input type="button" id="searching" value="검색">
+		</form>
 	</div>
 	<div id="shop_review">
 		<table border="1" id="review_board">
@@ -151,11 +169,22 @@
 				<td>${reviewlist.bno}</td>
 				<td>${reviewlist.tradename}</td>
 				<td>${reviewlist.user_review}</td>
-				<td>${reviewlist.writer}</td>
+				<td>${reviewlist.id}</td>
 				<td>${reviewlist.regdate}</td>
 			</tr>
 			</c:forEach>
 		</table>
+	</div>
+	<div id="board_paging">
+		<c:if test="${reviewpaging.prev}">
+		   <a href="/community/review?type=${reviewpaging.cri.type}&keyword=${reviewpaging.cri.keyword}&pageNum=${reviewpaging.startPage-1}&amount=${reviewpaging.cri.amount}">이전</a>
+		</c:if>
+		<c:forEach begin="${reviewpaging.startPage}" end="${reviewpaging.endPage}" var="rn">
+		   <a href="/community/review?type=${reviewpaging.cri.type}&keyword=${reviewpaging.cri.keyword}&pageNum=${rn}&amount=${reviewpaging.cri.amount}">${rn}</a>
+		</c:forEach>
+		<c:if test="${reviewpaging.next}">
+		   <a href="/community/review?type=${reviewpaging.cri.type}&keyword=${reviewpaging.cri.keyword}&pageNum=${reviewpaging.endPage+1}&amount=${reviewpaging.cri.amount}">다음</a>
+		</c:if>
 	</div>
 </div>
 </body>

@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../resources/css/boardlist.css">
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/resources/js/comAttach.js"></script>
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
@@ -31,16 +30,19 @@
 			<td style="width:75px; text-align:center;">${ntdetail.bno}</td>
 			<td style="height:25px;">
 				<input type="hidden" name="bno" value="${ntdetail.bno}"><input type="hidden" name="id" value="${ntdetail.id}">
-				${ntdetail.title}<%-- <input type="text" name="title" class="board_write_title" value="${detail.title}"> --%>
+				${ntdetail.title}
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2"><pre>${ntdetail.content}</pre><%-- <textarea cols="115" rows="30" name="content">${detail.content}</textarea> --%>
-			<div id="uploadResult">
-				<ul>
+			<td colspan="2"><pre>${ntdetail.content}</pre>
+			<div class="row">
+				<div class="ntuploadResult">
+					<ul>
 					
-				</ul>
-			</div></td>
+					</ul>
+				</div>
+			</div>
+			</td>
 		</tr>
 		<c:choose>
 			<c:when test="${sessionScope.login.id=='admin'}">
@@ -57,7 +59,29 @@
 <div class="tolist"><a href="http://localhost:8080/community/notice">목록</a></div>
 </div>
 </div>
-
+<script type="text/javascript">
+$(document).ready(function() {
+	(function(){
+		var bno = $("input[name='bno']").val();
+		$.getJSON("/community/ntlist", {bno:bno}, function(arr){
+			console.log(arr);
+			var str="";
+			$(arr).each(function(i,attach){
+				if(attach.image){
+					var fileCellPath=encodeURIComponent(attach.uploadPath+"/"+attach.uuid+"_"+attach.filename);
+					str+="<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.filename+"' data-type='"+attach.image+"'><div>"
+					str+="<img src='ntdisplay?filename="+fileCellPath+"'></div></li>"
+				}else{
+					str+="<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.filename+"' data-type='"+attach.image+"'><div>"
+					str+="<div style='text-decoration:underline;'>"+attach.filename+"<img src='../resources/image/paper-clip.png'></div>"
+					str+="</div></li>"
+				}
+			})
+			$(".ntuploadResult ul").html(str);
+		});
+	})();
+});
+</script>
 </body>
 <jsp:include page="../footer.jsp"/>
 </html>

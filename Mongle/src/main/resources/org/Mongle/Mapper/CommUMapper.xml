@@ -10,8 +10,16 @@
 	<select id="uplist" resultType="org.Mongle.model.CommUVo">
    		select * from com_attach where bno=#{bno}
 	</select>
-	<!-- <insert id="ntupload">
-   		insert into nt_attach(uuid, uploadPath, filename, image, bno)
-   		values(#{uuid}, #{uploadPath}, #{filename},#{image},#{bno})
-	</insert> -->
+	
+	
+	<insert id="ntinsert">
+		insert into nt_attach(uuid, uploadPath, filename, image, bno)
+		values(#{uuid}, #{uploadPath}, #{filename}, #{image}, #{bno})
+	</insert>
+	<delete id="deleteAll">
+		delete from nt_attach where bno=#{bno}
+	</delete>
+	<select id="ntlist" resultType="org.Mongle.model.CommUVo">
+		select * from nt_attach where bno=#{bno}
+	</select>
 </mapper>

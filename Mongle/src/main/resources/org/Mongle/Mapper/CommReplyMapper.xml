@@ -19,4 +19,28 @@
 	set reply=#{reply}
 	where rno=#{rno}
 </update>
+	<select id="listpage" resultType="org.Mongle.model.CommReplyupVo">
+		<![CDATA[
+			select * from
+			(select @rn:=@rn+1 as rn, a.*
+			from com_reply as a use index(idx_comreply)
+			join (select @rn:=0) as r
+			where a.bno=#{bno}
+			)as r
+			where rn>(#{cri.pageNum}-1)*#{cri.amount}
+			limit #{cri.amount}
+		]]>
+	</select>
+	<!-- <select id="ReplyList" resultType="org.Mongle.model.CommReplyupVo">
+		select rno, bno, id, reply, replydate
+		from com_reply
+		where bno=#{bno}
+		order by replydate desc
+		limit #{skip},#{amount}
+	</select>
+	<select id="getReplyTotal" resultType="int">
+		select count(*)
+		from com_reply
+		where bno=#{bno}
+	</select> -->
 </mapper>

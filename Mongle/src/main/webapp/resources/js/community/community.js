@@ -1,15 +1,8 @@
 /**
  * 
  */
+	
 $(document).ready(function(){
-	/*$("#uploadbtn").on("click",function(){
-		alert("aaa");
-		if($("input[name='title']").val().trim() == ''){
-			alert("제목을 입력하세요.");
-			$("input[name='title']").focus();
-			return false;
-		}
-	})*/
 	//검색
 	$("#searching").on("click",function(){
 		//pageNum을 1로 초기화한 후
@@ -19,7 +12,6 @@ $(document).ready(function(){
 	})
 	//댓글
 	var bnoval=$("input[name='bno']").val();
-	//var idvv=$("input[name='id']").val();
 	
 	list(bnoval);
 	
@@ -46,12 +38,33 @@ $(document).ready(function(){
 	$("#chat").on("click",".update",function(){
 		var rno=$(this).data("rno");
 		var reply=$('#replycontent'+rno).val();
+		var id=$(this).data("id");
 		if(reply==''){
 			alert("내용을 입력하세요.");
 			return;
 		}
-		modify({rno:rno,reply:reply});
+		modify({rno:rno,reply:reply,id:id});
 	})
+	
+	var textEle=$('textarea');
+	textEle.on('keyup',function(){
+		adjustHeight();
+	})
+	
+	var malls=false;
+	$(function(){
+		malls=$("#type2").find("option[value!=0]");
+		malls.detach();
+		
+		$("#type1").change(update_selected);
+		$("#type1").trigger("change");
+	})
+	function update_selected() {
+	  $("#type2").val(0);
+	  $("#type2").find("option[value!=0]").detach();
+	  
+	  $("#type2").append(malls.filter(".select" + $(this).val()));
+	}
 })
 function replywrt(reply){
 	console.log(reply);
@@ -68,24 +81,42 @@ function replywrt(reply){
 		}
 	})
 }
+function updatebtn(rno, reply, id, replydate){
+	console.log("aaa");
+	var str="";
+	str+="<textarea class='upload_form' id='replycontent'>"+reply+"</textarea>"
+	str+="<input type='button' class='updatesuccess' data-rno='"+rno+"' data-reply='"+reply+"' value='저장'>"
+	str+="<input type='button' class='updatesuccess' onclick='getreplylist()' value='취소'>"
+	
+}
 function list(bno){
 	//alert(bno)
 	//↓type=get, data=JSON
 	$.getJSON("/commreplies/"+bno+".json", function(data){
-		var str="";
-		
-		for(var i=0;i<data.length;i++){
-			str+="<li>"
-			str+=data[i].id+"<span> | </span><span>"+data[i].replydate+"</span>"
-			str+="<pre><textarea cols='115' id='replycontent"+data[i].rno+"'>"+data[i].reply+"</textarea></pre>"
-			str+="<input type='button' class='update' id='reply_btn' value='수정' data-rno='"+data[i].rno+"' data-reply='"+data[i].reply+"'>"
-			str+="<input type='button' class='remove' id='reply_btn' value='삭제' data-rno='"+data[i].rno+"'>"
-			str+="</li>"
-		}
-	$("#replyUL").html(str);
-	
+			var str="";
+			var idval=$("input[name='sessionid']").val();
+			/*var list=data.list;
+			var pf=data.page;*/
+			
+			for(var i=0;i<data.length;i++){
+				str+="<li>"
+				str+=data[i].id+"<span> | </span><span>"+data[i].replydate+"</span>"
+				
+				if(data[i].id==idval||idval=='admin'){
+					str+="<br>"
+					str+="<textarea onkeyup='adjustHeight();' cols='115' id='replycontent"+data[i].rno+"'>"+data[i].reply+"</textarea><br>"
+					str+="<input type='button' class='update' id='reply_btn' value='수정' data-rno='"+data[i].rno+"' data-reply='"+data[i].reply+"'>"
+					str+="<input type='button' class='remove' id='reply_btn' value='삭제' data-rno='"+data[i].rno+"'>"
+				}else{
+					str+="<pre><span id='replycontent"+data[i].rno+"'>"+data[i].reply+"</span></pre>"
+				}
+				str+="</li>"
+			}
+			$("#replyUL").html(str);
 	})
+	
 }
+
 function remove(rno){
 	$.ajax({
 		type:"delete",
@@ -111,4 +142,10 @@ function modify(reply){
 			}
 		}
 	})
+}
+function adjustHeight(){
+	var textEle=$('textarea');
+	textEle[0].style.height='auto';
+	var textEleHeight=textEle.prop('scrollHeight');
+	textEle.css('height',textEleHeight);
 }

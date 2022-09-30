@@ -46,8 +46,8 @@
 		<![CDATA[
 		where num > (#{pageNum}-1)*#{amount} and num<=#{pageNum}*#{amount}
 		]]>
-		
   	</select>
+  	
   	<update id="cntup">
    		update com_board
    		set cnt=cnt+1
@@ -98,18 +98,68 @@
 	</select>
 	
 	<select id="rvlist" resultType="org.Mongle.model.ReviewVo">
-		select * from review
+		select *
+		from(
+			select @rownum:=@rownum+1 rn, c.*
+			from review c, (select @rownum:=0) as rr
+			<if test="keyword !=null">
+				<choose>
+					<when test="value=='1'.toString()">
+					where place like concat('%',#{keyword},'%')
+						<choose>
+							<when test="value=='hos'.toString()">and hos like concat('%',#{keyword},'%')</when>
+							<when test="value=='bar'.toString()">and bar like concat('%',#{keyword},'%')</when>
+							<when test="value=='hot'.toString()">and hot like concat('%',#{keyword},'%')</when>
+							<when test="value=='sch'.toString()">and sch like concat('%',#{keyword},'%')</when>
+							<when test="value=='foo'.toString()">and foo like concat('%',#{keyword},'%')</when>
+							<when test="value=='ano_p'.toString()">and ano_p like concat('%',#{keyword},'%')</when>
+						</choose>
+					</when>
+					<when test="value=='2'.toString()">
+					where shop like concat('%',#{keyword},'%')
+						<choose>
+							<when test="value=='sna'.toString()">and sna like concat('%',#{keyword},'%')</when>
+							<when test="value=='pla'.toString()">and pla like concat('%',#{keyword},'%')</when>
+							<when test="value=='toy'.toString()">and toy like concat('%',#{keyword},'%')</when>
+							<when test="value=='hou'.toString()">and hou like concat('%',#{keyword},'%')</when>
+							<when test="value=='clo'.toString()">and clo like concat('%',#{keyword},'%')</when>
+							<when test="value=='ano_s'.toString()">and ano_s like concat('%',#{keyword},'%')</when>
+						</choose>
+					</when>
+					<otherwise>
+					where title like concat('%', #{keyword},'%')
+					OR content like concat('%', #{keyword}, '%')
+					</otherwise>
+				</choose>
+			</if>
+			order by regdate desc
+			)as review
+			<![CDATA[
+		    where rn>(#{pageNum}-1)*#{amount} and rn<=#{pageNum}*#{amount}
+		    ]]>
+	</select>
+	<select id="countreview" resultType="int">
+		select count(*) from review
 	</select>
 	<select id="notice" resultType="org.Mongle.model.NoticeVo">
 		select *
-		from notice
-		order by bno desc
-	</select><!--  -->
+		from(
+			select @rownum:=@rownum+1 rn, a.*
+		    from notice a, (select @rownum:=0) as sr
+		    order by pin desc, bno desc
+		    )as noticee
+		    <![CDATA[
+		    where rn>(#{pageNum}-1)*#{amount} and rn<=#{pageNum}*#{amount}
+		    ]]>
+	</select>
+	<select id="countBoard" resultType="int">
+		select count(*) from notice
+	</select>
 	<insert id="noticewrt">
 			<selectKey keyProperty="bno" order="BEFORE" resultType="int"> 
    			select max(bno)+1 bno
 			from notice
-   			</selectKey>
+   			</selectKey> 
 		insert into notice(bno, title, content, id)
 		values(#{bno}, #{title}, #{content}, #{id})
 	</insert>
@@ -128,5 +178,4 @@
 	<delete id="ntdelete">
 		delete from notice where bno=#{bno}
 	</delete>
-	
 </mapper>

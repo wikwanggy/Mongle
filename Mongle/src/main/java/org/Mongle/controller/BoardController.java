@@ -8,7 +8,6 @@ import org.Mongle.model.CommCriterionVo;
 import org.Mongle.model.CommPageVo;
 import org.Mongle.model.CommUVo;
 import org.Mongle.model.NoticeVo;
-import org.Mongle.model.ReviewVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -79,20 +78,29 @@ public class BoardController {
 		return content;////
 	}*/
 	@RequestMapping(value="/community/write", method=RequestMethod.POST)
-	public String writePost(CommBoardVo bvo) {
-		bs.write(bvo);
+	public String writePost(CommBoardVo bvo,RedirectAttributes rttr) {
+		if(bvo.getAttach()!=null) {
+			bvo.getAttach().forEach(attach->System.out.println(attach));
+			bs.write(bvo);
+		}else {
+			bs.write(bvo);
+		}
 		return "redirect:/community/list";
 	}
 	//상품후기 게시판
 	@RequestMapping(value="/community/review", method=RequestMethod.GET)
-	public String rvlist(ReviewVo rev, Model model) {
-		model.addAttribute("rvlist",bs.rvlist(rev));
+	public String rvlist(CommCriterionVo cri, Model model) {
+		model.addAttribute("rvlist",bs.rvlist(cri));
+		int total=bs.countreview(cri);
+		model.addAttribute("reviewpaging", new CommPageVo(cri,total));
 		return "/community/review";
 	}
 	//공지목록
 	@RequestMapping(value="/community/notice", method=RequestMethod.GET)
-	public String notice(Model model, NoticeVo nv) {
-		model.addAttribute("notice", bs.notice(nv));
+	public String notice(Model model, CommCriterionVo cri) {
+		model.addAttribute("notice", bs.notice(cri));
+		int total=bs.countBoard(cri);
+		model.addAttribute("noticepaging", new CommPageVo(cri,total));
 		return "/community/notice";
 	}
 	@RequestMapping(value="/community/noticewrt", method=RequestMethod.GET)
@@ -100,8 +108,15 @@ public class BoardController {
 		return "/community/noticewrt";
 	}
 	@RequestMapping(value="/community/noticewrt", method=RequestMethod.POST)
-	public String noticepo(NoticeVo nv) {
-		bs.noticewrt(nv);
+	public String noticepo(NoticeVo nv, RedirectAttributes rttr) {
+		//bs.noticewrt(nv);
+		System.out.println("notice="+nv);
+		if(nv.getAttach()!=null) {
+			nv.getAttach().forEach(attach->System.out.println(attach));
+			bs.noticewrt(nv);
+		}else {
+			bs.noticewrt(nv);
+		}
 		return "redirect:/community/notice";
 	}
 	@RequestMapping(value = "/community/ntdetail", method = RequestMethod.GET)
@@ -129,6 +144,10 @@ public class BoardController {
 	}
 	@RequestMapping(value = "/community/uplist", method = RequestMethod.GET)
 	public ResponseEntity<ArrayList<CommUVo>> CommuploadAjaxPost(int bno) {
-	    return new ResponseEntity<>(bs.uplist(bno),HttpStatus.OK); //통신상태가 원활하면
+	    return new ResponseEntity<ArrayList<CommUVo>>(bs.uplist(bno),HttpStatus.OK); //통신상태가 원활하면
+	}
+	@RequestMapping(value = "/community/ntlist", method = RequestMethod.GET)
+	public ResponseEntity<ArrayList<CommUVo>> ntuploadAjaxPost(int bno) {
+	    return new ResponseEntity<ArrayList<CommUVo>>(bs.ntlist(bno),HttpStatus.OK); //통신상태가 원활하면
 	}
 }

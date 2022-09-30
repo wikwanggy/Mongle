@@ -3,6 +3,7 @@ package org.Mongle.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,47 +27,41 @@ import net.coobird.thumbnailator.Thumbnailator;
 @Controller
 public class ComUploadController {
 	@RequestMapping(value = "/ComuploadAjaxAction", method = RequestMethod.POST)
-	public ResponseEntity<ArrayList<CommUVo>> comuploadAjaxAc(MultipartFile[] uploadFile) {
-		ArrayList<CommUVo> list=new ArrayList<>();
-		// 폴더 경로
-		String uploadFolder="D:\\upload";
-		File uploadPath=new File(uploadFolder,getFolder());
-
-		if(uploadPath.exists()==false) { //uploadFolder가 존재하지 않으면 
-			uploadPath.mkdirs(); //폴더를 생성함
+	public ResponseEntity<ArrayList<CommUVo>> ComuploadAjaxPost(MultipartFile[] uploadFile) {
+		ArrayList<CommUVo> list=new ArrayList<CommUVo>();
+		String uploadfolder="D:\\upload";
+		File uploadPath=new File(uploadfolder,getFolder());
+		String uploadFolderPath=getFolder();
+		System.out.println("uploadPath="+uploadPath);
+		if(uploadPath.exists()==false) {
+			uploadPath.mkdirs();
 		}
-		
-		for(MultipartFile multiparFile:uploadFile) {
+		for(MultipartFile multipartFile:uploadFile) {
+			System.out.println("uploaded file name : "+multipartFile.getOriginalFilename());
+			System.out.println("uploaded file size : "+multipartFile.getSize());
+			
+			String uploadFileName=multipartFile.getOriginalFilename();
+			
 			CommUVo cuv=new CommUVo();
-			System.out.println(multiparFile.getOriginalFilename());
-			System.out.println(multiparFile.getSize());
 			
-			//파일 저장					
-			//실제 파일명(multiparFile.getOriginalFilename())
-			//UUID 생성(UUID_multiparFile.getOriginalFilename())
+			uploadFileName=uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
+			System.out.println("file name="+uploadFileName);
+			
+			cuv.setFilename(uploadFileName);
+			
 			UUID uuid=UUID.randomUUID();
-			System.out.println("UUID="+uuid.toString());
+			uploadFileName=uuid.toString()+"_"+uploadFileName;
 			
-			cuv.setUploadPath(getFolder());
-			//AttachFileVo의 filename 변수에 저장
-			cuv.setFilename(multiparFile.getOriginalFilename());
-			//AttachFileVo의 uuid 변수에 저장
-			cuv.setUuid(uuid.toString());
 			
-			//어느 폴더에(uploadFolder), 어떤 파일 이름으로 저장할 것인지(UUID)
-				//어느 폴더에+현재날짜
-				//	UUID(형변환 필요),String,	String
-			File saveFile=new File(uploadPath,uuid.toString()+"_"+multiparFile.getOriginalFilename());
-			try { // D:\\upload\mugunghwa.png에 파일을 전송(transferTO)
-				multiparFile.transferTo(saveFile);
-				if(checkImageType(saveFile)==true) {
+			try {
+				File savefile=new File(uploadPath, uploadFileName);
+				multipartFile.transferTo(savefile);
+				cuv.setUuid(uuid.toString());
+				cuv.setUploadPath(uploadFolderPath);
+				if(checkImageType(savefile)) {
 					cuv.setImage(true);
-					//파일 생성 FileOutputStream의 
-					FileOutputStream tnail=new FileOutputStream(new File(uploadPath,"s_"+uuid.toString()+"_"+multiparFile.getOriginalFilename()));
-					//썸네일 형식의 파일 생성
-					Thumbnailator.createThumbnail(multiparFile.getInputStream(),tnail,100,100);
-					
-					tnail.close();
+					FileOutputStream thumbnail=new FileOutputStream(new File(uploadPath, "s_"+uploadFileName));
+					Thumbnailator.createThumbnail(multipartFile.getInputStream(),thumbnail,100,100);
 				}
 				list.add(cuv);
 			}catch(Exception e){
@@ -75,6 +70,40 @@ public class ComUploadController {
 		}
 		return new ResponseEntity<>(list,HttpStatus.OK);
 	}
+	
+	/*
+	 * 
+	 * 
+		for(MultipartFile multipartFile:ntuploadFile) {
+			System.out.println("uploaded file name : "+multipartFile.getOriginalFilename());
+			System.out.println("uploaded file size : "+multipartFile.getSize());
+			CommUVo cuv=new CommUVo();
+			String uploadFileName=multipartFile.getOriginalFilename();
+			uploadFileName=uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
+			System.out.println("file name"+uploadFileName);
+			cuv.setFilename(uploadFileName);
+			
+			UUID uuid=UUID.randomUUID();
+			uploadFileName=uuid.toString()+"_"+uploadFileName;
+			
+			try {
+				File savefile=new File(uploadPath, uploadFileName);
+				multipartFile.transferTo(savefile);
+				cuv.setUuid(uuid.toString());
+				cuv.setUploadPath(uploadFolderPath);
+				if(checkImageType(savefile)) {
+					cuv.setImage(true);
+					FileOutputStream thumbnail=new FileOutputStream(new File(uploadPath, "s_"+uploadFileName));
+					Thumbnailator.createThumbnail(multipartFile.getInputStream(),thumbnail,100,100);
+				}
+				list.add(cuv);
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+		}//for 끝
+		return new ResponseEntity<>(list,HttpStatus.OK);
+	 * 
+	 * */
 	@RequestMapping(value = "/community/comdisplay", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> getFile(String filename){
 		System.out.println(filename);
@@ -90,9 +119,45 @@ public class ComUploadController {
 		}
 		return result;
 	}
+	@RequestMapping(value = "/community/ntdisplay", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> ntgetFile(String filename){
+		System.out.println(filename);
+		File file = new File("D:\\upload\\"+filename);
+		ResponseEntity<byte[]> result = null;
+		HttpHeaders headers=new HttpHeaders();
+		
+		try {
+			headers.add("Content-Type", Files.probeContentType(file.toPath()));
+			result=new ResponseEntity<>(FileCopyUtils.copyToByteArray(file),headers,HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	@RequestMapping(value = "/community/ntdownload", method = RequestMethod.GET)
+	public ResponseEntity<Resource> ntdownloadFile(String filename){
+		Resource resource=new FileSystemResource("D:\\upload\\"+filename);
+		/*if(resource.exists()==false) {
+			return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
+		}*/
+		//다운로드 시 파일의 이름 처리
+		String resourceName=resource.getFilename();
+		HttpHeaders headers=new HttpHeaders();
+		
+		try{
+			//다운로드 파일 이름이 한글일 때, 깨지지 않게 하기 위한 설정
+			headers.add("Content-Disposition","attachment;filename="+new String(resourceName.getBytes("utf-8"),"ISO-8859-1"));
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return new ResponseEntity<>(resource,headers,HttpStatus.OK);
+	}
 	@RequestMapping(value = "/community/comdownload", method = RequestMethod.GET)
 	public ResponseEntity<Resource> downloadFile(String filename){
 		Resource resource=new FileSystemResource("D:\\upload\\"+filename);
+		/*if(resource.exists()==false) {
+			return new ResponseEntity<Resource>(HttpStatus.NOT_FOUND);
+		}*/
 		//다운로드 시 파일의 이름 처리
 		String resourceName=resource.getFilename();
 		HttpHeaders headers=new HttpHeaders();
@@ -125,46 +190,76 @@ public class ComUploadController {
 		}
 		return false;
 	}
-	@RequestMapping(value = "/ntuploadAjaxAction", method = RequestMethod.POST)
-	public /*ResponseEntity<ArrayList<NoticeUVo>>*/void ntuploadAjaxAc(MultipartFile[] uploadFile) {
-		//ArrayList<NoticeUVo> list=new ArrayList<>();
-		
-		String uploadFolder="D:\\upload";
-		
-		File uploadPath=new File(uploadFolder,getFolder());
-		 
-		if(uploadPath.exists()==false) { //uploadFolder가 존재하지 않으면 
-			uploadPath.mkdirs(); //폴더를 생성함
+	@RequestMapping(value = "/comdeleteFile", method = RequestMethod.POST)
+	public ResponseEntity<String> comdeleteFile(String filename, String type){
+		File file;
+		try {
+			file=new File("D:\\upload\\"+URLDecoder.decode(filename, "UTF-8"));
+			file.delete();
+			if(type.equals("image")) {
+				String largeFileName=file.getAbsolutePath().replace("s_", "");
+				file=new File(largeFileName);
+				file.delete();
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
 		}
-		
-		for(MultipartFile multiparFile:uploadFile) {
-			//NoticeUVo nuv=new NoticeUVo();
+		return new ResponseEntity<String>("deleted",HttpStatus.OK);
+	}
+	@RequestMapping(value = "/ntdeleteFile", method = RequestMethod.POST)
+	public ResponseEntity<String> ntdeleteFile(String filename, String type){
+		File file;
+		try {
+			file=new File("D:\\upload\\"+URLDecoder.decode(filename, "UTF-8"));
+			file.delete();
+			if(type.equals("image")) {
+				String largeFileName=file.getAbsolutePath().replace("s_", "");
+				file=new File(largeFileName);
+				file.delete();
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<String>("deleted",HttpStatus.OK);
+	}
+	@RequestMapping(value = "/ntuploadAjaxAction", method = RequestMethod.POST)
+	public ResponseEntity<ArrayList<CommUVo>> uploadAjaxPost(MultipartFile[] ntuploadFile) {
+		ArrayList<CommUVo> list=new ArrayList<CommUVo>();
+		String uploadfolder="D:\\upload";
+		String uploadFolderPath=getFolder();
+		File uploadPath=new File(uploadfolder,getFolder());
+		if(uploadPath.exists()==false) {
+			uploadPath.mkdirs();
+		}
+		for(MultipartFile multipartFile:ntuploadFile) {
+			System.out.println("uploaded file name : "+multipartFile.getOriginalFilename());
+			System.out.println("uploaded file size : "+multipartFile.getSize());
+			CommUVo cuv=new CommUVo();
+			String uploadFileName=multipartFile.getOriginalFilename();
+			uploadFileName=uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
+			System.out.println("file name"+uploadFileName);
+			cuv.setFilename(uploadFileName);
 			
-			System.out.println(multiparFile.getOriginalFilename());
-			System.out.println(multiparFile.getSize());
-			/*
 			UUID uuid=UUID.randomUUID();
-			System.out.println("UUID="+uuid.toString());
-			
-			nuv.setUploadPath(getFolder());
-			nuv.setFilename(multiparFile.getOriginalFilename());
-			nuv.setUuid(uuid.toString());
-			*/
-			File saveFile=new File(uploadPath,/*uuid.toString()+"_"+*/multiparFile.getOriginalFilename());
+			uploadFileName=uuid.toString()+"_"+uploadFileName;
 			
 			try {
-				multiparFile.transferTo(saveFile);
-				/*if(checkImageType(saveFile)==true) {
-					nuv.setImage(true);
-					FileOutputStream tnail=new FileOutputStream(new File(uploadPath,"s_"+uuid.toString()+"_"+multiparFile.getOriginalFilename()));
-					Thumbnailator.createThumbnail(multiparFile.getInputStream(),tnail,100,100);
-					tnail.close();
+				File savefile=new File(uploadPath, uploadFileName);
+				multipartFile.transferTo(savefile);
+				cuv.setUuid(uuid.toString());
+				cuv.setUploadPath(uploadFolderPath);
+				if(checkImageType(savefile)) {
+					cuv.setImage(true);
+					FileOutputStream thumbnail=new FileOutputStream(new File(uploadPath, "s_"+uploadFileName));
+					Thumbnailator.createThumbnail(multipartFile.getInputStream(),thumbnail,100,100);
 				}
-				list.add(nuv);*/
+				list.add(cuv);
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}
-		}
-		//return new ResponseEntity<>(list,HttpStatus.OK);
+		}//for 끝
+		return new ResponseEntity<>(list,HttpStatus.OK);
 	}
 }
