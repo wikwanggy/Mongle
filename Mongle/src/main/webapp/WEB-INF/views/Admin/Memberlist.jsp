@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/resources/js/admin/admin.js"></script>
 <link rel="stylesheet" href="../resources/css/admin/member.css">
 <link rel="stylesheet" href="../resources/css/admin/footer.css">
-<link rel="stylesheet" href="../resources/css/admin/header.css">
+<link rel="stylesheet" href="../resources/css/admin/header.css"><!--  -->
 </head>
 
 <body>

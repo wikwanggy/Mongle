@@ -9,7 +9,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="../resources/css/admin/listdetail.css">
 <link rel="stylesheet" href="../resources/css/admin/footer.css">
-<link rel="stylesheet" href="../resources/css/admin/header.css">
+<link rel="stylesheet" href="../resources/css/admin/header.css"><!--  -->
 
 </head>
 <jsp:include page="../header.jsp"/>
