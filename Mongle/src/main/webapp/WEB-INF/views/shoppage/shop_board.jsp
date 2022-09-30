@@ -12,9 +12,14 @@
 	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/shop/board.js"></script>
 <link rel="stylesheet" href="/resources/css/shop/shop_board.css">
+<link rel="stylesheet" href="/resources/css/shop/header.css">
+<link rel="stylesheet" href="/resources/css/shop/footer.css">
 </head>
-<jsp:include page="../header.jsp" />
 <body>
+	<%--상단 시작 --%>
+	<jsp:include page="../header.jsp"></jsp:include>
+	<%--상단 끝 --%>
+	<%--본문 넣을 자리 --%>
 	<div id="main">
 		<div id="ls"></div>
 		<div id="cn">
@@ -75,6 +80,8 @@
 		</div>
 		<div id="rs"></div>
 	</div>
-</body>
-<jsp:include page="../footer.jsp" />
+	<%--본문 넣을 자리 --%>
+	<%--하단 시작 --%>
+	<jsp:include page="../footer.jsp"></jsp:include>
+	<%--하단 끝 --%>
 </html>
