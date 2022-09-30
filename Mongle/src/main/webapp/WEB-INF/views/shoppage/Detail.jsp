@@ -11,6 +11,8 @@
 	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/shop/Detail.js"></script>
 <link rel="stylesheet" href="/resources/css/shop/Detail.css">
+<link rel="stylesheet" href="/resources/css/shop/header.css">
+<link rel="stylesheet" href="/resources/css/shop/footer.css">
 </head>
 <body>
 	<form method="get">
@@ -130,7 +132,7 @@
 									</div>
 									<br>
 									<div id="list">
-										<input id="inquiry" type="submit" value="문의하기" formaction="#">
+										<input id="inquiry" type="submit" value="문의하기" formaction="/shoppage/shop_item">
 										<input id="wish" type="submit" value="찜하기" formaction="#">
 										<input id="basket" type="submit" value="장바구니" formaction="#">
 									</div>
@@ -401,33 +403,10 @@
 			</div>
 			<!-- main 끝 -->
 			<!-- bottom 시작 -->
-			<div>
-				<footer>
-					<div id="bottomMenu">
-						<ul>
-							<li><a href="#">회사 소개</a></li>
-							<li><a href="#">개인정보처리방침</a></li>
-							<li><a href="#">이용안내</a></li>
-							<li><a href="#">고객센터</a></li>
-						</ul>
-						<div id="sns">
-							<ul>
-								<li><a href="#"><img
-										src="/resources/css/mainimg/FACEBOOK.PNG" class="img2"></a></li>
-								<li><a href="#"><img
-										src="/resources/css/mainimg/INSTA.PNG" class="img2"></a></li>
-								<li><a href="#"><img
-										src="/resources/css/mainimg/TWITTER.PNG" class="img2"></a></li>
-							</ul>
-						</div>
-					</div>
-					<div id="company">
-						<p id="p">제 3조 팀 프로젝드 참여자 : 현우 연희 민서 석현 광규</p>
-					</div>
-				</footer>
-			</div>
-			<!-- bottom 끝 -->
-		</div>
+			<%--본문 넣을 자리 --%>
+			<%--하단 시작 --%>							
+				<jsp:include page="../footer.jsp"></jsp:include>
+			<%--하단 끝 --%></div>
 	</form>
 </body>
 </html>
