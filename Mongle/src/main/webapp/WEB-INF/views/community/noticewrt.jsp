@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../resources/css/boardlist.css">
+<title>Mongle-몽글</title>
+<link rel="stylesheet" href="../resources/css/boardlist.css"><link rel="stylesheet" href="../resources/css/main.css">
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/resources/js/comUpload.js"></script>
-<script type="text/javascript" src="/resources/js/community.js"></script>
+<script type="text/javascript" src="../resources/js/community/comUpload.js"></script>
+<script type="text/javascript" src="../resources/js/community/community.js"></script>
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
@@ -43,8 +43,6 @@
 		</tr>
 		<tr>
 			<td>
-				<!-- 상단고정이 체크되어 있을 경우 pin값 1 아닐 경우 pin값 0 -->
-				<input type="checkbox" name="pin" value="상단고정"><span>상단고정</span>
 				<input type="button" value="올리기" id="ntuploadbtn" class="btn_board">
 			</td>
 		</tr>

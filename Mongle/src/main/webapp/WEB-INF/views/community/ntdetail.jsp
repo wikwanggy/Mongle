@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../resources/css/boardlist.css">
+<title>Mongle-몽글</title>
+<link rel="stylesheet" href="../resources/css/boardlist.css"><link rel="stylesheet" href="../resources/css/main.css">
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <jsp:include page="../header.jsp"/>
@@ -73,7 +73,7 @@ $(document).ready(function() {
 					str+="<img src='ntdisplay?filename="+fileCellPath+"'></div></li>"
 				}else{
 					str+="<li data-path='"+attach.uploadPath+"' data-uuid='"+attach.uuid+"' data-filename='"+attach.filename+"' data-type='"+attach.image+"'><div>"
-					str+="<div style='text-decoration:underline;'>"+attach.filename+"<img src='../resources/image/paper-clip.png'></div>"
+					str+="<div style='text-decoration:underline;'><span>"+attach.filename+"</span><img src='../resources/image/paper-clip.png'></div>"
 					str+="</div></li>"
 				}
 			})

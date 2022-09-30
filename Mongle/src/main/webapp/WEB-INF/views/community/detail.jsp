@@ -6,11 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../resources/css/boardlist.css">
+<link rel="stylesheet" href="../resources/css/boardlist.css"><link rel="stylesheet" href="../resources/css/main.css">
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/resources/js/community.js"></script>
-<script type="text/javascript" src="/resources/js/comAttach.js"></script>
-<title>Insert title here</title>
+<script type="text/javascript" src="/resources/js/community/community.js"></script>
+<title>Mongle-몽글</title>
 </head>
 <jsp:include page="../header.jsp"/>
 <body>
@@ -144,7 +143,7 @@ $(document).ready(function(){
 					str+="</div></li>"
 				}
 			})
-			$(".uploadResult ul").html(str);
+			$("#uploadResult ul").html(str);
 		});
 	})();
 })

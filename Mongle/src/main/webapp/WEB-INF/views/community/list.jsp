@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../resources/css/boardlist.css">
+<title>Mongle-몽글</title>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/resources/js/community.js"></script>
+<script type="text/javascript" src="/resources/js/community/community.js"></script>
+<link rel="stylesheet" href="../resources/css/boardlist.css"><link rel="stylesheet" href="../resources/css/main.css">
 </head>
 <jsp:include page="../header.jsp"/>
 <body>

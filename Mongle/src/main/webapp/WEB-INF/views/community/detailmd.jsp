@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../resources/css/boardlist.css">
+<title>Mongle-몽글</title>
+<link rel="stylesheet" href="../resources/css/boardlist.css"><link rel="stylesheet" href="../resources/css/main.css">
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <jsp:include page="../header.jsp"/>

@@ -122,7 +122,7 @@
 					<div id="sns">
 						<ul>
 							<li><a href="#"><img
-									src="/resources/css/mainimg/FACENBOOK.PNG" class="img2"></a></li>
+									src="/resources/css/mainimg/FACEBOOK.PNG" class="img2"></a></li>
 							<li><a href="#"><img
 									src="/resources/css/mainimg/INSTA.PNG" class="img2"></a></li>
 							<li><a href="#"><img

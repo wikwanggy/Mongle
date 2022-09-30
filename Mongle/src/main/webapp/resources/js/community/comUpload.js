@@ -1,12 +1,6 @@
 /**
  * 
  */
-// 이미지를 클릭하면 원본파일 보여주기
-function showImage(fileCallPath){
-	//alert(fileCallPath)
-	console.log(fileCallPath);
-	$(".oImg").html("<img src='ntdisplay?filename="+encodeURI(fileCallPath)+"' style='width:600px;'>")
-}
 // 파일 보여주기
 function showUploadntResult(Arr){
 	if(!Arr||Arr.length==0){return;}
