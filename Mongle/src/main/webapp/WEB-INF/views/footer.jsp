@@ -6,10 +6,10 @@
 			<footer>
 				<div id="bottomMenu">
 					<ul>
-						<li><a href="#">회사 소개</a></li>
-						<li><a href="#">개인정보처리방침</a></li>
-						<li><a href="#">이용안내</a></li>
-						<li><a href="#">고객센터</a></li>
+						<li><a href="/company/company">회사 소개</a></li>
+						<li><a href="/company/company">개인정보처리방침</a></li>
+						<li><a href="/company/company">이용안내</a></li>
+						<li><a href="/service/servicemain">고객센터</a></li>
 					</ul>
 					<div id="sns">
 						<ul>
