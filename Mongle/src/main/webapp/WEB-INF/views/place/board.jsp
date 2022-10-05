@@ -12,6 +12,8 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="/resources/js/place/placeList.js"></script>
 <link rel="stylesheet" href="/resources/css/place/place.css">
+<link rel="stylesheet" href="/resources/css/place/main.css">
+
 </head>
 <jsp:include page="../header.jsp" />
 <body>
@@ -19,13 +21,13 @@
 	<div class=main>
 		<div id="ls">
 			<ul id="place-list">
-				<li id="1"><a href="/place/board">전체보기</a></li>
-				<li id="2"><a title="clinic" href="/place/board?ctgr=clinic">동물병원</a></li>
-				<li id="3"><a title="grooming"
+				<li id="1" class=""><a href="/place/board">전체보기</a></li>
+				<li id="2" class=""><a title="clinic" href="/place/board?ctgr=clinic">동물병원</a></li>
+				<li id="3" class=""><a title="grooming"
 					href="/place/board?ctgr=grooming">미용</a></li>
-				<li id="4"><a title="hotel" href="/place/board?ctgr=hotel">호텔</a></li>
-				<li id="5"><a title="school" href="/place/board?ctgr=school">학교/유치원</a></li>
-				<li id="6"><a title="cafe" href="/place/board?ctgr=cafe">식당/카페</a></li>
+				<li id="4" class=""><a title="hotel" href="/place/board?ctgr=hotel">호텔</a></li>
+				<li id="5" class=""><a title="school" href="/place/board?ctgr=school">학교/유치원</a></li>
+				<li id="6" class=""><a title="cafe" href="/place/board?ctgr=cafe">식당/카페</a></li>
 			</ul>
 		</div>
 		<div id="cn">
@@ -35,12 +37,13 @@
 					<option value="T">제목</option>
 					<option value="C">작성자</option>
 					<option value="TC">제목+게시글</option>
-				</select> <input type="text" name="pageNum" value="${paging.pcri.pageNum}">
-				<input type="text" name="amount" value="${paging.pcri.amount}">
+				</select>
+				<input type="hidden" name="pageNum" value="${paging.pcri.pageNum}">
+				<input type="hidden" name="amount" value="${paging.pcri.amount}">
 				<input type="text" name="keyword" value="${paging.pcri.keyword}">
-				<input type="text" name="ctgr" value="${paging.pcri.ctgr}">
-				<input type="text" name="loc" value="${paging.pcri.loc}"> <input
-					type="button" value="검색" name="search">
+				<input type="hidden" name="ctgr" value="${paging.pcri.ctgr}" id="sltctgr">
+				<input type="hidden" name="loc" value="${paging.pcri.loc}">
+				<input type="button" value="검색" name="search">
 			</form>
 			<table id="list" border="1">
 				<tr>
@@ -71,10 +74,25 @@
 					</th>
 					<th width="550px">제목</th>
 					<th width="100px">작성자</th>
-					<th width="100px">날짜</th>
-					<th width="40px">조회</th>
-					<th width="40px">추천</th>
+					<th width="110px">날짜</th>
+					<th width="60px">조회</th>
+					<th width="60px">추천</th>
 				</tr>
+				<c:forEach items="${notice}" var="notice">
+					<tr style="color:red;font-weight: bold;background-color: #c0c0c0;">
+						<td></td>
+						<td style="text-align: left; padding-left: 20px;"><a
+							href="/place/detail?bno=${notice.bno}">${notice.title}</a><span
+							style="color: red"> [${notice.replycnt}]</span></td>
+						<td>관리자</td>
+						<td><fmt:parseDate pattern="yyyy-MM-dd" value="${notice.date}"
+								var="date" /> <fmt:formatDate pattern="yyyy-MM-dd"
+								value="${date}" /></td>
+						<td>${notice.cnt}</td>
+						<td>${notice.likecnt}</td>
+					</tr>
+				</c:forEach>
+				
 				<c:forEach items="${list}" var="list">
 					<tr>
 						<td>${list.loc}</td>
@@ -118,7 +136,7 @@
 					<a href="/Login/login"><button id="loginNull">글쓰기</button></a>
 				</c:when>
 				<c:when test="${sessionScope.login.id=='admin'}">
-					<a href="/place/write"><button>공지등록</button></a>
+					<a href="/place/notice"><button>공지등록</button></a>
 				</c:when>
 				<c:otherwise>
 					<a href="/place/write"><button>글쓰기</button></a>
@@ -127,7 +145,8 @@
 
 
 		</div>
-		<div id="rs"></div>
+		<div id="rs">배너광고
+		</div>
 	</div>
 
 

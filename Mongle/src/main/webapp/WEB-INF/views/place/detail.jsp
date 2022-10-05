@@ -48,24 +48,39 @@
 						<h2 class="subject">${detail.title}</h2>
 						<ul class="date">
 							<li>작성자 : ${detail.id}</li>
-							<li>조회수 : ${detail.bno}</li>
+							<li>조회수 : ${detail.cnt}</li>
 							<li>작성날짜 : ${detail.date}</li>
 						</ul>
 						<div class="dv-vew">${detail.content}</div>
 					</div>
 				</div>
-				
+
 				<div id="uploadResult">
 					<ul></ul>
 				</div>
 
 				<div style="text-align: right">
-					<a href="/place/modifyform?bno=${detail.bno}">
-					<input type="button" value="수정"></a> 
-					<a href="/place/remove?bno=${detail.bno}">
-					<input type="button" value="삭제"></a>
+					<c:choose>
+						<c:when test="${sessionScope.login.id=='admin'}">
+							<a href="/place/remove?bno=${detail.bno}"> <input
+								type="button" value="삭제"></a>
+						</c:when>
+						<c:when test="${sessionScope.login.id==detail.id}">
+							<a href="/place/modifyform?bno=${detail.bno}"> <input
+								type="button" value="수정"></a>
+							<a href="/place/remove?bno=${detail.bno}"> <input
+								type="button" value="삭제"></a>
+						</c:when>
+						<c:otherwise>
+							<a href="/Login/login"> <input type="button" value="로그인"></a>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</form>
+
+
+
+
 
 
 			<c:if test="${sessionScope.login.id == null}">
@@ -80,32 +95,32 @@
 					<input type="button" class="LikeBtn" value="♡"
 						style="font-size: 30px">
 					<p>추천수 : ${detail.likecnt}</p>
-					
-					<input type="hidden" value="${like}" id="like"> 
-					<input type="hidden" value="${sessionScope.login.id}" id="id">
-					<input type="hidden" value="${detail.bno}" name="bno" id="bno">
+
+					<input type="hidden" value="${like}" id="like"> <input
+						type="hidden" value="${sessionScope.login.id}" id="id"> <input
+						type="hidden" value="${detail.bno}" name="bno" id="bno">
 				</div>
 			</c:if>
 
-<br><br>
-	<div class="map_wrap">
-		<div id="map"
-			style="width: 600px; height: 300px; position: relative; overflow: hidden;"></div>
+			<br> <br>
+			<div class="map_wrap">
+				<div id="map"
+					style="width: 600px; height: 300px; position: relative; overflow: hidden;"></div>
 
-		<div id="menu_wrap" class="bg_white">
-			<div class="option">
-				<div>
-					<form onsubmit="searchPlaces(); return false;">
-						키워드 : <input type="text" value="울산 동물병원" id="keyword" size="15">
-						<button type="submit">검색하기</button>
-					</form>
+				<div id="menu_wrap" class="bg_white">
+					<div class="option">
+						<div>
+							<form onsubmit="searchPlaces(); return false;">
+								키워드 : <input type="text" value="울산 동물병원" id="keyword" size="15">
+								<button type="submit">검색하기</button>
+							</form>
+						</div>
+					</div>
+					<hr>
+					<ul id="placesList"></ul>
+					<div id="pagination"></div>
 				</div>
 			</div>
-			<hr>
-			<ul id="placesList"></ul>
-			<div id="pagination"></div>
-		</div>
-	</div>
 
 
 			<!-- /vew-wr -->
@@ -138,17 +153,27 @@
 							<a href="/place/board">목록</a>
 						</div></td>
 					<td><div class="btn-box">
-							<a href="/place/write">글쓰기</a>
+							<c:choose>
+								<c:when test="${sessionScope.login==null}">
+									<a href="/Login/login" id="loginNull">글쓰기</a>
+								</c:when>
+								<c:when test="${sessionScope.login.id=='admin'}">
+									<a href="/place/write">공지등록</a>
+								</c:when>
+								<c:otherwise>
+									<a href="/place/write">글쓰기</a>
+								</c:otherwise>
+							</c:choose>
 						</div></td>
 				</tr>
 			</table>
-
 		</div>
 	</div>
 	<div id="rs"></div>
-	
-<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=93ed3fadc4dfa50afff064beaff51b58&libraries=services"></script>
-<script src="/resources/js/place/kakaoMap.js"></script>
+
+	<script
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=93ed3fadc4dfa50afff064beaff51b58&libraries=services"></script>
+	<script src="/resources/js/place/kakaoMap.js"></script>
 </body>
 <jsp:include page="../footer.jsp" />
 </html>

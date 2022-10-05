@@ -22,7 +22,7 @@
 		from place p,(select @rownum:=0) as tmp
 		
 		<!-- 1. ctgr = null & loc = null -->
-		where bno is not null
+		where id != 'admin'
 		
 		<!-- 2. ctgr != null & loc = null -->
 		<choose>
@@ -121,5 +121,9 @@
 	<update id="replycnt">
 		update place set replycnt = (select count(rno) from p_reply where place.bno=p_reply.bno);
 	</update>
+	
+	<select id="notice" resultType="org.Mongle.model.PlaceVO">
+		select * from place where id='admin';
+	</select>
 
 </mapper>

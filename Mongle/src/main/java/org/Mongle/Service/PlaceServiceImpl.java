@@ -63,5 +63,9 @@ public class PlaceServiceImpl implements PlaceService {
 	public void replycnt(PlaceVO pvo) {
 		pm.replycnt(pvo);
 	}
+	
+	public ArrayList<PlaceVO> notice(){
+		return pm.notice();
+	}
 
 }

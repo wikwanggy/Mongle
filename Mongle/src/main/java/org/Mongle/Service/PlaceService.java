@@ -26,4 +26,6 @@ public interface PlaceService {
 	public ArrayList<PlaceAttachFileVO> attachlist(int bno);
 	// 댓글수
 	public void replycnt(PlaceVO pvo);
+	
+	public ArrayList<PlaceVO> notice();
 }

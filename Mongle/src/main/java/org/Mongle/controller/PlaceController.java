@@ -37,6 +37,7 @@ public class PlaceController {
 		ps.replycnt(pvo);
 
 		model.addAttribute("list", ps.list(pcri));
+		model.addAttribute("notice", ps.notice());
 
 		int total = ps.total(pcri);
 		model.addAttribute("paging", new PlacePageVO(pcri, total));
@@ -57,6 +58,19 @@ public class PlaceController {
 		ps.write(pvo);
 		return "redirect:/place/board";
 	}
+	
+	//관리자 공지등록
+	@RequestMapping(value = "/place/notice", method = RequestMethod.GET)
+	public String noticeget(HttpSession session) {
+		return "place/notice";
+	}
+	@RequestMapping(value = "/place/notice", method = RequestMethod.POST)
+	public String noticepost(PlaceVO pvo, HttpSession session) {
+		// boolean result= ls.login(ldto, session);
+		ps.write(pvo);
+		return "redirect:/place/board";
+	}
+	
 
 	// 해당게시물의 첨부파일의 데이터를 ajax로 전송
 	@RequestMapping(value = "/placeattachlist", method = RequestMethod.GET)

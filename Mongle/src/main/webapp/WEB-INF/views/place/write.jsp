@@ -11,7 +11,9 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript"
 	src="/resources/js/place/placeUploadAjax.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=93ed3fadc4dfa50afff064beaff51b58"></script>
 <link rel="stylesheet" href="/resources/css/place/place.css">
+<link rel="stylesheet" href="/resources/css/place/main.css">
 </head>
 <jsp:include page="../header.jsp" />
 <body>

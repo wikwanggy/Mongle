@@ -20,7 +20,7 @@
 	<div class="main">
 		<div id="ls"></div>
 		<div id="cn">
-			<form action="/place/modify" method="post" id="form">
+			<form action="/place/modify?bno=${detail.bno}" method="post" id="form">
 				<input type="hidden" value="${detail.bno}">
 				<table>
 					<tr style="height: 40px">
@@ -64,8 +64,12 @@
 								name="content">${detail.content}</textarea></td>
 					</tr>
 				</table>
-				<input type="submit" value="수정하기">
+						<input type="submit" value="수정하기">
 			</form>
+
+
+
+
 
 
 		</div>

@@ -21,5 +21,6 @@ public interface PlaceMapper {
 	public int total(PlaceCriteriaVO pcri);
 	// 댓글수
 	public void replycnt(PlaceVO pvo);
-
+	
+	public ArrayList<PlaceVO> notice();
 }
