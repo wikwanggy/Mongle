@@ -18,11 +18,12 @@ $(document).ready(function() {
 				}),
 				success : function(data) {
 					$('.LikeBtn').attr("value", "♡");
+					$('#like').attr("value", "0");
 				}
 			})// 아작스 끝
 		})
-
 	} else if (likeval == 0) {
+		$('.LikeBtn').attr("value", "♡");
 		$('.LikeBtn').on("click", function() {
 			$.ajax({
 				type : 'post',
@@ -34,6 +35,7 @@ $(document).ready(function() {
 				}),
 				success : function(data) {
 					$('.LikeBtn').attr("value", "♥");
+					$('#like').attr("value", "1");
 				}
 			})// 아작스 끝
 		})

@@ -6,7 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<link rel="stylesheet" href="/resources/css/shop/header.css">
+<link rel="stylesheet" href="/resources/css/shop/footer.css">
 <link rel="stylesheet" href="/resources/css/place/content.css">
+<link rel="stylesheet" href="/resources/css/place/kakaoMAp.css">
+
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="/resources/js/place/placeReply.js"></script>
@@ -82,7 +87,25 @@
 				</div>
 			</c:if>
 
+<br><br>
+	<div class="map_wrap">
+		<div id="map"
+			style="width: 600px; height: 300px; position: relative; overflow: hidden;"></div>
 
+		<div id="menu_wrap" class="bg_white">
+			<div class="option">
+				<div>
+					<form onsubmit="searchPlaces(); return false;">
+						키워드 : <input type="text" value="울산 동물병원" id="keyword" size="15">
+						<button type="submit">검색하기</button>
+					</form>
+				</div>
+			</div>
+			<hr>
+			<ul id="placesList"></ul>
+			<div id="pagination"></div>
+		</div>
+	</div>
 
 
 			<!-- /vew-wr -->
@@ -123,7 +146,9 @@
 		</div>
 	</div>
 	<div id="rs"></div>
-
+	
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=93ed3fadc4dfa50afff064beaff51b58&libraries=services"></script>
+<script src="/resources/js/place/kakaoMap.js"></script>
 </body>
 <jsp:include page="../footer.jsp" />
 </html>

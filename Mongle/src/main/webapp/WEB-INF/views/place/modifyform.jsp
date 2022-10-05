@@ -12,6 +12,7 @@
 <script type="text/javascript"
 	src="/resources/js/place/placeUploadAjax.js"></script>
 <link rel="stylesheet" href="/resources/css/place/place.css">
+<link rel="stylesheet" href="/resources/css/place/main.css">
 </head>
 <jsp:include page="../header.jsp" />
 <body>

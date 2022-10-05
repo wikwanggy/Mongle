@@ -1,0 +1,359 @@
+/* m a in css  */
+@charset "UTF-8";
+@import
+	url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&family=Hi+Melody&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Secular+One&display=swap');
+* {
+	margin: 0; /* 마진값 초기화 */
+	padding: 0; /* 패딩값 초기화*/
+	box-sizing: border-box; /* 박스 영역은 테투리까지 지정*/
+	font-family: 'Edu VIC WA NT Beginner', cursive;
+	font-family: 'Hi Melody', cursive;
+}
+#container{
+	/* 너비 1200px로 지정 */
+	margin: 0 auto; /*auto으로 화면 중앙에 배치*/
+}/**/
+header {
+	
+	width: 100%; /* 너비 */
+	height: 130px; /* 높이 */
+	background-color: rgba(255, 235, 98); /* 백그라운드 컬러 지정 */
+}
+#tm{
+	
+	height: 90px; /* 높이 90px로 지정*/
+}
+
+#logoimg{
+	height: 80px; /* 로고 이미지를 80px로 지정 */
+}
+ul {
+	list-style: none; /* ul의 리스트 스타일을 없음으로 지정 */
+}
+#topmenu {
+	height: 50px; /* 높이 50px로 지정 */
+	float: right; /* 오른쪽 정렬 */
+}
+#topmenu>li {
+	float: left; /* 메뉴 항목을 오른쪽으로 플로팅 */
+	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+}
+#topmenu>li>a {
+	color: black; /* 폰트 색상 */
+	padding-right: 10px; /* 패딩 지정 */
+	padding-bottom: 10px; 
+	text-decoration: none;
+	font-size: 15px;
+	
+}
+#toplist>a{
+	color: black; /* 폰트 색상 */
+	padding-right: 10px; /* 패딩 지정 */
+	padding-bottom: 10px; 
+	text-decoration: none;
+	font-size: 15px;
+	
+}
+nav{
+	
+}
+#menu{
+	height:40px;
+	padding: 4px 0px 10px 0px;
+	border-top: 2px solid rgba(38, 38, 38, 0.5); 
+	border-bottom: 2px solid rgba(38, 38, 38, 0.5);
+	box-shadow: 0 4px 4px -4px gray;
+	text-align: center;
+	margin:  0 auto;
+}
+#menu>li {
+	float: left; /* 메뉴 항목을 왼쪽으로 플로팅 */
+	position: relative; /* 서브메뉴를 absolute로 만들기 위해 부모요소를 relative로 지정*/
+	width: 140px;
+	
+}
+#menu>li>a {
+	color: black; /* 폰트 색상 */
+	font-weight: 300; /* 폰트 굵기 */
+	padding: 0px 20px 0px 20px; /* 패딩 지정 */
+	font-size: 25px;
+	text-decoration: none;
+}
+#menu>li>ul{
+	width: 130px;
+	display: none;
+	position: absolute;
+	font-size: 20px;
+	background-color: rgba(255, 235, 98);
+	z-index:2;
+	border: 0.5px solid black;
+}
+#menu>li:hover>ul{
+	display: block;
+}
+#menu>li>ul>li:hover{
+	background-color: orange;
+	transition:ease 1s;
+}
+#menu>li>ul>li{
+	list-style: none;
+	border: 0.5px solid black;
+}
+
+#menu>li>ul>li>a{
+	text-decoration: none;
+	color: black;
+	line-height: 50px;
+}
+main{ 
+	display: flex;
+}
+section{
+	height: 800px;
+	position: relative;
+}
+#st_1{
+	background: url("/resources/css/mainimg/st_1.png") ;
+	background-color: black;
+	background-size: cover;
+	margin-top: 25px;
+	position: relative;
+	background-repeat: no-repeat;
+}
+#st1_label{
+	color: yellow;
+	font-family: 'Anton', sans-serif;
+	font-family: 'Secular One', sans-serif;
+	
+}
+#st_2{
+	background: url("/resources/css/mainimg/st_2.png") fixed ;
+	background-color: black;
+	background-size: cover;
+	margin-top: 25px;
+}
+
+#st_3{
+	background: url("/resources/css/mainimg/st_3.png") fixed ;
+	background-color: black;
+	background-size: cover;
+	margin-top: 25px;
+}
+#h1{
+	color: white;
+	font-size: 8em;
+	width: 600px;
+	position: absolute;
+	top: 150px;
+	right: 300px;
+	animation:slidein 2s ease-out;
+	text-align: center;
+	/*animation-name:slidein;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;*/
+}
+#h2{
+	color: white;
+	font-size: 8em;
+	width: 600px;
+	position: absolute;
+	top: 200px;
+	right: 300px;
+	animation:slidein 2s ease-out;
+	text-align: center;
+	/*animation-name:slidein;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;*/
+}
+#st_text1{
+	color: white;
+	font-size: 2.5em;
+	width: 600px;
+	position: absolute;
+	top: 300px;
+	right: 170px;
+	animation:slidein 2s ease-out;
+	text-align: left;
+}
+#st_text2{
+	color: white;
+	font-size: 4em;
+	width: 600px;
+	position: absolute;
+	top: 350px;
+	right: 200px;
+	animation:slidein 2s ease-out;
+	text-align: left;
+	
+}
+#btn_a{
+	width: 600px;
+	position: absolute;
+	top: 600px;
+	right: 170px;
+	animation:slidein 2s ease-out;
+}
+#btn_a1{
+	width: 600px;
+	position: absolute;
+	top: 600px;
+	right: 170px;
+	animation:slidein 2s ease-out;
+}
+.st_btn{
+	color:white;
+	font-size:18px;
+	width: 120px;
+	height: 35px;
+	border:2px solid white;
+	background-color: transparent;
+	border-radius: 25px;
+}
+.st_btn:hover{
+	background-color: white;
+	color:black;
+	text-decoration: underline;
+}
+
+@keyframes slidein{
+	from{
+		margin-right: -800px;
+		opacity: 0;
+	}
+	to{
+		margin-right: 0px;
+		opacity: 1;
+	}
+}
+
+@keyframes disappear{
+	from{
+		margin-right: 0px;
+		opacity: 1;
+	}
+	to{
+		margin-right: -800px;
+		opacity: 0;
+	}
+}
+
+#s_pt{
+	left: 50px;
+	top: 100px;
+	position: absolute;
+	z-index: 1;
+	animation:slidein_pt 2s ease-out;
+}
+
+#s_pt1{
+
+	left: 75px;
+	top: 100px;
+	position: absolute;
+	z-index: 1;
+}
+@keyframes slidein_pt{
+	from{
+		margin-left: -400px;
+		opacity: 0;
+	}
+	to{
+		margin-left: 0px;
+		opacity: 1;
+	}
+}
+
+@keyframes disappear_pt{
+	from{
+		margin-left: 0px;
+		opacity: 1;
+	}
+	to{
+		margin-left: -400px;
+		opacity: 0;
+	}
+}
+#combox{
+	margin:0 auto;
+	width: 100%;
+	height:100px;
+	padding-top: 15px;
+}
+#combox>div{
+	margin:0 auto;
+	width: 900px;
+	height: 100px;
+	border: 1px solid rgba(255, 235, 98);
+	border-radius: 25px;
+	text-align: center;
+	font-size: 2em;
+	background-color: gray; 
+}
+#combox>div>h3{
+	color:rgba(255, 235, 98);
+}
+#combox>div>a>button{
+	color:rgba(255, 235, 98);
+	font-size:18px;
+	width: 120px;
+	height: 35px;
+	border:2px solid rgba(255, 235, 98);
+	background-color: transparent;
+	border-radius: 25px;
+}
+#combox>div>a>button:hover{
+	background-color: black;
+	color:white;
+	border:2px solid black;
+}
+
+footer {
+	width: 100%; /* 너비 */
+	height: 100px; /* 높아 */
+	border-top: 1px solid #222; /* 위쪽에 가로선 추가 */
+	margin-top: 25px;
+}
+#bottomMenu {
+	width: 100%;
+	height: 20px;
+	position: relative;
+}
+#bottomMenu ul {
+	margin-top: 15px;
+}
+#bottomMenu ul li {
+	float: left;
+	padding: 5px 20px;
+	border-right: 1px solid #ddd;
+	
+}
+#bottomMenu ul li a {
+	text-decoration: none;
+}
+#bottomMenu ul li a, #bottomMenu ul li a:visited {
+	font-size: 15px;
+	color: #666
+}
+.img2 {
+	width: 25px;
+	height: 25px;
+	border-radius: 25px;
+}
+#sns {
+	position: absolute;
+	right: 0; /* 오른쪽 끝에 배치 */
+}
+#sns ul li {
+	border: none;
+	padding: 5px;
+}
+#company {
+	clear: left;
+	margin-top: 25px;
+	margin-left: 20px;
+}
+p {
+	font-size: 14px;
+	color: #aaa;
+}
