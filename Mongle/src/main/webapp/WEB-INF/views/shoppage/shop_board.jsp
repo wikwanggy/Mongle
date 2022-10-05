@@ -12,8 +12,7 @@
 	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/shop/board.js"></script>
 <link rel="stylesheet" href="/resources/css/shop/shop_board.css">
-<link rel="stylesheet" href="/resources/css/shop/header.css">
-<link rel="stylesheet" href="/resources/css/shop/footer.css">
+<link rel="stylesheet" href="/resources/css/main.css">
 </head>
 <body>
 	<%--상단 시작 --%>
@@ -37,10 +36,9 @@
 						</c:forEach>
 					</select>
 					<!-- 소분류 -->
-					<select id="c_type2" class="type">
+					<select id="c_type2" class="type" name="w_type" >
 						<option>소분류</option>
 					</select>
-
 					<table border="1">
 						<tr>
 							<td>상품 이름</td>
@@ -67,14 +65,6 @@
 						</tr>
 					</table>
 					<input type="button" value="등록하기" id="uploadBtn">
-					<div id="uploadResult">
-						<ul>
-						</ul>
-					</div>
-					<div id="uploadResult2">
-						<ul>
-						</ul>
-					</div>
 				</form>
 			</div>
 		</div>

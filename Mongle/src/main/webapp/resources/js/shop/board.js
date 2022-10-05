@@ -20,7 +20,7 @@ $(document).ready(function() {
 		// 상품 가격
 		var product_price = $("input[name='w_price']").val();
 		// 상품 종류
-		var product_type = $("input[name='w_type']").val();
+		var product_type = $("select[name='w_type']").val();
 		// 상품 수량
 		var product_Q = $("input[name='w_Quantity']").val();
 		
@@ -59,7 +59,7 @@ $(document).ready(function() {
 		}else{
 			return false;
 		}
-	});
+	})
 	
 	// ajax를 통해 select box안에 들어갈 값 불러오기
 	$("#c_type1").on("change",function(){
@@ -67,7 +67,7 @@ $(document).ready(function() {
 		console.log("대분류 ="+s)
 		
 		$.getJSON("/shop/"+s+".json", function(data){
-			var str="";
+			var str="";		
 			str +="";
 			for(var i = 0; i < data.length; i++){
 				str += "<option>" + data[i].c_type2+"</option>"
@@ -129,7 +129,7 @@ $(document).ready(function() {
 				console.log("result1 = "+result)
 				
 				var str = "";				
-				//$(result).each(function(i, obj){					 
+				// $(result).each(function(i, obj){
 					 input += "<input type='text' name='attach["+0+"].p_image' value ='" + result.p_image + "'><br>";					 					 
 					 input += "<input type='text' name='attach["+0+"].p_upload' value ='" + result.p_upload + "'><br>";				 
 					 input += "<input type='text' name='attach["+0+"].p_uid' value ='" + result.p_uid + "'><br>";
@@ -148,7 +148,7 @@ $(document).ready(function() {
 							var filePath=encodeURIComponent(result.p_upload+"\\"+result.p_uid+"_"+result.p_name)
 							str += "<li><a href='/download?filename="+filePath+"'>"+result.p_name+"</a></li>"
 						 }
-				//})				
+				// })
 				$("#uploadResult ul").html(str);	
 		   }
 	    })
@@ -206,9 +206,7 @@ $(document).ready(function() {
 							str += "<li><a href='/download?filename="+filePath+"'>"+obj.p_name+"</a></li>"
 						 }
 				})
-				$("#uploadResult2 ul").html(str);
-				console.log(input);
 			}
 		})
-	})		
+	})
 })

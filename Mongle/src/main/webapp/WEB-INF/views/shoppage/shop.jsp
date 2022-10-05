@@ -22,8 +22,7 @@
 	<!-- header 끝 -->
 
 	<!-- main 전체 -->
-	<div id="main">
-		<div id="main_left">
+	<div id="main">		
 			<!-- center 시작 -->
 			<div id="cn">
 				<a href="/shoppage/shop_list"><input type="button" value="상품리스트"></a>
@@ -43,8 +42,10 @@
 					<li><a href="#">리뷰순</a></li>
 				</ul>
 				<br> <br> <br>
+				<!-- shop 메인 탭 -->
 				<div class="Goods">
 					<ul class="Goodss">
+						<!-- 상품 리스트 for문 -->
 						<c:forEach items="${shop}" var="shoplist">
 							<li>
 								<div>
@@ -65,10 +66,10 @@
 								</div>
 							</li>
 						</c:forEach>
+						<!-- 상품 리스트 for문 종료 -->
 					</ul>
 				</div>
 			</div>
-		</div>
 		<!-- center 끝 -->
 		<!-- right 시작 -->
 		<div id="rs">

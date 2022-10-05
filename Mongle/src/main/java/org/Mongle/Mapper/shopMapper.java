@@ -10,17 +10,21 @@ import org.Mongle.model.shopitemVO;
 public interface shopMapper {
 	// 상품 등록 설계 (shopVo : 게시판정보+파일업로드 정보)
 	public void write(shopVO shop);
+	// 상품 등록 리스트
+	public ArrayList<shopVO> shop_list(shopVO shop);
 
 	// 상품등록(분류)
 	public ArrayList<shopCategoryVO> c_type1();
-
 	public ArrayList<shopCategoryVO> c_type2(String shop);
 
 	// 상품 목록 리스트 설계
-	public ArrayList<shopVO> shop(SCriteriaVO scrit);
-
-	// 상품 등록 리스트
-	public ArrayList<shopVO> shop_list(shopVO shop);
+	public ArrayList<shopVO> shop(SCriteriaVO scri);   // 메인 
+	public ArrayList<shopVO> Snack(SCriteriaVO scri);  // 간식
+	public ArrayList<shopVO> beauty(SCriteriaVO scri); // 미용용품
+	public ArrayList<shopVO> toy(SCriteriaVO scri);    // 장난감
+	public ArrayList<shopVO> house(SCriteriaVO scri);  // 하우스
+	public ArrayList<shopVO> fashion(SCriteriaVO scri);// 패션
+	public ArrayList<shopVO> etc(SCriteriaVO scri);    // 기타
 
 	// 상품 상세 내용보기 메인 이미지 설계
 	public shopVO main(shopVO shop);

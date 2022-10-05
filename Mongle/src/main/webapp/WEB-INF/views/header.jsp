@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<body> 
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/resources/css/main.css">
+</head>
+<body>
 	<div id="container">
 		<div id="hd">
 			<header>
@@ -41,22 +48,31 @@
 									<li><a href="/shoppage/fashion">패션</a></li>
 									<li><a href="/shoppage/etc">기타</a></li>
 								</ul></li>
-							<li><a href="/place/board">PLACE</a>
+							<li><a href="/place/">PLACE</a>
 								<ul>
-									<li><a href="/place/board?ctgr=grooming">미용</a></li>
-									<li><a href="/place/board?ctgr=clinic">동물병원</a></li>
-									<li><a href="/place/board?ctgr=hotel">호텔</a></li>
-									<li><a href="/place/board?ctgr=school">학교/유치원</a></li>
-									<li><a href="/place/board?ctgr=cafe">식당/카페</a></li>
+									<li><a href="/place/grooming">미용</a></li>
+									<li><a href="/place/clinic">동물병원</a></li>
+									<li><a href="/place/hotel">호텔</a></li>
+									<li><a href="/place/school">학교/유치원</a></li>
+									<li><a href="/place/cafe">식당/카페</a></li>
+								</ul></li>
+							<li><a href="/event/eventmain">EVENT</a>
+								<ul>
+									<li><a href="#">진행 이벤트</a></li>
+									<li><a href="#">종료 이벤트</a></li>
+									<li><a href="#">이벤트 당첨</a></li>
 								</ul></li>
 							<li><a href="/community/list">커뮤니티</a>
 								<ul>
 									<li><a href="/community/list">게시판</a></li>
 									<li><a href="/community/review">리뷰</a></li>
 								</ul></li>
-							<li><a href="/event/eventmain">EVENT</a>
 						</ul>
 					</nav>
 				</div>
 			</header>
 		</div>
+	</div>
+	<script src="/resources/js/main.js"></script>
+</body>
+</html>

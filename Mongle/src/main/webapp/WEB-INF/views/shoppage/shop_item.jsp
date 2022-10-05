@@ -40,7 +40,7 @@ div#cnat {
 				<table border="1">
 					<tr>
 						<td>상품 번호</td>
-						<td><input type="text" name="bno"></td>
+						<td><input type="text" name="bno" value="${item.bno}"></td>
 						<td>문의 번호</td>
 						<td><input type="text"
 							name="s_Confirm" value="1"></td>
@@ -57,9 +57,9 @@ div#cnat {
 					</tr>
 					<tr>
 						<td>상품 질문</td>
-						<td><textarea cols="50" rows="30" name="s_question"></textarea></td>
+						<td><textarea cols="30" rows="30" name="s_question"></textarea></td>
 							<td>답변</td>
-						<td><textarea cols="50" rows="30" name="s_answer"></textarea></td>
+						<td><textarea cols="30" rows="30" name="s_answer"></textarea></td>
 					</tr>
 				</table>
 				<input type="submit" value="문의하기">

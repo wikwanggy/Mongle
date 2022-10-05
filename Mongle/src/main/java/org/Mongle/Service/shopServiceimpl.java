@@ -35,6 +35,10 @@ public class shopServiceimpl implements shopService {
 			sam.insert(attach);
 		});
 	}
+	// 상품 등록 리스트
+	public ArrayList<shopVO> shop_list(shopVO shop) {
+		return sm.shop_list(shop);
+	}
 
 	// 상품등록(분류)
 	public ArrayList<shopCategoryVO> c_type1() {
@@ -44,13 +48,27 @@ public class shopServiceimpl implements shopService {
 	public ArrayList<shopCategoryVO> c_type2(String shop) {
 		return sm.c_type2(shop);
 	}
-	// 상품 등록 리스트
-	public ArrayList<shopVO> shop_list(shopVO shop){
-		return sm.shop_list(shop);
-	}
 	// 상품 목록 리스트 구현
 	public ArrayList<shopVO> shop(SCriteriaVO scri) {
 		return sm.shop(scri);
+	}
+	public ArrayList<shopVO> Snack(SCriteriaVO scri) {  // 간식
+		return sm.Snack(scri);
+	}
+	public ArrayList<shopVO> beauty(SCriteriaVO scri) { // 미용용품
+		return sm.beauty(scri);
+	}
+	public ArrayList<shopVO> toy(SCriteriaVO scri) {    // 장난감
+		return sm.toy(scri);
+	}
+	public ArrayList<shopVO> house(SCriteriaVO scri) {  // 하우스
+		return sm.house(scri);
+	}
+	public ArrayList<shopVO> fashion(SCriteriaVO scri) {// 패션
+		return sm.fashion(scri);
+	}
+	public ArrayList<shopVO> etc(SCriteriaVO scri) {    // 기타
+		return sm.etc(scri);
 	}
 
 	// 상품 상세 내용보기 메인 이미지 구현

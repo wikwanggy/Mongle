@@ -11,8 +11,7 @@
 	margin: 0; /* 마진값 초기화 */
 	padding: 0; /* 패딩값 초기화*/
 	box-sizing: border-box; /* 박스 영역은 테투리까지 지정*/
-	font-family: 'Edu VIC WA NT Beginner', cursive;
-	font-family: 'Hi Melody', cursive;
+
 } 
 
 #container {

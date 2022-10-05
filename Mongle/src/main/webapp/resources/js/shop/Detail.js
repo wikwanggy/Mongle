@@ -22,22 +22,4 @@ $(document).ready(function() {
         $('#Quantity').val(num);
 	});
 	console.log("result="+result);
-	/*$('#minus').click(function(){
-		var stat = $('#Quantity').val();
-		var num = parseInt(stat. 10);
-		num--;
-		if (num <= 0){
-			num = 1;
-		}
-		$('#Quantity').val(num);
-	})
-	$('#plus').click(function(){
-		var stat = $('#Quantity').val();
-		var num = parseInt(stat, 10);
-		num++;
-		if(num > 5){
-			num = 5;
-		}
-		$('#Quantity').val(num);
-	})*/
 })
