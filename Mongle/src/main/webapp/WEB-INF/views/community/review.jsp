@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Mongle-몽글</title>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/resources/js/community/community.js"></script>
+<script type="text/javascript" src="../resources/js/community/community.js"></script>
 <link rel="stylesheet" href="../resources/css/boardlist.css"><link rel="stylesheet" href="../resources/css/main.css">
 </head>
 <jsp:include page="../header.jsp"/>
@@ -21,7 +21,7 @@
 </div>
 <div id="review">
 	<div class="rv_top">
-		<b class="rv_b">펫 용품/식품 BEST 후기</b>
+		<b class="rv_b">펫 용품 BEST 후기</b>
 	</div>
 		<ul>
 			<li>
@@ -73,75 +73,17 @@
 				</div>
 			</li>
 		</ul>
-	<div class="rv_top">
-		<b class="rv_b">펫 이용 장소 BEST 후기</b>
-	</div>
-	<ul>
-		<li>
-			<div class="review_box">
-				<div class="rv_img"><img src="../resources/image/review.png"></div>
-				<div class="rv_txt">
-					<div class="brand">
-						<p>호텔명</p>
-						<p>간략한 위치</p>
-					</div>
-					<div class="star_review">
-						<p>별점</p>
-						<a href="#">후기/클릭시 호텔 상세 페이지로 이동</a>
-					</div>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="review_box">
-				<div class="rv_img"><img src="../resources/image/review.png"></div>
-				<div class="rv_txt">
-					<div class="brand">
-						<p>호텔명</p>
-						<p>간략한 위치</p>
-					</div>
-					<div class="star_review">
-						<p>별점</p>
-						<a href="#">후기/클릭시 호텔 상세 페이지로 이동</a>
-					</div>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="review_box">
-				<div class="rv_img"><img src="../resources/image/review.png"></div>
-				<div class="rv_txt">
-					<div class="brand">
-						<p>호텔명</p>
-						<p>간략한 위치</p>
-					</div>
-					<div class="star_review">
-						<p>별점</p>
-						<a href="#">후기/클릭시 호텔 상세 페이지로 이동</a>
-					</div>
-				</div>
-			</div>
-		</li>
-	</ul>
-</div>
-<div id="reviews">
-	<b class="rv_b" style="margin-left:150px;">사용후기</b>
+	<div id="reviews">
+	<div class="rv_b" style="font-weight:bold;display:inline-block;margin:auto;">사용후기</div>
 	<div id=review_search>
 		<form action="/community/review" id="rv_search" method="get">
 			<select id="type1">
 				<option value="0" selected="selected">전체</option>
-				<option value="1">장소별</option>
 				<option value="2">상품별</option>
 				<option value="3">기타</option>
 			</select>
 			<select id="type2">
 				<option value="0">--</option>
-				<option value="hos" class="select1">병원</option>
-				<option value="bar" class="select1">미용실</option>
-				<option value="hot" class="select1">호텔</option>
-				<option value="sch" class="select1">유치원</option>
-				<option value="foo" class="select1">음식점</option>
-				<option value="ano_p" class="select1">기타</option>
 				<option value="sna" class="select2">간식</option>
 				<option value="pla" class="select2">미용용품</option>
 				<option value="toy" class="select2">장난감</option>
@@ -157,8 +99,8 @@
 	</div>
 	<div id="shop_review">
 		<table border="1" id="review_board">
-			<tr height="40px">
-				<td width="75px">글번호</td>
+			<tr height="40px" style="text-align:center;">
+				<td width="75px">번호</td>
 				<td width="350px">상품명</td>
 				<td width="450px">후기</td>
 				<td width="100px">작성자</td>
@@ -187,6 +129,15 @@
 		</c:if>
 	</div>
 </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#searching").on("click",function(){
+		$("input[name='pageNum']").val("1");
+		$("#searchForm").submit();
+	})
+})
+</script>
 </body>
 <jsp:include page="../footer.jsp"/>
 </html>

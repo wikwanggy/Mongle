@@ -7,6 +7,7 @@ import org.Mongle.model.CommUVo;
 public interface CommUMapper {
 	public void upload(CommUVo uv);
 	public ArrayList<CommUVo> uplist(int bno);
+	public void comdelete(int bno);
 	
 	//공지
 	public void ntinsert(CommUVo uv);

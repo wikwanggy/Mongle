@@ -1,5 +1,8 @@
 package org.Mongle.controller;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import org.Mongle.Service.BoardService;
@@ -60,8 +63,13 @@ public class BoardController {
 		return "redirect:/community/detail";
 	}
 	@RequestMapping(value = "/community/boarddelete", method = RequestMethod.POST)
-	public String boarddelete(CommBoardVo bvo) {
-		bs.boarddelete(bvo);
+	public String boarddelete(int bno, CommBoardVo bvo,RedirectAttributes rttr) {
+		System.out.println("게시글 삭제..."+bno);
+		ArrayList<CommUVo> uplist=bs.uplist(bno);
+		if(bs.boarddelete(bno)) {
+			deleteFiles(uplist);
+			rttr.addFlashAttribute("result", "success");
+		}
 		return "redirect:/community/list";
 	}
 	
@@ -133,14 +141,39 @@ public class BoardController {
 	}
 	@RequestMapping(value = "/community/ntupdate", method = RequestMethod.POST)
 	public String ntupdate(NoticeVo nv,RedirectAttributes rttr) {
-		bs.ntupdate(nv);
-		rttr.addAttribute("nv", nv.getBno());
+		System.out.println("수정 완료");
+		if(bs.ntupdate(nv)) {
+			rttr.addFlashAttribute("result", "success");
+		}
 		return "redirect:/community/notice";
 	}
 	@RequestMapping(value = "/community/ntdelete", method = RequestMethod.POST)
-	public String ntdelete(NoticeVo nv) {
-		bs.ntdelete(nv);
+	public String ntdelete(int bno, NoticeVo nv,RedirectAttributes rttr) {
+		ArrayList<CommUVo> ntlist=bs.ntlist(bno);
+		System.out.println(bno+" 삭제");
+		if(bs.ntdelete(bno)) {
+			deleteFiles(ntlist);
+			rttr.addFlashAttribute("result", "success");
+		}
 		return "redirect:/community/notice";
+	}
+	private void deleteFiles(ArrayList<CommUVo> ntlist) {
+		if(ntlist==null||ntlist.size()==0) {return;}
+		System.out.println(ntlist);
+		ntlist.forEach(attach->{
+			try {
+				Path file=Paths.get("D:\\upload\\"+attach.getUploadPath()+
+						"\\"+attach.getUuid()+"_"+attach.getFilename());
+				Files.deleteIfExists(file);
+				if(Files.probeContentType(file).startsWith("image")) {
+					Path thumbnail=Paths.get("D:\\upload\\"+attach.getUploadPath()+
+							"\\s_"+attach.getUuid()+"_"+attach.getFilename());
+					Files.delete(thumbnail);
+				}
+			}catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
+		});
 	}
 	@RequestMapping(value = "/community/uplist", method = RequestMethod.GET)
 	public ResponseEntity<ArrayList<CommUVo>> CommuploadAjaxPost(int bno) {

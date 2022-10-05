@@ -39,11 +39,22 @@ public class BoardServiceImpl implements BoardService{
 		bm.cntup(bvo);
 		return bm.detail(bvo);
 	}
-	public void update(CommBoardVo bvo) {
-		bm.update(bvo);
+	@Transactional
+	public boolean update(CommBoardVo bvo) {
+		um.comdelete(bvo.getBno());
+		if(bm.update(bvo) && bvo.getAttach()!=null && bvo.getAttach().size()>0) {
+			bvo.getAttach().forEach(attach->{
+				attach.setBno(bvo.getBno());
+				um.upload(attach);
+			});
+		}
+		return bm.update(bvo);
 	}
-	public void boarddelete(CommBoardVo bvo) {
-		bm.boarddelete(bvo);
+	@Transactional
+	public boolean boarddelete(int bno) {
+		System.out.println("삭제");
+		um.comdelete(bno);
+		return bm.boarddelete(bno);
 	}
 	public int total(CommCriterionVo cri) {
 		return bm.total(cri);
@@ -82,11 +93,23 @@ public class BoardServiceImpl implements BoardService{
 	public NoticeVo ntdetailmd(NoticeVo nv) {
 		return bm.ntdetailmd(nv);
 	}
-	public void ntupdate(NoticeVo nv) {
-		bm.ntupdate(nv);
+	@Transactional
+	public boolean ntupdate(NoticeVo nv) {//ntupdate가 실행되면
+		um.deleteAll(nv.getBno());
+		System.out.println(nv.getBno());
+		//boolean modifyResult=bm.ntupdate(nv);
+		if(bm.ntupdate(nv) && nv.getAttach()!=null && nv.getAttach().size()>0) {
+			nv.getAttach().forEach(attach->{
+				attach.setBno(nv.getBno());
+				um.ntinsert(attach);
+			});
+		}
+		return bm.ntupdate(nv);
 	}
-	public void ntdelete(NoticeVo nv) {
-		bm.ntdelete(nv);
+	public boolean ntdelete(int bno) {
+		System.out.println("삭제됨.");
+		um.deleteAll(bno);
+		return bm.ntdelete(bno);
 	}
 	//첨부파일 조회
 	public ArrayList<CommUVo> uplist(int bno){

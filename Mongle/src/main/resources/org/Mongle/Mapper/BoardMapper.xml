@@ -104,17 +104,6 @@
 			from review c, (select @rownum:=0) as rr
 			<if test="keyword !=null">
 				<choose>
-					<when test="value=='1'.toString()">
-					where place like concat('%',#{keyword},'%')
-						<choose>
-							<when test="value=='hos'.toString()">and hos like concat('%',#{keyword},'%')</when>
-							<when test="value=='bar'.toString()">and bar like concat('%',#{keyword},'%')</when>
-							<when test="value=='hot'.toString()">and hot like concat('%',#{keyword},'%')</when>
-							<when test="value=='sch'.toString()">and sch like concat('%',#{keyword},'%')</when>
-							<when test="value=='foo'.toString()">and foo like concat('%',#{keyword},'%')</when>
-							<when test="value=='ano_p'.toString()">and ano_p like concat('%',#{keyword},'%')</when>
-						</choose>
-					</when>
 					<when test="value=='2'.toString()">
 					where shop like concat('%',#{keyword},'%')
 						<choose>

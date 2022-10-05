@@ -12,8 +12,8 @@ public interface BoardService {
 	public ArrayList<CommBoardVo> list(CommCriterionVo cri);
 	public void write(CommBoardVo bvo);
 	public CommBoardVo detail(CommBoardVo bvo);
-	public void update(CommBoardVo bvo);
-	public void boarddelete(CommBoardVo bvo);
+	public boolean update(CommBoardVo bvo);
+	public boolean boarddelete(int bno);
 	public int total(CommCriterionVo cri);
 	
 	public CommBoardVo detailmd(CommBoardVo bvo);
@@ -25,8 +25,8 @@ public interface BoardService {
 	public void noticewrt(NoticeVo nv);
 	public NoticeVo ntdetail(NoticeVo nv);
 	public NoticeVo ntdetailmd(NoticeVo nv);
-	public void ntupdate(NoticeVo nv);
-	public void ntdelete(NoticeVo nv);
+	public boolean ntupdate(NoticeVo nv);
+	public boolean ntdelete(int bno);
 	
 	//파일 조회
 	public ArrayList<CommUVo> uplist(int bno);

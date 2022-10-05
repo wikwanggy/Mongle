@@ -35,11 +35,8 @@ $(document).ready(function(){
 			alert("제목을 입력하세요.");
 			$("input[name='title']").val(empty);
 			return false;
-		}else if($("textarea[name='content']").val().trim()==empty||$("textarea[name='content']").val().trim()==null){
-			alert("내용을 입력하세요.");
-			$("textarea[name='content']").val(empty);
-			return false;
 		}
+		
 		$("#ntuploadResult ul li").each(function(i,obj){
 			var jobj=$(obj);
 			console.log(jobj);

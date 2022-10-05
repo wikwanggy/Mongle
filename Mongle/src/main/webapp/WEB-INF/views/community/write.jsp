@@ -22,7 +22,7 @@
 <form id="form" method="post" role="form">
 	<table border="1" class="board_write">
 		<tr>
-			<td><input type="hidden" name="id" value="${sessionScope.login.id}">
+			<td><input type="hidden" name="id" value="${sessionScope.login.id}"><input hidden="hidden">
 			<input type="text" placeholder="제목" class="board_write_title" name="title" id="title"></td>
 		</tr>
 		<tr>
