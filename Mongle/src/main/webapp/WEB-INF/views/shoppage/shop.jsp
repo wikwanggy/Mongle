@@ -16,7 +16,7 @@
 </head>
 <body>
 	<%--상단 시작 --%>
-	<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="../include/header.jsp"></jsp:include>
 	<%--상단 끝 --%>
 	<%--본문 넣을 자리 --%>
 	<!-- header 끝 -->

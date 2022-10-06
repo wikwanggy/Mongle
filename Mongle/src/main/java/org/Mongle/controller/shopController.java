@@ -114,13 +114,22 @@ public class shopController {
 		ss.s_write(item);
 		return "redirect:/shoppage/shop";
 	}
-
+	
+	// 상품 수정 페이지
+	@RequestMapping(value = "/shoppage/shop_list_detail", method = RequestMethod.GET)
+	public String list_detail(shopVO shop, Model model) {
+		model.addAttribute("main", ss.main(shop));
+		model.addAttribute("sub",ss.sub(shop));
+		return "/shoppage/shop_list_detail";
+	}
+	
 	// 상품 수정
 	@RequestMapping(value = "/shoppage/modify", method = RequestMethod.POST)
 	public String modify(shopVO shop, RedirectAttributes rttr) {
 		ss.modify(shop);
+		System.out.println(shop);
 		rttr.addAttribute("bno", shop.getBno());
-		return "redirect:/shoppage/shop";
+		return "redirect:/shoppage/shop_list";
 	}
 
 	// 상품 삭제

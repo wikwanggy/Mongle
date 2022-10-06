@@ -28,18 +28,20 @@
 		select c_type2 from Category
 		where c_type1=#{c_type1}
 	</select>
-	
+
 	<!-- 상품 등록 리스트 -->
 	<select id="shop_list" resultType="org.Mongle.model.shopVO">
 		select
 		w.bno,w_name,w_price,w_regdata,w_quantity,vision,Concat(Replace(p_upload,'\\','/')
-		,<![CDATA['/']]>,p_uid,'_' ,p_name)AS filem
-		from writing w JOIN product p ON w.bno = p.bno WHERE p_image = 1 and
+		,<![CDATA['/']]>,p_uid,'_'
+		,p_name)AS filem
+		from writing w JOIN product p ON w.bno = p.bno WHERE
+		p_image = 1 and
 		vision = 'm' ORDER BY w.bno;
 	</select>
 
 
-	
+
 
 
 	<!-- 상품 상세내용 -->
@@ -81,17 +83,21 @@
 
 	<!-- 문의 리스트 -->
 	<select id="s_item" resultType="org.Mongle.model.shopitemVO">
-		select * from shop_item i join writing w on i.bno= w.bno where i.bno =
+		select * from shop_item i join
+		writing w on i.bno= w.bno where i.bno =
 		#{bno}
 	</select>
 
 	<!-- 상품 수정 -->
-	<!-- <update id="modify"> update writing set w_name=#{w_name}, w_price=#{w_price}, 
-		w_color=#{w_color}, w_type=#{w_type}, w_Quantity=#{w_Quantity} where bno=#{bno} 
-		</update> -->
+	<update id="modify"> update writing 
+	set w_name=#{w_name},w_price=#{w_price},w_Quantity=#{w_Quantity}		
+		where bno=#{bno}
+	</update>
 
 	<!-- 상품 삭제 -->
-	<!-- <delete id="remove"> delete from writing where bno=#{bno} </delete> -->
+	<delete id="remove"> delete w, p from writing as w join product as p on
+		w.bno = p.bno where w.bno= #{bno};
+	</delete>
 
 	<!-- shop페이지 total -->
 	<select id="total" resultType="int">
