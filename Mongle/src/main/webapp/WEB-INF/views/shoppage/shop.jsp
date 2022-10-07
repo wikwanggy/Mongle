@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="true"%>
 <html>
 <head>
@@ -22,54 +23,41 @@
 	<!-- header 끝 -->
 
 	<!-- main 전체 -->
-	<div id="main">		
-			<!-- center 시작 -->
-			<div id="cn">
-				<a href="/shoppage/shop_list"><input type="button" value="상품리스트"></a>
-				<a href="/shoppage/shop_board"><input type="button" value="상품등록"></a>
-				<form action="/shoppage/shop" id="searchForm" method="get">
-					<select name="type">
-						<option value="T">이름</option>
-					</select> <input type="text" name="keyword"> <input type="text"
-						name="pageNum" value="${paging.scri.amount}" hidden=""> <input
-						type="text" name="amount" value="${paging.scri.amount}" hidden="">
-					<input type="button" value="검색">
-				</form>
-				<ul id="cnm">
-					<li><a href="#">인기도순</a></li>
-					<li><a href="#">누적판매순</a></li>
-					<li><a href="#">낮은가격순</a></li>
-					<li><a href="#">리뷰순</a></li>
+	<div id="main">
+		<!-- center 시작 -->
+		<div id="cn">
+			<ul id="cnm">				
+				<li><a href="#" id="new">최신 순</a></li>
+				<li><a href="#" id="hi">높은 가격순</a></li>
+				<li><a href="#" id="row">낮은 가격순</a></li>
+			</ul>
+			<br> <br> <br>
+			<!-- shop 메인 탭 -->
+			<div class="Goods">
+				<ul class="Goodss">
+					<!-- 상품 리스트 for문 -->
+					<c:forEach items="${shop}" var="shoplist">
+						<li>
+							<div>
+								<input type="text" value="${shoplist.bno}" hidden="">
+							</div>
+							<div>
+								<a href="/shoppage/Detail?bno=${shoplist.bno}"> <img
+									class="img" src="/display?filename=${shoplist.filem}"></a>
+							</div>
+							<div>
+								상품명<span class="font">${shoplist.w_name}</span>
+							</div>
+							<div>
+								가격<span class="font"><fmt:formatNumber
+										value="${shoplist.w_price}" pattern="#,###" /></span>
+							</div>
+						</li>
+					</c:forEach>
+					<!-- 상품 리스트 for문 종료 -->
 				</ul>
-				<br> <br> <br>
-				<!-- shop 메인 탭 -->
-				<div class="Goods">
-					<ul class="Goodss">
-						<!-- 상품 리스트 for문 -->
-						<c:forEach items="${shop}" var="shoplist">
-							<li>
-								<div>
-									<input type="text" value="${shoplist.bno}" hidden="">
-								</div>
-								<div>
-									<a href="/shoppage/Detail?bno=${shoplist.bno}"> <img
-										class="img" src="/display?filename=${shoplist.filem}"></a>
-								</div>
-								<div>
-									상품명<span class="font">${shoplist.w_name}</span>
-								</div>
-								<div>
-									가격<span class="font">${shoplist.w_price}</span>
-								</div>
-								<div>
-									<span>리뷰</span>
-								</div>
-							</li>
-						</c:forEach>
-						<!-- 상품 리스트 for문 종료 -->
-					</ul>
-				</div>
 			</div>
+		</div>
 		<!-- center 끝 -->
 		<!-- right 시작 -->
 		<div id="rs">
@@ -109,7 +97,7 @@
 	<!-- bottom 시작 -->
 	<%--본문 넣을 자리 --%>
 	<%--하단 시작 --%>
-	<jsp:include page="../footer.jsp"></jsp:include>
+	<jsp:include page="../include/footer.jsp"></jsp:include>
 	<%--하단 끝 --%>
 </body>
 </html>

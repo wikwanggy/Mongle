@@ -33,7 +33,7 @@
 	<select id="shop_list" resultType="org.Mongle.model.shopVO">
 		select
 		w.bno,w_name,w_price,w_regdata,w_quantity,vision,Concat(Replace(p_upload,'\\','/')
-		,<![CDATA['/']]>,p_uid,'_'
+		,'/',p_uid,'_'
 		,p_name)AS filem
 		from writing w JOIN product p ON w.bno = p.bno WHERE
 		p_image = 1 and
@@ -42,13 +42,11 @@
 
 
 
-
-
 	<!-- 상품 상세내용 -->
 	<select id="main" resultType="org.Mongle.model.shopVO">
 		select
 		w.bno,w_name,w_price,w_regdata,w_quantity,
-		Concat(Replace(p_upload, '\\','/'),<![CDATA['/']]>,p_uid,'_'
+		Concat(Replace(p_upload, '\\','/'),'/',p_uid,'_'
 		,p_name)AS filem
 		from writing w join product p on w.bno = p.bno where
 		w.bno = #{bno} and
@@ -57,7 +55,7 @@
 	<select id="sub" resultType="org.Mongle.model.shopVO">
 		select
 		w.bno,w_name,w_price,w_regdata,w_quantity,
-		Concat(Replace(p_upload, '\\','/'),<![CDATA['/']]>,p_uid,'_'
+		Concat(Replace(p_upload, '\\','/'),'/',p_uid,'_'
 		,p_name)AS filem
 		from writing w join product p
 		on w.bno = p.bno where
@@ -89,9 +87,11 @@
 	</select>
 
 	<!-- 상품 수정 -->
-	<update id="modify"> update writing 
-	set w_name=#{w_name},w_price=#{w_price},w_Quantity=#{w_Quantity}		
-		where bno=#{bno}
+	<update id="modify"> update writing
+		set
+		w_name=#{w_name},w_price=#{w_price},w_Quantity=#{w_Quantity}
+		where
+		bno=#{bno}
 	</update>
 
 	<!-- 상품 삭제 -->
@@ -110,138 +110,50 @@
 		</if>
 	</select>
 	<!-- 상품 목록 리스트,번호 -->
+	<select id="page" resultType="org.Mongle.model.shopVO">
+		select
+		rownum,bno,w_name,w_price,w_regdata,w_quantity,w_type,vision,Concat(Replace(p_upload,
+		'\\','/'),'/'
+		,p_uid,'_' ,p_name)AS filem
+		from(
+		select @rownum:=@rownum+1 rownum, a.*
+		from( select *
+		from(
+		select
+		w.bno,w_name,w_price,w_regdata,w_quantity,w_type,vision,p_upload,p_uid,p_name
+		from writing w join product p on w.bno = p.bno where w_type=#{w_type} and
+		p_image = 1 and vision = 'm')as j) as a,(
+		select @rownum:=0)as tmp
+		<if test="w_type != null">
+			<choose>
+				<when test="type == 'new'.toString()">
+					ORDER BY bno desc
+				</when>
+				<when test="type == 'row'.toString()">
+					ORDER BY w_price
+				</when>
+				<when test="type == 'hi'.toString()">
+					ORDER BY w_price desc
+				</when>
+			</choose>
+		</if>
+		) as balist;
+
+	</select>
 	<select id="shop" resultType="org.Mongle.model.shopVO">
 		select
 		rownum,j.bno,w_name,w_price,w_regdata,w_quantity,w_type,vision,Concat(Replace(p_upload,
-		'\\','/'),<![CDATA['/']]>
+		'\\','/'),'/'
 		, p_uid , '_' ,p_name)AS filem from(select @rownum:=@rownum+1 rownum,
 		w.* from writing w,
 		(select @rownum:=0) as tmp
-		<if test="keyword != null">
-			<choose>
-				<when test="type == 'T'.toString()">
-					where w_name like concat('%',#{keyword},'%') </when>
-			</choose>
-		</if>
+		
 		)as j join product p on j.bno = p.bno
 		<![CDATA[
 		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount} and vision = "m"
 		]]>
 		order by j.bno desc
 	</select>
-	<select id="Snack" resultType="org.Mongle.model.shopVO">
-		select
-		rownum,j.bno,w_name,w_price,w_regdata,w_quantity,w_type,vision,Concat(Replace(p_upload,
-		'\\','/'),<![CDATA['/']]>
-		, p_uid , '_' ,p_name)AS filem from(select @rownum:=@rownum+1 rownum,
-		w.* from writing w,
-		(select @rownum:=0) as tmp
-		<if test="keyword != null">
-			<choose>
-				<when test="type == 'T'.toString()">
-					where w_name like concat('%',#{keyword},'%') </when>
-			</choose>
-		</if>
-		)as j join product p on j.bno = p.bno
-		<![CDATA[
-		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount} and vision = "m" and w_type = "간식" 
-		]]>
-		order by j.bno desc
-	</select>
-	<select id="beauty" resultType="org.Mongle.model.shopVO">
-		select
-		rownum,j.bno,w_name,w_price,w_regdata,w_quantity,w_type,vision,Concat(Replace(p_upload,
-		'\\','/'),<![CDATA['/']]>
-		, p_uid , '_' ,p_name)AS filem from(select @rownum:=@rownum+1 rownum,
-		w.* from writing w,
-		(select @rownum:=0) as tmp
-		<if test="keyword != null">
-			<choose>
-				<when test="type == 'T'.toString()">
-					where w_name like concat('%',#{keyword},'%') </when>
-			</choose>
-		</if>
-		)as j join product p on j.bno = p.bno
-		<![CDATA[
-		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount} and vision = "m" and w_type = "미용용품"
-		]]>
-		order by j.bno desc
-	</select>
-	<select id="toy" resultType="org.Mongle.model.shopVO">
-		select
-		rownum,j.bno,w_name,w_price,w_regdata,w_quantity,w_type,vision,Concat(Replace(p_upload,
-		'\\','/'),<![CDATA['/']]>
-		, p_uid , '_' ,p_name)AS filem from(select @rownum:=@rownum+1 rownum,
-		w.* from writing w,
-		(select @rownum:=0) as tmp
-		<if test="keyword != null">
-			<choose>
-				<when test="type == 'T'.toString()">
-					where w_name like concat('%',#{keyword},'%') </when>
-			</choose>
-		</if>
-		)as j join product p on j.bno = p.bno
-		<![CDATA[
-		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount} and vision = "m" and w_type = "장난감"
-		]]>
-		order by j.bno desc
-	</select>
-	<select id="house" resultType="org.Mongle.model.shopVO">
-		select
-		rownum,j.bno,w_name,w_price,w_regdata,w_quantity,w_type,vision,Concat(Replace(p_upload,
-		'\\','/'),<![CDATA['/']]>
-		, p_uid , '_' ,p_name)AS filem from(select @rownum:=@rownum+1 rownum,
-		w.* from writing w,
-		(select @rownum:=0) as tmp
-		<if test="keyword != null">
-			<choose>
-				<when test="type == 'T'.toString()">
-					where w_name like concat('%',#{keyword},'%') </when>
-			</choose>
-		</if>
-		)as j join product p on j.bno = p.bno
-		<![CDATA[
-		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount} and vision = "m" and w_type = "하우스"
-		]]>
-		order by j.bno desc
-	</select>
-	<select id="fashion" resultType="org.Mongle.model.shopVO">
-		select
-		rownum,j.bno,w_name,w_price,w_regdata,w_quantity,w_type,vision,Concat(Replace(p_upload,
-		'\\','/'),<![CDATA['/']]>
-		, p_uid , '_' ,p_name)AS filem from(select @rownum:=@rownum+1 rownum,
-		w.* from writing w,
-		(select @rownum:=0) as tmp
-		<if test="keyword != null">
-			<choose>
-				<when test="type == 'T'.toString()">
-					where w_name like concat('%',#{keyword},'%') </when>
-			</choose>
-		</if>
-		)as j join product p on j.bno = p.bno
-		<![CDATA[
-		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount} and vision = "m" and w_type = "패션" 
-		]]>
-		order by j.bno desc
-	</select>
-	<select id="etc" resultType="org.Mongle.model.shopVO">
-		select
-		rownum,j.bno,w_name,w_price,w_regdata,w_quantity,w_type,vision,Concat(Replace(p_upload,
-		'\\','/'),<![CDATA['/']]>
-		, p_uid , '_' ,p_name)AS filem from(select @rownum:=@rownum+1 rownum,
-		w.* from writing w,
-		(select @rownum:=0) as tmp
-		<if test="keyword != null">
-			<choose>
-				<when test="type == 'T'.toString()">
-					where w_name like concat('%',#{keyword},'%') </when>
-			</choose>
-		</if>
-		)as j join product p on j.bno = p.bno
-		<![CDATA[
-		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount} and vision = "m" and w_type = "기타" 
-		]]>
-		order by j.bno desc
-	</select>
+
 
 </mapper>

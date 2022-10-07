@@ -44,12 +44,12 @@
 							<li><a href="/">HOME</a></li>
 							<li><a href="/shoppage/shop">SHOP</a>
 								<ul>
-									<li><a href="/shoppage/Snack">간식</a></li>
-									<li><a href="/shoppage/beauty">미용용품</a></li>
-									<li><a href="/shoppage/toy">장난감</a></li>
-									<li><a href="/shoppage/House">하우스</a></li>
-									<li><a href="/shoppage/fashion">패션</a></li>
-									<li><a href="/shoppage/etc">기타</a></li>
+									<li><a href="/shoppage/page?w_type=간식" class="pa_a">간식</a></li>
+									<li><a href="/shoppage/page?w_type=미용용품" class="pa_a">미용용품</a></li>
+									<li><a href="/shoppage/page?w_type=장난감" class="pa_a">장난감</a></li>
+									<li><a href="/shoppage/page?w_type=하우스" class="pa_a">하우스</a></li>
+									<li><a href="/shoppage/page?w_type=패션" class="pa_a">패션</a></li>
+									<li><a href="/shoppage/page?w_type=기타" class="pa_a">기타</a></li>
 								</ul></li>
 							<li><a href="/place/board">PLACE</a>
 								<ul>

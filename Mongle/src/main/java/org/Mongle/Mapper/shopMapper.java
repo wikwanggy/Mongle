@@ -18,13 +18,9 @@ public interface shopMapper {
 	public ArrayList<shopCategoryVO> c_type2(String shop);
 
 	// 상품 목록 리스트 설계
-	public ArrayList<shopVO> shop(SCriteriaVO scri);   // 메인 
-	public ArrayList<shopVO> Snack(SCriteriaVO scri);  // 간식
-	public ArrayList<shopVO> beauty(SCriteriaVO scri); // 미용용품
-	public ArrayList<shopVO> toy(SCriteriaVO scri);    // 장난감
-	public ArrayList<shopVO> house(SCriteriaVO scri);  // 하우스
-	public ArrayList<shopVO> fashion(SCriteriaVO scri);// 패션
-	public ArrayList<shopVO> etc(SCriteriaVO scri);    // 기타
+	public ArrayList<shopVO> shop(SCriteriaVO scri);  
+	// 상품 분류 
+	public ArrayList<shopVO> page(shopVO shop);	
 
 	// 상품 상세 내용보기 메인 이미지 설계
 	public shopVO main(shopVO shop);

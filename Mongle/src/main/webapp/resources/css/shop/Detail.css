@@ -145,8 +145,7 @@ header {
 }
 
 #img {
-	width: 350px;
-	height: 550px;
+	width: 700px;
 	margin: auto;
 	float: left;
 }
@@ -158,11 +157,7 @@ header {
 }
 
 #cnt-header_left {
-	margin-right: -100px;
-}
-
-#cnt-header_left img {
-	width: 70%;
+	margin-right: 50px;
 }
 
 #cnt-header_right>span {
@@ -181,6 +176,11 @@ header {
 
 #wish {
 	margin-left: 380px;
+}
+
+#total {
+	font-size: 23px;
+	color: red;
 }
 
 #price {
@@ -227,7 +227,7 @@ header {
 
 #plus {
 	width: 40px;
-	margin-right: -6px;
+	margin-right: -7px;
 }
 
 #minus {

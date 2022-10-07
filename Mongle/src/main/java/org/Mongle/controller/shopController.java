@@ -71,25 +71,13 @@ public class shopController {
 		return "/shoppage/shop";
 	}
 
-	// 상품 리스트
-	/*
-	 * @RequestMapping(value = "/shoppage/shop", method = RequestMethod.GET) public
-	 * String shop_tab(Model model, SCriteriaVO scri) { String page = ""; String a =
-	 * "간식"; String b = "미용용품"; String c = "장난감"; String d = "하우스"; String e = "패션";
-	 * String f = "기타"; if (scri.getW_type() == a) { // 만약에 w_type가 1이면 //
-	 * 공지사항(shoppage/shop) model.addAttribute("shop", ss.shop(scri)); page =
-	 * "shoppage/shop"; } else if (scri.getW_type() == b) { // 만약에 w_type 2이면
-	 * model.addAttribute("shop", ss.shop(scri)); page = "shoppage/shop"; } else if
-	 * (scri.getW_type() == c) { // 만약에 w_type 3이면 model.addAttribute("shop",
-	 * ss.shop(scri)); page = "shoppage/shop"; } else if (scri.getW_type() == d) {
-	 * // 만약에 w_type 4이면 model.addAttribute("shop", ss.shop(scri)); page =
-	 * "shoppage/shop"; } else if (scri.getW_type() == e) { // 만약에 w_type 5이면
-	 * model.addAttribute("shop", ss.shop(scri)); page = "shoppage/shop"; } else if
-	 * (scri.getW_type() == f) { // 만약에 w_type 6이면 model.addAttribute("shop",
-	 * ss.shop(scri)); page = "shoppage/shop"; }; int total = ss.total(scri);
-	 * model.addAttribute("paging", new SPageVO(scri, total));
-	 * System.out.println("page="+page); return page; }
-	 */
+	// 상품 탭 목록
+	@RequestMapping(value = "/shoppage/page", method = RequestMethod.GET)
+	public String Coner(shopVO shop, Model model) {
+		System.out.println("controller="+shop);
+		model.addAttribute("page",ss.page(shop));
+		return "shoppage/page";
+	}
 
 	// 상품 상세설명
 	@RequestMapping(value = "/shoppage/Detail", method = RequestMethod.GET)
@@ -104,7 +92,7 @@ public class shopController {
 	// 문의하기
 	@RequestMapping(value = "/shoppage/shop_item", method = RequestMethod.GET)
 	public String s_writeget(shopVO shop, Model model) {
-		model.addAttribute("item",ss.main(shop));
+		model.addAttribute("item", ss.main(shop));
 		return "/shoppage/shop_item";
 	}
 
@@ -114,15 +102,15 @@ public class shopController {
 		ss.s_write(item);
 		return "redirect:/shoppage/shop";
 	}
-	
+
 	// 상품 수정 페이지
 	@RequestMapping(value = "/shoppage/shop_list_detail", method = RequestMethod.GET)
 	public String list_detail(shopVO shop, Model model) {
 		model.addAttribute("main", ss.main(shop));
-		model.addAttribute("sub",ss.sub(shop));
+		model.addAttribute("sub", ss.sub(shop));
 		return "/shoppage/shop_list_detail";
 	}
-	
+
 	// 상품 수정
 	@RequestMapping(value = "/shoppage/modify", method = RequestMethod.POST)
 	public String modify(shopVO shop, RedirectAttributes rttr) {
@@ -137,62 +125,6 @@ public class shopController {
 	public String remove(shopVO shop) {
 		ss.remove(shop);
 		return "redirect:/shoppage/shop";
-	}
-
-	// 상품 목록
-	// 간식
-	@RequestMapping(value = "/shoppage/Snack", method = RequestMethod.GET)
-	public String Snack(Model model, SCriteriaVO scri) {
-		model.addAttribute("Snack", ss.Snack(scri));
-		int total = ss.total(scri);
-		model.addAttribute("paging1", new SPageVO(scri, total));
-		return "/shoppage/Snack";
-	}
-
-	// 미용
-	@RequestMapping(value = "/shoppage/beauty", method = RequestMethod.GET)
-	public String beauty(Model model, SCriteriaVO scri) {
-		model.addAttribute("beauty", ss.beauty(scri));
-		int total = ss.total(scri);
-		model.addAttribute("paging", new SPageVO(scri, total));
-		return "/shoppage/beauty";
-	}
-
-	// 장난감
-	@RequestMapping(value = "/shoppage/toy", method = RequestMethod.GET)
-	public String toy(Model model, SCriteriaVO scri) {
-		model.addAttribute("toy", ss.toy(scri));
-		int total = ss.total(scri);
-		model.addAttribute("paging", new SPageVO(scri, total));
-		return "/shoppage/toy";
-
-	}
-
-	// 하우스
-	@RequestMapping(value = "/shoppage/House", method = RequestMethod.GET)
-	public String House(Model model, SCriteriaVO scri) {
-		model.addAttribute("house", ss.house(scri));
-		int total = ss.total(scri);
-		model.addAttribute("paging", new SPageVO(scri, total));
-		return "/shoppage/House";
-	}
-
-	// 패션
-	@RequestMapping(value = "/shoppage/fashion", method = RequestMethod.GET)
-	public String fashion(Model model, SCriteriaVO scri) {
-		model.addAttribute("fashion", ss.fashion(scri));
-		int total = ss.total(scri);
-		model.addAttribute("paging", new SPageVO(scri, total));
-		return "/shoppage/fashion";
-	}
-
-	// 기타
-	@RequestMapping(value = "/shoppage/etc", method = RequestMethod.GET)
-	public String etc(Model model, SCriteriaVO scri) {
-		model.addAttribute("etc", ss.etc(scri));
-		int total = ss.total(scri);
-		model.addAttribute("paging", new SPageVO(scri, total));
-		return "/shoppage/etc";
 	}
 
 }

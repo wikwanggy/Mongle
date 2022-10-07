@@ -1,18 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>beauty</title>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="/resources/css/shop/shop.css">
 <link rel="stylesheet" href="/resources/css/shop/header.css">
 <link rel="stylesheet" href="/resources/css/shop/footer.css">
+<script type="text/javascript" src="/resources/js/shop/page.js"></script>
 </head>
 <body>
 	<%--상단 시작 --%>
-	<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="../include/header.jsp"></jsp:include>
 	<%--상단 끝 --%>
 	<%--본문 넣을 자리 --%>
 	<!-- header 끝 -->
@@ -24,39 +28,32 @@
 			<div id="cn">
 				<a href="/shoppage/shop_list"><input type="button" value="상품리스트"></a>
 				<a href="/shoppage/shop_board"><input type="button" value="상품등록"></a>
-				<form action="/shoppage/shop" id="searchForm" method="get">
-					<select name="type">
-						<option value="T">이름</option>
-					</select> <input type="text" name="keyword"> <input type="text"
-						name="pageNum" value="${paging.scri.amount}" hidden=""> <input
-						type="text" name="amount" value="${paging.scri.amount}" hidden="">
-					<input type="button" value="검색">
-				</form>
-				<ul id="cnm">
-					<li><a href="#">인기도순</a></li>
-					<li><a href="#">누적판매순</a></li>
-					<li><a href="#">낮은가격순</a></li>
-					<li><a href="#">리뷰순</a></li>
+				<input type="hidden" id="category" value="${page[0].w_type}">
+				<ul id="cnm" name="type">
+					<li><a href="#" id="new">최신 순</a></li>
+					<li><a href="#" id="hi">높은 가격순</a></li>
+					<li><a href="#" id="row">낮은 가격순</a></li>
 				</ul>
 				<br> <br> <br>
 				<!-- shop 메인 탭 -->
 				<div class="Goods">
 					<ul class="Goodss">
 						<!-- 상품 리스트 for문 -->
-						<c:forEach items="${beauty}" var="beauty">
+						<c:forEach items="${page}" var="page">
 							<li>
 								<div>
-									<input type="text" value="${beauty.bno}" hidden="">
+									<input type="text" value="${page.bno}" hidden="">
 								</div>
 								<div>
-									<a href="/shoppage/Detail?bno=${beauty.bno}"> <img
-										class="img" src="/display?filename=${beauty.filem}"></a>
+									<a href="/shoppage/Detail?bno=${page.bno}"> <img
+										class="img" src="/display?filename=${page.filem}"></a>
 								</div>
 								<div>
-									상품명<span class="font">${beauty.w_name}</span>
+									상품명<span class="font">${page.w_name}</span>
 								</div>
 								<div>
-									가격<span class="font">${beauty.w_price}</span>
+									가격<span class="font"><fmt:formatNumber
+											value="${page.w_price}" pattern="#,###" /></span>
 								</div>
 								<div>
 									<span>리뷰</span>
@@ -107,7 +104,7 @@
 	<!-- bottom 시작 -->
 	<%--본문 넣을 자리 --%>
 	<%--하단 시작 --%>
-	<jsp:include page="../footer.jsp"></jsp:include>
+	<jsp:include page="../include/footer.jsp"></jsp:include>
 	<%--하단 끝 --%>
 </body>
 </html>
