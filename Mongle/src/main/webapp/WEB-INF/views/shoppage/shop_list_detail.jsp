@@ -55,6 +55,7 @@
 				</form>
 			</div>
 		</div>
+		<div id="rs"></div>
 	</div>
 	<div>
 		<div id="rs"></div>

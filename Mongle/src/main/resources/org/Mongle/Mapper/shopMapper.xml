@@ -45,8 +45,8 @@
 	<!-- 상품 상세내용 -->
 	<select id="main" resultType="org.Mongle.model.shopVO">
 		select
-		w.bno,w_name,w_price,w_regdata,w_quantity,
-		Concat(Replace(p_upload, '\\','/'),'/',p_uid,'_'
+		w.bno,w_name,w_price,w_regdata,w_quantity,vision,Concat(Replace(p_upload, '\\','/')
+		,'/',p_uid,'_'
 		,p_name)AS filem
 		from writing w join product p on w.bno = p.bno where
 		w.bno = #{bno} and
