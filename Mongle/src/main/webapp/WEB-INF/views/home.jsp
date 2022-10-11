@@ -42,7 +42,7 @@
 					<nav>
 						<ul id="menu">
 							<li><a href="/">HOME</a></li>
-							<li><a href="/shoppage/shop">SHOP</a>
+							<li><a href="/shoppage/shop?s_type=메인">SHOP</a>
 								<ul>
 									<li><a href="/shoppage/page?w_type=간식" class="pa_a">간식</a></li>
 									<li><a href="/shoppage/page?w_type=미용용품" class="pa_a">미용용품</a></li>
@@ -136,6 +136,6 @@
 			</footer>
 		</div>
 	</div>
-	<script src="resources/js/main.js"></script>
+	<script src="/resources/js/main.js"></script>
 </body>
 </html>

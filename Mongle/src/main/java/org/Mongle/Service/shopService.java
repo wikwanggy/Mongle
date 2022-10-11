@@ -2,10 +2,10 @@ package org.Mongle.Service;
 
 import java.util.ArrayList;
 
-import org.Mongle.model.SAttachFileVO;
 import org.Mongle.model.SCriteriaVO;
 import org.Mongle.model.shopCategoryVO;
 import org.Mongle.model.shopVO;
+import org.Mongle.model.shopcartVO;
 import org.Mongle.model.shopitemVO;
 
 public interface shopService {
@@ -18,7 +18,7 @@ public interface shopService {
 	public ArrayList<shopCategoryVO> c_type2(String shop);
 
 	// 상품 목록 리스트 설계
-	public ArrayList<shopVO> shop(SCriteriaVO scri);
+	public ArrayList<shopVO> shop(shopVO shop);
 
 	// 상품 분류
 	public ArrayList<shopVO> page(shopVO shop);
@@ -44,10 +44,9 @@ public interface shopService {
 	// 상품 삭제 설계
 	public void remove(shopVO shop);
 
-	// writing테이블 전체건수 설계
+	// 테이블 전체건수 설계
 	public int total(SCriteriaVO scri);
-
-	// 썸네일 첨부파일 조회 설계
-	public ArrayList<SAttachFileVO> attachlist(int bno);
-
+	
+	// 장바구니 담기 설계
+	public void cartinsert(shopcartVO cart);
 }

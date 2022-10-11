@@ -141,13 +141,13 @@ header {
 }
 
 #main_left {
-	width: 87%;
+    width: 87%;
+    margin-right: 60px;
 }
 
 /* main center */
 #cn {
 	background-color: white;
-	padding-left: 40px;
 	padding-top: 30px;
 	width: 1340px;
 }
@@ -174,7 +174,7 @@ header {
 }
 
 .img {
-	width: 130px;
+	width: 270px;
 	height: 170px;
 }
 

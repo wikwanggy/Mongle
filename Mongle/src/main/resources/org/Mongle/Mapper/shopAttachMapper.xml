@@ -11,10 +11,4 @@
 		vision,bno)
 		value(#{p_uid}, #{p_name}, #{p_image}, #{p_upload}, #{vision}, #{bno})
 	</insert>
-
-	<select id="attachlist"
-		resultType="org.Mongle.model.SAttachFileVO">
-		select*from product where bno=#{bno};
-	</select>
-
 </mapper>

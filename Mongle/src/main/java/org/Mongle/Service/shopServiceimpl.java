@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 import org.Mongle.Mapper.shopAttachMapper;
 import org.Mongle.Mapper.shopMapper;
-import org.Mongle.model.SAttachFileVO;
 import org.Mongle.model.SCriteriaVO;
 import org.Mongle.model.shopCategoryVO;
 import org.Mongle.model.shopVO;
+import org.Mongle.model.shopcartVO;
 import org.Mongle.model.shopitemVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 @Service
 public class shopServiceimpl implements shopService {
@@ -35,6 +34,7 @@ public class shopServiceimpl implements shopService {
 			sam.insert(attach);
 		});
 	}
+
 	// 상품 등록 리스트
 	public ArrayList<shopVO> shop_list(shopVO shop) {
 		return sm.shop_list(shop);
@@ -48,12 +48,14 @@ public class shopServiceimpl implements shopService {
 	public ArrayList<shopCategoryVO> c_type2(String shop) {
 		return sm.c_type2(shop);
 	}
+
 	// 상품 목록 리스트 구현
-	public ArrayList<shopVO> shop(SCriteriaVO scri) {
-		return sm.shop(scri);
+	public ArrayList<shopVO> shop(shopVO shop) {
+		return sm.shop(shop);
 	}
+
 	// 상품 분류
-	public ArrayList<shopVO> page(shopVO shop){
+	public ArrayList<shopVO> page(shopVO shop) {
 		return sm.page(shop);
 	}
 
@@ -92,9 +94,9 @@ public class shopServiceimpl implements shopService {
 	public int total(SCriteriaVO scri) {
 		return sm.total(scri);
 	}
-
-	// 썸네일 첨부파일 조회 구현
-	public ArrayList<SAttachFileVO> attachlist(int bno) {
-		return sam.attachlist(bno);
+	
+	// 장바구니 담기 구현
+	public void cartinsert(shopcartVO cart) {
+		sm.cartinsert(cart);
 	}
 }

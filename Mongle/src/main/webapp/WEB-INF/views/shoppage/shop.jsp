@@ -10,10 +10,8 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/shop/shop.js"></script>
-<!-- <script type="text/javascript" src="/resources/js/shop/attach.js"></script> -->
 <link rel="stylesheet" href="/resources/css/shop/shop.css">
 <link rel="stylesheet" href="/resources/css/shop/header.css">
-<link rel="stylesheet" href="/resources/css/shop/footer.css">
 </head>
 <body>
 	<%--상단 시작 --%>
@@ -26,7 +24,8 @@
 	<div id="main">
 		<!-- center 시작 -->
 		<div id="cn">
-			<ul id="cnm">				
+			<input type="text" id="category" value="${shop[0].s_type}">
+			<ul id="cnm" name="type" >
 				<li><a href="#" id="new">최신 순</a></li>
 				<li><a href="#" id="hi">높은 가격순</a></li>
 				<li><a href="#" id="row">낮은 가격순</a></li>
@@ -71,26 +70,6 @@
 			</ul>
 		</div>
 		<!-- right 끝-->
-	</div>
-	<div id="pag">
-		<!-- prev(이전)이 true이면 이전버튼 화설화 -->
-		<c:if test="${paging.prev}">
-			<a
-				href="/shoppage/shop?pageNum=${paging.startPage-1}&amount=${paging.scri.amount}">이전</a>
-		</c:if>
-
-		<!-- begin(1) end(10)될 동안 반복(1일 10일 될 동안 반복) -->
-		<c:forEach begin="${paging.startPage}" end="${paging.endPage}"
-			var="num">
-			<a
-				href="/shoppage/shop?type=${paging.scri.type}&keyword=${paging.scri.keyword}&pageNum=${num}&amount=${paging.scri.amount}">${num}</a>
-		</c:forEach>
-
-		<!-- next(다음)이 true이면 다음버튼 활성화 -->
-		<c:if test="${paging.next}">
-			<a
-				href="/shoppage/shop?pageNum=${paging.endPage+1}&amount=${paging.scri.amount}">다음</a>
-		</c:if>
 	</div>
 	<br>
 	<!-- main 끝 -->

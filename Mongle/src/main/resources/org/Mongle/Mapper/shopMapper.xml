@@ -22,7 +22,6 @@
 		resultType="org.Mongle.model.shopCategoryVO">
 		select distinct(c_type1) from Category
 	</select>
-
 	<select id="c_type2"
 		resultType="org.Mongle.model.shopCategoryVO">
 		select c_type2 from Category
@@ -35,36 +34,35 @@
 		w.bno,w_name,w_price,w_regdata,w_quantity,vision,Concat(Replace(p_upload,'\\','/')
 		,'/',p_uid,'_'
 		,p_name)AS filem
-		from writing w JOIN product p ON w.bno = p.bno WHERE
+		from writing w JOIN product p ON w.bno =
+		p.bno WHERE
 		p_image = 1 and
 		vision = 'm' ORDER BY w.bno;
 	</select>
 
-
-
 	<!-- 상품 상세내용 -->
 	<select id="main" resultType="org.Mongle.model.shopVO">
 		select
-		w.bno,w_name,w_price,w_regdata,w_quantity,vision,Concat(Replace(p_upload, '\\','/')
+		w.bno,w_name,w_price,w_regdata,w_quantity,vision,Concat(Replace(p_upload,
+		'\\','/')
 		,'/',p_uid,'_'
 		,p_name)AS filem
-		from writing w join product p on w.bno = p.bno where
+		from writing w join product p
+		on w.bno = p.bno where
 		w.bno = #{bno} and
 		vision = 'm';
 	</select>
 	<select id="sub" resultType="org.Mongle.model.shopVO">
 		select
 		w.bno,w_name,w_price,w_regdata,w_quantity,
-		Concat(Replace(p_upload, '\\','/'),'/',p_uid,'_'
+		Concat(Replace(p_upload,
+		'\\','/'),'/',p_uid,'_'
 		,p_name)AS filem
 		from writing w join product p
 		on w.bno = p.bno where
 		w.bno = #{bno} and
 		vision = 's' ;
 	</select>
-
-
-
 
 	<!-- 문의 등록 -->
 	<insert id="s_write">
@@ -101,14 +99,11 @@
 
 	<!-- shop페이지 total -->
 	<select id="total" resultType="int">
-		select count(*) from writing w join product p on w.bno = p.bno where
+		select count(*) from writing w
+		join product p on w.bno = p.bno where
 		vision = "m"
-		<if test="keyword != null">
-			<choose>
-				<when test="type == 'T'.toString()"> and w_name like concat('%',#{keyword},'%') </when>
-			</choose>
-		</if>
 	</select>
+
 	<!-- 상품 목록 리스트,번호 -->
 	<select id="page" resultType="org.Mongle.model.shopVO">
 		select
@@ -116,12 +111,14 @@
 		'\\','/'),'/'
 		,p_uid,'_' ,p_name)AS filem
 		from(
-		select @rownum:=@rownum+1 rownum, a.*
+		select @rownum:=@rownum+1
+		rownum, a.*
 		from( select *
 		from(
 		select
 		w.bno,w_name,w_price,w_regdata,w_quantity,w_type,vision,p_upload,p_uid,p_name
-		from writing w join product p on w.bno = p.bno where w_type=#{w_type} and
+		from writing w join product p on w.bno = p.bno where w_type=#{w_type}
+		and
 		p_image = 1 and vision = 'm')as j) as a,(
 		select @rownum:=0)as tmp
 		<if test="w_type != null">
@@ -138,22 +135,43 @@
 			</choose>
 		</if>
 		) as balist;
-
 	</select>
+
 	<select id="shop" resultType="org.Mongle.model.shopVO">
 		select
-		rownum,j.bno,w_name,w_price,w_regdata,w_quantity,w_type,vision,Concat(Replace(p_upload,
-		'\\','/'),'/'
-		, p_uid , '_' ,p_name)AS filem from(select @rownum:=@rownum+1 rownum,
-		w.* from writing w,
-		(select @rownum:=0) as tmp
-		
-		)as j join product p on j.bno = p.bno
-		<![CDATA[
-		where rownum > (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount} and vision = "m"
-		]]>
-		order by j.bno desc
+		rownum,bno,w_name,w_price,w_regdata,w_quantity,w_type,s_type,vision,Concat(Replace(p_upload,'\\','/'),'/',p_uid,'_'
+		,p_name)AS filem
+		from(select @rownum:=@rownum+1 rownum, a.*from( select
+		*
+		from(select
+		w.bno,w_name,w_price,w_regdata,w_quantity,w_type,s_type,vision,p_upload,p_uid,p_name
+		from writing w join product p on w.bno = p.bno where p_image = 1 and
+		vision = 'm')as j) as a,(select @rownum:=0)as tmp
+		<if test="s_type != null">
+			<choose>
+				<when test="type == 'new'.toString()">
+					ORDER BY bno desc
+				</when>
+				<when test="type == 'row'.toString()">
+					ORDER BY w_price
+				</when>
+				<when test="type == 'hi'.toString()">
+					ORDER BY w_price desc
+				</when>
+			</choose>
+		</if>
+		) as balist;
 	</select>
 
-
+	<!-- 장바구니 담기 -->
+	<insert id="cartinsert">
+		<selectKey keyProperty="cartbno" order="BEFORE"
+			resultType="int">
+			<!-- select 값을 keyProperty="bno"에 추가BEFORE로 먼저 -->
+			select ifnull(MAX(cartbno)+1,1)from
+			cart
+		</selectKey>
+		insert into cart(cartbno, prodbno, quantity, id, result)
+		values(#{cartbno}, #{prodbno}, #{quantity}, #{id}, #{result})
+	</insert>
 </mapper>

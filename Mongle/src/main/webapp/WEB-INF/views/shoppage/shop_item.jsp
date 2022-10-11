@@ -47,7 +47,7 @@ div#cnat {
 					</tr>
 					<tr>
 						<td>회원 아이디</td>
-						<td><input type="text" name="s_id"></td>
+						<td><input type="text" name="s_id" value="${sessionScope.login.id}"></td>
 						<td >관리자 아이디</td>
 						<td><input type="text" name="a_id"></td>
 					</tr>

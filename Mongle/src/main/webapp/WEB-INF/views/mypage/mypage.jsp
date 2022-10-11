@@ -51,6 +51,7 @@
 								</tr>
 							</table><br><br>
 							<div>
+							    <a href="/shoppage/cart?id=${sessionScope.iogin.id}"><input type="button" value="장바구니 리스트" class="bth"></a>
 								<a href="/mypage/leave?id=${sessionScope.login.id}"><input type="button" value="회원탈퇴" class="btn"></a>
 								<a href="/mypage/detail?id=${sessionScope.login.id}"><input type="button" value="회원정보수정" class="btn"></a>
 							</div>

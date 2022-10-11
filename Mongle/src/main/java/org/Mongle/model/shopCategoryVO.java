@@ -3,7 +3,7 @@ package org.Mongle.model;
 public class shopCategoryVO {
 	private String c_type1;
 	private String c_type2;
-	private int bno;
+	private int cno;
 	public String getC_type1() {
 		return c_type1;
 	}
@@ -17,15 +17,15 @@ public class shopCategoryVO {
 		this.c_type2 = c_type2;
 	}
 	
-	public int getBno() {
-		return bno;
+	public int getcno() {
+		return cno;
 	}
-	public void setBno(int bno) {
-		this.bno = bno;
+	public void setcno(int cno) {
+		this.cno = cno;
 	}
 	@Override
 	public String toString() {
-		return "shopCategoryVO [c_type1=" + c_type1 + ", c_type2=" + c_type2 + ", bno=" + bno + "]";
+		return "shopCategoryVO [c_type1=" + c_type1 + ", c_type2=" + c_type2 + ", cno=" + cno + "]";
 	}
 	
 }

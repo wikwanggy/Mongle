@@ -1,6 +1,6 @@
 package org.Mongle.model;
 
-public class SPageVO {
+public class shopPageVO {
 	// 시작번호
 	private int startPage;
 	// 끝번호
@@ -11,11 +11,11 @@ public class SPageVO {
 	private boolean next;
 	// CriteriaVO 포함
 	private SCriteriaVO scri;
-	// board테이블의 전체건수를 저장
+	// 테이블의 전체건수를 저장
 	private int total;
 
 	// 생성자(매개변수가 2개인 생성자) 선언
-	public SPageVO(SCriteriaVO scri, int total) {
+	public shopPageVO(SCriteriaVO scri, int total) {
 			this.scri = scri;
 			this.total = total;
 			

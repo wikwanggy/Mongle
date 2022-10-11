@@ -21,8 +21,8 @@ public class shopVO {
 	private String filem;
 	// SAttachFileVo(파일업로드 관련 model)
 	private ArrayList<SAttachFileVO> attach;
+	private String s_type;
 	private String type;
-
 	public int getBno() {
 		return bno;
 	}
@@ -95,6 +95,14 @@ public class shopVO {
 		this.w_type = w_type;
 	}
 
+	public String getS_type() {
+		return s_type;
+	}
+
+	public void setS_type(String s_type) {
+		this.s_type = s_type;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -107,7 +115,7 @@ public class shopVO {
 	public String toString() {
 		return "shopVO [bno=" + bno + ", w_name=" + w_name + ", w_price=" + w_price + ", w_regdata=" + w_regdata
 				+ ", w_Quantity=" + w_Quantity + ", w_type=" + w_type + ", wno=" + wno + ", filem=" + filem
-				+ ", attach=" + attach + ", type=" + type + "]";
+				+ ", attach=" + attach + ", s_type=" + s_type + "]";
 	}
 
 }

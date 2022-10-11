@@ -3,11 +3,10 @@ package org.Mongle.controller;
 import java.util.ArrayList;
 
 import org.Mongle.Service.shopService;
-import org.Mongle.model.SAttachFileVO;
 import org.Mongle.model.SCriteriaVO;
-import org.Mongle.model.SPageVO;
 import org.Mongle.model.shopCategoryVO;
 import org.Mongle.model.shopVO;
+import org.Mongle.model.shopcartVO;
 import org.Mongle.model.shopitemVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -55,19 +54,10 @@ public class shopController {
 		return "/shoppage/shop_list";
 	}
 
-	// 게시물의 첨부파일의 데이터를 ajax로 전송
-	@RequestMapping(value = "/attachlist", method = RequestMethod.GET)
-	public ResponseEntity<ArrayList<SAttachFileVO>> uploadAjaxPost(int bno) {
-		System.out.println("attachlist=" + ss.attachlist(bno));
-		return new ResponseEntity<>(ss.attachlist(bno), HttpStatus.OK);
-	}
-
 	// 상품 리스트
 	@RequestMapping(value = "/shoppage/shop", method = RequestMethod.GET)
-	public String shop(Model model, SCriteriaVO scri) {
-		model.addAttribute("shop", ss.shop(scri));
-		int total = ss.total(scri);
-		model.addAttribute("paging", new SPageVO(scri, total));
+	public String shop(Model model, shopVO shop) {
+		model.addAttribute("shop", ss.shop(shop));		
 		return "/shoppage/shop";
 	}
 
@@ -76,6 +66,8 @@ public class shopController {
 	public String Coner(shopVO shop, Model model) {
 		System.out.println("controller="+shop);
 		model.addAttribute("page",ss.page(shop));
+		model.addAttribute("main",ss.main(shop));
+		model.addAttribute("sub",ss.sub(shop));		
 		return "shoppage/page";
 	}
 
@@ -95,8 +87,6 @@ public class shopController {
 		model.addAttribute("item", ss.main(shop));
 		return "/shoppage/shop_item";
 	}
-
-	// 문의하기
 	@RequestMapping(value = "/shoppage/shop_item", method = RequestMethod.POST)
 	public String s_writepost(shopitemVO item) {
 		ss.s_write(item);
@@ -124,6 +114,13 @@ public class shopController {
 	@RequestMapping(value = "/shoppage/remove", method = RequestMethod.POST)
 	public String remove(shopVO shop) {
 		ss.remove(shop);
+		return "redirect:/shoppage/shop";
+	}
+	
+	// 장바구니 담기
+	@RequestMapping(value = "/basket", method = RequestMethod.POST)
+	public String basket(shopcartVO cart) {
+		ss.cartinsert(cart);
 		return "redirect:/shoppage/shop";
 	}
 

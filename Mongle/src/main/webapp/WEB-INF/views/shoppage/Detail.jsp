@@ -11,9 +11,9 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/shop/Detail.js"></script>
+<script type="text/javascript" src="/resources/js/shop/cart.js"></script>
 <link rel="stylesheet" href="/resources/css/shop/Detail.css">
 <link rel="stylesheet" href="/resources/css/shop/header.css">
-<link rel="stylesheet" href="/resources/css/shop/footer.css">
 </head>
 
 <%--상단 시작 --%>
@@ -30,11 +30,12 @@
 				<div id="cnt-header_left">
 					<img id="img" src="/display?filename=${main.filem}">
 				</div>
-				<form name="fomr1">
-					<div id="box">
+				<div id="box">
+					<form method="post">
 						<div id="cnt-header_right">
 							<div id="title_header">
 								<div id="detail_name">
+								<input type="hidden" value="${main.bno}" name="prodbno">
 									<h2>${main.w_name}</h2>
 								</div>
 								<span id="total"><fmt:formatNumber
@@ -54,6 +55,7 @@
 										추가/반품 및 교환비5,000원</span>
 								</div>
 							</div>
+
 							<div id="sum">
 								<div id="number">
 									<input type="hidden" id="sell_price" value="${main.w_price}">
@@ -63,10 +65,11 @@
 									<button type="button" id="minus" class="sum" value="-">-</button>
 								</div>
 								<input id="basket" type="submit" value="장바구니" class="but"
-									formaction="#"> <input type="submit" id="purchase"
-									value="구매하기" class="but" formaction="#">
-
+									formaction="/shoppage/basket?id=${sessionScope.login.id}&prodbno=${main.bno}&quantity=${num}">
+								<a><input type="submit" id="purchase" value="구매하기"
+									class="but" formaction="#"></a>
 							</div>
+
 
 							<script type="text/javascript">							        							
 									$(function(){
@@ -113,12 +116,13 @@
 								</script>
 							<br>
 							<div id="list">
-								<a href="/shoppage/shop_item?bno=${main.bno}"><button
+								<a
+									href="/shoppage/shop_item?bno=${main.bno}&id=${sessionScope.login.id}"><button
 										id="inquiry" type="button" value="문의하기">문의하기</button></a>
 							</div>
 						</div>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
 
 			<!-- 상품 설명,리뷰,문의,배송 전체 -->
