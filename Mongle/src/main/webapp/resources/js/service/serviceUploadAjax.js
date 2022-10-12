@@ -64,24 +64,24 @@ $(document).ready(function(){
 				
 				var input="";
 				var str="";
-				$(result).each(function(i,obj){
+				$(result).each(function(i,file){
 					//console.log(obj)
 					//console.log(obj.fileName)
-					input+="<input type='text' name='svfile["+i+"].fileName' value='"+obj.fileName+"'>";
-					input+="<input type='text' name='svfile["+i+"].uploadPath' value='"+obj.uploadPath+"'>";
-					input+="<input type='text' name='svfile["+i+"].uuid' value='"+obj.uuid+"'>";
-					input+="<input type='text' name='svfile["+i+"].image' value='"+obj.image+"'>";
+					input+="<input type='text' name='svfile["+i+"].fileName' value='"+file.fileName+"'>";
+					input+="<input type='text' name='svfile["+i+"].uploadPath' value='"+file.uploadPath+"'>";
+					input+="<input type='text' name='svfile["+i+"].uuid' value='"+file.uuid+"'>";
+					input+="<input type='text' name='svfile["+i+"].image' value='"+file.image+"'>";
 					//만약 image결과가 true면
-					if(obj.image) {
+					if(file.image) {
 					//아래에 있는거 실행
-					var filePath=encodeURIComponent(obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName)
+					var filePath=encodeURIComponent(file.uploadPath+"/s_"+file.uuid+"_"+file.fileName)
 					console.log(filePath)
 					
 					str+="<li><img src='/servicedisplay?fileName="+filePath+"'></li>"
 					}else {//그렇지 않으면
 						//다운로드 할 수 있도록 실행
-						var filePath=encodeURIComponent(obj.uploadPath+"/"+obj.uuid+"_"+obj.fileName)
-						str+="<li><a href='/servicedownload?fileName="+filePath+"'>"+obj.fileName+"</a></li>"
+						var filePath=encodeURIComponent(obj.uploadPath+"/"+file.uuid+"_"+file.fileName)
+						str+="<li><a href='/servicedownload?fileName="+filePath+"'>"+file.fileName+"</a></li>"
 					}
 					
 				})		

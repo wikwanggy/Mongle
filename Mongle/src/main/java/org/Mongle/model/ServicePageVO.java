@@ -1,5 +1,7 @@
 package org.Mongle.model;
 
+
+
 public class ServicePageVO {
 	private int pageNum; 	//페이지번호
 	private int amount; 	//한 페이지당 게시물 갯수
@@ -9,6 +11,25 @@ public class ServicePageVO {
 	
 	
 	
+	/*public String getListLink() {
+		UriComponentsBuilder builder = UriComponentsBuilder.fromPath("");
+				queryParam("pageNum",this.pageNum);
+				queryParam("amount",this.getAmount());
+				queryParam("type",this.getType());
+				queryParam("keyword",getKeyword());
+		return builder.toUriString();
+	}
+	
+	private void queryParam(String string, String type2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void queryParam(String string, int amount2) {
+		// TODO Auto-generated method stub
+		
+	}*/
+
 	public int getBgno() {
 		return bgno;
 	}

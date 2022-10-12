@@ -11,6 +11,10 @@
 				value(#{uuid},#{uploadPath},#{fileName},#{image},#{bno})
 		</insert>
 		
+		<delete id="deleteAll">
+			delete from service_file where bno=#{bno}
+		</delete>
+		
 		<select id="filelist" resultType="org.Mongle.model.ServiceFileListVO">
 			select * from Service_file where bno=#{bno};
 		</select>

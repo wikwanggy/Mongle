@@ -18,7 +18,7 @@ public interface ServiceService {
 	//글 수정 
 	public void modify(ServiceVO service);
 	//글 삭제
-	public void remove(ServiceVO service);
+	public boolean remove(int bno);
 	//첨부파일 조회 설계
 	public ArrayList<ServiceFileListVO>filelist(int bno);
 }

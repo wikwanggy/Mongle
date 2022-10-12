@@ -66,7 +66,7 @@ public class ServiceUploadController {
 		ArrayList<ServiceFileListVO> list = new ArrayList();
 		
 		//폴더경로
-		String uploadFolder="D:\\01-STUDY\\upload";
+		String uploadFolder="D:\\upload";
 		//서버 업로드 경로와 getFolder메서드의 날짜문자열을 이어서 하나의 폴더 생성
 		File uploadPath=new File(uploadFolder,getFolder());
 		
@@ -137,7 +137,7 @@ public class ServiceUploadController {
 	public ResponseEntity<byte[]> getFile(String fileName){
 		System.out.println(fileName);
 		
-		File file = new File("D:\\01-STUDY\\upload\\"+fileName);
+		File file = new File("D:\\upload\\"+fileName);
 
 		ResponseEntity<byte[]> result = null;
 
@@ -159,7 +159,7 @@ public class ServiceUploadController {
 	@RequestMapping(value="/servicedownload",method=RequestMethod.GET)
 	public ResponseEntity<Resource> downloadFile(String fileName){
 		
-		Resource resource=new FileSystemResource("D:\\01-STUDY\\upload\\"+fileName);
+		Resource resource=new FileSystemResource("D:\\upload\\"+fileName);
 		
 		// 다운로드 시 파일의 이름을 처리
 		String resourceName=resource.getFilename();
