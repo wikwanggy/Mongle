@@ -125,7 +125,7 @@ public class shopController {
 	}
 	
 	// 장바구니 리스트
-	@RequestMapping(value = "/basket", method = RequestMethod.GET)
+	@RequestMapping(value = "/shoppage/cart", method = RequestMethod.GET)
 	public String cartlist() {
 		return "shoppage/cart";
 	}
