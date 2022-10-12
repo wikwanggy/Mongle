@@ -126,7 +126,9 @@ public class shopController {
 	
 	// 장바구니 리스트
 	@RequestMapping(value = "/shoppage/cart", method = RequestMethod.GET)
-	public String cartlist() {
+	public String cartlist(Model model, shopcartVO cart, shopVO shop) {
+		model.addAttribute("list",ss.cartlist(shop));
+		model.addAttribute("list2",ss.cartlist2(cart));
 		return "shoppage/cart";
 	}
 }

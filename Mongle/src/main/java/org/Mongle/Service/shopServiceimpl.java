@@ -94,9 +94,17 @@ public class shopServiceimpl implements shopService {
 	public int total(SCriteriaVO scri) {
 		return sm.total(scri);
 	}
-	
+
 	// 장바구니 담기 구현
 	public void cartinsert(shopcartVO cart) {
 		sm.cartinsert(cart);
+	}
+
+	// 장바구니 리스트 DB설계
+	public ArrayList<shopcartVO> cartlist(shopVO shop){
+		return sm.cartlist(shop);
+	}
+	public ArrayList<shopVO> cartlist2(shopcartVO cart){
+		return sm.cartlist2(cart);
 	}
 }

@@ -49,5 +49,9 @@ public interface shopMapper {
 	
 	// 장바구니 담기 DB설계
 	public void cartinsert(shopcartVO cart);
+	
+	// 장바구니 리스트 DB설계
+	public ArrayList<shopcartVO> cartlist(shopVO shop);
+	public ArrayList<shopVO> cartlist2(shopcartVO cart);
 
 }

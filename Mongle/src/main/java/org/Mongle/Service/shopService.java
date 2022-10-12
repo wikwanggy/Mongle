@@ -46,7 +46,11 @@ public interface shopService {
 
 	// 테이블 전체건수 설계
 	public int total(SCriteriaVO scri);
-	
+
 	// 장바구니 담기 설계
 	public void cartinsert(shopcartVO cart);
+
+	// 장바구니 리스트 설계
+	public ArrayList<shopcartVO> cartlist(shopVO shop);
+	public ArrayList<shopVO> cartlist2(shopcartVO cart);
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="true"%>
 <!DOCTYPE html>
 
@@ -13,6 +14,7 @@
 <script type="text/javascript" src="/resources/js/shop/board.js"></script>
 <link rel="stylesheet" href="/resources/css/shop/shop_board.css">
 <link rel="stylesheet" href="/resources/css/main.css">
+<link rel="stylesheet" href="/resources/css/shop/cart.css">
 </head>
 <body>
 	<%--상단 시작 --%>
@@ -27,33 +29,28 @@
 					name="shop_form" enctype="multipart/form-data">
 					<h1>장바구니</h1>
 
-					<table border="1">
+					<table id="table">
 						<tr>
 							<td><input type="checkbox"></td>
-							<td><input type="text" class="name" id="product_name"
-								name="w_name" placeholder="상품 이름"></td>
+							<td style="wi" class="font">이미지</td>
+							<td class="font">상품 정보</td>
+							<td class="font">상품 금액</td>
+							<td class="font">수량</td>
+							<td class="font">총 금액</td>
 						</tr>
-						<tr>
-							<td>이미지</td>
-							<td><input class="name" type="number" id="product_price"
-								name="w_price" placeholder="가격"></td>
-						</tr>
-						<tr>
-							<td>상품 정보</td>
-							<td><input type="file" id="imagemain" name="main"></td>
-						</tr>
-						<tr>
-							<td>상품 금액</td>
-							<td><input type="file" id="imagesub" name="sub" multiple></td>
-						</tr>
-						<tr>
-							<td>수량</td>
-							<td><input class="name" type="number" id="product_Q"
-								name="w_Quantity" placeholder="수량"></td>
-						</tr>
-						<tr>
-						<td>총 금액</td>
-						</tr>
+						<c:forEach items="${list}" var="list">
+							<c:forEach items="${list2}" var="list2">
+								<tr>
+									<td><input type="checkbox"></td>
+									<td><img id="img" src="/display?filename=${list2.filem}"></td>
+									<td class="font2"><a href="/shoppage/detail?bno=${list.prodbno}">${list2.w_name}</a></td>
+									<td class="font2"><fmt:formatNumber value="${list2.w_price}"
+											pattern="#,###" /></td>
+									<td class="font2">${list.quantity}</td>
+									<td></td>
+								</tr>
+							</c:forEach>
+						</c:forEach>
 					</table>
 					<input type="button" value="등록하기" id="uploadBtn">
 				</form>

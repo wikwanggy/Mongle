@@ -7,6 +7,7 @@ public class shopcartVO {
 	private String indate; // 날짜
 	private String id; // 회원 아이디
 	private int result; // 배송유무
+	private String filem; 	// 썸네일 파일 업로드 관련
 	public int getCartbno() {
 		return cartbno;
 	}
@@ -42,6 +43,12 @@ public class shopcartVO {
 	}
 	public void setResult(int result) {
 		this.result = result;
+	}
+	public String getFilem() {
+		return filem;
+	}
+	public void setFilem(String filem) {
+		this.filem = filem;
 	}
 	@Override
 	public String toString() {

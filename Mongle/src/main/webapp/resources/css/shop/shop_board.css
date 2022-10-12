@@ -140,11 +140,11 @@ div#rs {
 	margin: auto;
 }
 
-table tr {
+#board tr {
 	text-align: center;
 }
 
-table tr td {
+#board tr td {
 	padding: 10px;
 }
 

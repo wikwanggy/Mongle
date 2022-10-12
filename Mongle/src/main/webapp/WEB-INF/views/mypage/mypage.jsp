@@ -50,10 +50,10 @@
 									<td><input type="text" value="${mypage.number}" name="number" readonly></td>
 								</tr>
 							</table><br><br>
-							<div>
-							    <a href="/shoppage/cart?id=${sessionScope.iogin.id}"><input type="button" value="장바구니 리스트" class="bth"></a>
+							<div>							    
 								<a href="/mypage/leave?id=${sessionScope.login.id}"><input type="button" value="회원탈퇴" class="btn"></a>
 								<a href="/mypage/detail?id=${sessionScope.login.id}"><input type="button" value="회원정보수정" class="btn"></a>
+								<a href="/shoppage/cart?id=${sessionScope.login.id}"><input type="button" value="장바구니 리스트" class="btn"></a>
 							</div>
 						</form>
 					</div>

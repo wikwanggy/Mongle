@@ -14,8 +14,8 @@
 			select ifnull(MAX(bno)+1,1)from
 			writing
 		</selectKey>
-		insert ignore into writing(bno,w_name,w_price,w_Quantity,w_type)
-		values(#{bno}, #{w_name}, #{w_price},#{w_Quantity},#{w_type})
+		insert ignore into writing(bno,w_name,w_price,w_Quantity,w_type,id)
+		values(#{bno}, #{w_name}, #{w_price},#{w_Quantity},#{w_type},#{id})
 	</insert>
 	<!-- 상품분류 -->
 	<select id="c_type1"
@@ -151,7 +151,7 @@
 			<choose>
 				<when test="type == 'new'.toString()">
 					ORDER BY bno desc
-				</when>	
+				</when>
 				<when test="type == 'row'.toString()">
 					ORDER BY w_price
 				</when>
@@ -172,6 +172,27 @@
 			cart
 		</selectKey>
 		insert into cart(cartbno, prodbno, quantity, id)
-		values(#{cartbno}, #{prodbno}, #{quantity}, #{id})
+		values(#{cartbno},
+		#{prodbno}, #{quantity}, #{id})
 	</insert>
+
+	<!-- 장바구니 리스트 -->
+	<select id="cartlist" resultType="org.Mongle.model.shopcartVO">
+		select
+		j.bno,w_name,w_price,w_regdata,w_Quantity,w_type,vision,id,Concat(Replace(p_upload,
+		'\\','/'),'/', p_uid , '_' ,p_name)AS filem from(select
+		w.bno,w_name,w_price,w_regdata,w_Quantity,w_type,vision,p_upload,p_uid,p_name
+		from writing w join product p on w.bno = p.bno) as j join cart c on
+		j.bno = prodbno
+		where vision = "m";
+	</select>
+	<select id="cartlist2" resultType="org.Mongle.model.shopVO">
+		select
+		j.bno,w_name,w_price,w_regdata,w_Quantity,w_type,vision,id,Concat(Replace(p_upload,
+		'\\','/'),'/', p_uid , '_' ,p_name)AS filem from(select
+		w.bno,w_name,w_price,w_regdata,w_Quantity,w_type,vision,p_upload,p_uid,p_name
+		from writing w join product p on w.bno = p.bno) as j join cart c on
+		j.bno = prodbno
+		where vision = "m";
+	</select>
 </mapper>

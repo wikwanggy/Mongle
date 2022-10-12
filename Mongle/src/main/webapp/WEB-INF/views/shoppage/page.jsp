@@ -25,8 +25,6 @@
 		<div id="main_left">
 			<!-- center 시작 -->
 			<div id="cn">
-				<a href="/shoppage/shop_list"><input type="button" value="상품리스트"></a>
-				<a href="/shoppage/shop_board"><input type="button" value="상품등록"></a>
 				<input type="hidden" id="category" value="${page[0].w_type}">
 				<ul id="cnm" name="type">
 					<li><a href="#" id="new">최신 순</a></li>

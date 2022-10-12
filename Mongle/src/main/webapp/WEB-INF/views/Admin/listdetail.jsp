@@ -60,9 +60,11 @@
 				</table>
 				<br> <br>
 				<div>
-					<a href="/shoppage/shop_list"><input type="button"value="상품리스트" class="btn"></a> 
-					<a href="/shoppage/shop_board"><input type="button" value="상품등록" class="btn"></a> 
-					<a href="/Admin/leave?id=${mypage.id}" ><input type="button" value="회원삭제" class="btn" id="delete"></a>
+					<a href="/shoppage/shop_list?id=${sessionScope.login.id=='admin'}"><input type="button"
+						value="상품리스트" class="btn"></a> <a href="/shoppage/shop_board?id=${sessionScope.login.id=='admin'}"><input
+						type="button" value="상품등록" class="btn"></a> <a
+						href="/Admin/leave?id=${mypage.id}"><input type="button"
+						value="회원삭제" class="btn" id="delete"></a>
 				</div>
 			</form>
 		</div>

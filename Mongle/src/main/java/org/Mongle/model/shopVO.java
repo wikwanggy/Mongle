@@ -23,6 +23,7 @@ public class shopVO {
 	private ArrayList<SAttachFileVO> attach;
 	private String s_type;
 	private String type;
+	private String id;
 	public int getBno() {
 		return bno;
 	}
@@ -110,12 +111,21 @@ public class shopVO {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {
 		return "shopVO [bno=" + bno + ", w_name=" + w_name + ", w_price=" + w_price + ", w_regdata=" + w_regdata
 				+ ", w_Quantity=" + w_Quantity + ", w_type=" + w_type + ", wno=" + wno + ", filem=" + filem
-				+ ", attach=" + attach + ", s_type=" + s_type + "]";
+				+ ", attach=" + attach + ", s_type=" + s_type + ", type=" + type + ", id=" + id + "]";
 	}
 
+	
 }

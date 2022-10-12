@@ -23,7 +23,7 @@
 		<div id="ls"></div>
 		<div id="cn">
 			<div>
-				<form action="/shoppage/shop_board" method="post" id="shop_form"
+				<form action="/shoppage/shop_board?id=${sessionScope.login.id}" method="post" id="shop_form"
 					name="shop_form" enctype="multipart/form-data">
 					<h1>상품 등록 게시판</h1>
 
@@ -39,7 +39,7 @@
 					<select id="c_type2" class="type" name="w_type" >
 						<option>소분류</option>
 					</select>
-					<table border="1">
+					<table id="board" border="1">
 						<tr>
 							<td>상품 이름</td>
 							<td><input type="text" class="name" id="product_name"
