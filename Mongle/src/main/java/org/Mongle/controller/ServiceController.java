@@ -1,6 +1,10 @@
 package org.Mongle.controller;
 
 
+import java.awt.List;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 
@@ -16,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -24,13 +29,7 @@ public class ServiceController {
 	
 	@Autowired
 	ServiceService ss;
-	
-	//테스트용 페이지
-	@RequestMapping(value = "/service/test", method = RequestMethod.GET)
-	public String test() {
-		return "service/test";
-	}
-	
+
 	//게시판 글쓰기 페이지(화면)
 	@RequestMapping(value = "/service/write", method = RequestMethod.GET)
 	public String write(int bgno,Model model) {
@@ -83,10 +82,15 @@ public class ServiceController {
 	}
 	/* 게시글 삭제 */
 	@RequestMapping(value="/service/remove",method = RequestMethod.POST)
-	public String remove(ServiceVO service) {
-		ss.remove(service);
+	public String remove(int bno,ServiceVO service,RedirectAttributes rttr) {
 		String removepath="";
-		System.out.println(service);
+		ArrayList<ServiceFileListVO> filelist = ss.filelist(bno);
+		System.out.println(bno+"삭제");
+		if(ss.remove(bno)) {
+			deleteFiles(filelist);
+			rttr.addFlashAttribute("result", "success");
+			System.out.println("이게돼네");
+		}
 		//비즈니스 영역 연결한 후 ServiceService 에 있는 write메소드
 		if(service.getBgno()==1) {// 만약에 bgno가 1이면
 					// 공지사항(service/notice)
@@ -96,6 +100,7 @@ public class ServiceController {
 			}else {// 그렇지 않으면
 					removepath="redirect:/service/bkind?bgno=3";// 1:1문즤
 			}
+		
 		return removepath;
 	}
 	
@@ -135,6 +140,26 @@ public class ServiceController {
 	public String list() {
 		return  "service/servicemain";
 	}
+	
+	private void deleteFiles(ArrayList<ServiceFileListVO> filelist) {
+		if(filelist == null || filelist.size() == 0) {return;}
+		System.out.println("실행");	
+		filelist.forEach(svfile -> {
+			try {
+				Path file = Paths.get("D:\\upload\\"+svfile.getUploadPath()+
+						"\\"+svfile.getUuid()+"_"+svfile.getFileName());
+				Files.deleteIfExists(file);
+				if(Files.probeContentType(file).startsWith("image")) {
+					Path thumbNail = Paths.get("D:\\upload\\"+svfile.getUploadPath()+
+							"\\s_"+svfile.getUuid()+"_"+svfile.getFileName());
+					Files.delete(thumbNail);
+				}	
+			}catch(Exception e) {
+				System.out.println("delete file error:"+e.getMessage());
+			}
+		});
+	}
+	
 	
 	@RequestMapping(value = "/service/modify", method = RequestMethod.GET)
 	public String getmodify(ServiceVO service,Model model) {

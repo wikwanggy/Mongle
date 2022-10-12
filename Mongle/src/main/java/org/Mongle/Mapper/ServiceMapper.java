@@ -24,7 +24,8 @@ public interface ServiceMapper {
 	
 	//상세내용 내용물 수정하는 DB작업 설계
 	public void modify(ServiceVO service);
-	
+
+	public boolean remove(int bno);
+
 	//상세내용 내용물 삭제 하는 DB작업 설계
-	public void remove(ServiceVO service);
 }

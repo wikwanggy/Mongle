@@ -71,9 +71,13 @@ public class ServiceServiceimpl implements ServiceService{
 		sm.modify(service);
 	}
 	
-	//remove 추상메서드 구현
-	public void remove(ServiceVO service) {
-		sm.remove(service);
+	//remove 첨부파일 삭제용 추상메서드 구현
+	public boolean remove(int bno) {
+		System.out.println("됨?."+ bno);
+		
+		sam.deleteAll(bno);
+		
+		return sm.remove(bno);
 	}
 	
 	//첨부파일 조회 부여
