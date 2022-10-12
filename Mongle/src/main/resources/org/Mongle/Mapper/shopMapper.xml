@@ -151,7 +151,7 @@
 			<choose>
 				<when test="type == 'new'.toString()">
 					ORDER BY bno desc
-				</when>
+				</when>	
 				<when test="type == 'row'.toString()">
 					ORDER BY w_price
 				</when>
@@ -171,7 +171,7 @@
 			select ifnull(MAX(cartbno)+1,1)from
 			cart
 		</selectKey>
-		insert into cart(cartbno, prodbno, quantity, id, result)
-		values(#{cartbno}, #{prodbno}, #{quantity}, #{id}, #{result})
+		insert into cart(cartbno, prodbno, quantity, id)
+		values(#{cartbno}, #{prodbno}, #{quantity}, #{id})
 	</insert>
 </mapper>

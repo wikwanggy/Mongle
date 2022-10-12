@@ -59,13 +59,13 @@
 							<div id="sum">
 								<div id="number">
 									<input type="hidden" id="sell_price" value="${main.w_price}">
-									<input type="text" name="num" value="1" id="num" class="sum"
+									<input type="text" name="quantity" value="1" id="num" class="sum"
 										max="${main.w_Quantity}">
 									<button type="button" id="plus" class="sum" value="+">+</button>
 									<button type="button" id="minus" class="sum" value="-">-</button>
 								</div>
 								<input id="basket" type="submit" value="장바구니" class="but"
-									formaction="/shoppage/basket?id=${sessionScope.login.id}&prodbno=${main.bno}&quantity=${num}">
+									formaction="/basket?id=${sessionScope.login.id}">
 								<a><input type="submit" id="purchase" value="구매하기"
 									class="but" formaction="#"></a>
 							</div>

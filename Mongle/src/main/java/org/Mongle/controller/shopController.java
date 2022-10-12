@@ -123,5 +123,10 @@ public class shopController {
 		ss.cartinsert(cart);
 		return "redirect:/shoppage/shop";
 	}
-
+	
+	// 장바구니 리스트
+	@RequestMapping(value = "/basket", method = RequestMethod.GET)
+	public String cartlist() {
+		return "shoppage/cart";
+	}
 }
