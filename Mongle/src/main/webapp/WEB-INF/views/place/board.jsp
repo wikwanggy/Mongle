@@ -79,6 +79,7 @@
 					<th width="60px">추천</th>
 				</tr>
 				<c:forEach items="${notice}" var="notice">
+				
 					<tr style="color:red;font-weight: bold;background-color: #c0c0c0;">
 						<td></td>
 						<td style="text-align: left; padding-left: 20px;"><a
@@ -94,6 +95,7 @@
 				</c:forEach>
 				
 				<c:forEach items="${list}" var="list">
+		
 					<tr>
 						<td>${list.loc}</td>
 						<td style="text-align: left; padding-left: 20px;"><a
@@ -106,6 +108,7 @@
 						<td>${list.cnt}</td>
 						<td>${list.likecnt}</td>
 					</tr>
+	
 				</c:forEach>
 			</table>
 

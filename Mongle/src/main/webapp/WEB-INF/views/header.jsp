@@ -50,13 +50,13 @@
 									<li><a href="/shoppage/page?w_type=패션" class="pa_a">패션</a></li>
 									<li><a href="/shoppage/page?w_type=기타" class="pa_a">기타</a></li>
 								</ul></li>
-							<li><a href="/place/">PLACE</a>
+							<li><a href="/place/board">PLACE</a>
 								<ul>
-									<li><a href="/place/grooming">미용</a></li>
-									<li><a href="/place/clinic">동물병원</a></li>
-									<li><a href="/place/hotel">호텔</a></li>
-									<li><a href="/place/school">학교/유치원</a></li>
-									<li><a href="/place/cafe">식당/카페</a></li>
+									<li><a href="/place/board?ctgr=grooming">미용</a></li>
+									<li><a href="/place/board?ctgr=clinic">동물병원</a></li>
+									<li><a href="/place/board?ctgr=hotel">호텔</a></li>
+									<li><a href="/place/board?ctgr=school">학교/유치원</a></li>
+									<li><a href="/place/board?ctgr=cafe">식당/카페</a></li>
 								</ul></li>
 							<li><a href="/event/eventmain">EVENT</a>
 								<ul>

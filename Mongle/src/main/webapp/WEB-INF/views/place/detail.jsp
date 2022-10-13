@@ -27,13 +27,13 @@
 		<div id="ls">
 			<form method="get" action="/place/board" id="ctgrForm">
 				<ul id="place-list">
-					<li id="1"><a href="/place/board">전체보기</a></li>
-					<li id="2"><a title="clinic" href="/place/board?ctgr=clinic">동물병원</a></li>
-					<li id="3"><a title="grooming"
-						href="/place/board?ctgr=grooming">미용</a></li>
-					<li id="4"><a title="hotel" href="/place/board?ctgr=hotel">호텔</a></li>
-					<li id="5"><a title="school" href="/place/board?ctgr=school">학교/유치원</a></li>
-					<li id="6"><a title="cafe" href="/place/board?ctgr=cafe">식당/카페</a></li>
+				<li id="1" class=""><a href="/place/board">전체보기</a></li>
+				<li id="2" class=""><a title="clinic" href="/place/board?ctgr=clinic">동물병원</a></li>
+				<li id="3" class=""><a title="grooming"
+					href="/place/board?ctgr=grooming">미용</a></li>
+				<li id="4" class=""><a title="hotel" href="/place/board?ctgr=hotel">호텔</a></li>
+				<li id="5" class=""><a title="school" href="/place/board?ctgr=school">학교/유치원</a></li>
+				<li id="6" class=""><a title="cafe" href="/place/board?ctgr=cafe">식당/카페</a></li>
 				</ul>
 			</form>
 		</div>
@@ -45,19 +45,20 @@
 					</div>
 
 					<div class="vew-wr">
-						<h2 class="subject">${detail.title}</h2>
+						<p class="subject">${detail.title}</p>
 						<ul class="date">
 							<li>작성자 : ${detail.id}</li>
 							<li>조회수 : ${detail.cnt}</li>
 							<li>작성날짜 : ${detail.date}</li>
 						</ul>
-						<div class="dv-vew">${detail.content}</div>
+						<div class="dv-vew">
+						<div id="photo"> <ul></ul> </div>
+						
+						${detail.content}</div>
 					</div>
 				</div>
 
-				<div id="uploadResult">
-					<ul></ul>
-				</div>
+				<div id="file"> <ul></ul> </div>
 
 				<div style="text-align: right">
 					<c:choose>
@@ -72,22 +73,18 @@
 								type="button" value="삭제"></a>
 						</c:when>
 						<c:otherwise>
-							<a href="/Login/login"> <input type="button" value="로그인"></a>
+							
 						</c:otherwise>
 					</c:choose>
 				</div>
 			</form>
 
-
-
-
-
-
+		<div align="center">
 			<c:if test="${sessionScope.login.id == null}">
 				<button id="like" style="font-size: 30px">♡</button>
 				<p>추천수 : ${detail.likecnt}</p>
 				<br>추천 기능은 
-				<a href="/Login/login" type="button" id="newLogin"> 로그인</a>후 사용 가능합니다.	
+				<a href="/Login/login" type="button" id="newLogin" style="color:blue;"> 로그인</a>후 사용 가능합니다.	
 			</c:if>
 
 			<c:if test="${sessionScope.login.id != null}">
@@ -101,9 +98,9 @@
 						type="hidden" value="${detail.bno}" name="bno" id="bno">
 				</div>
 			</c:if>
-
+		</div>
 			<br> <br>
-			<div class="map_wrap">
+	<!-- 		<div class="map_wrap" style="margin:20px;">
 				<div id="map"
 					style="width: 600px; height: 300px; position: relative; overflow: hidden;"></div>
 
@@ -122,7 +119,7 @@
 				</div>
 			</div>
 
-
+ -->
 			<!-- /vew-wr -->
 			<div class="bottom-lst" id="dCommentList">
 				<div class="item">

@@ -9,20 +9,22 @@ $(document).ready(function() {
 			//만약 image 결과가 true면 
 			if(attach.image){	// 아래 실행
 			
-				var filePath=encodeURIComponent(attach.uploadPath+"/s_"+attach.uuid+"_"+attach.fileName);
+				var filePath=encodeURIComponent(attach.uploadPath+"/"+attach.uuid+"_"+attach.fileName);
 			
 				console.log(filePath)
 			
-				str+="<li><img src='/placedisplay?fileName="+filePath+"'></li>"
+				str+="<li><img style='max-width:80%;' src='/placedisplay?fileName="+filePath+"'></li>"
+				$("#photo ul").html(str);
 				
 			}else{	// image 결과가 false면
 				// 다운로드 할 수 있도록 실행
 				var filePath=encodeURIComponent(attach.uploadPath+"/"+attach.uuid+"_"+attach.fileName);
 				
-				str+="<li><a href='/placedownload?fileName="+filePath+"'>"+attach.fileName+"</a></li>"
+				str+="다운로드 : <li><a style='color:blue;' href='/placedownload?fileName="+filePath+"'>"+attach.fileName+"</a></li>"
+				$("#file ul").html(str);
 			}
 		})
-		$("#uploadResult ul").html(str);
+
 	})
 	
 })

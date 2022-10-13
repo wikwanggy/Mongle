@@ -70,21 +70,19 @@ function list(bno) { // list함수선언시작
 			function(data) {
 				var str = "";
 				for (var i = 0; i < data.length; i++) {
-		str += "</li>"
+	
 		str += "<li>id : " + data[i].id + "</li>"
-		str += "<li>rno : " + data[i].rno + "</li>"
-		str += "<li><textarea id='replycontent"+ data[i].rno + "'>" + data[i].reply+ "</textarea></li>"
-		str += "<li>"
-		str += "<input class='update' type='button' value='수정' data-rno="+ data[i].rno + " data-reply=" + data[i].reply + ">"
+		str += "<li id='replycontent"+ data[i].rno + "'>" + data[i].reply+ "</li>"
+		str += "<c:if test="$${sessionScope.login.id==detail.id}">"
 		str += "<input class='remove' type='button' value='삭제' data-rno="+ data[i].rno + " data-reply=" + data[i].reply + ">"
-		str += "</li>"
+		str += "</c:if>"
 					}
 					$("#replyUL").html(str);
 					});
 } // list함수선언끝
 
 // 댓글쓰기를 하기위한 함수선언
-function add(reply) { // add함수선언시작
+function add(reply) { // add함수선언시작  
 	$.ajax({ // ajax준비 (비동기식으로처리)
 		type : "post", // method방식(get,post,put,delete)
 		url : "/placereplies/new", // controller와 연결하기위한 주소

@@ -11,6 +11,8 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript"
 	src="/resources/js/place/placeUploadAjax.js"></script>
+	<script type="text/javascript"
+	src="/resources/js/place/placeModifyFile.js"></script>
 <link rel="stylesheet" href="/resources/css/place/place.css">
 <link rel="stylesheet" href="/resources/css/place/main.css">
 </head>
@@ -57,7 +59,10 @@
 						<td colspan="3"><input value="${detail.title}"
 							id="writetitle" type="text" name="title"></td>
 					</tr>
-
+					<tr style="height: 40px">
+						<th>첨부</th>
+						<td colspan="3"><input type="file" value="첨부파일" name="uploadFile" multiple></td>
+					</tr>
 					<tr>
 						<th>내용</th>
 						<td colspan="3"><textarea id="writecontent" rows="20"
@@ -66,11 +71,6 @@
 				</table>
 						<input type="submit" value="수정하기">
 			</form>
-
-
-
-
-
 
 		</div>
 		<div id="rs"></div>
