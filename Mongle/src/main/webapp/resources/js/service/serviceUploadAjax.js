@@ -32,12 +32,12 @@ $(document).ready(function(){
 		return true;
 	}
 	
-	//파일전송버튼(id="uploadBtn")을 클릭하면
-	$("#uploadBtn").on("click",function(){
+	//파일을 업로드할때(id="uploadFile")을 클릭후 선택하면
+	var cloneOjb=$("#uploaddiv").clone();
+	$("input[type='file']").change(function(e){
 		//파일업로드 관련 로직 처리
 		//.jsp의 form태그를 대체(FormData함수)
-		var formData=new FormData();
-		
+		var formData=new FormData();		
 		var inputFile=$("input[name='uploadFile']");
 		var files=inputFile[0].files;
 		
@@ -60,38 +60,107 @@ $(document).ready(function(){
 			processData:false,
 			dataType:"json",
 			success:function(result){
-				console.log(result)
+				console.log(result);
 				
-				var input="";
-				var str="";
-				$(result).each(function(i,file){
-					//console.log(obj)
-					//console.log(obj.fileName)
-					input+="<input type='text' name='svfile["+i+"].fileName' value='"+file.fileName+"'>";
-					input+="<input type='text' name='svfile["+i+"].uploadPath' value='"+file.uploadPath+"'>";
-					input+="<input type='text' name='svfile["+i+"].uuid' value='"+file.uuid+"'>";
-					input+="<input type='text' name='svfile["+i+"].image' value='"+file.image+"'>";
-					//만약 image결과가 true면
-					if(file.image) {
-					//아래에 있는거 실행
-					var filePath=encodeURIComponent(file.uploadPath+"/s_"+file.uuid+"_"+file.fileName)
-					console.log(filePath)
-					
-					str+="<li><img src='/servicedisplay?fileName="+filePath+"'></li>"
-					}else {//그렇지 않으면
-						//다운로드 할 수 있도록 실행
-						var filePath=encodeURIComponent(obj.uploadPath+"/"+file.uuid+"_"+file.fileName)
-						str+="<li><a href='/servicedownload?fileName="+filePath+"'>"+file.fileName+"</a></li>"
-					}
-					
-				})		
-				$("#uploadResult ul").html(str);
-				$("#form").append(input).submit();
+				$("#uploadDiv").html(cloneOjb.html());
+				
+				showUploadFile(result);
 				
 		}
 		})
 		
 	})
-	//파일 업로드 관련 로직 처리
-	
+	var uploadResult = $("#uploadResult ul");	
+		//글쓰기 파트나 수정할시 파일을 삭제할수있게하는 파트
+		function showUploadFile(arr) {
+			if(!arr||arr.length==0){return;}
+			var str="";
+			$(arr).each(function(i,file){
+				if(file.image) {
+				//아래에 있는거 실행
+					var filePath=encodeURIComponent(file.uploadPath+"/s_"+file.uuid+"_"+file.fileName);
+					str+="<li data-path='"+file.uploadPath+"' data-uuid='"+file.uuid+"' data-fileName='"+file.fileName+"' data-type='"+file.image+"'><div>";
+					str+="<img src='/servicedisplay?fileName="+filePath+"'>";
+					str+="<span>"+file.fileName+"</span>";
+					str+="<button data-file=\'"+ filePath+"\' data-type='image'>삭제</button></div></li>";
+				}else {//그렇지 않으면
+					//다운로드 할 수 있도록 실행
+					var filePath=encodeURIComponent(obj.uploadPath+"/"+file.uuid+"_"+file.fileName)
+					var fileLink = filePath.replace(new RegExp(/\\/g), "/");
+					
+					str+="<li data-path='"+file.uploadPath+"' data-uuid='"+file.uuid+"' data-fileName='"+file.fileName+"' data-type='"+file.image+"'>"
+					str+= "<a href='/servicedownload?fileName="+filePath+"'>"+file.fileName+"</a>"
+					str+="<span>"+file.fileName+"</span>";
+					str+="<button data-file=\'"+ filePath+"\' data-type='image'>삭제</button></li>"
+				}
+			});
+			uploadResult.append(str);
+		}
+		
+		
+		$("#uploadResult").on("click","button", function(e){
+			console.log("delete File");
+			if(confirm("정말로 지우시겠습니까 ?")) {
+			var targetFile=$(this).data("file");
+			var type=$(this).data("type");
+			var targetLi=$(this).closest("li");
+			$.ajax({
+				url:'/deleteFile',
+				data:{fileName:targetFile,type:type},
+				dataType:'text',
+				type:'POST',
+				success:function(result){
+					alert(result);
+					targetLi.remove();
+				}
+			})
+		}
+	})
+		
+		//글쓰기 버튼을 클릭했을 때
+				var formObj=$("form[role='form']");
+				$("#uploadBtn").on("click",function(e){
+					e.preventDefault();
+					var str="";
+					var empty='';
+					if($("input[name='title']").val().trim()==empty||$("input[name='title']").val().trim()==null){
+						alert("제목을 입력하세요.");
+						$("input[name='title']").val(empty);
+						return false;
+					}else if($("textarea[name='content']").val().trim()==empty||$("textarea[name='content']").val().trim()==null){
+						alert("내용을 입력하세요.");
+						$("textarea[name='content']").val(empty);
+						return false;
+					}
+					
+					$("#uploadResult ul li").each(function(i,file){
+						var jfile=$(file);
+						console.log(jfile.data);
+						
+						str += "<input type = 'hidden' name = 'svfile["+i+"].fileName' value = '" + jfile.data("filename")+"'>";
+						str += "<input type = 'hidden' name = 'svfile["+i+"].uuid' value = '" + jfile.data("uuid") + "'>";
+						str += "<input type = 'hidden' name = 'svfile["+i+"].uploadPath' value = '" + jfile.data("path") + "'>";
+						str += "<input type = 'hidden' name = 'svfile["+i+"].image' value = '" + jfile.data("type") + "'>";
+					})
+					formObj.append(str).submit();
+				})
+
 })
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

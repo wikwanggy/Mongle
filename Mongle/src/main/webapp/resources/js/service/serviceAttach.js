@@ -13,16 +13,20 @@ $(document).ready(function(){
 		$(filelist).each(function(i,file){
 			//만약 image결과가 true면
 			if(file.image) {
-				var filePath=encodeURIComponent(file.uploadPath+"/s_"+file.uuid+"_"+file.fileName)
-				str+="<li><img src='/servicedownload?fileName="+filePath+"'>"+
-				"<a href='/servicedownload?fileName="+filePath+"'>"+file.fileName+"</a></li>"
+				var filePath=encodeURIComponent(file.uploadPath+"/s_"+file.uuid+"_"+file.fileName);
+				str+="<li data-path='"+file.uploadPath+"' data-uuid='"+file.uuid+"' data-fileName='"+file.fileName+"' data-type='"+file.image+"'><div>";
+				str+="<img src='/servicedisplay?fileName="+filePath+"'>";
+				str+="<a href='/servicedownload?fileName="+filePath+"'>"+file.fileName+"</a></div></li>";
 			}else {//그렇지않으면
-				var filePath=encodeURIComponent(file.uploadPath+"/"+file.uuid+"_"+file.fileName)
-				str+="<li><a href='/servicedownload?fileName="+filePath+"'>"+file.fileName+"</a></li>"
+				var filePath=encodeURIComponent(obj.uploadPath+"/"+file.uuid+"_"+file.fileName)
+				var fileLink = filePath.replace(new RegExp(/\\/g), "/");
+				
+				str+="<li data-path='"+file.uploadPath+"' data-uuid='"+file.uuid+"' data-fileName='"+file.fileName+"' data-type='"+file.image+"'>"
+				str+= "<a href='/servicedownload?fileName="+filePath+"'>"+file.fileName+"</a>"
 			}
 			
 			
 		})
-		$("#filelistimage ul").html(str);
+		$("#uploadResult ul").html(str);
 	})
 })

@@ -3,6 +3,7 @@ package org.Mongle.Mapper;
 import java.util.ArrayList;	
 
 import org.Mongle.model.ServiceFileListVO;
+import org.Mongle.model.ServiceVO;
 
 public interface ServiceFileMapper {
 	//글쓰기에 해당되는 DB작업 설계

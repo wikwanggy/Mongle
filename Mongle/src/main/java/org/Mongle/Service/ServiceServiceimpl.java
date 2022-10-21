@@ -67,13 +67,24 @@ public class ServiceServiceimpl implements ServiceService{
 	}
 	
 	//modify 추상메서드 구현
-	public void modify(ServiceVO service) {
-		sm.modify(service);
+	@Transactional
+	@Override
+	public boolean modify(ServiceVO service) {
+		sam.deleteAll(service.getBno());
+		
+		if(sm.modify(service) && service.getSvfile() != null
+						&& service.getSvfile().size() > 0) {
+		service.getSvfile().forEach(svfile->{
+			svfile.setBno(service.getBno());
+			sam.insert(svfile);
+		});
+		}
+		return sm.modify(service);
 	}
 	
 	//remove 첨부파일 삭제용 추상메서드 구현
 	public boolean remove(int bno) {
-		System.out.println("됨?."+ bno);
+		System.out.println("첨부 파일 삭제 게시글 번호:"+ bno);
 		
 		sam.deleteAll(bno);
 		

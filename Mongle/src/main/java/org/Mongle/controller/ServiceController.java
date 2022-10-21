@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 
 import org.Mongle.Service.ServiceService;
+import org.Mongle.model.CommUVo;
 import org.Mongle.model.ServiceFileListVO;
 import org.Mongle.model.ServicePageSubVO;
 import org.Mongle.model.ServicePageVO;
@@ -67,7 +68,7 @@ public class ServiceController {
 	
 	//1:1게시물의 첨부파일 데이터 ajax로 전송
 	@RequestMapping(value="/filelist",method=RequestMethod.GET)
-	public ResponseEntity<ArrayList<ServiceFileListVO>>uploadAjaxPost(int bno){
+	public ResponseEntity<ArrayList<ServiceFileListVO>>filelist(int bno){
 		
 		return new ResponseEntity<>(ss.filelist(bno),HttpStatus.OK);
 	}
@@ -85,11 +86,10 @@ public class ServiceController {
 	public String remove(int bno,ServiceVO service,RedirectAttributes rttr) {
 		String removepath="";
 		ArrayList<ServiceFileListVO> filelist = ss.filelist(bno);
-		System.out.println(bno+"삭제");
+		System.out.println(bno+"번 게시글 삭제");
 		if(ss.remove(bno)) {
 			deleteFiles(filelist);
 			rttr.addFlashAttribute("result", "success");
-			System.out.println("이게돼네");
 		}
 		//비즈니스 영역 연결한 후 ServiceService 에 있는 write메소드
 		if(service.getBgno()==1) {// 만약에 bgno가 1이면
@@ -141,9 +141,10 @@ public class ServiceController {
 		return  "service/servicemain";
 	}
 	
+	//게시글 삭제 실행시 첨부파일 여부에 따른 첨부파일 삭제 
 	private void deleteFiles(ArrayList<ServiceFileListVO> filelist) {
 		if(filelist == null || filelist.size() == 0) {return;}
-		System.out.println("실행");	
+		System.out.println("파일 분류실행");	
 		filelist.forEach(svfile -> {
 			try {
 				Path file = Paths.get("D:\\upload\\"+svfile.getUploadPath()+
@@ -160,14 +161,14 @@ public class ServiceController {
 		});
 	}
 	
-	
+	//수정 받기
 	@RequestMapping(value = "/service/modify", method = RequestMethod.GET)
 	public String getmodify(ServiceVO service,Model model) {
 		model.addAttribute("detail",ss.detail(service));
 		return "service/modify";
 	}
 	
-	/* 게시글 수정 */
+	/* 게시글 수정 보내기*/
     @RequestMapping(value = "/service/modify", method =  RequestMethod.POST )
     public String postmodify(ServiceVO service,RedirectAttributes rttr) {		
     System.out.println(service);
@@ -193,4 +194,5 @@ public class ServiceController {
        rttr.addAttribute("detail",service.getBno());
        return modipath;
     }
+ 
 }

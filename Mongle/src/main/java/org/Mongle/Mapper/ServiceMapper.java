@@ -23,7 +23,7 @@ public interface ServiceMapper {
 	public void cntup(ServiceVO service);
 	
 	//상세내용 내용물 수정하는 DB작업 설계
-	public void modify(ServiceVO service);
+	public boolean modify(ServiceVO service);
 
 	public boolean remove(int bno);
 

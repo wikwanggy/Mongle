@@ -3,6 +3,8 @@ package org.Mongle.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -17,8 +19,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import net.coobird.thumbnailator.Thumbnailator;
@@ -58,6 +62,24 @@ public class ServiceUploadController {
 	}
 	return false;
 }
+	@PostMapping("/deleteFile")
+	@ResponseBody
+	public ResponseEntity<String> deleteFile(String fileName, String type){
+		File file;
+		try {
+			file = new File("D:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
+			file.delete();
+			if(type.equals("image")) {
+				String largeFileName = file.getAbsolutePath().replace("s_", "");
+				file = new File(largeFileName);
+				file.delete();
+			}
+		}catch(UnsupportedEncodingException e){
+			e.printStackTrace();
+			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<String>("deleted", HttpStatus.OK);
+	}
 	
 	@RequestMapping(value="/serviceuploadAjaxAction",method=RequestMethod.POST)
 	public ResponseEntity<ArrayList<ServiceFileListVO>> uploadAjaxPost(MultipartFile[] uploadFile) {

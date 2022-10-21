@@ -59,7 +59,7 @@
 						</tr>
 						<tr>
 							<td>첨부파일				
-								<div id="filelistimage">
+								<div id="uploadResult">
 									<ul>
 				
 									</ul>

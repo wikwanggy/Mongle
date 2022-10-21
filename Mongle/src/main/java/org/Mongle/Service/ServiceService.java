@@ -16,7 +16,7 @@ public interface ServiceService {
 	//questions 테이블 전체 건수 설계
 	public int total(ServicePageVO spa);
 	//글 수정 
-	public void modify(ServiceVO service);
+	public boolean modify(ServiceVO service);
 	//글 삭제
 	public boolean remove(int bno);
 	//첨부파일 조회 설계

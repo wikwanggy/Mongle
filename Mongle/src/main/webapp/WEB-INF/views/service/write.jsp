@@ -26,7 +26,7 @@
 			<div id="service_main_page">
 			<span id="service_main_title">글쓰기</span>
 			
-			<form id="form" method="post" enctype="multipart/form-data">
+			<form id="form" role="form" method="post">
 			<table>
 				<tr><td><input type="hidden" name="id" value="${sessionScope.login.id}"></td></tr>
 				<tr><td><input type="hidden" name="name" value="${sessionScope.login.name}"></td></tr>
@@ -37,11 +37,11 @@
 				<tr><td class="service_sub_font">내용</td></tr>
 				<tr><td><textarea id="service_sub_content" class="service_sub_font" name="content" vlaue="content" cols="50" rows="10" class="service_sub_font" ></textarea></td></tr>
 				
-				<tr><td><input type="file" name="uploadFile" multiple></td></tr>
 				<tr><td><input type="button" id="uploadBtn" style="cursor: pointer" value="글쓰기"></td></tr>
 
 			</table>
 			</form>
+			<div id="uploaddiv"><input type="file" name="uploadFile" multiple></div>
 			<div id="uploadResult">
 					<ul>
 				
